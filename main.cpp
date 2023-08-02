@@ -9,7 +9,7 @@
 #ifndef ERROR
 #define ERROR -1
 #endif
-int solution[60000];
+bool solution[250000];
 int main(void){    
     Cnf S;
     std::string name;
@@ -22,7 +22,8 @@ int main(void){
 
     // 输入
     S.Read(name); 
-    int VarNum = S.GetVariableNum(), sat;
+    int VarNum = S.GetVariableNum(); 
+    bool sat;
     sat = S.Dpll(solution);
     
     // 输出

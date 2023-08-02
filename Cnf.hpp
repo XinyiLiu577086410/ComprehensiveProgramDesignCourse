@@ -2,7 +2,7 @@
 #include <fstream>
 #include <cstring>
 #include <iostream>
-#define MAX_CLAUSES 250 // CNF范式允许的最多子句个数
+#define MAX_CLAUSES 250000 // CNF范式允许的最多子句个数
 // 如果太大会爆栈，覆盖函数入口产生段错误
 #ifndef SUCCESS
 #define SUCCESS 0
@@ -13,8 +13,8 @@
 
 class Cnf{
     private: 
-        // Vector * clauses = new Vector[MAX_CLAUSES];
-        Vector clauses[MAX_CLAUSES];
+        Vector * clauses = new Vector[MAX_CLAUSES];
+        // Vector clauses[MAX_CLAUSES];
         int length = 0;
         int VariableNum, ClausesNum;
         int GetFirstLiteral(int index); // 返回顺序为index（从0开始）的子句的第一个文字
@@ -34,8 +34,13 @@ class Cnf{
             return true; 
         }
         int Read(std::string filename); // 从file中读取CNF范式的复合命题
-        int Dpll(int solution[]); // DPLL算法求解CNF范式的SAT问题
+        bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
         int GetVariableNum(void){ return VariableNum; }
+        void operator = (Cnf & Obj){
+            clauses = new Vector[MAX_CLAUSES];
+            memcpy(clauses, Obj.clauses, MAX_CLAUSES * sizeof(Vector));
+            length = Obj.length;
+        }
 };
 
 
@@ -127,15 +132,15 @@ int Cnf::Select (void) {
     return GetFirstLiteral(0);
 }
 
-int Cnf::Dpll (int solution[]) {
+bool Cnf::Dpll (bool solution[]) {
     while(HaveSingle()){
         int literal = FindSingle();
-        if(literal > 0) solution[literal] = 1; else solution[-literal] = 0;
+        if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         Wash(literal);
-        if(Empty()) return 1;
+        if(Empty()) return true;
         else{
             Reduce(-literal);
-            if (HaveEmpty()) return 0;
+            if (HaveEmpty()) return false;
         }
     }
     int p = Select();
@@ -143,11 +148,11 @@ int Cnf::Dpll (int solution[]) {
     S1.Add(Vector(p));
     S2.Add(Vector(-p));
     if ( S1.Dpll(solution) ) {
-        if(p > 0) solution[p] = 1; else solution[-p] = 0;
-        return 1;
+        if(p > 0) solution[p] = true; else solution[-p] = false;
+        return true;
     }
     else {
-        if(p > 0) solution[p] = 0; else solution[-p] = 1;
+        if(p > 0) solution[p] = false; else solution[-p] = true;
         return S2.Dpll(solution);
     }
 }

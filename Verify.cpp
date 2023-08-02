@@ -10,7 +10,7 @@ int main(void){
     solution.open("solution");
     int p;
     std::string value;
-    bool rslt[60000];
+    bool rslt[250000];
     while(!solution.eof() && solution >> p >> value){
         if(value == "true") rslt[p] = true;
         else if (value == "false") rslt[p] = false;

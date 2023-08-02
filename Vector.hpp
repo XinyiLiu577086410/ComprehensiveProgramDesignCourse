@@ -5,7 +5,7 @@
 #ifndef ERROR
 #define ERROR -1
 #endif
-#define MAX_LITERALS 15 // 子句的最大长度（文字个数）
+#define MAX_LITERALS 50 // 子句的最大长度（文字个数）
 class Vector{
     public:
         int Add(int x);
@@ -16,12 +16,7 @@ class Vector{
         bool Empty(void);
         Vector(int x);
         Vector(void);
-        bool Verify(bool rslt[]){
-            for(int i = 0; i < length; i++ ){
-                if(a[i] > 0 && rslt[a[i]] || a[i] < 0 && !rslt[-a[i]]) return true;
-            }
-            return false;
-        }
+        bool Verify(bool rslt[]){for(int i = 0; i < length; i++ ){if(a[i] > 0 && rslt[a[i]] || a[i] < 0 && !rslt[-a[i]]) return true;}return false;}
     private:
         int a[MAX_LITERALS];
         int length = 0;
