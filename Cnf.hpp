@@ -1,28 +1,46 @@
-#include "VectorInt.hpp"
+#include "Vector.hpp"
 #include <fstream>
-#define MAX_CLAUSES 1000
+#include <cstring>
+#include <iostream>
+#define MAX_CLAUSES 250 // CNF范式允许的最多子句个数
+// 如果太大会爆栈，覆盖函数入口产生段错误
+#ifndef SUCCESS
 #define SUCCESS 0
+#endif
+#ifndef ERROR
 #define ERROR -1
+#endif
+
 class Cnf{
     private: 
-        VectorInt clauses[MAX_CLAUSES] = {0,};
+        // Vector * clauses = new Vector[MAX_CLAUSES];
+        Vector clauses[MAX_CLAUSES];
         int length = 0;
+        int VariableNum, ClausesNum;
         int GetFirstLiteral(int index); // 返回顺序为index（从0开始）的子句的第一个文字
         int Delete(int index); // 从CNF中删除clause[index]（会将最后的子句填充到这里，然后将length减小1。）
-        int Add(VectorInt clause); // 在末尾添加一个子句
+        int Add(Vector clause); // 在末尾添加一个子句
         int Wash(int literal); // 删除所有含文字literal的clause
         int Reduce(int literal); // 在所有clause中删除literal
         bool HaveSingle(void); // 判断是否含单子句
         bool Empty(void); // 判空
         int FindSingle(void); // 找出一个单子句
         int Select(void); // 选择一种出现最多的文字
+        bool HaveEmpty(void); // 如果CNF命题含子句返回true，此时CNF命题是不可满足的
     public:
+        bool Verify(bool rslt[]){ 
+            for(int i = 0; i < length; i++) 
+                if(!clauses[i].Verify(rslt)){std::cout<<"\n**"<<i+1<<"**\n";  return false;}
+            return true; 
+        }
         int Read(std::string filename); // 从file中读取CNF范式的复合命题
-        int Dpll(void); // DPLL算法求解CNF范式的SAT问题
-
+        int Dpll(int solution[]); // DPLL算法求解CNF范式的SAT问题
+        int GetVariableNum(void){ return VariableNum; }
 };
 
-int Cnf::Add (VectorInt clause){
+
+
+int Cnf::Add (Vector clause){
     if(length >= MAX_CLAUSES) return ERROR;
     clauses[length] = clause;
     length++;
@@ -30,6 +48,7 @@ int Cnf::Add (VectorInt clause){
 }
 
 int Cnf::Delete (int index){
+    if(index < 0 || index >= length) return ERROR;
     clauses[index] = clauses[length-1];
     length--;
     return SUCCESS;
@@ -43,6 +62,14 @@ bool Cnf::HaveSingle (void) {
     return false;
 }
 
+bool Cnf::HaveEmpty (void) {
+    int i;
+    for(i = length - 1; i >= 0; i--){
+        if(clauses[i].Empty()) return true;
+    }
+    return false;
+}
+
 int Cnf::FindSingle (void) {
     int i;
     for(i = length - 1; i >= 0; i--){
@@ -52,7 +79,7 @@ int Cnf::FindSingle (void) {
 }
 
 int Cnf::GetFirstLiteral (int index) {
-    if (index < 0) return 0;
+    if (index < 0 || index >= length) return 0;
     return clauses[index].GetFirstLiteral();
 }
 
@@ -63,10 +90,9 @@ int Cnf::Wash (int literal) {
 }
 
 int Cnf::Reduce (int literal){
-    for (int i = 0; i < length; ) 
+    for (int i = 0; i < length; i++) 
         if ( clauses[i].Find(literal) != ERROR ) {
             clauses[i].Delete(literal);
-            if(clauses[i].Empty()) Delete(i); else ++i;
         }
     return SUCCESS;
 }
@@ -76,15 +102,16 @@ bool Cnf::Empty (void) {
 }
 
 int Cnf::Read (std::string filename) {
+    memset(clauses, 0, MAX_CLAUSES * sizeof(Vector));
     std::ifstream file;
     file.open(filename);
     char ch;
     while (file >> ch && ch != 'p') continue;
-    int VariableNum, ClausesNum;
+    // int VariableNum, ClausesNum;
     std::string type;
     file >> type >> VariableNum >> ClausesNum;
     for (int i = 0; i < ClausesNum; i++) {
-        VectorInt tmp;
+        Vector tmp;
         int p;
         file >> p;
         while(p) {
@@ -93,7 +120,6 @@ int Cnf::Read (std::string filename) {
         }
         Add(tmp);
     }
-    std::cout<<"succcess!";
     return SUCCESS;
 }
 
@@ -101,18 +127,27 @@ int Cnf::Select (void) {
     return GetFirstLiteral(0);
 }
 
-int Cnf::Dpll (void) {
+int Cnf::Dpll (int solution[]) {
     while(HaveSingle()){
         int literal = FindSingle();
+        if(literal > 0) solution[literal] = 1; else solution[-literal] = 0;
         Wash(literal);
         if(Empty()) return 1;
         else{
             Reduce(-literal);
+            if (HaveEmpty()) return 0;
         }
     }
     int p = Select();
     Cnf S1 = *this, S2 = *this;
-    S1.Add(VectorInt(p));
-    S2.Add(VectorInt(-p));
-    if(S1.Dpll()) return 1; else return S2.Dpll();
+    S1.Add(Vector(p));
+    S2.Add(Vector(-p));
+    if ( S1.Dpll(solution) ) {
+        if(p > 0) solution[p] = 1; else solution[-p] = 0;
+        return 1;
+    }
+    else {
+        if(p > 0) solution[p] = 0; else solution[-p] = 1;
+        return S2.Dpll(solution);
+    }
 }
