@@ -17,12 +17,12 @@
 class Cnf{
     public:
         Cnf(){ clauses = nullptr; }
-        Cnf(size_t size){
+        Cnf(int size){
             length = 0;
             clauses = new Vector[size];
         }
         ~Cnf() { if(clauses !=  nullptr) delete[] clauses; }
-        void Resize(size_t size);  // 重新分配CNF数据的内存，原有数据会被清空
+        void Resize(int size);  // 重新分配CNF数据的内存，原有数据会被清空
         Cnf & operator= (const Cnf & Obj){
             if(this != &Obj){
                 length = Obj.length;
@@ -32,7 +32,7 @@ class Cnf{
                 if(clauses != nullptr) delete[] clauses;
                 clauses = new Vector[Obj.size];
                 //  memcpy(clauses, Obj.clauses, Obj.size * sizeof(Vector));
-                for(size_t i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
+                for(int i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
             }
             return * this;
         }
@@ -61,7 +61,7 @@ class Cnf{
         int size = 0;
 };
 
-void Cnf::Resize(size_t newsize){
+void Cnf::Resize(int newsize){
     if(newsize < size) {
         if(clauses) delete[] clauses;
         if(newsize == 0) clauses = nullptr;
@@ -73,7 +73,7 @@ void Cnf::Resize(size_t newsize){
     else {
         Vector * tmp = new Vector[newsize];
         if(clauses) {
-            for(size_t i = 0; i < length; i++) tmp[i] = clauses[i];
+            for(int i = 0; i < length; i++) tmp[i] = clauses[i];
             delete[] clauses;
         }
         clauses = tmp;

@@ -17,10 +17,10 @@ class Vector{
         bool Empty(void); // 判空
         
         Vector(); // 默认构造函数
-        Vector(size_t, int); // 设定数据域大小，添加一个x
-        Vector(size_t); // 设定数据域大小
+        Vector(int, int); // 设定数据域大小，添加一个x
+        Vector(int); // 设定数据域大小
         ~Vector() { if(a != nullptr) delete[] a; } // 析构函数
-        void Resize(size_t);
+        void Resize(int);
         Vector & operator= (const Vector & Obj) {
             if(&Obj != this) {
                 length = Obj.length;
@@ -42,7 +42,7 @@ class Vector{
         int size;
 };
 
-void Vector::Resize(size_t newsize) {
+void Vector::Resize(int newsize) {
     if(newsize < size){
         if(a) delete[] a;
         if(newsize == 0) a = nullptr;
@@ -83,14 +83,14 @@ Vector::Vector(){
     length = 0; 
 }
 
-Vector::Vector (size_t newsize, int x){
+Vector::Vector (int newsize, int x){
     a = new int[newsize];
     size = newsize;
     length = 0;
     Add(x);
 }
 
-Vector::Vector (size_t newsize){
+Vector::Vector (int newsize){
     a = new int[newsize];
     size = newsize;
     length = 0;
