@@ -11,10 +11,7 @@ class Vector{
     public:
         int Add(int); //添加文字
         int Delete(int); // 删除文字，用末尾文字覆盖x
-//        void Delete(void) {
-//            delete[] a;
-//        }
-        size_t Find(int); // 返回x的索引
+        int Find(int); // 返回x的索引
         bool IsSingle(void); // 判断是否是单子句
         int GetFirstLiteral(void); // 返回第一个文字
         bool Empty(void); // 判空
@@ -22,13 +19,14 @@ class Vector{
         Vector(); // 默认构造函数
         Vector(size_t, int); // 设定数据域大小，添加一个x
         Vector(size_t); // 设定数据域大小
-//        ~Vector() { if(a != nullptr) delete[] a; } // 析构函数
+        ~Vector() { if(a != nullptr) delete[] a; } // 析构函数
         void Resize(size_t);
         Vector & operator= (const Vector & Obj) {
             if(&Obj != this) {
                 length = Obj.length;
                 size = Obj.size;
-                delete[] a;
+                if(a != nullptr) delete[] a;
+                // a = nullptr; //  可能是这里出现了double free？
                 a = new int[Obj.size];
                 memcpy(a, Obj.a, Obj.length * sizeof(int));
             }
@@ -40,28 +38,31 @@ class Vector{
         void Static(int []); //
     private:
         int * a;
-        size_t length;
-        size_t size;
+        int length;
+        int size;
 };
 
 void Vector::Resize(size_t newsize) {
-    size = newsize;
-    if(newsize >= size){
+    if(newsize < size){
         if(a) delete[] a;
         if(newsize == 0) a = nullptr;
         else a = new int[newsize];
+        length = 0;
     }
     else{
         int * tmp = new int[newsize];
-        memcpy(tmp, a, length * sizeof(int));
-        delete[] a;
+        if(a) {
+            memcpy(tmp, a, length * sizeof(int));
+            delete[] a;
+        }   
         a = tmp;
     }
+    size = newsize;
 }
 
 
 void Vector::Static(int table[]) {
-    for (int i = 0; i < length; i++) table[abs(a[i])]++;
+    for (int i = 0; i < length; i++) table[a[i] + 100000]++;
 }
 
 
@@ -79,6 +80,7 @@ bool Vector::Verify(bool result[]) {
 Vector::Vector(){
     a = nullptr;
     size = 0;
+    length = 0; 
 }
 
 Vector::Vector (size_t newsize, int x){
@@ -94,8 +96,8 @@ Vector::Vector (size_t newsize){
     length = 0;
 }
 
-size_t Vector::Find (int x) {
-    size_t i;
+int Vector::Find (int x) {
+    int i;
     for (i = length - 1; i >= 0; i--) {
         if(a[i] == x) break;
     }
@@ -110,7 +112,7 @@ int Vector::Add (int x) {
 }
 
 int Vector::Delete (int x) {
-    size_t pos = Find(x);
+    long long int pos = Find(x);
     if(pos != ERROR){
         while (pos != ERROR) {
             a[pos] = a[length-1];
