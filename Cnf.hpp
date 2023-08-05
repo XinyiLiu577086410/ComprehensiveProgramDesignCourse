@@ -16,7 +16,10 @@
 
 class Cnf{
     public:
-        Cnf(){ clauses = nullptr; }
+        Cnf(){        
+            length = 0;
+            clauses = nullptr; 
+        }
         Cnf(int size){
             length = 0;
             clauses = new Vector[size];
@@ -27,11 +30,8 @@ class Cnf{
             if(this != &Obj){
                 length = Obj.length;
                 size = Obj.size;
-                VariableNum = Obj.VariableNum;
-                ClausesNum = Obj.ClausesNum;
                 if(clauses != nullptr) delete[] clauses;
                 clauses = new Vector[Obj.size];
-                //  memcpy(clauses, Obj.clauses, Obj.size * sizeof(Vector));
                 for(int i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
             }
             return * this;
@@ -57,7 +57,7 @@ class Cnf{
         Vector * clauses; // 含动态分配内存的类对象的赋值可能会造成正确性错误，浅拷贝没有完成副本的赋值相当于原地工作。
         // Vector clauses[MAX_CLAUSES]; //  栈里的数组会带来段错误，尤其是在输入数据比较大的时候
         int length = 0; //子句的个数
-        int VariableNum = 0, ClausesNum = 0; //这两个变量只在调用DPLL算法之前用到，VariableNum在程序运行过程中保存不变
+        int VariableNum = 0, ClausesNum = 0; //这两个变量只在调用DPLL算法之前用到
         int size = 0;
 };
 
@@ -66,9 +66,7 @@ void Cnf::Resize(int newsize){
         if(clauses) delete[] clauses;
         if(newsize == 0) clauses = nullptr;
         else clauses = new Vector[newsize];
-        VariableNum = 0;
         length = 0;
-        ClausesNum = length;
     }
     else {
         Vector * tmp = new Vector[newsize];
@@ -99,19 +97,16 @@ bool Cnf::Verify(bool rslt[]){
 
 
 int Cnf::Add (Vector & clause){
-    if( size <= length ) Resize(2 * (length + 1));
+    if( size <= length ) Resize(2 * length + 10);
     clauses[length] = clause;
     length++;
-    ClausesNum = length;
     return SUCCESS;
 }
 
 int Cnf::Delete (int index){
     if(index < 0 || index >= length) return ERROR;
     clauses[index] = clauses[length-1];
-    // memset(&clauses[length-1], 0, sizeof(Vector));
     length--;
-    ClausesNum = length;
     return SUCCESS;
 }
 
@@ -177,7 +172,6 @@ int Cnf::Read (std::string filename) {
     std::string type;
     file >> type >> VariableNum >> ClausesNum;
     Resize(ClausesNum);
-    //  memset(clauses, 0, MAX_CLAUSES * sizeof(Vector));
     int p[100000];
     for (int i = 0; i < ClausesNum; i++) {
         int j = 0;
@@ -237,3 +231,18 @@ bool Cnf::Dpll (bool solution[]) {
  
  悬挂指针。。
  */
+
+/*
+test.请输入CNF文件名
+cnf
+
+length now is1
+
+length:1
+Clauses 0 : 50 59 89 
+length now is2
+length now is2CNF命题是可满足的
+成真赋值的解在solution文件中。
+Time used: 0.681542 ms.
+
+*/

@@ -49,7 +49,7 @@ void Vector::Resize(int newsize) {
         else a = new int[newsize];
         length = 0;
     }
-    else{
+    else {
         int * tmp = new int[newsize];
         if(a) {
             memcpy(tmp, a, length * sizeof(int));
@@ -112,7 +112,7 @@ int Vector::Add (int x) {
 }
 
 int Vector::Delete (int x) {
-    long long int pos = Find(x);
+    int pos = Find(x);
     if(pos != ERROR){
         while (pos != ERROR) {
             a[pos] = a[length-1];
