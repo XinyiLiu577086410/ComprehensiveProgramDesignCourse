@@ -2,8 +2,11 @@
 #include <fstream>
 #include <cstring>
 #include <iostream>
+/*
 #define MAX_CLAUSES 250000 // CNF范式允许的最多子句个数
 // 如果太大会爆栈，覆盖函数入口产生段错误
+// 这个版本采用了递降的递归内存分配方法，如果递归入口函数占了很多内存，递归深度会变浅。
+*/
 #ifndef SUCCESS
 #define SUCCESS 0
 #endif
@@ -12,11 +15,33 @@
 #endif
 
 class Cnf{
-    private: 
-        Vector * clauses = new Vector[MAX_CLAUSES];
-        // Vector clauses[MAX_CLAUSES];
-        int length = 0;
-        int VariableNum, ClausesNum;
+    public:
+        Cnf(){ clauses = nullptr; }
+        Cnf(size_t size){
+            length = 0;
+            clauses = new Vector[size];
+            memset(clauses, 0, size * sizeof(Vector));
+        }
+        ~Cnf(){ if(clauses !=  nullptr) delete[] clauses; }
+        void Resize(size_t size);  // 重新分配CNF数据的内存，原有数据会被清空
+        Cnf & operator= (const Cnf & Obj){
+            if(this != &Obj){
+                delete[] clauses;
+                length = Obj.length;
+                size = Obj.size;
+                clauses = new Vector[Obj.size];
+                memset(clauses, 0, Obj.size * sizeof(Vector));
+//                memcpy(clauses, Obj.clauses, Obj.size * sizeof(Vector));
+                for(size_t i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
+            }
+            return * this;
+        }
+        bool Verify(bool rslt[]);
+        int Read(std::string filename); // 从file中读取CNF范式的复合命题
+        bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
+        int GetVariableNum(void){ return VariableNum; }
+        
+        void Show(void); // 展示各个子句
         int GetFirstLiteral(int index); // 返回顺序为index（从0开始）的子句的第一个文字
         int Delete(int index); // 从CNF中删除clause[index]（会将最后的子句填充到这里，然后将length减小1。）
         int Add(Vector clause); // 在末尾添加一个子句
@@ -26,27 +51,57 @@ class Cnf{
         bool Empty(void); // 判空
         int FindSingle(void); // 找出一个单子句
         int Select(void); // 选择一种出现最多的文字
+        int Select(int); // 重载
         bool HaveEmpty(void); // 如果CNF命题含子句返回true，此时CNF命题是不可满足的
-    public:
-        bool Verify(bool rslt[]){ 
-            for(int i = 0; i < length; i++) 
-                if(!clauses[i].Verify(rslt)){std::cout<<"\n**"<<i+1<<"**\n";  return false;}
-            return true; 
-        }
-        int Read(std::string filename); // 从file中读取CNF范式的复合命题
-        bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
-        int GetVariableNum(void){ return VariableNum; }
-        void operator = (Cnf & Obj){
-            clauses = new Vector[MAX_CLAUSES];
-            memcpy(clauses, Obj.clauses, MAX_CLAUSES * sizeof(Vector));
-            length = Obj.length;
-        }
+    private:
+        Vector * clauses; // 含动态分配内存的类对象的赋值可能会造成正确性错误，浅拷贝没有完成副本的赋值相当于原地工作。
+        // Vector clauses[MAX_CLAUSES]; //  栈里的数组会带来段错误，尤其是在输入数据比较大的时候
+        size_t length = 0; //子句的个数
+        int VariableNum = 0, ClausesNum = 0; //这两个变量只在调用DPLL算法之前用到
+        size_t size = 0;
 };
 
+void Cnf::Resize(size_t newsize){
+    size = newsize;
+    if(newsize < size) {
+        if(clauses) delete[] clauses;
+        if(newsize == 0) clauses = nullptr;
+        else {
+            clauses = new Vector[newsize];
+            memset(clauses, 0, newsize * sizeof(Vector));
+        }
+        length = 0;
+    }
+    else {
+        Vector * tmp = new Vector[newsize];
+        memset(tmp, 0, newsize * sizeof(Vector));
+        if(clauses) {
+//            memcpy(tmp, clauses, length * sizeof(Vector)); // 浅拷贝
+            for(size_t i = 0; i < length; i++) tmp[i] = clauses[i];
+            delete[] clauses;
+        }
+        clauses = tmp;
+    }
+
+}
+
+ void Cnf::Show(void){
+    std::cout<<"\n\nlength:"<<length;
+    for(int i = 0; i < length; i++){
+        std::cout << "\nClauses " << i << " : ";
+        clauses[i].Show();
+    }
+}
+
+bool Cnf::Verify(bool rslt[]){
+    for(int i = 0; i < length; i++)
+        if(!clauses[i].Verify(rslt)){std::cout<<"\n**"<<i+1<<"**\n";  return false;}
+    return true;
+}
 
 
 int Cnf::Add (Vector clause){
-    if(length >= MAX_CLAUSES) return ERROR;
+    if( size <= length ) Resize(2 * (length + 1));
     clauses[length] = clause;
     length++;
     return SUCCESS;
@@ -54,13 +109,15 @@ int Cnf::Add (Vector clause){
 
 int Cnf::Delete (int index){
     if(index < 0 || index >= length) return ERROR;
+//    clauses[index].Delete();
     clauses[index] = clauses[length-1];
+    memset(&clauses[length-1], 0, sizeof(Vector));
     length--;
     return SUCCESS;
 }
 
 bool Cnf::HaveSingle (void) {
-    int i;
+    long long int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].IsSingle()) return true;
     }
@@ -68,7 +125,7 @@ bool Cnf::HaveSingle (void) {
 }
 
 bool Cnf::HaveEmpty (void) {
-    int i;
+    long long int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].Empty()) return true;
     }
@@ -76,7 +133,7 @@ bool Cnf::HaveEmpty (void) {
 }
 
 int Cnf::FindSingle (void) {
-    int i;
+    long long int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].IsSingle()) return clauses[i].GetFirstLiteral();
     }
@@ -89,13 +146,13 @@ int Cnf::GetFirstLiteral (int index) {
 }
 
 int Cnf::Wash (int literal) {
-    for (int i = 0; i < length; ) 
-        if(clauses[i].Find(literal) != ERROR) Delete(i); else i++;   
+    for (int i = 0; i < length; )
+        if(clauses[i].Find(literal) != ERROR) Delete(i); else i++;
     return SUCCESS;
 }
 
 int Cnf::Reduce (int literal){
-    for (int i = 0; i < length; i++) 
+    for (int i = 0; i < length; i++)
         if ( clauses[i].Find(literal) != ERROR ) {
             clauses[i].Delete(literal);
         }
@@ -107,31 +164,47 @@ bool Cnf::Empty (void) {
 }
 
 int Cnf::Read (std::string filename) {
-    memset(clauses, 0, MAX_CLAUSES * sizeof(Vector));
     std::ifstream file;
     file.open(filename);
     char ch;
-    while (file >> ch && ch != 'p') continue;
-    // int VariableNum, ClausesNum;
+    while(file >> ch && ch == 'c') {
+        char buff[1024];
+        file.getline(buff, 1024, '\n');
+    }
     std::string type;
     file >> type >> VariableNum >> ClausesNum;
+    Resize(ClausesNum);
+    //  memset(clauses, 0, MAX_CLAUSES * sizeof(Vector));
+    int p[100000];
     for (int i = 0; i < ClausesNum; i++) {
-        Vector tmp;
-        int p;
-        file >> p;
-        while(p) {
-            tmp.Add(p);
-            file >> p;
-        }
+        int j = 0;
+        file >> p[j];
+        while (p[j++]) file >> p[j];
+        Vector tmp(j);
+        for(int k = 0; k < j - 1; k++) tmp.Add(p[k]);
         Add(tmp);
     }
     return SUCCESS;
 }
 
+int Cnf::Select (int tag) {
+    int table[100000] = {0,};
+    for(int i = 0; i < length; i++){
+        clauses[i].Static(table);
+    }
+    int index = 0;
+    for(int i = 1; i < 100000; i++){
+        if(table[i] > table[index]) index = i;
+    }
+    return index;
+}
+
 int Cnf::Select (void) {
     return GetFirstLiteral(0);
 }
-
+//  这个函数在不可满足时证伪时效率很低
+//  正确性完成
+//  大数据集 效率很低
 bool Cnf::Dpll (bool solution[]) {
     while(HaveSingle()){
         int literal = FindSingle();
@@ -144,15 +217,25 @@ bool Cnf::Dpll (bool solution[]) {
         }
     }
     int p = Select();
-    Cnf S1 = *this, S2 = *this;
-    S1.Add(Vector(p));
-    S2.Add(Vector(-p));
+    Cnf S1(length+1),S2(length+1);
+    S1 = *this;
+    S2 = *this;
+    S1.Add(Vector(1, p));
+    S2.Add(Vector(1, -p));
     if ( S1.Dpll(solution) ) {
-        if(p > 0) solution[p] = true; else solution[-p] = false;
+    //    if(p > 0) solution[p] = true; else solution[-p] = false;
         return true;
     }
     else {
-        if(p > 0) solution[p] = false; else solution[-p] = true;
+    //    if(p > 0) solution[p] = false; else solution[-p] = true;
         return S2.Dpll(solution);
     }
 }
+
+
+/*
+ CNF_SAT(76264,0x1ee68a080) malloc: *** error for object 0x60000000c000: pointer being freed was not allocated
+ CNF_SAT(76264,0x1ee68a080) malloc: *** set a breakpoint in malloc_error_break to debug
+ 
+ 悬挂指针。。
+ */

@@ -10,8 +10,8 @@
 #define ERROR -1
 #endif
 bool solution[250000];
-int main(void){    
-    Cnf S;
+int main(void){
+    Cnf S; //     Read()会调用Resize()函数
     std::string name;
     std::cout << "请输入CNF文件名\n";
     std::cin >> name;
@@ -21,14 +21,14 @@ int main(void){
     std::chrono::steady_clock::time_point  t0 = std::chrono::steady_clock::now();
 
     // 输入
-    S.Read(name); 
-    int VarNum = S.GetVariableNum(); 
+    S.Read(name);
+    int VarNum = S.GetVariableNum();
     bool sat;
     sat = S.Dpll(solution);
     
     // 输出
-    if(sat) { 
-        std::cout << "CNF命题是可满足的\n";     
+    if(sat) {
+        std::cout << "CNF命题是可满足的\n";
         std::cout << "成真赋值的解在solution文件中。\n";
     }
     else std::cout << "CNF命题是不可满足的\n";
@@ -43,8 +43,10 @@ int main(void){
     /*  计时结束  */
     std::chrono::steady_clock::time_point  t1 = std::chrono::steady_clock::now();
 
-
+    // 输出时间
     std::chrono::duration<double> time = std::chrono::duration_cast< std::chrono::duration<double> >(t1 - t0);
     std::cout << "Time used: " << time.count() * 1000 << " ms.\n";
+    
+    
     return 0;
 }
