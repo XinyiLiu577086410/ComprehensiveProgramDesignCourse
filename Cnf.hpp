@@ -111,7 +111,7 @@ int Cnf::Delete (int index){
 }
 
 bool Cnf::HaveSingle (void) {
-    long long int i;
+    int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].IsSingle()) return true;
     }
@@ -119,7 +119,7 @@ bool Cnf::HaveSingle (void) {
 }
 
 bool Cnf::HaveEmpty (void) {
-    long long int i;
+    int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].Empty()) return true;
     }
@@ -127,7 +127,7 @@ bool Cnf::HaveEmpty (void) {
 }
 
 int Cnf::FindSingle (void) {
-    long long int i;
+    int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].IsSingle()) return clauses[i].GetFirstLiteral();
     }
@@ -246,3 +246,6 @@ length now is2CNF命题是可满足的
 Time used: 0.681542 ms.
 
 */
+
+
+// 只有在打了一个通宵游戏后才会做出用size_t和longlong去替代int的事情
