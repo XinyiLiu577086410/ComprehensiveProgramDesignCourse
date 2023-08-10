@@ -30,6 +30,7 @@ class Cnf{
             if(assoiciationTable !=  nullptr) delete[] assoiciationTable; 
         }
         void Resize(int size);  // 重新分配CNF数据的内存，原有数据会被清空
+        // O(N*M)
         Cnf & operator= (const Cnf & Obj){
             if(this != &Obj){
                 length = Obj.length;
@@ -38,7 +39,7 @@ class Cnf{
                 
                 if(assoiciationTable != nullptr) delete[] assoiciationTable;
                 assoiciationTable = new int[Obj.variableNum * 2 + 1];
-                memcpy(assoiciationTable, Obj.assoiciationTable, sizeof(int) * variableNum * 2 + 1);
+                memcpy(assoiciationTable, Obj.assoiciationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
 
                 if(clauses != nullptr) delete[] clauses;
                 clauses = new Vector[Obj.size];
@@ -78,7 +79,7 @@ bool Cnf::Find(int target){
     return false;
 }
 
-// O(1) or O(n*m)
+// O(1) or O(N*M)
 void Cnf::Resize(int newsize){
     if(newsize < size) {
         if(clauses) delete[] clauses;
@@ -97,7 +98,7 @@ void Cnf::Resize(int newsize){
     size = newsize;
 }
 
-//O(n*m)
+//O(N*M)
 void Cnf::Show(void){
     std::cout<<"\n\nlength:"<<length;
     for(int i = 0; i < length; i++){
@@ -105,7 +106,7 @@ void Cnf::Show(void){
         clauses[i].Show();
     }
 }
-
+//O(N*M)
 bool Cnf::Verify(bool rslt[]){
     for(int i = 0; i < length; i++)
         if(!clauses[i].Verify(rslt)){
@@ -114,9 +115,10 @@ bool Cnf::Verify(bool rslt[]){
     return true;
 }
 
-// O(Resize) + O(1)
+// O(Resize) + O(M) + O(1)
 int Cnf::Add (Vector & newClause){
     if( size <= length ) Resize(2 * length + 10);
+    clauses[length] = newClause;
     clauses[length] = newClause;
     for(int i = 0; i < newClause.GetLength(); i++) {
         assoiciationTable[newClause[i] + variableNum]++;
@@ -124,18 +126,19 @@ int Cnf::Add (Vector & newClause){
     length++;
     return SUCCESS;
 }
-// O(m)
+// O(M)
 int Cnf::Delete (int index){
     if(index < 0 || index >= length) return ERROR;
-    for(int i = 0; i < clauses[index].GetLength(); i++) {
+    int vectorLength = clauses[index].GetLength();
+    for(int i = 0; i < vectorLength; i++) {
         assoiciationTable[clauses[index][i]+variableNum]--;
     }
-    length++;
+    // length++;  commit:ffa24b3的问题所在
     clauses[index] = clauses[length-1];
     length--;
     return SUCCESS;
 }
-// O(n)
+// O(N)
 bool Cnf::HaveSingle (void) {
     int i;
     for(i = length - 1; i >= 0; i--){
@@ -143,7 +146,7 @@ bool Cnf::HaveSingle (void) {
     }
     return false;
 }
-//O(n)
+//O(N)
 bool Cnf::HaveEmpty (void) {
     int i;
     for(i = length - 1; i >= 0; i--){
@@ -151,7 +154,7 @@ bool Cnf::HaveEmpty (void) {
     }
     return false;
 }
-//O(n)
+//O(N)
 int Cnf::FindSingle (void) {
     int i;
     for(i = length - 1; i >= 0; i--){
@@ -164,7 +167,7 @@ int Cnf::GetFirstLiteral (int index) {
     if (index < 0 || index >= length) return 0;
     return clauses[index].GetFirstLiteral();
 }
-//O(n*m)
+//O(N*M)
 int Cnf::Wash (int literal) {
     for (int i = 0; i < length; ){
         if(clauses[i].Find(literal) != ERROR) {
@@ -174,7 +177,7 @@ int Cnf::Wash (int literal) {
     }
     return SUCCESS;
 }
-//O(n*m)
+//O(N*M)
 int Cnf::Reduce (int literal){
     for (int i = 0; i < length; i++)
         if ( clauses[i].Find(literal) != ERROR ) {
@@ -187,7 +190,7 @@ int Cnf::Reduce (int literal){
 bool Cnf::Empty (void) {
     return length == 0;
 }
-//O(n*m)
+//O(N*M)
 int Cnf::Read (std::string filename) {
     std::ifstream file;
     file.open(filename);
@@ -200,7 +203,7 @@ int Cnf::Read (std::string filename) {
     file >> type >> variableNum >> clausesNum;
     Resize(clausesNum);
     assoiciationTable = new int[2 * variableNum + 1];
-    memset(assoiciationTable, 0, sizeof(int) * variableNum * 2 + 1);
+    memset(assoiciationTable, 0, sizeof(int) * (variableNum * 2 + 1));
     int p[100000];
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
@@ -214,11 +217,11 @@ int Cnf::Read (std::string filename) {
     }
     return SUCCESS;
 }
-//O(?)
+//O(variableNum)
 int Cnf::Select (int tag) {
     int mostFrequentLiteral = GetFirstLiteral(0); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
-        if(Find(i) && assoiciationTable[i + variableNum] > assoiciationTable[mostFrequentLiteral + variableNum]) {
+        if(/*O(n*m) Find(i) && */ assoiciationTable[i + variableNum] > assoiciationTable[mostFrequentLiteral + variableNum]) {
             mostFrequentLiteral = i;
         }
     }
@@ -231,6 +234,7 @@ int Cnf::Select (void) {
 //  这个函数在不可满足时证伪时效率很低
 //  正确性完成
 //  大数据集 效率很低
+
 bool Cnf::Dpll (bool solution[]) {
     while(HaveSingle()){
         int literal = FindSingle();
@@ -242,7 +246,7 @@ bool Cnf::Dpll (bool solution[]) {
             if (HaveEmpty()) return false;
         }
     }
-    int p = Select(3);
+    int p = Select();
     Cnf S1(length+1), S2(length+1);
     S1 = *this;
     S2 = *this;
