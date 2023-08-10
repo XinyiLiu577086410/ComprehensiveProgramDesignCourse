@@ -1,11 +1,12 @@
-#include "Vector.hpp"
+#include "vector.hpp"
 #include <fstream>
 #include <cstring>
 #include <iostream>
+#include <algorithm>
 /*
 #define MAX_CLAUSES 250000 // CNF范式允许的最多子句个数
 // 如果太大会爆栈，覆盖函数入口产生段错误
-// 这个版本采用了递降的递归内存分配方法，如果递归入口函数占了很多内存，递归深度会变浅。
+// 这个版本采用了递降的递归内存分配方法，如果递归入口函数占了很多内存，允许的递归深度会变浅。
 */
 #ifndef SUCCESS
 #define SUCCESS 0
@@ -24,16 +25,23 @@ class Cnf{
             length = 0;
             clauses = new Vector[size];
         }
-        ~Cnf() { if(clauses !=  nullptr) delete[] clauses; }
+        ~Cnf() { 
+            if(clauses !=  nullptr) delete[] clauses; 
+            if(assoiciationTable !=  nullptr) delete[] assoiciationTable; 
+        }
         void Resize(int size);  // 重新分配CNF数据的内存，原有数据会被清空
         Cnf & operator= (const Cnf & Obj){
             if(this != &Obj){
                 length = Obj.length;
                 size = Obj.size;
+                variableNum = Obj.variableNum;
+                
+                if(assoiciationTable != nullptr) delete[] assoiciationTable;
+                assoiciationTable = new int[Obj.variableNum * 2 + 1];
+                memcpy(assoiciationTable, Obj.assoiciationTable, sizeof(int) * variableNum * 2 + 1);
 
                 if(clauses != nullptr) delete[] clauses;
                 clauses = new Vector[Obj.size];
-                #pragma omp parallel for
                 for(int i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
             }
             return * this;
@@ -41,7 +49,7 @@ class Cnf{
         bool Verify(bool rslt[]);
         int Read(std::string filename); // 从file中读取CNF范式的复合命题
         bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
-        int GetVariableNum(void){ return VariableNum; }
+        int GetVariableNum(void){ return variableNum; }
         
         void Show(void); // 展示各个子句
         int GetFirstLiteral(int index); // 返回顺序为index（从0开始）的子句的第一个文字
@@ -52,17 +60,24 @@ class Cnf{
         bool HaveSingle(void); // 判断是否含单子句
         bool Empty(void); // 判空
         int FindSingle(void); // 找出一个单子句
-        int Select(void); // 选择一种出现最多的文字
+        int Select(void); // 选择第一个子句的第一个文字
         int Select(int); // 重载，传递任何一个无意义整型常数即可调用，参数无实际意义
         bool HaveEmpty(void); // 如果CNF命题含子句返回true，此时CNF命题是不可满足的
+        bool Find(int);
     private:
         Vector * clauses; // 含动态分配内存的类对象的赋值可能会造成正确性错误，浅拷贝没有完成副本的赋值相当于原地工作。
         // Vector clauses[MAX_CLAUSES]; //  栈里的数组会带来段错误，尤其是在输入数据比较大的时候
         int length = 0; //子句的个数
-        int ClausesNum = 0; //只在调用DPLL算法之前用到
-        int VariableNum = 0; //变量的总数
+        int clausesNum = 0; //只能在调用DPLL算法之前用到
+        int variableNum = 0; //变量的总数
         int size = 0;
+        int * assoiciationTable = nullptr; //统计每个变量出现次数，调用Read()时动态分配空间
 };
+bool Cnf::Find(int target){
+    for(int i = 0; i < length; i++)if(clauses[i].Find(target) != ERROR) return true;
+    return false;
+}
+
 // O(1) or O(n*m)
 void Cnf::Resize(int newsize){
     if(newsize < size) {
@@ -100,15 +115,22 @@ bool Cnf::Verify(bool rslt[]){
 }
 
 // O(Resize) + O(1)
-int Cnf::Add (Vector & clause){
+int Cnf::Add (Vector & newClause){
     if( size <= length ) Resize(2 * length + 10);
-    clauses[length] = clause;
+    clauses[length] = newClause;
+    for(int i = 0; i < newClause.GetLength(); i++) {
+        assoiciationTable[newClause[i] + variableNum]++;
+    }
     length++;
     return SUCCESS;
 }
-// O(1)
+// O(m)
 int Cnf::Delete (int index){
     if(index < 0 || index >= length) return ERROR;
+    for(int i = 0; i < clauses[index].GetLength(); i++) {
+        assoiciationTable[clauses[index][i]+variableNum]--;
+    }
+    length++;
     clauses[index] = clauses[length-1];
     length--;
     return SUCCESS;
@@ -157,6 +179,7 @@ int Cnf::Reduce (int literal){
     for (int i = 0; i < length; i++)
         if ( clauses[i].Find(literal) != ERROR ) {
             clauses[i].Delete(literal);
+            assoiciationTable[literal + variableNum]--;
         }
     return SUCCESS;
 }
@@ -174,34 +197,36 @@ int Cnf::Read (std::string filename) {
         file.getline(buff, 1024, '\n');
     }
     std::string type;
-    file >> type >> VariableNum >> ClausesNum;
-    Resize(ClausesNum);
+    file >> type >> variableNum >> clausesNum;
+    Resize(clausesNum);
+    assoiciationTable = new int[2 * variableNum + 1];
+    memset(assoiciationTable, 0, sizeof(int) * variableNum * 2 + 1);
     int p[100000];
-    for (int i = 0; i < ClausesNum; i++) {
+    for (int i = 0; i < clausesNum; i++) {
         int j = 0;
         file >> p[j];
         while (p[j++]) file >> p[j];
         Vector tmp(j);
-        for(int k = 0; k < j - 1; k++) tmp.Add(p[k]);
+        for(int k = 0; k < j - 1; k++) {
+            tmp.Add(p[k]);
+        }
         Add(tmp); // Add() 的值传递参数作为一个类会被析构
     }
     return SUCCESS;
 }
-
+//O(?)
 int Cnf::Select (int tag) {
-    int table[200000] = {0,};
-    for(int i = 0; i < length / 10; i++){
-        clauses[i].Static(table);
+    int mostFrequentLiteral = GetFirstLiteral(0); // 缺省值
+    for(int i = -variableNum; i <= variableNum; i++) {
+        if(Find(i) && assoiciationTable[i + variableNum] > assoiciationTable[mostFrequentLiteral + variableNum]) {
+            mostFrequentLiteral = i;
+        }
     }
-    int index = 0;
-    for(int i = 1; i < 200000; i++){
-        if(table[i] && table[i] > table[index]) index = i;
-    }
-    return index - 100000;
+    return mostFrequentLiteral;
 }
 //O(1)
 int Cnf::Select (void) {
-    return GetFirstLiteral(0);
+    return GetFirstLiteral(length/2);
 }
 //  这个函数在不可满足时证伪时效率很低
 //  正确性完成
@@ -217,7 +242,7 @@ bool Cnf::Dpll (bool solution[]) {
             if (HaveEmpty()) return false;
         }
     }
-    int p = Select();
+    int p = Select(3);
     Cnf S1(length+1), S2(length+1);
     S1 = *this;
     S2 = *this;

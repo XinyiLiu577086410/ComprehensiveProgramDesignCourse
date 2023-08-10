@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include <cstdio>
-#include "Cnf.hpp"
+#include "cnf.hpp"
 #ifndef SUCCESS
 #define SUCCESS 0
 #endif

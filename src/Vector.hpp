@@ -31,10 +31,14 @@ class Vector{
             }
             return *this;
         }
-
+        int operator[] (int x) {
+            if(x < 0 || x >= length) { std::cout << "class Vector::operater[]：索引越界!" << std::endl; return 0; }
+            else return a[x];
+        }
         bool Verify(bool []); // 验证
         void Show(void); // 展示Vector
         void Static(int []); //
+        int GetLength(void) {return length;}
     private:
         int * a;
         int length;
