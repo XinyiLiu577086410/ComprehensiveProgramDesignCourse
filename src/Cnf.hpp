@@ -246,7 +246,7 @@ bool Cnf::Dpll (bool solution[]) {
             if (HaveEmpty()) return false;
         }
     }
-    int p = Select(0);
+    int p = Select(1);
     Cnf S1(length+1), S2(length+1);
     S1 = *this;
     S2 = *this;
