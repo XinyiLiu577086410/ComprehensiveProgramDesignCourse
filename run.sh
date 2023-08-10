@@ -2,7 +2,7 @@
 mkdir executable
 mkdir output
 
-g++ ./src/main.cpp -o ./executable/dpll -std=c++11 -O3 
+g++ ./src/main.cpp -o ./executable/dpll -std=c++11 -O0 
 # g++ ./src/Verify.cpp -o ./executable/verify -std=c++11
 
 for file in `ls ./testset` 
