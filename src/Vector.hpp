@@ -21,12 +21,11 @@ class Vector{
         Vector(int); // 设定数据域大小
         ~Vector() { if(a != nullptr) delete[] a; } // 析构函数
         void Resize(int);
-        Vector & operator= (const Vector & Obj) {
+        Vector & operator= (const Vector & Obj) { // 重载函数，深度拷贝
             if(&Obj != this) {
                 length = Obj.length;
                 size = Obj.size;
                 if(a != nullptr) delete[] a;
-                // a = nullptr; //  可能是这里出现了double free？
                 a = new int[Obj.size];
                 memcpy(a, Obj.a, Obj.length * sizeof(int));
             }

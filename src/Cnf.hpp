@@ -30,8 +30,10 @@ class Cnf{
             if(this != &Obj){
                 length = Obj.length;
                 size = Obj.size;
+
                 if(clauses != nullptr) delete[] clauses;
                 clauses = new Vector[Obj.size];
+                #pragma omp parallel for
                 for(int i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
             }
             return * this;
@@ -51,16 +53,17 @@ class Cnf{
         bool Empty(void); // 判空
         int FindSingle(void); // 找出一个单子句
         int Select(void); // 选择一种出现最多的文字
-        int Select(int); // 重载
+        int Select(int); // 重载，传递任何一个无意义整型常数即可调用，参数无实际意义
         bool HaveEmpty(void); // 如果CNF命题含子句返回true，此时CNF命题是不可满足的
     private:
         Vector * clauses; // 含动态分配内存的类对象的赋值可能会造成正确性错误，浅拷贝没有完成副本的赋值相当于原地工作。
         // Vector clauses[MAX_CLAUSES]; //  栈里的数组会带来段错误，尤其是在输入数据比较大的时候
         int length = 0; //子句的个数
-        int VariableNum = 0, ClausesNum = 0; //这两个变量只在调用DPLL算法之前用到
+        int ClausesNum = 0; //只在调用DPLL算法之前用到
+        int VariableNum = 0; //变量的总数
         int size = 0;
 };
-
+// O(1) or O(n*m)
 void Cnf::Resize(int newsize){
     if(newsize < size) {
         if(clauses) delete[] clauses;
@@ -79,7 +82,8 @@ void Cnf::Resize(int newsize){
     size = newsize;
 }
 
- void Cnf::Show(void){
+//O(n*m)
+void Cnf::Show(void){
     std::cout<<"\n\nlength:"<<length;
     for(int i = 0; i < length; i++){
         std::cout << "\nClauses " << i << " : ";
@@ -90,26 +94,26 @@ void Cnf::Resize(int newsize){
 bool Cnf::Verify(bool rslt[]){
     for(int i = 0; i < length; i++)
         if(!clauses[i].Verify(rslt)){
-            std::cout<<"\n验证失败的子句："<<"\n**"<<i+1<<"**\n";  return false;
+            std::cout<<"不满足的子句："<<"\n**"<<i+1<<"**\n";  return false;
         }
     return true;
 }
 
-
+// O(Resize) + O(1)
 int Cnf::Add (Vector & clause){
     if( size <= length ) Resize(2 * length + 10);
     clauses[length] = clause;
     length++;
     return SUCCESS;
 }
-
+// O(1)
 int Cnf::Delete (int index){
     if(index < 0 || index >= length) return ERROR;
     clauses[index] = clauses[length-1];
     length--;
     return SUCCESS;
 }
-
+// O(n)
 bool Cnf::HaveSingle (void) {
     int i;
     for(i = length - 1; i >= 0; i--){
@@ -117,7 +121,7 @@ bool Cnf::HaveSingle (void) {
     }
     return false;
 }
-
+//O(n)
 bool Cnf::HaveEmpty (void) {
     int i;
     for(i = length - 1; i >= 0; i--){
@@ -125,7 +129,7 @@ bool Cnf::HaveEmpty (void) {
     }
     return false;
 }
-
+//O(n)
 int Cnf::FindSingle (void) {
     int i;
     for(i = length - 1; i >= 0; i--){
@@ -133,12 +137,12 @@ int Cnf::FindSingle (void) {
     }
     return 0; // 命题的编号不会是0， 用0代表没有找到单子句。
 }
-
+//O(1)
 int Cnf::GetFirstLiteral (int index) {
     if (index < 0 || index >= length) return 0;
     return clauses[index].GetFirstLiteral();
 }
-
+//O(n*m)
 int Cnf::Wash (int literal) {
     for (int i = 0; i < length; ){
         if(clauses[i].Find(literal) != ERROR) {
@@ -148,7 +152,7 @@ int Cnf::Wash (int literal) {
     }
     return SUCCESS;
 }
-
+//O(n*m)
 int Cnf::Reduce (int literal){
     for (int i = 0; i < length; i++)
         if ( clauses[i].Find(literal) != ERROR ) {
@@ -156,11 +160,11 @@ int Cnf::Reduce (int literal){
         }
     return SUCCESS;
 }
-
+//O(1)
 bool Cnf::Empty (void) {
     return length == 0;
 }
-
+//O(n*m)
 int Cnf::Read (std::string filename) {
     std::ifstream file;
     file.open(filename);
@@ -195,7 +199,7 @@ int Cnf::Select (int tag) {
     }
     return index - 100000;
 }
-
+//O(1)
 int Cnf::Select (void) {
     return GetFirstLiteral(0);
 }
