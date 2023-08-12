@@ -23,7 +23,7 @@ int main(int argc, char * argv[]){
     bool sat = -1;
 
     /* 计时开始 */    std::chrono::steady_clock::time_point  t0 = std::chrono::steady_clock::now();
-    sat = S.Dpll(solution);
+    sat = S.Dpll(solution, 0);
     /* 计时结束 */   std::chrono::steady_clock::time_point  t1 = std::chrono::steady_clock::now();
     std::chrono::duration<double> time = std::chrono::duration_cast< std::chrono::duration<double> >(t1 - t0);
    

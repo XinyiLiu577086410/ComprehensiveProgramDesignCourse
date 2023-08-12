@@ -58,7 +58,7 @@ public:
     }
     bool Verify (bool rslt[])const;
     int Read(std::string filename); // 从file中读取CNF范式命题
-    bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
+    bool Dpll(bool solution[], int ); // DPLL算法求解CNF范式的SAT问题
     int GetVariableNum(void) const{ return variableNum; }
     
     void Show  (void)const; // 展示各个子句
@@ -121,7 +121,7 @@ void Cnf::Show (void) const {
         std::cout << "\nClause NO." << i << " : ";
         clauses[i].Show();
     }
-    std::cout<<"\nEnd of Showing";
+    std::cout<<"\nEnd of Showing\n";
 }
 //O(N*M)
 bool Cnf::Verify (bool rslt[]) const {
@@ -247,16 +247,21 @@ int Cnf::Select (void) const{
     return GetFirstLiteral(length/2);
 }
 
-bool Cnf::Dpll (bool solution[]) {
+bool Cnf::Dpll (bool solution[], int deepth) {
+    std::cout << "\n\n****************************BEGIN****************************\n\n" << "DEEPTH : " << deepth;
+    Show();
     countDPLLCalls++;
     myStack DeleteBack, AddBack;
     while(HaveSingle()){
         int literal = FindSingle();
+        std::cout<<"\nSingle Literal : " << literal << std::endl;
         //记录结果
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         //Wash()
             for (int i = 0; i < length; ){
                 if(clauses[i].Find(literal) != ERROR) {
+                    std::cout<<"\nDELETE :    ";
+                    clauses[i].Show();
                     AddBack.Push(clauses[i]);
                     Delete(i); 
                 }
@@ -266,35 +271,114 @@ bool Cnf::Dpll (bool solution[]) {
         //Reduce()
             for (int i = 0; i < length; i++)
                 if ( clauses[i].Find(-literal) != ERROR ) {
+                    std::cout<<"REPlACE   ";
+                    clauses[i].Show();
                     AddBack.Push(clauses[i]);
                     Vector replaceVector;
                     replaceVector = clauses[i];
                     replaceVector.Delete(-literal);
                     DeleteBack.Push(replaceVector);
+                    std::cout<<"    WITH    ";
+                    replaceVector.Show();
+                    std::cout << std::endl;
                     Add(replaceVector);
                     Delete(i);
                     assoiciationTable[-literal + variableNum]--;
                 }
         //End Reduce()
-        if(Empty()) return true;
-        if (HaveEmpty()) return false;
+        // 这里没有恢复原状，回溯失败
+        if(Empty()) {
+            while (!AddBack.Empty()) {
+            Vector tmp;
+            tmp = AddBack.Pop();
+            Add(tmp);
+            std::cout<<"\nADD   ";
+            tmp.Show();
+            std::cout<<"    BACK\n";
+            }
+            while (!DeleteBack.Empty()) {
+                Vector tmp;
+                tmp = DeleteBack.Pop();
+                DeleteDesignatedClause(tmp);
+                std::cout<<"\nDELETE    ";
+                tmp.Show();
+                std::cout<<"    BACK\n";
+            }
+            return true;
+        }
+        if(HaveEmpty()) {
+            while (!AddBack.Empty()) {
+            Vector tmp;
+            tmp = AddBack.Pop();
+            Add(tmp);
+            std::cout<<"\nADD   ";
+            tmp.Show();
+            std::cout<<"    BACK\n";
+            }
+            while (!DeleteBack.Empty()) {
+                Vector tmp;
+                tmp = DeleteBack.Pop();
+                DeleteDesignatedClause(tmp);
+                std::cout<<"\nDELETE    ";
+                tmp.Show();
+                std::cout<<"    BACK\n";
+            }
+            return false;
+        }
     }
     int p = Select(1);
     Vector V1(1, p), V2(1,-p);
     Add(V1);
-    if (Dpll(solution)) {
+    std::cout<<"ADD:   ";
+    V1.Show();
+    if (Dpll(solution, deepth+1)) {
+        std::cout << "\n\n****************************RETURN****************************\n\n";
+        std::cout<< "DEEPTH : " << deepth;
+        std::cout<<"\nDELETE  ";
+        V1.Show();
+        std::cout<<"    BACK";
         DeleteBack.Push(V1);
-        while (!AddBack.Empty()) Add(AddBack.Pop());
-        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+        while (!AddBack.Empty()) {
+            Vector tmp;
+            tmp = AddBack.Pop();
+            Add(tmp);
+            std::cout<<"\nADD   ";
+            tmp.Show();
+            std::cout<<"    BACK\n";
+        }
+        while (!DeleteBack.Empty()) {
+            Vector tmp;
+            tmp = DeleteBack.Pop();
+            DeleteDesignatedClause(tmp);
+            std::cout<<"\nDELETE    ";
+            tmp.Show();
+            std::cout<<"    BACK\n";
+        }
         return true;
     }
     else { 
         DeleteDesignatedClause(V1);
         DeleteBack.Push(V2);
         Add(V2);
-        bool sat = Dpll(solution);
-        while (!AddBack.Empty()) Add(AddBack.Pop());
-        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+        bool sat = Dpll(solution, deepth+1);
+        std::cout << "\n\n****************************RETURN****************************\n\n";
+        std::cout<< "DEEPTH : " << deepth;
+        while (!AddBack.Empty()) {
+            Vector tmp;
+            tmp = AddBack.Pop();
+            Add(tmp);
+            std::cout<<"\nADD   ";
+            tmp.Show();
+            std::cout<<"    BACK\n";
+        }
+        while (!DeleteBack.Empty()) {
+            Vector tmp;
+            tmp = DeleteBack.Pop();
+            DeleteDesignatedClause(tmp);
+            std::cout<<"\nDELETE    ";
+            tmp.Show();
+            std::cout<<"    BACK\n";
+        }
         return sat;
     }
 }

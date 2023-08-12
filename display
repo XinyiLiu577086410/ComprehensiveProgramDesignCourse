@@ -1,0 +1,6060 @@
+Snapshot:
+
+Solving a.cnf
+
+
+****************************BEGIN****************************
+
+DEEPTH : 0
+Showing cnf class: 
+length : 91
+Clause NO.0 : 4 -18 19 
+Clause NO.1 : 3 18 -5 
+Clause NO.2 : -5 -8 -15 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : 10 -13 -7 
+Clause NO.5 : -12 -9 17 
+Clause NO.6 : 17 19 5 
+Clause NO.7 : -16 9 15 
+Clause NO.8 : 11 -5 -14 
+Clause NO.9 : 18 -10 13 
+Clause NO.10 : -3 11 12 
+Clause NO.11 : -6 -17 -8 
+Clause NO.12 : -18 14 1 
+Clause NO.13 : -19 -15 10 
+Clause NO.14 : 12 18 -19 
+Clause NO.15 : -8 4 7 
+Clause NO.16 : -8 -9 4 
+Clause NO.17 : 7 17 -15 
+Clause NO.18 : 12 -7 -14 
+Clause NO.19 : -10 -11 8 
+Clause NO.20 : 2 -15 -11 
+Clause NO.21 : 9 6 1 
+Clause NO.22 : -11 20 -17 
+Clause NO.23 : 9 -15 13 
+Clause NO.24 : 12 -7 -17 
+Clause NO.25 : -18 -2 20 
+Clause NO.26 : 20 12 4 
+Clause NO.27 : 19 11 14 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : -1 -17 -19 
+Clause NO.30 : -13 15 10 
+Clause NO.31 : -12 -14 -13 
+Clause NO.32 : 12 -14 -7 
+Clause NO.33 : -7 16 10 
+Clause NO.34 : 6 10 7 
+Clause NO.35 : 20 14 -16 
+Clause NO.36 : -19 17 11 
+Clause NO.37 : -7 1 -20 
+Clause NO.38 : -5 12 15 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 12 -11 -7 
+Clause NO.41 : -5 19 -8 
+Clause NO.42 : 1 16 17 
+Clause NO.43 : 20 -14 -15 
+Clause NO.44 : 13 -4 10 
+Clause NO.45 : 14 7 10 
+Clause NO.46 : -5 9 20 
+Clause NO.47 : 10 1 -19 
+Clause NO.48 : -16 -15 -1 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : -15 -10 4 
+Clause NO.51 : 4 -15 -3 
+Clause NO.52 : -10 -16 11 
+Clause NO.53 : -8 12 -5 
+Clause NO.54 : 14 -6 12 
+Clause NO.55 : 1 6 11 
+Clause NO.56 : -13 -5 -1 
+Clause NO.57 : -7 -2 12 
+Clause NO.58 : 1 -20 19 
+Clause NO.59 : -2 -13 -8 
+Clause NO.60 : 15 18 4 
+Clause NO.61 : -11 14 9 
+Clause NO.62 : -6 -15 -2 
+Clause NO.63 : 5 -12 -15 
+Clause NO.64 : -6 17 5 
+Clause NO.65 : -13 5 -19 
+Clause NO.66 : 20 -1 14 
+Clause NO.67 : 9 -17 15 
+Clause NO.68 : -5 19 -18 
+Clause NO.69 : -12 8 -10 
+Clause NO.70 : -18 14 -4 
+Clause NO.71 : 15 -9 13 
+Clause NO.72 : 9 -5 -1 
+Clause NO.73 : 10 -19 -14 
+Clause NO.74 : 20 9 4 
+Clause NO.75 : -9 -2 19 
+Clause NO.76 : -5 13 -17 
+Clause NO.77 : 2 -10 -18 
+Clause NO.78 : -18 3 11 
+Clause NO.79 : 7 -9 17 
+Clause NO.80 : -15 -6 -3 
+Clause NO.81 : -2 3 -13 
+Clause NO.82 : 12 3 -2 
+Clause NO.83 : -2 -3 17 
+Clause NO.84 : 20 -15 -16 
+Clause NO.85 : -5 -17 -19 
+Clause NO.86 : -20 -18 11 
+Clause NO.87 : -9 1 -5 
+Clause NO.88 : -19 9 17 
+Clause NO.89 : 12 -2 17 
+Clause NO.90 : 4 -16 -5 
+End of Showing
+ADD:   -5 
+
+****************************BEGIN****************************
+
+DEEPTH : 1
+Showing cnf class: 
+length : 92
+Clause NO.0 : 4 -18 19 
+Clause NO.1 : 3 18 -5 
+Clause NO.2 : -5 -8 -15 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : 10 -13 -7 
+Clause NO.5 : -12 -9 17 
+Clause NO.6 : 17 19 5 
+Clause NO.7 : -16 9 15 
+Clause NO.8 : 11 -5 -14 
+Clause NO.9 : 18 -10 13 
+Clause NO.10 : -3 11 12 
+Clause NO.11 : -6 -17 -8 
+Clause NO.12 : -18 14 1 
+Clause NO.13 : -19 -15 10 
+Clause NO.14 : 12 18 -19 
+Clause NO.15 : -8 4 7 
+Clause NO.16 : -8 -9 4 
+Clause NO.17 : 7 17 -15 
+Clause NO.18 : 12 -7 -14 
+Clause NO.19 : -10 -11 8 
+Clause NO.20 : 2 -15 -11 
+Clause NO.21 : 9 6 1 
+Clause NO.22 : -11 20 -17 
+Clause NO.23 : 9 -15 13 
+Clause NO.24 : 12 -7 -17 
+Clause NO.25 : -18 -2 20 
+Clause NO.26 : 20 12 4 
+Clause NO.27 : 19 11 14 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : -1 -17 -19 
+Clause NO.30 : -13 15 10 
+Clause NO.31 : -12 -14 -13 
+Clause NO.32 : 12 -14 -7 
+Clause NO.33 : -7 16 10 
+Clause NO.34 : 6 10 7 
+Clause NO.35 : 20 14 -16 
+Clause NO.36 : -19 17 11 
+Clause NO.37 : -7 1 -20 
+Clause NO.38 : -5 12 15 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 12 -11 -7 
+Clause NO.41 : -5 19 -8 
+Clause NO.42 : 1 16 17 
+Clause NO.43 : 20 -14 -15 
+Clause NO.44 : 13 -4 10 
+Clause NO.45 : 14 7 10 
+Clause NO.46 : -5 9 20 
+Clause NO.47 : 10 1 -19 
+Clause NO.48 : -16 -15 -1 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : -15 -10 4 
+Clause NO.51 : 4 -15 -3 
+Clause NO.52 : -10 -16 11 
+Clause NO.53 : -8 12 -5 
+Clause NO.54 : 14 -6 12 
+Clause NO.55 : 1 6 11 
+Clause NO.56 : -13 -5 -1 
+Clause NO.57 : -7 -2 12 
+Clause NO.58 : 1 -20 19 
+Clause NO.59 : -2 -13 -8 
+Clause NO.60 : 15 18 4 
+Clause NO.61 : -11 14 9 
+Clause NO.62 : -6 -15 -2 
+Clause NO.63 : 5 -12 -15 
+Clause NO.64 : -6 17 5 
+Clause NO.65 : -13 5 -19 
+Clause NO.66 : 20 -1 14 
+Clause NO.67 : 9 -17 15 
+Clause NO.68 : -5 19 -18 
+Clause NO.69 : -12 8 -10 
+Clause NO.70 : -18 14 -4 
+Clause NO.71 : 15 -9 13 
+Clause NO.72 : 9 -5 -1 
+Clause NO.73 : 10 -19 -14 
+Clause NO.74 : 20 9 4 
+Clause NO.75 : -9 -2 19 
+Clause NO.76 : -5 13 -17 
+Clause NO.77 : 2 -10 -18 
+Clause NO.78 : -18 3 11 
+Clause NO.79 : 7 -9 17 
+Clause NO.80 : -15 -6 -3 
+Clause NO.81 : -2 3 -13 
+Clause NO.82 : 12 3 -2 
+Clause NO.83 : -2 -3 17 
+Clause NO.84 : 20 -15 -16 
+Clause NO.85 : -5 -17 -19 
+Clause NO.86 : -20 -18 11 
+Clause NO.87 : -9 1 -5 
+Clause NO.88 : -19 9 17 
+Clause NO.89 : 12 -2 17 
+Clause NO.90 : 4 -16 -5 
+Clause NO.91 : -5 
+End of Showing
+
+Single Literal : -5
+
+DELETE :    3 18 -5 
+DELETE :    -5 
+DELETE :    4 -16 -5 
+DELETE :    -5 -8 -15 
+DELETE :    11 -5 -14 
+DELETE :    -9 1 -5 
+DELETE :    -5 12 15 
+DELETE :    -5 -17 -19 
+DELETE :    -5 19 -8 
+DELETE :    -5 9 20 
+DELETE :    -8 12 -5 
+DELETE :    -13 -5 -1 
+DELETE :    -5 19 -18 
+DELETE :    9 -5 -1 
+DELETE :    -5 13 -17 REPlACE   17 19 5     WITH    17 19 
+REPlACE   5 -12 -15     WITH    -15 -12 
+REPlACE   -6 17 5     WITH    -6 17 
+REPlACE   -13 5 -19     WITH    -13 -19 
+ADD:   -15 
+
+****************************BEGIN****************************
+
+DEEPTH : 2
+Showing cnf class: 
+length : 78
+Clause NO.0 : 4 -18 19 
+Clause NO.1 : 12 -2 17 
+Clause NO.2 : -19 9 17 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : 10 -13 -7 
+Clause NO.5 : -12 -9 17 
+Clause NO.6 : 17 19 
+Clause NO.7 : -16 9 15 
+Clause NO.8 : -20 -18 11 
+Clause NO.9 : 18 -10 13 
+Clause NO.10 : -3 11 12 
+Clause NO.11 : -6 -17 -8 
+Clause NO.12 : -18 14 1 
+Clause NO.13 : -19 -15 10 
+Clause NO.14 : 12 18 -19 
+Clause NO.15 : -8 4 7 
+Clause NO.16 : -8 -9 4 
+Clause NO.17 : 7 17 -15 
+Clause NO.18 : 12 -7 -14 
+Clause NO.19 : -10 -11 8 
+Clause NO.20 : 2 -15 -11 
+Clause NO.21 : 9 6 1 
+Clause NO.22 : -11 20 -17 
+Clause NO.23 : 9 -15 13 
+Clause NO.24 : 12 -7 -17 
+Clause NO.25 : -18 -2 20 
+Clause NO.26 : 20 12 4 
+Clause NO.27 : 19 11 14 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : -1 -17 -19 
+Clause NO.30 : -13 15 10 
+Clause NO.31 : -12 -14 -13 
+Clause NO.32 : 12 -14 -7 
+Clause NO.33 : -7 16 10 
+Clause NO.34 : 6 10 7 
+Clause NO.35 : 20 14 -16 
+Clause NO.36 : -19 17 11 
+Clause NO.37 : -7 1 -20 
+Clause NO.38 : 20 -15 -16 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 12 -11 -7 
+Clause NO.41 : -2 -3 17 
+Clause NO.42 : 1 16 17 
+Clause NO.43 : 20 -14 -15 
+Clause NO.44 : 13 -4 10 
+Clause NO.45 : 14 7 10 
+Clause NO.46 : 12 3 -2 
+Clause NO.47 : 10 1 -19 
+Clause NO.48 : -16 -15 -1 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : -15 -10 4 
+Clause NO.51 : 4 -15 -3 
+Clause NO.52 : -10 -16 11 
+Clause NO.53 : -2 3 -13 
+Clause NO.54 : 14 -6 12 
+Clause NO.55 : 1 6 11 
+Clause NO.56 : -15 -6 -3 
+Clause NO.57 : -7 -2 12 
+Clause NO.58 : 1 -20 19 
+Clause NO.59 : -2 -13 -8 
+Clause NO.60 : 15 18 4 
+Clause NO.61 : -11 14 9 
+Clause NO.62 : -6 -15 -2 
+Clause NO.63 : -15 -12 
+Clause NO.64 : -6 17 
+Clause NO.65 : -13 -19 
+Clause NO.66 : 20 -1 14 
+Clause NO.67 : 9 -17 15 
+Clause NO.68 : 7 -9 17 
+Clause NO.69 : -12 8 -10 
+Clause NO.70 : -18 14 -4 
+Clause NO.71 : 15 -9 13 
+Clause NO.72 : -18 3 11 
+Clause NO.73 : 10 -19 -14 
+Clause NO.74 : 20 9 4 
+Clause NO.75 : -9 -2 19 
+Clause NO.76 : 2 -10 -18 
+Clause NO.77 : -15 
+End of Showing
+
+Single Literal : -15
+
+DELETE :    -19 -15 10 
+DELETE :    -15 
+DELETE :    7 17 -15 
+DELETE :    2 -15 -11 
+DELETE :    9 -15 13 
+DELETE :    20 -15 -16 
+DELETE :    20 -14 -15 
+DELETE :    -16 -15 -1 
+DELETE :    -15 -10 4 
+DELETE :    4 -15 -3 
+DELETE :    -15 -6 -3 
+DELETE :    -6 -15 -2 
+DELETE :    -15 -12 REPlACE   -16 9 15     WITH    -16 9 
+REPlACE   -13 15 10     WITH    -13 10 
+REPlACE   15 -9 13     WITH    13 -9 
+REPlACE   9 -17 15     WITH    9 -17 
+REPlACE   15 18 4     WITH    4 18 
+ADD:   12 
+
+****************************BEGIN****************************
+
+DEEPTH : 3
+Showing cnf class: 
+length : 66
+Clause NO.0 : 4 -18 19 
+Clause NO.1 : 12 -2 17 
+Clause NO.2 : -19 9 17 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : 10 -13 -7 
+Clause NO.5 : -12 -9 17 
+Clause NO.6 : 17 19 
+Clause NO.7 : -16 9 
+Clause NO.8 : -20 -18 11 
+Clause NO.9 : 18 -10 13 
+Clause NO.10 : -3 11 12 
+Clause NO.11 : -6 -17 -8 
+Clause NO.12 : -18 14 1 
+Clause NO.13 : 2 -10 -18 
+Clause NO.14 : 12 18 -19 
+Clause NO.15 : -8 4 7 
+Clause NO.16 : -8 -9 4 
+Clause NO.17 : -9 -2 19 
+Clause NO.18 : 12 -7 -14 
+Clause NO.19 : -10 -11 8 
+Clause NO.20 : 20 9 4 
+Clause NO.21 : 9 6 1 
+Clause NO.22 : -11 20 -17 
+Clause NO.23 : 10 -19 -14 
+Clause NO.24 : 12 -7 -17 
+Clause NO.25 : -18 -2 20 
+Clause NO.26 : 20 12 4 
+Clause NO.27 : 19 11 14 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : -1 -17 -19 
+Clause NO.30 : -13 10 
+Clause NO.31 : -12 -14 -13 
+Clause NO.32 : 12 -14 -7 
+Clause NO.33 : -7 16 10 
+Clause NO.34 : 6 10 7 
+Clause NO.35 : 20 14 -16 
+Clause NO.36 : -19 17 11 
+Clause NO.37 : -7 1 -20 
+Clause NO.38 : -18 3 11 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 12 -11 -7 
+Clause NO.41 : -2 -3 17 
+Clause NO.42 : 1 16 17 
+Clause NO.43 : 13 -9 
+Clause NO.44 : 13 -4 10 
+Clause NO.45 : 14 7 10 
+Clause NO.46 : 12 3 -2 
+Clause NO.47 : 10 1 -19 
+Clause NO.48 : -18 14 -4 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : -12 8 -10 
+Clause NO.51 : 7 -9 17 
+Clause NO.52 : -10 -16 11 
+Clause NO.53 : -2 3 -13 
+Clause NO.54 : 14 -6 12 
+Clause NO.55 : 1 6 11 
+Clause NO.56 : 9 -17 
+Clause NO.57 : -7 -2 12 
+Clause NO.58 : 1 -20 19 
+Clause NO.59 : -2 -13 -8 
+Clause NO.60 : 4 18 
+Clause NO.61 : -11 14 9 
+Clause NO.62 : 20 -1 14 
+Clause NO.63 : -13 -19 
+Clause NO.64 : -6 17 
+Clause NO.65 : 12 
+End of Showing
+
+Single Literal : 12
+
+DELETE :    12 -2 17 
+DELETE :    12 
+DELETE :    -3 11 12 
+DELETE :    12 18 -19 
+DELETE :    12 -7 -14 
+DELETE :    12 -7 -17 
+DELETE :    20 12 4 
+DELETE :    12 -14 -7 
+DELETE :    12 -11 -7 
+DELETE :    -7 -2 12 
+DELETE :    12 3 -2 
+DELETE :    14 -6 12 REPlACE   -12 -9 17     WITH    17 -9 
+REPlACE   -12 -14 -13     WITH    -13 -14 
+REPlACE   -12 8 -10     WITH    -10 8 
+ADD:   10 
+
+****************************BEGIN****************************
+
+DEEPTH : 4
+Showing cnf class: 
+length : 55
+Clause NO.0 : 4 -18 19 
+Clause NO.1 : -6 17 
+Clause NO.2 : -19 9 17 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : 10 -13 -7 
+Clause NO.5 : 17 -9 
+Clause NO.6 : 17 19 
+Clause NO.7 : -16 9 
+Clause NO.8 : -20 -18 11 
+Clause NO.9 : 18 -10 13 
+Clause NO.10 : -13 -19 
+Clause NO.11 : -6 -17 -8 
+Clause NO.12 : -18 14 1 
+Clause NO.13 : 2 -10 -18 
+Clause NO.14 : 20 -1 14 
+Clause NO.15 : -8 4 7 
+Clause NO.16 : -8 -9 4 
+Clause NO.17 : -9 -2 19 
+Clause NO.18 : -11 14 9 
+Clause NO.19 : -10 -11 8 
+Clause NO.20 : 20 9 4 
+Clause NO.21 : 9 6 1 
+Clause NO.22 : -11 20 -17 
+Clause NO.23 : 10 -19 -14 
+Clause NO.24 : 4 18 
+Clause NO.25 : -18 -2 20 
+Clause NO.26 : -2 -13 -8 
+Clause NO.27 : 19 11 14 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : -1 -17 -19 
+Clause NO.30 : -13 10 
+Clause NO.31 : -13 -14 
+Clause NO.32 : 1 -20 19 
+Clause NO.33 : -7 16 10 
+Clause NO.34 : 6 10 7 
+Clause NO.35 : 20 14 -16 
+Clause NO.36 : -19 17 11 
+Clause NO.37 : -7 1 -20 
+Clause NO.38 : -18 3 11 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 9 -17 
+Clause NO.41 : -2 -3 17 
+Clause NO.42 : 1 16 17 
+Clause NO.43 : 13 -9 
+Clause NO.44 : 13 -4 10 
+Clause NO.45 : 14 7 10 
+Clause NO.46 : 1 6 11 
+Clause NO.47 : 10 1 -19 
+Clause NO.48 : -18 14 -4 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : -10 8 
+Clause NO.51 : 7 -9 17 
+Clause NO.52 : -10 -16 11 
+Clause NO.53 : -2 3 -13 
+Clause NO.54 : 10 
+End of Showing
+
+Single Literal : 10
+
+DELETE :    10 -13 -7 
+DELETE :    10 
+DELETE :    10 -19 -14 
+DELETE :    -13 10 
+DELETE :    -7 16 10 
+DELETE :    6 10 7 
+DELETE :    13 -4 10 
+DELETE :    14 7 10 
+DELETE :    10 1 -19 REPlACE   18 -10 13     WITH    18 13 
+REPlACE   2 -10 -18     WITH    2 -18 
+REPlACE   -10 -11 8     WITH    8 -11 
+REPlACE   -10 -16 11     WITH    11 -16 
+REPlACE   -10 8     WITH    8 
+
+Single Literal : 8
+
+DELETE :    8 -11 
+DELETE :    8 REPlACE   -6 -17 -8     WITH    -6 -17 
+REPlACE   -8 4 7     WITH    7 4 
+REPlACE   -8 -9 4     WITH    4 -9 
+REPlACE   -2 -13 -8     WITH    -2 -13 
+ADD:   17 
+
+****************************BEGIN****************************
+
+DEEPTH : 5
+Showing cnf class: 
+length : 45
+Clause NO.0 : 4 -18 19 
+Clause NO.1 : -6 17 
+Clause NO.2 : -19 9 17 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : -2 3 -13 
+Clause NO.5 : 17 -9 
+Clause NO.6 : 17 19 
+Clause NO.7 : -16 9 
+Clause NO.8 : -20 -18 11 
+Clause NO.9 : 18 13 
+Clause NO.10 : -13 -19 
+Clause NO.11 : -6 -17 
+Clause NO.12 : -18 14 1 
+Clause NO.13 : 2 -18 
+Clause NO.14 : 20 -1 14 
+Clause NO.15 : 7 4 
+Clause NO.16 : 4 -9 
+Clause NO.17 : -9 -2 19 
+Clause NO.18 : -11 14 9 
+Clause NO.19 : 1 6 11 
+Clause NO.20 : 20 9 4 
+Clause NO.21 : 9 6 1 
+Clause NO.22 : -11 20 -17 
+Clause NO.23 : 11 -16 
+Clause NO.24 : 4 18 
+Clause NO.25 : -18 -2 20 
+Clause NO.26 : -2 -13 
+Clause NO.27 : 19 11 14 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : -1 -17 -19 
+Clause NO.30 : 7 -9 17 
+Clause NO.31 : -13 -14 
+Clause NO.32 : 1 -20 19 
+Clause NO.33 : -18 14 -4 
+Clause NO.34 : 16 3 -11 
+Clause NO.35 : 20 14 -16 
+Clause NO.36 : -19 17 11 
+Clause NO.37 : -7 1 -20 
+Clause NO.38 : -18 3 11 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 9 -17 
+Clause NO.41 : -2 -3 17 
+Clause NO.42 : 1 16 17 
+Clause NO.43 : 13 -9 
+Clause NO.44 : 17 
+End of Showing
+
+Single Literal : 17
+
+DELETE :    -6 17 
+DELETE :    17 
+DELETE :    -19 9 17 
+DELETE :    1 16 17 
+DELETE :    -2 -3 17 
+DELETE :    17 -9 
+DELETE :    17 19 
+DELETE :    7 -9 17 
+DELETE :    -19 17 11 REPlACE   9 -17     WITH    9 
+REPlACE   -6 -17     WITH    -6 
+REPlACE   -11 20 -17     WITH    -11 20 
+REPlACE   -1 -17 -19     WITH    -1 -19 
+
+Single Literal : -6
+
+DELETE :    -6 REPlACE   1 6 11     WITH    1 11 
+REPlACE   9 6 1     WITH    9 1 
+
+Single Literal : 9
+
+DELETE :    9 
+DELETE :    -16 9 
+DELETE :    -11 14 9 
+DELETE :    20 9 4 
+DELETE :    9 1 REPlACE   13 -9     WITH    13 
+REPlACE   -4 -9 -13     WITH    -4 -13 
+REPlACE   4 -9     WITH    4 
+REPlACE   -9 -2 19     WITH    19 -2 
+
+Single Literal : 4
+
+DELETE :    4 -18 19 
+DELETE :    7 4 
+DELETE :    4 
+DELETE :    4 18 REPlACE   -4 -13     WITH    -13 
+REPlACE   -18 14 -4     WITH    -18 14 
+REPlACE   -16 18 -4     WITH    -16 18 
+
+Single Literal : -13
+
+DELETE :    -2 3 -13 
+DELETE :    -13 
+DELETE :    -2 -13 
+DELETE :    -13 -19 
+DELETE :    -13 -14 REPlACE   13     WITH    
+REPlACE   18 13     WITH    18 
+
+ADD   18 13     BACK
+
+ADD   13     BACK
+
+ADD   -13 -14     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -2 -13     BACK
+
+ADD   -13     BACK
+
+ADD   -2 3 -13     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   -4 -13     BACK
+
+ADD   4 18     BACK
+
+ADD   4     BACK
+
+ADD   7 4     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   -9 -2 19     BACK
+
+ADD   4 -9     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   13 -9     BACK
+
+ADD   9 1     BACK
+
+ADD   20 9 4     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   -16 9     BACK
+
+ADD   9     BACK
+
+ADD   9 6 1     BACK
+
+ADD   1 6 11     BACK
+
+ADD   -6     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   -6 -17     BACK
+
+ADD   9 -17     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   7 -9 17     BACK
+
+ADD   17 19     BACK
+
+ADD   17 -9     BACK
+
+ADD   -2 -3 17     BACK
+
+ADD   1 16 17     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   17     BACK
+
+ADD   -6 17     BACK
+
+DELETE    18     BACK
+
+DELETE        BACK
+
+DELETE    -16 18     BACK
+
+DELETE    -18 14     BACK
+
+DELETE    -13     BACK
+
+DELETE    19 -2     BACK
+
+DELETE    4     BACK
+
+DELETE    -4 -13     BACK
+
+DELETE    13     BACK
+
+DELETE    9 1     BACK
+
+DELETE    1 11     BACK
+
+DELETE    -1 -19     BACK
+
+DELETE    -11 20     BACK
+
+DELETE    -6     BACK
+
+DELETE    9     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 5
+Showing cnf class: 
+length : 45
+Clause NO.0 : -11 20 -17 
+Clause NO.1 : 9 6 1 
+Clause NO.2 : 16 3 -11 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : -18 -2 20 
+Clause NO.5 : 11 -16 
+Clause NO.6 : -18 3 11 
+Clause NO.7 : 1 16 17 
+Clause NO.8 : -20 -18 11 
+Clause NO.9 : -6 17 
+Clause NO.10 : -1 -17 -19 
+Clause NO.11 : 20 14 -16 
+Clause NO.12 : -18 14 1 
+Clause NO.13 : 2 -18 
+Clause NO.14 : 20 -1 14 
+Clause NO.15 : -19 9 17 
+Clause NO.16 : 19 11 14 
+Clause NO.17 : 17 -9 
+Clause NO.18 : 1 -20 19 
+Clause NO.19 : -6 -17 
+Clause NO.20 : -7 1 -20 
+Clause NO.21 : 18 13 
+Clause NO.22 : -19 17 11 
+Clause NO.23 : -13 -14 
+Clause NO.24 : -13 -19 
+Clause NO.25 : -2 -13 
+Clause NO.26 : -2 -3 17 
+Clause NO.27 : -2 3 -13 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : -18 14 -4 
+Clause NO.30 : 7 -9 17 
+Clause NO.31 : 4 18 
+Clause NO.32 : 17 19 
+Clause NO.33 : 7 4 
+Clause NO.34 : 4 -18 19 
+Clause NO.35 : -9 -2 19 
+Clause NO.36 : 4 -9 
+Clause NO.37 : -4 -9 -13 
+Clause NO.38 : 13 -9 
+Clause NO.39 : 9 -17 
+Clause NO.40 : 20 9 4 
+Clause NO.41 : -11 14 9 
+Clause NO.42 : -16 9 
+Clause NO.43 : 1 6 11 
+Clause NO.44 : -17 
+End of Showing
+
+Single Literal : -17
+
+DELETE :    -11 20 -17 
+DELETE :    -17 
+DELETE :    -1 -17 -19 
+DELETE :    -6 -17 
+DELETE :    9 -17 REPlACE   1 16 17     WITH    1 16 
+REPlACE   -6 17     WITH    -6 
+REPlACE   -19 9 17     WITH    -19 9 
+REPlACE   17 -9     WITH    -9 
+REPlACE   -19 17 11     WITH    -19 11 
+REPlACE   -2 -3 17     WITH    -2 -3 
+REPlACE   7 -9 17     WITH    7 -9 
+REPlACE   17 19     WITH    19 
+
+Single Literal : 19
+
+DELETE :    19 11 14 
+DELETE :    1 -20 19 
+DELETE :    19 
+DELETE :    4 -18 19 
+DELETE :    -9 -2 19 REPlACE   -19 9     WITH    9 
+REPlACE   -19 11     WITH    11 
+REPlACE   -13 -19     WITH    -13 
+
+Single Literal : -13
+
+DELETE :    -13 -14 
+DELETE :    -13 
+DELETE :    -2 -13 
+DELETE :    -4 -9 -13 
+DELETE :    -2 3 -13 REPlACE   13 -9     WITH    -9 
+REPlACE   18 13     WITH    18 
+
+Single Literal : 11
+
+DELETE :    1 6 11 
+DELETE :    11 -16 
+DELETE :    -18 3 11 
+DELETE :    -20 -18 11 
+DELETE :    11 REPlACE   16 3 -11     WITH    16 3 
+REPlACE   -11 14 9     WITH    9 14 
+
+Single Literal : 18
+
+DELETE :    -16 18 -4 
+DELETE :    18 
+DELETE :    4 18 REPlACE   -18 14 -4     WITH    -4 14 
+REPlACE   -18 -2 20     WITH    20 -2 
+REPlACE   -18 14 1     WITH    1 14 
+REPlACE   2 -18     WITH    2 
+
+Single Literal : -9
+
+DELETE :    7 -9 
+DELETE :    4 -9 
+DELETE :    -9 
+DELETE :    -9 REPlACE   9 6 1     WITH    1 6 
+REPlACE   -16 9     WITH    -16 
+REPlACE   9     WITH    
+REPlACE   20 9 4     WITH    20 4 
+REPlACE   9 14     WITH    14 
+
+ADD   9 14     BACK
+
+ADD   20 9 4     BACK
+
+ADD   9     BACK
+
+ADD   -16 9     BACK
+
+ADD   9 6 1     BACK
+
+ADD   -9     BACK
+
+ADD   -9     BACK
+
+ADD   4 -9     BACK
+
+ADD   7 -9     BACK
+
+ADD   2 -18     BACK
+
+ADD   -18 14 1     BACK
+
+ADD   -18 -2 20     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   4 18     BACK
+
+ADD   18     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   16 3 -11     BACK
+
+ADD   11     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   11 -16     BACK
+
+ADD   1 6 11     BACK
+
+ADD   18 13     BACK
+
+ADD   13 -9     BACK
+
+ADD   -2 3 -13     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   -2 -13     BACK
+
+ADD   -13     BACK
+
+ADD   -13 -14     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -19 11     BACK
+
+ADD   -19 9     BACK
+
+ADD   -9 -2 19     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   19     BACK
+
+ADD   1 -20 19     BACK
+
+ADD   19 11 14     BACK
+
+ADD   17 19     BACK
+
+ADD   7 -9 17     BACK
+
+ADD   -2 -3 17     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   17 -9     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   -6 17     BACK
+
+ADD   1 16 17     BACK
+
+ADD   9 -17     BACK
+
+ADD   -6 -17     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   -17     BACK
+
+ADD   -11 20 -17     BACK
+
+DELETE    14     BACK
+
+DELETE    20 4     BACK
+
+DELETE        BACK
+
+DELETE    -16     BACK
+
+DELETE    1 6     BACK
+
+DELETE    2     BACK
+
+DELETE    1 14     BACK
+
+DELETE    20 -2     BACK
+
+DELETE    -4 14     BACK
+
+DELETE    9 14     BACK
+
+DELETE    16 3     BACK
+
+DELETE    18     BACK
+
+DELETE    -9     BACK
+
+DELETE    -13     BACK
+
+DELETE    11     BACK
+
+DELETE    9     BACK
+
+DELETE    19     BACK
+
+DELETE    7 -9     BACK
+
+DELETE    -2 -3     BACK
+
+DELETE    -19 11     BACK
+
+DELETE    -9     BACK
+
+DELETE    -19 9     BACK
+
+DELETE    -6     BACK
+
+DELETE    1 16     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 4
+ADD   -2 -13 -8     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   -8 4 7     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   8     BACK
+
+ADD   8 -11     BACK
+
+ADD   -10 8     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   2 -10 -18     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   10 1 -19     BACK
+
+ADD   14 7 10     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   6 10 7     BACK
+
+ADD   -7 16 10     BACK
+
+ADD   -13 10     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   10     BACK
+
+ADD   10 -13 -7     BACK
+
+DELETE    -17     BACK
+
+DELETE    -2 -13     BACK
+
+DELETE    4 -9     BACK
+
+DELETE    7 4     BACK
+
+DELETE    -6 -17     BACK
+
+DELETE    8     BACK
+
+DELETE    11 -16     BACK
+
+DELETE    8 -11     BACK
+
+DELETE    2 -18     BACK
+
+DELETE    18 13     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 4
+Showing cnf class: 
+length : 55
+Clause NO.0 : 17 -9 
+Clause NO.1 : 9 -17 
+Clause NO.2 : -2 -3 17 
+Clause NO.3 : -20 7 -16 
+Clause NO.4 : -19 9 17 
+Clause NO.5 : -13 10 
+Clause NO.6 : -7 1 -20 
+Clause NO.7 : 2 -10 -18 
+Clause NO.8 : -13 -19 
+Clause NO.9 : 1 -20 19 
+Clause NO.10 : -7 16 10 
+Clause NO.11 : 20 14 -16 
+Clause NO.12 : -6 17 
+Clause NO.13 : 1 16 17 
+Clause NO.14 : 20 -1 14 
+Clause NO.15 : -1 -17 -19 
+Clause NO.16 : 10 -13 -7 
+Clause NO.17 : -11 20 -17 
+Clause NO.18 : -19 17 11 
+Clause NO.19 : 20 9 4 
+Clause NO.20 : 4 -18 19 
+Clause NO.21 : -16 9 
+Clause NO.22 : 9 6 1 
+Clause NO.23 : 17 19 
+Clause NO.24 : 19 11 14 
+Clause NO.25 : 10 -19 -14 
+Clause NO.26 : -13 -14 
+Clause NO.27 : 10 1 -19 
+Clause NO.28 : -18 14 1 
+Clause NO.29 : -18 -2 20 
+Clause NO.30 : -18 14 -4 
+Clause NO.31 : 4 18 
+Clause NO.32 : 7 -9 17 
+Clause NO.33 : -16 18 -4 
+Clause NO.34 : -11 14 9 
+Clause NO.35 : 16 3 -11 
+Clause NO.36 : -9 -2 19 
+Clause NO.37 : -20 -18 11 
+Clause NO.38 : -18 3 11 
+Clause NO.39 : 13 -4 10 
+Clause NO.40 : 1 6 11 
+Clause NO.41 : 18 -10 13 
+Clause NO.42 : 13 -9 
+Clause NO.43 : -2 3 -13 
+Clause NO.44 : -4 -9 -13 
+Clause NO.45 : -2 -13 -8 
+Clause NO.46 : -8 -9 4 
+Clause NO.47 : -8 4 7 
+Clause NO.48 : -6 -17 -8 
+Clause NO.49 : 6 10 7 
+Clause NO.50 : 14 7 10 
+Clause NO.51 : -10 8 
+Clause NO.52 : -10 -16 11 
+Clause NO.53 : -10 -11 8 
+Clause NO.54 : -10 
+End of Showing
+
+Single Literal : -10
+
+DELETE :    2 -10 -18 
+DELETE :    -10 
+DELETE :    -10 -11 8 
+DELETE :    -10 -16 11 
+DELETE :    -10 8 
+DELETE :    18 -10 13 REPlACE   -13 10     WITH    -13 
+REPlACE   14 7 10     WITH    14 7 
+REPlACE   -7 16 10     WITH    -7 16 
+REPlACE   10 -13 -7     WITH    -7 -13 
+REPlACE   10 -19 -14     WITH    -14 -19 
+REPlACE   10 1 -19     WITH    -19 1 
+REPlACE   13 -4 10     WITH    13 -4 
+REPlACE   6 10 7     WITH    6 7 
+
+Single Literal : -13
+
+DELETE :    -13 
+DELETE :    -13 -19 
+DELETE :    -7 -13 
+DELETE :    -13 -14 
+DELETE :    -2 -13 -8 
+DELETE :    -4 -9 -13 
+DELETE :    -2 3 -13 REPlACE   13 -9     WITH    -9 
+REPlACE   13 -4     WITH    -4 
+
+Single Literal : -4
+
+DELETE :    -18 14 -4 
+DELETE :    -16 18 -4 
+DELETE :    -4 REPlACE   -8 4 7     WITH    -8 7 
+REPlACE   -8 -9 4     WITH    -8 -9 
+REPlACE   20 9 4     WITH    20 9 
+REPlACE   4 -18 19     WITH    19 -18 
+REPlACE   4 18     WITH    18 
+
+Single Literal : 18
+
+DELETE :    18 REPlACE   19 -18     WITH    19 
+REPlACE   -18 14 1     WITH    1 14 
+REPlACE   -18 -2 20     WITH    20 -2 
+REPlACE   -18 3 11     WITH    11 3 
+REPlACE   -20 -18 11     WITH    -20 11 
+
+Single Literal : -9
+
+DELETE :    17 -9 
+DELETE :    -8 -9 
+DELETE :    -9 -2 19 
+DELETE :    -9 
+DELETE :    7 -9 17 REPlACE   9 -17     WITH    -17 
+REPlACE   -19 9 17     WITH    -19 17 
+REPlACE   20 9     WITH    20 
+REPlACE   -16 9     WITH    -16 
+REPlACE   9 6 1     WITH    1 6 
+REPlACE   -11 14 9     WITH    -11 14 
+
+Single Literal : -16
+
+DELETE :    -20 7 -16 
+DELETE :    20 14 -16 
+DELETE :    -16 REPlACE   -7 16     WITH    -7 
+REPlACE   1 16 17     WITH    1 17 
+REPlACE   16 3 -11     WITH    -11 3 
+
+Single Literal : 19
+
+DELETE :    1 -20 19 
+DELETE :    19 
+DELETE :    17 19 
+DELETE :    19 11 14 REPlACE   -19 17     WITH    17 
+REPlACE   -1 -17 -19     WITH    -1 -17 
+REPlACE   -19 17 11     WITH    11 17 
+REPlACE   -19 1     WITH    1 
+REPlACE   -14 -19     WITH    -14 
+
+Single Literal : -14
+
+DELETE :    -14 REPlACE   14 7     WITH    7 
+REPlACE   20 -1 14     WITH    20 -1 
+REPlACE   1 14     WITH    1 
+REPlACE   -11 14     WITH    -11 
+
+Single Literal : -11
+
+DELETE :    -11 3 
+DELETE :    -11 
+DELETE :    -11 20 -17 REPlACE   -20 11     WITH    -20 
+REPlACE   1 6 11     WITH    1 6 
+REPlACE   11 3     WITH    3 
+REPlACE   11 17     WITH    17 
+
+Single Literal : 1
+
+DELETE :    1 6 
+DELETE :    -7 1 -20 
+DELETE :    1 
+DELETE :    1 17 
+DELETE :    1 
+DELETE :    1 6 REPlACE   20 -1     WITH    20 
+REPlACE   -1 -17     WITH    -17 
+
+Single Literal : -17
+
+DELETE :    -17 
+DELETE :    -17 
+DELETE :    -6 -17 -8 REPlACE   -2 -3 17     WITH    -2 -3 
+REPlACE   17     WITH    
+REPlACE   17     WITH    
+REPlACE   -6 17     WITH    -6 
+
+ADD   -6 17     BACK
+
+ADD   17     BACK
+
+ADD   17     BACK
+
+ADD   -2 -3 17     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -17     BACK
+
+ADD   -17     BACK
+
+ADD   -1 -17     BACK
+
+ADD   20 -1     BACK
+
+ADD   1 6     BACK
+
+ADD   1     BACK
+
+ADD   1 17     BACK
+
+ADD   1     BACK
+
+ADD   -7 1 -20     BACK
+
+ADD   1 6     BACK
+
+ADD   11 17     BACK
+
+ADD   11 3     BACK
+
+ADD   1 6 11     BACK
+
+ADD   -20 11     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   -11     BACK
+
+ADD   -11 3     BACK
+
+ADD   -11 14     BACK
+
+ADD   1 14     BACK
+
+ADD   20 -1 14     BACK
+
+ADD   14 7     BACK
+
+ADD   -14     BACK
+
+ADD   -14 -19     BACK
+
+ADD   -19 1     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   -19 17     BACK
+
+ADD   19 11 14     BACK
+
+ADD   17 19     BACK
+
+ADD   19     BACK
+
+ADD   1 -20 19     BACK
+
+ADD   16 3 -11     BACK
+
+ADD   1 16 17     BACK
+
+ADD   -7 16     BACK
+
+ADD   -16     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   -20 7 -16     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   9 6 1     BACK
+
+ADD   -16 9     BACK
+
+ADD   20 9     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   9 -17     BACK
+
+ADD   7 -9 17     BACK
+
+ADD   -9     BACK
+
+ADD   -9 -2 19     BACK
+
+ADD   -8 -9     BACK
+
+ADD   17 -9     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   -18 -2 20     BACK
+
+ADD   -18 14 1     BACK
+
+ADD   19 -18     BACK
+
+ADD   18     BACK
+
+ADD   4 18     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   20 9 4     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   -8 4 7     BACK
+
+ADD   -4     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   13 -4     BACK
+
+ADD   13 -9     BACK
+
+ADD   -2 3 -13     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   -2 -13 -8     BACK
+
+ADD   -13 -14     BACK
+
+ADD   -7 -13     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -13     BACK
+
+ADD   6 10 7     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   10 1 -19     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   10 -13 -7     BACK
+
+ADD   -7 16 10     BACK
+
+ADD   14 7 10     BACK
+
+ADD   -13 10     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   -10 8     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   -10     BACK
+
+ADD   2 -10 -18     BACK
+
+DELETE    -6     BACK
+
+DELETE        BACK
+
+DELETE        BACK
+
+DELETE    -2 -3     BACK
+
+DELETE    -17     BACK
+
+DELETE    20     BACK
+
+DELETE    17     BACK
+
+DELETE    3     BACK
+
+DELETE    1 6     BACK
+
+DELETE    -20     BACK
+
+DELETE    -11     BACK
+
+DELETE    1     BACK
+
+DELETE    20 -1     BACK
+
+DELETE    7     BACK
+
+DELETE    -14     BACK
+
+DELETE    1     BACK
+
+DELETE    11 17     BACK
+
+DELETE    -1 -17     BACK
+
+DELETE    17     BACK
+
+DELETE    -11 3     BACK
+
+DELETE    1 17     BACK
+
+DELETE    -7     BACK
+
+DELETE    -11 14     BACK
+
+DELETE    1 6     BACK
+
+DELETE    -16     BACK
+
+DELETE    20     BACK
+
+DELETE    -19 17     BACK
+
+DELETE    -17     BACK
+
+DELETE    -20 11     BACK
+
+DELETE    11 3     BACK
+
+DELETE    20 -2     BACK
+
+DELETE    1 14     BACK
+
+DELETE    19     BACK
+
+DELETE    18     BACK
+
+DELETE    19 -18     BACK
+
+DELETE    20 9     BACK
+
+DELETE    -8 -9     BACK
+
+DELETE    -8 7     BACK
+
+DELETE    -4     BACK
+
+DELETE    -9     BACK
+
+DELETE    6 7     BACK
+
+DELETE    13 -4     BACK
+
+DELETE    -19 1     BACK
+
+DELETE    -14 -19     BACK
+
+DELETE    -7 -13     BACK
+
+DELETE    -7 16     BACK
+
+DELETE    14 7     BACK
+
+DELETE    -13     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 3
+ADD   -12 8 -10     BACK
+
+ADD   -12 -14 -13     BACK
+
+ADD   -12 -9 17     BACK
+
+ADD   14 -6 12     BACK
+
+ADD   12 3 -2     BACK
+
+ADD   -7 -2 12     BACK
+
+ADD   12 -11 -7     BACK
+
+ADD   12 -14 -7     BACK
+
+ADD   20 12 4     BACK
+
+ADD   12 -7 -17     BACK
+
+ADD   12 -7 -14     BACK
+
+ADD   12 18 -19     BACK
+
+ADD   -3 11 12     BACK
+
+ADD   12     BACK
+
+ADD   12 -2 17     BACK
+
+DELETE    -10     BACK
+
+DELETE    -10 8     BACK
+
+DELETE    -13 -14     BACK
+
+DELETE    17 -9     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 3
+Showing cnf class: 
+length : 66
+Clause NO.0 : 6 10 7 
+Clause NO.1 : -13 10 
+Clause NO.2 : -10 -16 11 
+Clause NO.3 : -9 -2 19 
+Clause NO.4 : 12 -2 17 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 7 10 
+Clause NO.7 : -2 -13 -8 
+Clause NO.8 : 12 18 -19 
+Clause NO.9 : 4 18 
+Clause NO.10 : -16 18 -4 
+Clause NO.11 : 10 -19 -14 
+Clause NO.12 : 2 -10 -18 
+Clause NO.13 : -6 17 
+Clause NO.14 : -7 16 10 
+Clause NO.15 : 10 -13 -7 
+Clause NO.16 : -2 -3 17 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 12 -7 -14 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -3 11 12 
+Clause NO.22 : 10 1 -19 
+Clause NO.23 : -13 -19 
+Clause NO.24 : -18 14 -4 
+Clause NO.25 : -18 3 11 
+Clause NO.26 : -7 1 -20 
+Clause NO.27 : 13 -4 10 
+Clause NO.28 : -2 3 -13 
+Clause NO.29 : 4 -18 19 
+Clause NO.30 : 1 6 11 
+Clause NO.31 : 20 9 4 
+Clause NO.32 : -11 20 -17 
+Clause NO.33 : -11 14 9 
+Clause NO.34 : 7 -9 17 
+Clause NO.35 : -20 -18 11 
+Clause NO.36 : -18 14 1 
+Clause NO.37 : 20 -1 14 
+Clause NO.38 : 9 6 1 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : -19 9 17 
+Clause NO.41 : 9 -17 
+Clause NO.42 : -19 17 11 
+Clause NO.43 : -1 -17 -19 
+Clause NO.44 : -8 -9 4 
+Clause NO.45 : 19 11 14 
+Clause NO.46 : 17 19 
+Clause NO.47 : -18 -2 20 
+Clause NO.48 : 1 -20 19 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : 1 16 17 
+Clause NO.51 : -16 9 
+Clause NO.52 : -8 4 7 
+Clause NO.53 : 20 14 -16 
+Clause NO.54 : -20 7 -16 
+Clause NO.55 : -12 8 -10 
+Clause NO.56 : -12 -14 -13 
+Clause NO.57 : -12 -9 17 
+Clause NO.58 : 14 -6 12 
+Clause NO.59 : 12 3 -2 
+Clause NO.60 : -7 -2 12 
+Clause NO.61 : 12 -11 -7 
+Clause NO.62 : 12 -14 -7 
+Clause NO.63 : 20 12 4 
+Clause NO.64 : 12 -7 -17 
+Clause NO.65 : -12 
+End of Showing
+
+Single Literal : -12
+
+DELETE :    -12 8 -10 
+DELETE :    -12 
+DELETE :    -12 -14 -13 
+DELETE :    -12 -9 17 REPlACE   12 -2 17     WITH    17 -2 
+REPlACE   12 18 -19     WITH    -19 18 
+REPlACE   12 -7 -14     WITH    -14 -7 
+REPlACE   -3 11 12     WITH    -3 11 
+REPlACE   12 -7 -17     WITH    -17 -7 
+REPlACE   20 12 4     WITH    20 4 
+REPlACE   12 -14 -7     WITH    -7 -14 
+REPlACE   14 -6 12     WITH    14 -6 
+REPlACE   12 3 -2     WITH    -2 3 
+REPlACE   -7 -2 12     WITH    -7 -2 
+REPlACE   12 -11 -7     WITH    -7 -11 
+ADD:   -7 
+
+****************************BEGIN****************************
+
+DEEPTH : 4
+Showing cnf class: 
+length : 63
+Clause NO.0 : 6 10 7 
+Clause NO.1 : -13 10 
+Clause NO.2 : -10 -16 11 
+Clause NO.3 : -9 -2 19 
+Clause NO.4 : 17 -2 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 7 10 
+Clause NO.7 : -2 -13 -8 
+Clause NO.8 : -19 18 
+Clause NO.9 : 4 18 
+Clause NO.10 : -16 18 -4 
+Clause NO.11 : 10 -19 -14 
+Clause NO.12 : 2 -10 -18 
+Clause NO.13 : -6 17 
+Clause NO.14 : -7 16 10 
+Clause NO.15 : 10 -13 -7 
+Clause NO.16 : -2 -3 17 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : -14 -7 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -3 11 
+Clause NO.22 : 10 1 -19 
+Clause NO.23 : -13 -19 
+Clause NO.24 : -18 14 -4 
+Clause NO.25 : -18 3 11 
+Clause NO.26 : -7 1 -20 
+Clause NO.27 : 13 -4 10 
+Clause NO.28 : -2 3 -13 
+Clause NO.29 : 4 -18 19 
+Clause NO.30 : 1 6 11 
+Clause NO.31 : 20 9 4 
+Clause NO.32 : -11 20 -17 
+Clause NO.33 : -11 14 9 
+Clause NO.34 : 7 -9 17 
+Clause NO.35 : -20 -18 11 
+Clause NO.36 : -18 14 1 
+Clause NO.37 : 20 -1 14 
+Clause NO.38 : 9 6 1 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : -19 9 17 
+Clause NO.41 : 9 -17 
+Clause NO.42 : -19 17 11 
+Clause NO.43 : -1 -17 -19 
+Clause NO.44 : -8 -9 4 
+Clause NO.45 : 19 11 14 
+Clause NO.46 : 17 19 
+Clause NO.47 : -18 -2 20 
+Clause NO.48 : 1 -20 19 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : 1 16 17 
+Clause NO.51 : -16 9 
+Clause NO.52 : -8 4 7 
+Clause NO.53 : 20 14 -16 
+Clause NO.54 : -20 7 -16 
+Clause NO.55 : -17 -7 
+Clause NO.56 : 20 4 
+Clause NO.57 : -7 -14 
+Clause NO.58 : 14 -6 
+Clause NO.59 : -2 3 
+Clause NO.60 : -7 -2 
+Clause NO.61 : -7 -11 
+Clause NO.62 : -7 
+End of Showing
+
+Single Literal : -7
+
+DELETE :    -7 16 10 
+DELETE :    -7 
+DELETE :    -7 -11 
+DELETE :    -7 -2 
+DELETE :    10 -13 -7 
+DELETE :    -14 -7 
+DELETE :    -7 -14 
+DELETE :    -7 1 -20 
+DELETE :    -17 -7 REPlACE   6 10 7     WITH    6 10 
+REPlACE   14 7 10     WITH    14 10 
+REPlACE   -20 7 -16     WITH    -20 -16 
+REPlACE   7 -9 17     WITH    17 -9 
+REPlACE   -8 4 7     WITH    -8 4 
+ADD:   -2 
+
+****************************BEGIN****************************
+
+DEEPTH : 5
+Showing cnf class: 
+length : 55
+Clause NO.0 : 6 10 
+Clause NO.1 : -13 10 
+Clause NO.2 : -10 -16 11 
+Clause NO.3 : -9 -2 19 
+Clause NO.4 : 17 -2 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 10 
+Clause NO.7 : -2 -13 -8 
+Clause NO.8 : -19 18 
+Clause NO.9 : 4 18 
+Clause NO.10 : -16 18 -4 
+Clause NO.11 : 10 -19 -14 
+Clause NO.12 : 2 -10 -18 
+Clause NO.13 : -6 17 
+Clause NO.14 : -2 3 
+Clause NO.15 : 14 -6 
+Clause NO.16 : -2 -3 17 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 20 4 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -3 11 
+Clause NO.22 : 10 1 -19 
+Clause NO.23 : -13 -19 
+Clause NO.24 : -18 14 -4 
+Clause NO.25 : -18 3 11 
+Clause NO.26 : -20 -16 
+Clause NO.27 : 13 -4 10 
+Clause NO.28 : -2 3 -13 
+Clause NO.29 : 4 -18 19 
+Clause NO.30 : 1 6 11 
+Clause NO.31 : 20 9 4 
+Clause NO.32 : -11 20 -17 
+Clause NO.33 : -11 14 9 
+Clause NO.34 : 17 -9 
+Clause NO.35 : -20 -18 11 
+Clause NO.36 : -18 14 1 
+Clause NO.37 : 20 -1 14 
+Clause NO.38 : 9 6 1 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : -19 9 17 
+Clause NO.41 : 9 -17 
+Clause NO.42 : -19 17 11 
+Clause NO.43 : -1 -17 -19 
+Clause NO.44 : -8 -9 4 
+Clause NO.45 : 19 11 14 
+Clause NO.46 : 17 19 
+Clause NO.47 : -18 -2 20 
+Clause NO.48 : 1 -20 19 
+Clause NO.49 : 16 3 -11 
+Clause NO.50 : 1 16 17 
+Clause NO.51 : -16 9 
+Clause NO.52 : -8 4 
+Clause NO.53 : 20 14 -16 
+Clause NO.54 : -2 
+End of Showing
+
+Single Literal : -2
+
+DELETE :    -9 -2 19 
+DELETE :    -2 
+DELETE :    17 -2 
+DELETE :    -2 -13 -8 
+DELETE :    -2 3 
+DELETE :    -2 -3 17 
+DELETE :    -2 3 -13 
+DELETE :    -18 -2 20 REPlACE   2 -10 -18     WITH    -18 -10 
+ADD:   1 
+
+****************************BEGIN****************************
+
+DEEPTH : 6
+Showing cnf class: 
+length : 48
+Clause NO.0 : 6 10 
+Clause NO.1 : -13 10 
+Clause NO.2 : -10 -16 11 
+Clause NO.3 : 20 14 -16 
+Clause NO.4 : -8 4 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 10 
+Clause NO.7 : -16 9 
+Clause NO.8 : -19 18 
+Clause NO.9 : 4 18 
+Clause NO.10 : -16 18 -4 
+Clause NO.11 : 10 -19 -14 
+Clause NO.12 : -18 -10 
+Clause NO.13 : -6 17 
+Clause NO.14 : 1 16 17 
+Clause NO.15 : 14 -6 
+Clause NO.16 : 16 3 -11 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 20 4 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -3 11 
+Clause NO.22 : 10 1 -19 
+Clause NO.23 : -13 -19 
+Clause NO.24 : -18 14 -4 
+Clause NO.25 : -18 3 11 
+Clause NO.26 : -20 -16 
+Clause NO.27 : 13 -4 10 
+Clause NO.28 : 1 -20 19 
+Clause NO.29 : 4 -18 19 
+Clause NO.30 : 1 6 11 
+Clause NO.31 : 20 9 4 
+Clause NO.32 : -11 20 -17 
+Clause NO.33 : -11 14 9 
+Clause NO.34 : 17 -9 
+Clause NO.35 : -20 -18 11 
+Clause NO.36 : -18 14 1 
+Clause NO.37 : 20 -1 14 
+Clause NO.38 : 9 6 1 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : -19 9 17 
+Clause NO.41 : 9 -17 
+Clause NO.42 : -19 17 11 
+Clause NO.43 : -1 -17 -19 
+Clause NO.44 : -8 -9 4 
+Clause NO.45 : 19 11 14 
+Clause NO.46 : 17 19 
+Clause NO.47 : 1 
+End of Showing
+
+Single Literal : 1
+
+DELETE :    1 16 17 
+DELETE :    1 
+DELETE :    10 1 -19 
+DELETE :    1 -20 19 
+DELETE :    1 6 11 
+DELETE :    -18 14 1 
+DELETE :    9 6 1 REPlACE   -1 -17 -19     WITH    -19 -17 
+REPlACE   20 -1 14     WITH    20 14 
+ADD:   -16 
+
+****************************BEGIN****************************
+
+DEEPTH : 7
+Showing cnf class: 
+length : 42
+Clause NO.0 : 6 10 
+Clause NO.1 : -13 10 
+Clause NO.2 : -10 -16 11 
+Clause NO.3 : 20 14 -16 
+Clause NO.4 : -8 4 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 10 
+Clause NO.7 : -16 9 
+Clause NO.8 : -19 18 
+Clause NO.9 : 4 18 
+Clause NO.10 : -16 18 -4 
+Clause NO.11 : 10 -19 -14 
+Clause NO.12 : -18 -10 
+Clause NO.13 : -6 17 
+Clause NO.14 : 17 19 
+Clause NO.15 : 14 -6 
+Clause NO.16 : 16 3 -11 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 20 4 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -3 11 
+Clause NO.22 : 19 11 14 
+Clause NO.23 : -13 -19 
+Clause NO.24 : -18 14 -4 
+Clause NO.25 : -18 3 11 
+Clause NO.26 : -20 -16 
+Clause NO.27 : 13 -4 10 
+Clause NO.28 : -8 -9 4 
+Clause NO.29 : 4 -18 19 
+Clause NO.30 : -19 -17 
+Clause NO.31 : 20 9 4 
+Clause NO.32 : -11 20 -17 
+Clause NO.33 : -11 14 9 
+Clause NO.34 : 17 -9 
+Clause NO.35 : -20 -18 11 
+Clause NO.36 : -19 17 11 
+Clause NO.37 : 20 14 
+Clause NO.38 : 9 -17 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : -19 9 17 
+Clause NO.41 : -16 
+End of Showing
+
+Single Literal : -16
+
+DELETE :    -10 -16 11 
+DELETE :    -16 
+DELETE :    20 14 -16 
+DELETE :    -16 9 
+DELETE :    -16 18 -4 
+DELETE :    -20 -16 REPlACE   16 3 -11     WITH    -11 3 
+ADD:   20 
+
+****************************BEGIN****************************
+
+DEEPTH : 8
+Showing cnf class: 
+length : 37
+Clause NO.0 : 6 10 
+Clause NO.1 : -13 10 
+Clause NO.2 : -19 9 17 
+Clause NO.3 : -4 -9 -13 
+Clause NO.4 : -8 4 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 10 
+Clause NO.7 : 9 -17 
+Clause NO.8 : -19 18 
+Clause NO.9 : 4 18 
+Clause NO.10 : 20 14 
+Clause NO.11 : 10 -19 -14 
+Clause NO.12 : -18 -10 
+Clause NO.13 : -6 17 
+Clause NO.14 : 17 19 
+Clause NO.15 : 14 -6 
+Clause NO.16 : -11 3 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 20 4 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -3 11 
+Clause NO.22 : 19 11 14 
+Clause NO.23 : -13 -19 
+Clause NO.24 : -18 14 -4 
+Clause NO.25 : -18 3 11 
+Clause NO.26 : -19 17 11 
+Clause NO.27 : 13 -4 10 
+Clause NO.28 : -8 -9 4 
+Clause NO.29 : 4 -18 19 
+Clause NO.30 : -19 -17 
+Clause NO.31 : 20 9 4 
+Clause NO.32 : -11 20 -17 
+Clause NO.33 : -11 14 9 
+Clause NO.34 : 17 -9 
+Clause NO.35 : -20 -18 11 
+Clause NO.36 : 20 
+End of Showing
+
+Single Literal : 20
+
+DELETE :    20 14 
+DELETE :    20 
+DELETE :    20 4 
+DELETE :    20 9 4 
+DELETE :    -11 20 -17 REPlACE   -20 -18 11     WITH    11 -18 
+ADD:   -13 
+
+****************************BEGIN****************************
+
+DEEPTH : 9
+Showing cnf class: 
+length : 33
+Clause NO.0 : 6 10 
+Clause NO.1 : -13 10 
+Clause NO.2 : -19 9 17 
+Clause NO.3 : -4 -9 -13 
+Clause NO.4 : -8 4 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 10 
+Clause NO.7 : 9 -17 
+Clause NO.8 : -19 18 
+Clause NO.9 : 4 18 
+Clause NO.10 : 11 -18 
+Clause NO.11 : 10 -19 -14 
+Clause NO.12 : -18 -10 
+Clause NO.13 : -6 17 
+Clause NO.14 : 17 19 
+Clause NO.15 : 14 -6 
+Clause NO.16 : -11 3 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 17 -9 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -3 11 
+Clause NO.22 : 19 11 14 
+Clause NO.23 : -13 -19 
+Clause NO.24 : -18 14 -4 
+Clause NO.25 : -18 3 11 
+Clause NO.26 : -19 17 11 
+Clause NO.27 : 13 -4 10 
+Clause NO.28 : -8 -9 4 
+Clause NO.29 : 4 -18 19 
+Clause NO.30 : -19 -17 
+Clause NO.31 : -11 14 9 
+Clause NO.32 : -13 
+End of Showing
+
+Single Literal : -13
+
+DELETE :    -13 10 
+DELETE :    -13 
+DELETE :    -4 -9 -13 
+DELETE :    -13 -19 REPlACE   18 -10 13     WITH    18 -10 
+REPlACE   13 -9     WITH    -9 
+REPlACE   13 -4 10     WITH    10 -4 
+
+Single Literal : -9
+
+DELETE :    17 -9 
+DELETE :    -8 -9 4 
+DELETE :    -9 REPlACE   -11 14 9     WITH    -11 14 
+REPlACE   -19 9 17     WITH    -19 17 
+REPlACE   9 -17     WITH    -17 
+
+Single Literal : -17
+
+DELETE :    -19 -17 
+DELETE :    -17 
+DELETE :    -6 -17 -8 REPlACE   -19 17     WITH    -19 
+REPlACE   -6 17     WITH    -6 
+REPlACE   17 19     WITH    19 
+REPlACE   -19 17 11     WITH    -19 11 
+
+Single Literal : 19
+
+DELETE :    19 
+DELETE :    19 11 14 
+DELETE :    4 -18 19 REPlACE   -19     WITH    
+REPlACE   -19 18     WITH    18 
+REPlACE   10 -19 -14     WITH    10 -14 
+REPlACE   -19 11     WITH    11 
+
+ADD   -19 11     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   -19 18     BACK
+
+ADD   -19     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   19 11 14     BACK
+
+ADD   19     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   17 19     BACK
+
+ADD   -6 17     BACK
+
+ADD   -19 17     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -17     BACK
+
+ADD   -19 -17     BACK
+
+ADD   9 -17     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   -9     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   17 -9     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   13 -9     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   -13     BACK
+
+ADD   -13 10     BACK
+
+DELETE    11     BACK
+
+DELETE    10 -14     BACK
+
+DELETE    18     BACK
+
+DELETE        BACK
+
+DELETE    -19 11     BACK
+
+DELETE    19     BACK
+
+DELETE    -6     BACK
+
+DELETE    -19     BACK
+
+DELETE    -17     BACK
+
+DELETE    -19 17     BACK
+
+DELETE    -11 14     BACK
+
+DELETE    10 -4     BACK
+
+DELETE    -9     BACK
+
+DELETE    18 -10     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 9
+Showing cnf class: 
+length : 33
+Clause NO.0 : 6 10 
+Clause NO.1 : -11 14 9 
+Clause NO.2 : -13 -19 
+Clause NO.3 : -18 3 11 
+Clause NO.4 : -8 4 
+Clause NO.5 : -10 -11 8 
+Clause NO.6 : 14 10 
+Clause NO.7 : -18 14 -4 
+Clause NO.8 : -4 -9 -13 
+Clause NO.9 : 4 18 
+Clause NO.10 : 11 -18 
+Clause NO.11 : -8 -9 4 
+Clause NO.12 : -18 -10 
+Clause NO.13 : 13 -4 10 
+Clause NO.14 : -3 11 
+Clause NO.15 : 14 -6 
+Clause NO.16 : -11 3 
+Clause NO.17 : -13 10 
+Clause NO.18 : -19 9 17 
+Clause NO.19 : -19 -17 
+Clause NO.20 : 18 -10 13 
+Clause NO.21 : 10 -19 -14 
+Clause NO.22 : -19 18 
+Clause NO.23 : 17 -9 
+Clause NO.24 : 4 -18 19 
+Clause NO.25 : 19 11 14 
+Clause NO.26 : 13 -9 
+Clause NO.27 : -19 17 11 
+Clause NO.28 : 17 19 
+Clause NO.29 : -6 17 
+Clause NO.30 : 9 -17 
+Clause NO.31 : -6 -17 -8 
+Clause NO.32 : 13 
+End of Showing
+
+Single Literal : 13
+
+DELETE :    13 -4 10 
+DELETE :    13 
+DELETE :    18 -10 13 
+DELETE :    13 -9 REPlACE   -13 -19     WITH    -19 
+REPlACE   -4 -9 -13     WITH    -4 -9 
+REPlACE   -13 10     WITH    10 
+
+Single Literal : 10
+
+DELETE :    6 10 
+DELETE :    14 10 
+DELETE :    10 
+DELETE :    10 -19 -14 REPlACE   -10 -11 8     WITH    8 -11 
+REPlACE   -18 -10     WITH    -18 
+
+Single Literal : -18
+
+DELETE :    -18 3 11 
+DELETE :    4 -18 19 
+DELETE :    -18 14 -4 
+DELETE :    11 -18 
+DELETE :    -18 REPlACE   -19 18     WITH    -19 
+REPlACE   4 18     WITH    4 
+
+Single Literal : 4
+
+DELETE :    -8 4 
+DELETE :    4 
+DELETE :    -8 -9 4 REPlACE   -4 -9     WITH    -9 
+
+Single Literal : -9
+
+DELETE :    17 -9 
+DELETE :    -9 REPlACE   -11 14 9     WITH    -11 14 
+REPlACE   -19 9 17     WITH    -19 17 
+REPlACE   9 -17     WITH    -17 
+
+Single Literal : -17
+
+DELETE :    -19 -17 
+DELETE :    -17 
+DELETE :    -6 -17 -8 REPlACE   17 19     WITH    19 
+REPlACE   -19 17 11     WITH    -19 11 
+REPlACE   -19 17     WITH    -19 
+REPlACE   -6 17     WITH    -6 
+
+Single Literal : -6
+
+DELETE :    14 -6 
+DELETE :    -6 
+Single Literal : -19
+
+DELETE :    -19 
+DELETE :    -19 
+DELETE :    -19 11 
+DELETE :    -19 REPlACE   19     WITH    
+REPlACE   19 11 14     WITH    14 11 
+
+ADD   19 11 14     BACK
+
+ADD   19     BACK
+
+ADD   -19     BACK
+
+ADD   -19 11     BACK
+
+ADD   -19     BACK
+
+ADD   -19     BACK
+
+ADD   -6     BACK
+
+ADD   14 -6     BACK
+
+ADD   -6 17     BACK
+
+ADD   -19 17     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   17 19     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -17     BACK
+
+ADD   -19 -17     BACK
+
+ADD   9 -17     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   -9     BACK
+
+ADD   17 -9     BACK
+
+ADD   -4 -9     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   4     BACK
+
+ADD   -8 4     BACK
+
+ADD   4 18     BACK
+
+ADD   -19 18     BACK
+
+ADD   -18     BACK
+
+ADD   11 -18     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   -18 -10     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   10     BACK
+
+ADD   14 10     BACK
+
+ADD   6 10     BACK
+
+ADD   -13 10     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   -13 -19     BACK
+
+ADD   13 -9     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   13     BACK
+
+ADD   13 -4 10     BACK
+
+DELETE    14 11     BACK
+
+DELETE        BACK
+
+DELETE    -6     BACK
+
+DELETE    -19     BACK
+
+DELETE    -19 11     BACK
+
+DELETE    19     BACK
+
+DELETE    -17     BACK
+
+DELETE    -19 17     BACK
+
+DELETE    -11 14     BACK
+
+DELETE    -9     BACK
+
+DELETE    4     BACK
+
+DELETE    -19     BACK
+
+DELETE    -18     BACK
+
+DELETE    8 -11     BACK
+
+DELETE    10     BACK
+
+DELETE    -4 -9     BACK
+
+DELETE    -19     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 8
+ADD   -20 -18 11     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   20 9 4     BACK
+
+ADD   20 4     BACK
+
+ADD   20     BACK
+
+ADD   20 14     BACK
+
+DELETE    13     BACK
+
+DELETE    11 -18     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 8
+Showing cnf class: 
+length : 37
+Clause NO.0 : 20 14 
+Clause NO.1 : 10 -19 -14 
+Clause NO.2 : 13 -4 10 
+Clause NO.3 : -11 3 
+Clause NO.4 : -3 11 
+Clause NO.5 : 4 -18 19 
+Clause NO.6 : 19 11 14 
+Clause NO.7 : 6 10 
+Clause NO.8 : 13 -9 
+Clause NO.9 : -13 10 
+Clause NO.10 : -13 -19 
+Clause NO.11 : -4 -9 -13 
+Clause NO.12 : 18 -10 13 
+Clause NO.13 : 14 -6 
+Clause NO.14 : -6 17 
+Clause NO.15 : -18 14 -4 
+Clause NO.16 : -19 17 11 
+Clause NO.17 : 17 19 
+Clause NO.18 : -6 -17 -8 
+Clause NO.19 : 14 10 
+Clause NO.20 : -19 -17 
+Clause NO.21 : 9 -17 
+Clause NO.22 : -19 9 17 
+Clause NO.23 : -11 14 9 
+Clause NO.24 : -10 -11 8 
+Clause NO.25 : 17 -9 
+Clause NO.26 : 20 4 
+Clause NO.27 : -8 -9 4 
+Clause NO.28 : -18 -10 
+Clause NO.29 : -8 4 
+Clause NO.30 : 4 18 
+Clause NO.31 : -19 18 
+Clause NO.32 : -18 3 11 
+Clause NO.33 : -20 -18 11 
+Clause NO.34 : -11 20 -17 
+Clause NO.35 : 20 9 4 
+Clause NO.36 : -20 
+End of Showing
+
+Single Literal : -20
+
+DELETE :    -20 -18 11 
+DELETE :    -20 REPlACE   20 14     WITH    14 
+REPlACE   20 4     WITH    4 
+REPlACE   20 9 4     WITH    4 9 
+REPlACE   -11 20 -17     WITH    -11 -17 
+
+Single Literal : 4
+
+DELETE :    4 -18 19 
+DELETE :    4 
+DELETE :    4 9 
+DELETE :    -8 -9 4 
+DELETE :    -8 4 
+DELETE :    4 18 REPlACE   13 -4 10     WITH    13 10 
+REPlACE   -4 -9 -13     WITH    -13 -9 
+REPlACE   -18 14 -4     WITH    -18 14 
+
+Single Literal : 14
+
+DELETE :    14 
+DELETE :    19 11 14 
+DELETE :    14 -6 
+DELETE :    -18 14 
+DELETE :    14 10 
+DELETE :    -11 14 9 REPlACE   10 -19 -14     WITH    10 -19 
+ADD:   -6 
+
+****************************BEGIN****************************
+
+DEEPTH : 9
+Showing cnf class: 
+length : 24
+Clause NO.0 : -18 -10 
+Clause NO.1 : 10 -19 
+Clause NO.2 : 13 10 
+Clause NO.3 : -11 3 
+Clause NO.4 : -3 11 
+Clause NO.5 : -11 -17 
+Clause NO.6 : -19 18 
+Clause NO.7 : 6 10 
+Clause NO.8 : 13 -9 
+Clause NO.9 : -13 10 
+Clause NO.10 : -13 -19 
+Clause NO.11 : -13 -9 
+Clause NO.12 : 18 -10 13 
+Clause NO.13 : -18 3 11 
+Clause NO.14 : -6 17 
+Clause NO.15 : 17 -9 
+Clause NO.16 : -19 17 11 
+Clause NO.17 : 17 19 
+Clause NO.18 : -6 -17 -8 
+Clause NO.19 : -10 -11 8 
+Clause NO.20 : -19 -17 
+Clause NO.21 : 9 -17 
+Clause NO.22 : -19 9 17 
+Clause NO.23 : -6 
+End of Showing
+
+Single Literal : -6
+
+DELETE :    -6 17 
+DELETE :    -6 
+DELETE :    -6 -17 -8 REPlACE   6 10     WITH    10 
+
+Single Literal : 10
+
+DELETE :    10 -19 
+DELETE :    13 10 
+DELETE :    10 
+DELETE :    -13 10 REPlACE   -18 -10     WITH    -18 
+REPlACE   -10 -11 8     WITH    8 -11 
+REPlACE   18 -10 13     WITH    18 13 
+
+Single Literal : -18
+
+DELETE :    -18 
+DELETE :    -18 3 11 REPlACE   -19 18     WITH    -19 
+REPlACE   18 13     WITH    13 
+
+Single Literal : 13
+
+DELETE :    13 -9 
+DELETE :    13 REPlACE   -13 -19     WITH    -19 
+REPlACE   -13 -9     WITH    -9 
+
+Single Literal : -9
+
+DELETE :    -9 
+DELETE :    17 -9 REPlACE   9 -17     WITH    -17 
+REPlACE   -19 9 17     WITH    -19 17 
+
+Single Literal : -19
+
+DELETE :    -19 17 11 
+DELETE :    -19 
+DELETE :    -19 -17 
+DELETE :    -19 17 
+DELETE :    -19 REPlACE   17 19     WITH    17 
+
+Single Literal : -17
+
+DELETE :    -17 
+DELETE :    -11 -17 REPlACE   17     WITH    
+
+ADD   17     BACK
+
+ADD   -11 -17     BACK
+
+ADD   -17     BACK
+
+ADD   17 19     BACK
+
+ADD   -19     BACK
+
+ADD   -19 17     BACK
+
+ADD   -19 -17     BACK
+
+ADD   -19     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   9 -17     BACK
+
+ADD   17 -9     BACK
+
+ADD   -9     BACK
+
+ADD   -13 -9     BACK
+
+ADD   -13 -19     BACK
+
+ADD   13     BACK
+
+ADD   13 -9     BACK
+
+ADD   18 13     BACK
+
+ADD   -19 18     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   -18     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   -18 -10     BACK
+
+ADD   -13 10     BACK
+
+ADD   10     BACK
+
+ADD   13 10     BACK
+
+ADD   10 -19     BACK
+
+ADD   6 10     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -6     BACK
+
+ADD   -6 17     BACK
+
+DELETE        BACK
+
+DELETE    17     BACK
+
+DELETE    -19 17     BACK
+
+DELETE    -17     BACK
+
+DELETE    -9     BACK
+
+DELETE    -19     BACK
+
+DELETE    13     BACK
+
+DELETE    -19     BACK
+
+DELETE    18 13     BACK
+
+DELETE    8 -11     BACK
+
+DELETE    -18     BACK
+
+DELETE    10     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 9
+Showing cnf class: 
+length : 24
+Clause NO.0 : -6 17 
+Clause NO.1 : -3 11 
+Clause NO.2 : -10 -11 8 
+Clause NO.3 : -11 3 
+Clause NO.4 : -18 3 11 
+Clause NO.5 : -11 -17 
+Clause NO.6 : 6 10 
+Clause NO.7 : 17 19 
+Clause NO.8 : 13 10 
+Clause NO.9 : -6 -17 -8 
+Clause NO.10 : -19 -17 
+Clause NO.11 : 18 -10 13 
+Clause NO.12 : -19 17 11 
+Clause NO.13 : -19 9 17 
+Clause NO.14 : 9 -17 
+Clause NO.15 : 17 -9 
+Clause NO.16 : 10 -19 
+Clause NO.17 : -13 -9 
+Clause NO.18 : -13 -19 
+Clause NO.19 : -13 10 
+Clause NO.20 : 13 -9 
+Clause NO.21 : -18 -10 
+Clause NO.22 : -19 18 
+Clause NO.23 : 6 
+End of Showing
+
+Single Literal : 6
+
+DELETE :    6 10 
+DELETE :    6 REPlACE   -6 17     WITH    17 
+REPlACE   -6 -17 -8     WITH    -8 -17 
+
+Single Literal : 17
+
+DELETE :    17 
+DELETE :    17 19 
+DELETE :    -19 17 11 
+DELETE :    -19 9 17 
+DELETE :    17 -9 REPlACE   -11 -17     WITH    -11 
+REPlACE   -8 -17     WITH    -8 
+REPlACE   -19 -17     WITH    -19 
+REPlACE   9 -17     WITH    9 
+
+Single Literal : 9
+
+DELETE :    9 REPlACE   13 -9     WITH    13 
+REPlACE   -13 -9     WITH    -13 
+
+Single Literal : -13
+
+DELETE :    -13 10 
+DELETE :    -13 
+DELETE :    -13 -19 REPlACE   13     WITH    
+REPlACE   13 10     WITH    10 
+REPlACE   18 -10 13     WITH    18 -10 
+
+ADD   18 -10 13     BACK
+
+ADD   13 10     BACK
+
+ADD   13     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -13     BACK
+
+ADD   -13 10     BACK
+
+ADD   -13 -9     BACK
+
+ADD   13 -9     BACK
+
+ADD   9     BACK
+
+ADD   9 -17     BACK
+
+ADD   -19 -17     BACK
+
+ADD   -8 -17     BACK
+
+ADD   -11 -17     BACK
+
+ADD   17 -9     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   17 19     BACK
+
+ADD   17     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -6 17     BACK
+
+ADD   6     BACK
+
+ADD   6 10     BACK
+
+DELETE    18 -10     BACK
+
+DELETE    10     BACK
+
+DELETE        BACK
+
+DELETE    -13     BACK
+
+DELETE    13     BACK
+
+DELETE    9     BACK
+
+DELETE    -19     BACK
+
+DELETE    -8     BACK
+
+DELETE    -11     BACK
+
+DELETE    -8 -17     BACK
+
+DELETE    17     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 8
+ADD   10 -19 -14     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   14 10     BACK
+
+ADD   -18 14     BACK
+
+ADD   14 -6     BACK
+
+ADD   19 11 14     BACK
+
+ADD   14     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   4 18     BACK
+
+ADD   -8 4     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   4 9     BACK
+
+ADD   4     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   20 9 4     BACK
+
+ADD   20 4     BACK
+
+ADD   20 14     BACK
+
+ADD   -20     BACK
+
+ADD   -20 -18 11     BACK
+
+DELETE    6     BACK
+
+DELETE    10 -19     BACK
+
+DELETE    -18 14     BACK
+
+DELETE    -13 -9     BACK
+
+DELETE    13 10     BACK
+
+DELETE    -11 -17     BACK
+
+DELETE    4 9     BACK
+
+DELETE    4     BACK
+
+DELETE    14     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 7
+ADD   16 3 -11     BACK
+
+ADD   -20 -16     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -16 9     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   -16     BACK
+
+ADD   -10 -16 11     BACK
+
+DELETE    -20     BACK
+
+DELETE    -11 3     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 7
+Showing cnf class: 
+length : 42
+Clause NO.0 : -18 -10 
+Clause NO.1 : -3 11 
+Clause NO.2 : -10 -11 8 
+Clause NO.3 : 20 14 -16 
+Clause NO.4 : -18 3 11 
+Clause NO.5 : 17 -9 
+Clause NO.6 : -19 18 
+Clause NO.7 : -6 17 
+Clause NO.8 : -20 -18 11 
+Clause NO.9 : -19 9 17 
+Clause NO.10 : -19 17 11 
+Clause NO.11 : 6 10 
+Clause NO.12 : -10 -16 11 
+Clause NO.13 : 18 -10 13 
+Clause NO.14 : 20 9 4 
+Clause NO.15 : -11 20 -17 
+Clause NO.16 : -13 -19 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : -13 10 
+Clause NO.19 : 20 4 
+Clause NO.20 : 13 -9 
+Clause NO.21 : 17 19 
+Clause NO.22 : 9 -17 
+Clause NO.23 : -19 -17 
+Clause NO.24 : 10 -19 -14 
+Clause NO.25 : -11 14 9 
+Clause NO.26 : 14 10 
+Clause NO.27 : 20 14 
+Clause NO.28 : 14 -6 
+Clause NO.29 : 19 11 14 
+Clause NO.30 : 4 -18 19 
+Clause NO.31 : -18 14 -4 
+Clause NO.32 : -4 -9 -13 
+Clause NO.33 : 13 -4 10 
+Clause NO.34 : 4 18 
+Clause NO.35 : -8 4 
+Clause NO.36 : -8 -9 4 
+Clause NO.37 : 16 3 -11 
+Clause NO.38 : -20 -16 
+Clause NO.39 : -16 18 -4 
+Clause NO.40 : -16 9 
+Clause NO.41 : 16 
+End of Showing
+
+Single Literal : 16
+
+DELETE :    16 3 -11 
+DELETE :    16 REPlACE   20 14 -16     WITH    20 14 
+REPlACE   -10 -16 11     WITH    -10 11 
+REPlACE   -16 9     WITH    9 
+REPlACE   -20 -16     WITH    -20 
+REPlACE   -16 18 -4     WITH    -4 18 
+
+Single Literal : -20
+
+DELETE :    -20 -18 11 
+DELETE :    -20 REPlACE   20 14     WITH    14 
+REPlACE   20 9 4     WITH    4 9 
+REPlACE   -11 20 -17     WITH    -11 -17 
+REPlACE   20 4     WITH    4 
+REPlACE   20 14     WITH    14 
+
+Single Literal : 9
+
+DELETE :    -19 9 17 
+DELETE :    9 
+DELETE :    4 9 
+DELETE :    9 -17 
+DELETE :    -11 14 9 REPlACE   17 -9     WITH    17 
+REPlACE   -8 -9 4     WITH    -8 4 
+REPlACE   13 -9     WITH    13 
+REPlACE   -4 -9 -13     WITH    -4 -13 
+
+Single Literal : 14
+
+DELETE :    14 
+DELETE :    14 10 
+DELETE :    -18 14 -4 
+DELETE :    14 
+DELETE :    19 11 14 
+DELETE :    14 -6 REPlACE   10 -19 -14     WITH    10 -19 
+
+Single Literal : 13
+
+DELETE :    18 -10 13 
+DELETE :    13 
+DELETE :    13 -4 10 REPlACE   -4 -13     WITH    -4 
+REPlACE   -13 -19     WITH    -19 
+REPlACE   -13 10     WITH    10 
+
+Single Literal : 4
+
+DELETE :    -8 4 
+DELETE :    4 -18 19 
+DELETE :    4 18 
+DELETE :    -8 4 
+DELETE :    4 REPlACE   -4     WITH    
+REPlACE   -4 18     WITH    18 
+
+ADD   -4 18     BACK
+
+ADD   -4     BACK
+
+ADD   4     BACK
+
+ADD   -8 4     BACK
+
+ADD   4 18     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   -8 4     BACK
+
+ADD   -13 10     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -4 -13     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   13     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   14 -6     BACK
+
+ADD   19 11 14     BACK
+
+ADD   14     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   14 10     BACK
+
+ADD   14     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   13 -9     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   17 -9     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   9 -17     BACK
+
+ADD   4 9     BACK
+
+ADD   9     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   20 14     BACK
+
+ADD   20 4     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   20 9 4     BACK
+
+ADD   20 14     BACK
+
+ADD   -20     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -20 -16     BACK
+
+ADD   -16 9     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   16     BACK
+
+ADD   16 3 -11     BACK
+
+DELETE    18     BACK
+
+DELETE        BACK
+
+DELETE    10     BACK
+
+DELETE    -19     BACK
+
+DELETE    -4     BACK
+
+DELETE    10 -19     BACK
+
+DELETE    -4 -13     BACK
+
+DELETE    13     BACK
+
+DELETE    -8 4     BACK
+
+DELETE    17     BACK
+
+DELETE    14     BACK
+
+DELETE    4     BACK
+
+DELETE    -11 -17     BACK
+
+DELETE    4 9     BACK
+
+DELETE    14     BACK
+
+DELETE    -4 18     BACK
+
+DELETE    -20     BACK
+
+DELETE    9     BACK
+
+DELETE    -10 11     BACK
+
+DELETE    20 14     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 6
+ADD   20 -1 14     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   9 6 1     BACK
+
+ADD   -18 14 1     BACK
+
+ADD   1 6 11     BACK
+
+ADD   1 -20 19     BACK
+
+ADD   10 1 -19     BACK
+
+ADD   1     BACK
+
+ADD   1 16 17     BACK
+
+DELETE    16     BACK
+
+DELETE    20 14     BACK
+
+DELETE    -19 -17     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 6
+Showing cnf class: 
+length : 47
+Clause NO.0 : -18 -10 
+Clause NO.1 : -3 11 
+Clause NO.2 : -10 -11 8 
+Clause NO.3 : 1 16 17 
+Clause NO.4 : -18 3 11 
+Clause NO.5 : 20 9 4 
+Clause NO.6 : -19 18 
+Clause NO.7 : -6 17 
+Clause NO.8 : 16 3 -11 
+Clause NO.9 : 10 1 -19 
+Clause NO.10 : -19 17 11 
+Clause NO.11 : 6 10 
+Clause NO.12 : 17 -9 
+Clause NO.13 : 17 19 
+Clause NO.14 : -20 -16 
+Clause NO.15 : -19 9 17 
+Clause NO.16 : -10 -16 11 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 20 14 -16 
+Clause NO.19 : -11 14 9 
+Clause NO.20 : -16 9 
+Clause NO.21 : -8 -9 4 
+Clause NO.22 : 9 -17 
+Clause NO.23 : 4 18 
+Clause NO.24 : 4 -18 19 
+Clause NO.25 : 13 -9 
+Clause NO.26 : -13 10 
+Clause NO.27 : -13 -19 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : 13 -4 10 
+Clause NO.30 : -20 -18 11 
+Clause NO.31 : 18 -10 13 
+Clause NO.32 : 10 -19 -14 
+Clause NO.33 : 14 -6 
+Clause NO.34 : 19 11 14 
+Clause NO.35 : -11 20 -17 
+Clause NO.36 : -18 14 -4 
+Clause NO.37 : 14 10 
+Clause NO.38 : 20 4 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 20 -1 14 
+Clause NO.41 : -1 -17 -19 
+Clause NO.42 : 9 6 1 
+Clause NO.43 : -18 14 1 
+Clause NO.44 : 1 6 11 
+Clause NO.45 : 1 -20 19 
+Clause NO.46 : -1 
+End of Showing
+
+Single Literal : -1
+
+DELETE :    20 -1 14 
+DELETE :    -1 
+DELETE :    -1 -17 -19 REPlACE   1 16 17     WITH    17 16 
+REPlACE   10 1 -19     WITH    10 -19 
+REPlACE   1 -20 19     WITH    19 -20 
+REPlACE   1 6 11     WITH    11 6 
+REPlACE   9 6 1     WITH    9 6 
+REPlACE   -18 14 1     WITH    -18 14 
+ADD:   11 
+
+****************************BEGIN****************************
+
+DEEPTH : 7
+Showing cnf class: 
+length : 45
+Clause NO.0 : -18 -10 
+Clause NO.1 : -3 11 
+Clause NO.2 : -10 -11 8 
+Clause NO.3 : 17 16 
+Clause NO.4 : -18 3 11 
+Clause NO.5 : 20 9 4 
+Clause NO.6 : -19 18 
+Clause NO.7 : -6 17 
+Clause NO.8 : 16 3 -11 
+Clause NO.9 : 10 -19 
+Clause NO.10 : -19 17 11 
+Clause NO.11 : 6 10 
+Clause NO.12 : 17 -9 
+Clause NO.13 : 17 19 
+Clause NO.14 : -20 -16 
+Clause NO.15 : -19 9 17 
+Clause NO.16 : -10 -16 11 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 20 14 -16 
+Clause NO.19 : -11 14 9 
+Clause NO.20 : -16 9 
+Clause NO.21 : -8 -9 4 
+Clause NO.22 : 9 -17 
+Clause NO.23 : 4 18 
+Clause NO.24 : 4 -18 19 
+Clause NO.25 : 13 -9 
+Clause NO.26 : -13 10 
+Clause NO.27 : -13 -19 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : 13 -4 10 
+Clause NO.30 : -20 -18 11 
+Clause NO.31 : 18 -10 13 
+Clause NO.32 : 10 -19 -14 
+Clause NO.33 : 14 -6 
+Clause NO.34 : 19 11 14 
+Clause NO.35 : -11 20 -17 
+Clause NO.36 : -18 14 -4 
+Clause NO.37 : 14 10 
+Clause NO.38 : 20 4 
+Clause NO.39 : -4 -9 -13 
+Clause NO.40 : 19 -20 
+Clause NO.41 : 11 6 
+Clause NO.42 : 9 6 
+Clause NO.43 : -18 14 
+Clause NO.44 : 11 
+End of Showing
+
+Single Literal : 11
+
+DELETE :    -3 11 
+DELETE :    11 
+DELETE :    -18 3 11 
+DELETE :    -19 17 11 
+DELETE :    11 6 
+DELETE :    -10 -16 11 
+DELETE :    -20 -18 11 
+DELETE :    19 11 14 REPlACE   -10 -11 8     WITH    -10 8 
+REPlACE   16 3 -11     WITH    16 3 
+REPlACE   -11 14 9     WITH    9 14 
+REPlACE   -11 20 -17     WITH    -17 20 
+ADD:   14 
+
+****************************BEGIN****************************
+
+DEEPTH : 8
+Showing cnf class: 
+length : 38
+Clause NO.0 : -18 -10 
+Clause NO.1 : -18 14 
+Clause NO.2 : -10 8 
+Clause NO.3 : 17 16 
+Clause NO.4 : 9 6 
+Clause NO.5 : 20 9 4 
+Clause NO.6 : -19 18 
+Clause NO.7 : -6 17 
+Clause NO.8 : 16 3 
+Clause NO.9 : 10 -19 
+Clause NO.10 : 19 -20 
+Clause NO.11 : 6 10 
+Clause NO.12 : 17 -9 
+Clause NO.13 : 17 19 
+Clause NO.14 : -20 -16 
+Clause NO.15 : -19 9 17 
+Clause NO.16 : -4 -9 -13 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 20 14 -16 
+Clause NO.19 : 9 14 
+Clause NO.20 : -16 9 
+Clause NO.21 : -8 -9 4 
+Clause NO.22 : 9 -17 
+Clause NO.23 : 4 18 
+Clause NO.24 : 4 -18 19 
+Clause NO.25 : 13 -9 
+Clause NO.26 : -13 10 
+Clause NO.27 : -13 -19 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : 13 -4 10 
+Clause NO.30 : 20 4 
+Clause NO.31 : 18 -10 13 
+Clause NO.32 : 10 -19 -14 
+Clause NO.33 : 14 -6 
+Clause NO.34 : 14 10 
+Clause NO.35 : -17 20 
+Clause NO.36 : -18 14 -4 
+Clause NO.37 : 14 
+End of Showing
+
+Single Literal : 14
+
+DELETE :    -18 14 
+DELETE :    14 
+DELETE :    -18 14 -4 
+DELETE :    20 14 -16 
+DELETE :    14 10 
+DELETE :    14 -6 
+DELETE :    9 14 REPlACE   10 -19 -14     WITH    10 -19 
+ADD:   -20 
+
+****************************BEGIN****************************
+
+DEEPTH : 9
+Showing cnf class: 
+length : 32
+Clause NO.0 : -18 -10 
+Clause NO.1 : -17 20 
+Clause NO.2 : -10 8 
+Clause NO.3 : 17 16 
+Clause NO.4 : 9 6 
+Clause NO.5 : 20 9 4 
+Clause NO.6 : -19 18 
+Clause NO.7 : -6 17 
+Clause NO.8 : 16 3 
+Clause NO.9 : 10 -19 
+Clause NO.10 : 19 -20 
+Clause NO.11 : 6 10 
+Clause NO.12 : 17 -9 
+Clause NO.13 : 17 19 
+Clause NO.14 : -20 -16 
+Clause NO.15 : -19 9 17 
+Clause NO.16 : -4 -9 -13 
+Clause NO.17 : -6 -17 -8 
+Clause NO.18 : 10 -19 
+Clause NO.19 : 18 -10 13 
+Clause NO.20 : -16 9 
+Clause NO.21 : -8 -9 4 
+Clause NO.22 : 9 -17 
+Clause NO.23 : 4 18 
+Clause NO.24 : 4 -18 19 
+Clause NO.25 : 13 -9 
+Clause NO.26 : -13 10 
+Clause NO.27 : -13 -19 
+Clause NO.28 : -16 18 -4 
+Clause NO.29 : 13 -4 10 
+Clause NO.30 : 20 4 
+Clause NO.31 : -20 
+End of Showing
+
+Single Literal : -20
+
+DELETE :    19 -20 
+DELETE :    -20 
+DELETE :    -20 -16 REPlACE   -17 20     WITH    -17 
+REPlACE   20 9 4     WITH    4 9 
+REPlACE   20 4     WITH    4 
+
+Single Literal : 4
+
+DELETE :    4 9 
+DELETE :    4 
+DELETE :    -8 -9 4 
+DELETE :    4 18 
+DELETE :    4 -18 19 REPlACE   -16 18 -4     WITH    -16 18 
+REPlACE   13 -4 10     WITH    13 10 
+REPlACE   -4 -9 -13     WITH    -13 -9 
+
+Single Literal : -17
+
+DELETE :    -17 
+DELETE :    -6 -17 -8 
+DELETE :    9 -17 REPlACE   17 16     WITH    16 
+REPlACE   -6 17     WITH    -6 
+REPlACE   17 -9     WITH    -9 
+REPlACE   17 19     WITH    19 
+REPlACE   -19 9 17     WITH    -19 9 
+
+Single Literal : 19
+
+DELETE :    19 REPlACE   -19 18     WITH    18 
+REPlACE   10 -19     WITH    10 
+REPlACE   -13 -19     WITH    -13 
+REPlACE   -19 9     WITH    9 
+REPlACE   10 -19     WITH    10 
+
+Single Literal : 10
+
+DELETE :    10 
+DELETE :    6 10 
+DELETE :    10 
+DELETE :    -13 10 
+DELETE :    13 10 REPlACE   -18 -10     WITH    -18 
+REPlACE   -10 8     WITH    8 
+REPlACE   18 -10 13     WITH    18 13 
+
+Single Literal : 9
+
+DELETE :    9 6 
+DELETE :    9 
+DELETE :    -16 9 REPlACE   13 -9     WITH    13 
+REPlACE   -9     WITH    
+REPlACE   -13 -9     WITH    -13 
+
+ADD   -13 -9     BACK
+
+ADD   -9     BACK
+
+ADD   13 -9     BACK
+
+ADD   -16 9     BACK
+
+ADD   9     BACK
+
+ADD   9 6     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   -10 8     BACK
+
+ADD   -18 -10     BACK
+
+ADD   13 10     BACK
+
+ADD   -13 10     BACK
+
+ADD   10     BACK
+
+ADD   6 10     BACK
+
+ADD   10     BACK
+
+ADD   10 -19     BACK
+
+ADD   -19 9     BACK
+
+ADD   -13 -19     BACK
+
+ADD   10 -19     BACK
+
+ADD   -19 18     BACK
+
+ADD   19     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   17 19     BACK
+
+ADD   17 -9     BACK
+
+ADD   -6 17     BACK
+
+ADD   17 16     BACK
+
+ADD   9 -17     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -17     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   4 18     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   4     BACK
+
+ADD   4 9     BACK
+
+ADD   20 4     BACK
+
+ADD   20 9 4     BACK
+
+ADD   -17 20     BACK
+
+ADD   -20 -16     BACK
+
+ADD   -20     BACK
+
+ADD   19 -20     BACK
+
+DELETE    -13     BACK
+
+DELETE        BACK
+
+DELETE    13     BACK
+
+DELETE    18 13     BACK
+
+DELETE    8     BACK
+
+DELETE    -18     BACK
+
+DELETE    10     BACK
+
+DELETE    9     BACK
+
+DELETE    -13     BACK
+
+DELETE    10     BACK
+
+DELETE    18     BACK
+
+DELETE    -19 9     BACK
+
+DELETE    19     BACK
+
+DELETE    -9     BACK
+
+DELETE    -6     BACK
+
+DELETE    16     BACK
+
+DELETE    -13 -9     BACK
+
+DELETE    13 10     BACK
+
+DELETE    -16 18     BACK
+
+DELETE    4     BACK
+
+DELETE    4 9     BACK
+
+DELETE    -17     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 9
+Showing cnf class: 
+length : 32
+Clause NO.0 : 17 19 
+Clause NO.1 : -17 20 
+Clause NO.2 : 20 4 
+Clause NO.3 : -6 -17 -8 
+Clause NO.4 : -20 -16 
+Clause NO.5 : -6 17 
+Clause NO.6 : 4 -18 19 
+Clause NO.7 : -19 9 17 
+Clause NO.8 : 16 3 
+Clause NO.9 : 20 9 4 
+Clause NO.10 : 19 -20 
+Clause NO.11 : 13 -4 10 
+Clause NO.12 : 9 -17 
+Clause NO.13 : -4 -9 -13 
+Clause NO.14 : 13 -9 
+Clause NO.15 : -16 9 
+Clause NO.16 : 4 18 
+Clause NO.17 : 9 6 
+Clause NO.18 : 18 -10 13 
+Clause NO.19 : -10 8 
+Clause NO.20 : -18 -10 
+Clause NO.21 : 17 16 
+Clause NO.22 : -13 10 
+Clause NO.23 : 17 -9 
+Clause NO.24 : 6 10 
+Clause NO.25 : -8 -9 4 
+Clause NO.26 : 10 -19 
+Clause NO.27 : -16 18 -4 
+Clause NO.28 : -13 -19 
+Clause NO.29 : 10 -19 
+Clause NO.30 : -19 18 
+Clause NO.31 : 20 
+End of Showing
+
+Single Literal : 20
+
+DELETE :    -17 20 
+DELETE :    20 
+DELETE :    20 4 
+DELETE :    20 9 4 REPlACE   -20 -16     WITH    -16 
+REPlACE   19 -20     WITH    19 
+
+Single Literal : 19
+
+DELETE :    17 19 
+DELETE :    4 -18 19 
+DELETE :    19 REPlACE   -19 18     WITH    18 
+REPlACE   10 -19     WITH    10 
+REPlACE   10 -19     WITH    10 
+REPlACE   -19 9 17     WITH    17 9 
+REPlACE   -13 -19     WITH    -13 
+
+Single Literal : -13
+
+DELETE :    -13 
+DELETE :    -4 -9 -13 
+DELETE :    -13 10 REPlACE   13 -4 10     WITH    10 -4 
+REPlACE   13 -9     WITH    -9 
+REPlACE   18 -10 13     WITH    18 -10 
+
+Single Literal : -9
+
+DELETE :    -8 -9 4 
+DELETE :    17 -9 
+DELETE :    -9 REPlACE   17 9     WITH    17 
+REPlACE   9 -17     WITH    -17 
+REPlACE   -16 9     WITH    -16 
+REPlACE   9 6     WITH    6 
+
+Single Literal : 6
+
+DELETE :    6 10 
+DELETE :    6 REPlACE   -6 -17 -8     WITH    -8 -17 
+REPlACE   -6 17     WITH    17 
+
+Single Literal : -16
+
+DELETE :    -16 18 -4 
+DELETE :    -16 
+DELETE :    -16 REPlACE   16 3     WITH    3 
+REPlACE   17 16     WITH    17 
+
+Single Literal : -17
+
+DELETE :    -8 -17 
+DELETE :    -17 REPlACE   17     WITH    
+REPlACE   17     WITH    
+REPlACE   17     WITH    
+
+ADD   17     BACK
+
+ADD   17     BACK
+
+ADD   17     BACK
+
+ADD   -17     BACK
+
+ADD   -8 -17     BACK
+
+ADD   17 16     BACK
+
+ADD   16 3     BACK
+
+ADD   -16     BACK
+
+ADD   -16     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -6 17     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   6     BACK
+
+ADD   6 10     BACK
+
+ADD   9 6     BACK
+
+ADD   -16 9     BACK
+
+ADD   9 -17     BACK
+
+ADD   17 9     BACK
+
+ADD   -9     BACK
+
+ADD   17 -9     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   13 -9     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   -13 10     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   -13     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   10 -19     BACK
+
+ADD   10 -19     BACK
+
+ADD   -19 18     BACK
+
+ADD   19     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   17 19     BACK
+
+ADD   19 -20     BACK
+
+ADD   -20 -16     BACK
+
+ADD   20 9 4     BACK
+
+ADD   20 4     BACK
+
+ADD   20     BACK
+
+ADD   -17 20     BACK
+
+DELETE        BACK
+
+DELETE        BACK
+
+DELETE        BACK
+
+DELETE    17     BACK
+
+DELETE    3     BACK
+
+DELETE    17     BACK
+
+DELETE    -8 -17     BACK
+
+DELETE    6     BACK
+
+DELETE    -16     BACK
+
+DELETE    -17     BACK
+
+DELETE    17     BACK
+
+DELETE    18 -10     BACK
+
+DELETE    -9     BACK
+
+DELETE    10 -4     BACK
+
+DELETE    -13     BACK
+
+DELETE    17 9     BACK
+
+DELETE    10     BACK
+
+DELETE    10     BACK
+
+DELETE    18     BACK
+
+DELETE    19     BACK
+
+DELETE    -16     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 8
+ADD   10 -19 -14     BACK
+
+ADD   9 14     BACK
+
+ADD   14 -6     BACK
+
+ADD   14 10     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   14     BACK
+
+ADD   -18 14     BACK
+
+DELETE    20     BACK
+
+DELETE    10 -19     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 8
+Showing cnf class: 
+length : 37
+Clause NO.0 : 4 18 
+Clause NO.1 : 18 -10 13 
+Clause NO.2 : 13 -4 10 
+Clause NO.3 : -18 -10 
+Clause NO.4 : -10 8 
+Clause NO.5 : -17 20 
+Clause NO.6 : 13 -9 
+Clause NO.7 : -18 14 
+Clause NO.8 : 17 19 
+Clause NO.9 : -19 9 17 
+Clause NO.10 : 20 4 
+Clause NO.11 : -4 -9 -13 
+Clause NO.12 : 20 9 4 
+Clause NO.13 : -20 -16 
+Clause NO.14 : 19 -20 
+Clause NO.15 : 20 14 -16 
+Clause NO.16 : 4 -18 19 
+Clause NO.17 : 17 16 
+Clause NO.18 : 16 3 
+Clause NO.19 : -19 18 
+Clause NO.20 : -18 14 -4 
+Clause NO.21 : -16 18 -4 
+Clause NO.22 : -6 17 
+Clause NO.23 : -6 -17 -8 
+Clause NO.24 : -8 -9 4 
+Clause NO.25 : 6 10 
+Clause NO.26 : 9 6 
+Clause NO.27 : -16 9 
+Clause NO.28 : 9 -17 
+Clause NO.29 : -13 10 
+Clause NO.30 : -13 -19 
+Clause NO.31 : 17 -9 
+Clause NO.32 : 10 -19 -14 
+Clause NO.33 : 9 14 
+Clause NO.34 : 14 -6 
+Clause NO.35 : 14 10 
+Clause NO.36 : -14 
+End of Showing
+
+Single Literal : -14
+
+DELETE :    10 -19 -14 
+DELETE :    -14 REPlACE   -18 14     WITH    -18 
+REPlACE   20 14 -16     WITH    20 -16 
+REPlACE   -18 14 -4     WITH    -18 -4 
+REPlACE   14 10     WITH    10 
+REPlACE   9 14     WITH    9 
+REPlACE   14 -6     WITH    -6 
+
+Single Literal : -6
+
+DELETE :    -6 17 
+DELETE :    -6 
+DELETE :    -6 -17 -8 REPlACE   6 10     WITH    10 
+REPlACE   9 6     WITH    9 
+
+Single Literal : 9
+
+DELETE :    -19 9 17 
+DELETE :    20 9 4 
+DELETE :    9 
+DELETE :    9 
+DELETE :    9 -17 
+DELETE :    -16 9 REPlACE   13 -9     WITH    13 
+REPlACE   17 -9     WITH    17 
+REPlACE   -4 -9 -13     WITH    -4 -13 
+REPlACE   -8 -9 4     WITH    -8 4 
+
+Single Literal : 10
+
+DELETE :    13 -4 10 
+DELETE :    10 
+DELETE :    -13 10 
+DELETE :    10 REPlACE   18 -10 13     WITH    18 13 
+REPlACE   -18 -10     WITH    -18 
+REPlACE   -10 8     WITH    8 
+
+Single Literal : 17
+
+DELETE :    17 19 
+DELETE :    17 
+DELETE :    17 16 REPlACE   -17 20     WITH    20 
+
+Single Literal : -18
+
+DELETE :    -18 
+DELETE :    -18 
+DELETE :    -18 -4 
+DELETE :    4 -18 19 REPlACE   4 18     WITH    4 
+REPlACE   18 13     WITH    13 
+REPlACE   -19 18     WITH    -19 
+REPlACE   -16 18 -4     WITH    -16 -4 
+
+Single Literal : -19
+
+DELETE :    -19 
+DELETE :    -13 -19 REPlACE   19 -20     WITH    -20 
+
+Single Literal : -20
+
+DELETE :    -20 
+DELETE :    -20 -16 REPlACE   20     WITH    
+REPlACE   20 -16     WITH    -16 
+REPlACE   20 4     WITH    4 
+
+ADD   20 4     BACK
+
+ADD   20 -16     BACK
+
+ADD   20     BACK
+
+ADD   -20 -16     BACK
+
+ADD   -20     BACK
+
+ADD   19 -20     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -19     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -19 18     BACK
+
+ADD   18 13     BACK
+
+ADD   4 18     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   -18 -4     BACK
+
+ADD   -18     BACK
+
+ADD   -18     BACK
+
+ADD   -17 20     BACK
+
+ADD   17 16     BACK
+
+ADD   17     BACK
+
+ADD   17 19     BACK
+
+ADD   -10 8     BACK
+
+ADD   -18 -10     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   10     BACK
+
+ADD   -13 10     BACK
+
+ADD   10     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   17 -9     BACK
+
+ADD   13 -9     BACK
+
+ADD   -16 9     BACK
+
+ADD   9 -17     BACK
+
+ADD   9     BACK
+
+ADD   9     BACK
+
+ADD   20 9 4     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   9 6     BACK
+
+ADD   6 10     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -6     BACK
+
+ADD   -6 17     BACK
+
+ADD   14 -6     BACK
+
+ADD   9 14     BACK
+
+ADD   14 10     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   -18 14     BACK
+
+ADD   -14     BACK
+
+ADD   10 -19 -14     BACK
+
+DELETE    4     BACK
+
+DELETE    -16     BACK
+
+DELETE        BACK
+
+DELETE    -20     BACK
+
+DELETE    -16 -4     BACK
+
+DELETE    -19     BACK
+
+DELETE    13     BACK
+
+DELETE    4     BACK
+
+DELETE    20     BACK
+
+DELETE    8     BACK
+
+DELETE    -18     BACK
+
+DELETE    18 13     BACK
+
+DELETE    -8 4     BACK
+
+DELETE    -4 -13     BACK
+
+DELETE    17     BACK
+
+DELETE    13     BACK
+
+DELETE    9     BACK
+
+DELETE    10     BACK
+
+DELETE    -6     BACK
+
+DELETE    9     BACK
+
+DELETE    10     BACK
+
+DELETE    -18 -4     BACK
+
+DELETE    20 -16     BACK
+
+DELETE    -18     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 7
+ADD   -11 20 -17     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   16 3 -11     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   19 11 14     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   11 6     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   11     BACK
+
+ADD   -3 11     BACK
+
+DELETE    -14     BACK
+
+DELETE    -17 20     BACK
+
+DELETE    9 14     BACK
+
+DELETE    16 3     BACK
+
+DELETE    -10 8     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 7
+Showing cnf class: 
+length : 44
+Clause NO.0 : 10 -19 -14 
+Clause NO.1 : 14 -6 
+Clause NO.2 : 20 9 4 
+Clause NO.3 : -19 17 11 
+Clause NO.4 : -6 -17 -8 
+Clause NO.5 : 20 14 -16 
+Clause NO.6 : -6 17 
+Clause NO.7 : 9 -17 
+Clause NO.8 : 14 10 
+Clause NO.9 : -18 14 
+Clause NO.10 : -3 11 
+Clause NO.11 : 20 4 
+Clause NO.12 : 13 -4 10 
+Clause NO.13 : -4 -9 -13 
+Clause NO.14 : -20 -16 
+Clause NO.15 : -18 14 -4 
+Clause NO.16 : 19 -20 
+Clause NO.17 : -13 -19 
+Clause NO.18 : -18 3 11 
+Clause NO.19 : -16 18 -4 
+Clause NO.20 : -19 18 
+Clause NO.21 : -19 9 17 
+Clause NO.22 : 4 18 
+Clause NO.23 : 4 -18 19 
+Clause NO.24 : -8 -9 4 
+Clause NO.25 : 6 10 
+Clause NO.26 : 9 6 
+Clause NO.27 : -10 -16 11 
+Clause NO.28 : 17 16 
+Clause NO.29 : -16 9 
+Clause NO.30 : 17 19 
+Clause NO.31 : 11 6 
+Clause NO.32 : -18 -10 
+Clause NO.33 : 18 -10 13 
+Clause NO.34 : 13 -9 
+Clause NO.35 : -13 10 
+Clause NO.36 : 17 -9 
+Clause NO.37 : -11 20 -17 
+Clause NO.38 : -11 14 9 
+Clause NO.39 : 16 3 -11 
+Clause NO.40 : -10 -11 8 
+Clause NO.41 : 19 11 14 
+Clause NO.42 : -20 -18 11 
+Clause NO.43 : -11 
+End of Showing
+
+Single Literal : -11
+
+DELETE :    -11 20 -17 
+DELETE :    -11 
+DELETE :    -11 14 9 
+DELETE :    16 3 -11 
+DELETE :    -10 -11 8 REPlACE   -19 17 11     WITH    -19 17 
+REPlACE   -3 11     WITH    -3 
+REPlACE   -18 3 11     WITH    -18 3 
+REPlACE   -10 -16 11     WITH    -10 -16 
+REPlACE   11 6     WITH    6 
+REPlACE   -20 -18 11     WITH    -20 -18 
+REPlACE   19 11 14     WITH    19 14 
+
+Single Literal : 6
+
+DELETE :    6 10 
+DELETE :    9 6 
+DELETE :    6 REPlACE   14 -6     WITH    14 
+REPlACE   -6 -17 -8     WITH    -8 -17 
+REPlACE   -6 17     WITH    17 
+
+Single Literal : -3
+
+DELETE :    -3 REPlACE   -18 3     WITH    -18 
+
+Single Literal : -18
+
+DELETE :    -18 14 
+DELETE :    -18 14 -4 
+DELETE :    -18 
+DELETE :    -18 -10 
+DELETE :    4 -18 19 
+DELETE :    -20 -18 REPlACE   18 -10 13     WITH    13 -10 
+REPlACE   -16 18 -4     WITH    -16 -4 
+REPlACE   -19 18     WITH    -19 
+REPlACE   4 18     WITH    4 
+
+Single Literal : 4
+
+DELETE :    20 9 4 
+DELETE :    20 4 
+DELETE :    4 
+DELETE :    -8 -9 4 REPlACE   13 -4 10     WITH    13 10 
+REPlACE   -4 -9 -13     WITH    -13 -9 
+REPlACE   -16 -4     WITH    -16 
+
+Single Literal : -19
+
+DELETE :    10 -19 -14 
+DELETE :    -19 17 
+DELETE :    -13 -19 
+DELETE :    -19 
+DELETE :    -19 9 17 REPlACE   19 14     WITH    14 
+REPlACE   17 19     WITH    17 
+REPlACE   19 -20     WITH    -20 
+
+Single Literal : -16
+
+DELETE :    20 14 -16 
+DELETE :    -16 
+DELETE :    -10 -16 
+DELETE :    -16 9 
+DELETE :    -20 -16 REPlACE   17 16     WITH    17 
+
+Single Literal : -20
+
+DELETE :    -20 
+Single Literal : 17
+
+DELETE :    17 
+DELETE :    17 
+DELETE :    17 -9 
+DELETE :    17 REPlACE   -8 -17     WITH    -8 
+REPlACE   9 -17     WITH    9 
+
+Single Literal : 9
+
+DELETE :    9 REPlACE   -13 -9     WITH    -13 
+REPlACE   13 -9     WITH    13 
+
+Single Literal : 13
+
+DELETE :    13 10 
+DELETE :    13 -10 
+DELETE :    13 REPlACE   -13     WITH    
+REPlACE   -13 10     WITH    10 
+
+ADD   -13 10     BACK
+
+ADD   -13     BACK
+
+ADD   13     BACK
+
+ADD   13 -10     BACK
+
+ADD   13 10     BACK
+
+ADD   13 -9     BACK
+
+ADD   -13 -9     BACK
+
+ADD   9     BACK
+
+ADD   9 -17     BACK
+
+ADD   -8 -17     BACK
+
+ADD   17     BACK
+
+ADD   17 -9     BACK
+
+ADD   17     BACK
+
+ADD   17     BACK
+
+ADD   -20     BACK
+
+ADD   17 16     BACK
+
+ADD   -20 -16     BACK
+
+ADD   -16 9     BACK
+
+ADD   -10 -16     BACK
+
+ADD   -16     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   19 -20     BACK
+
+ADD   17 19     BACK
+
+ADD   19 14     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   -19     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -19 17     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   -16 -4     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   4     BACK
+
+ADD   20 4     BACK
+
+ADD   20 9 4     BACK
+
+ADD   4 18     BACK
+
+ADD   -19 18     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   -20 -18     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   -18 -10     BACK
+
+ADD   -18     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   -18 14     BACK
+
+ADD   -18 3     BACK
+
+ADD   -3     BACK
+
+ADD   -6 17     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   14 -6     BACK
+
+ADD   6     BACK
+
+ADD   9 6     BACK
+
+ADD   6 10     BACK
+
+ADD   19 11 14     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   11 6     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   -3 11     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   16 3 -11     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   -11     BACK
+
+ADD   -11 20 -17     BACK
+
+DELETE    10     BACK
+
+DELETE        BACK
+
+DELETE    13     BACK
+
+DELETE    -13     BACK
+
+DELETE    9     BACK
+
+DELETE    -8     BACK
+
+DELETE    17     BACK
+
+DELETE    -20     BACK
+
+DELETE    17     BACK
+
+DELETE    14     BACK
+
+DELETE    -16     BACK
+
+DELETE    -13 -9     BACK
+
+DELETE    13 10     BACK
+
+DELETE    4     BACK
+
+DELETE    -19     BACK
+
+DELETE    -16 -4     BACK
+
+DELETE    13 -10     BACK
+
+DELETE    -18     BACK
+
+DELETE    17     BACK
+
+DELETE    -8 -17     BACK
+
+DELETE    14     BACK
+
+DELETE    19 14     BACK
+
+DELETE    -20 -18     BACK
+
+DELETE    6     BACK
+
+DELETE    -10 -16     BACK
+
+DELETE    -18 3     BACK
+
+DELETE    -3     BACK
+
+DELETE    -19 17     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 6
+ADD   -18 14 1     BACK
+
+ADD   9 6 1     BACK
+
+ADD   1 6 11     BACK
+
+ADD   1 -20 19     BACK
+
+ADD   10 1 -19     BACK
+
+ADD   1 16 17     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   -1     BACK
+
+ADD   20 -1 14     BACK
+
+DELETE    -11     BACK
+
+DELETE    -18 14     BACK
+
+DELETE    9 6     BACK
+
+DELETE    11 6     BACK
+
+DELETE    19 -20     BACK
+
+DELETE    10 -19     BACK
+
+DELETE    17 16     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 5
+ADD   2 -10 -18     BACK
+
+ADD   -18 -2 20     BACK
+
+ADD   -2 3 -13     BACK
+
+ADD   -2 -3 17     BACK
+
+ADD   -2 3     BACK
+
+ADD   -2 -13 -8     BACK
+
+ADD   17 -2     BACK
+
+ADD   -2     BACK
+
+ADD   -9 -2 19     BACK
+
+DELETE    -1     BACK
+
+DELETE    -18 -10     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 5
+Showing cnf class: 
+length : 54
+Clause NO.0 : -20 -18 11 
+Clause NO.1 : 19 11 14 
+Clause NO.2 : 20 -1 14 
+Clause NO.3 : 14 10 
+Clause NO.4 : -19 17 11 
+Clause NO.5 : -11 20 -17 
+Clause NO.6 : -13 10 
+Clause NO.7 : 16 3 -11 
+Clause NO.8 : -11 14 9 
+Clause NO.9 : 18 -10 13 
+Clause NO.10 : 17 -2 
+Clause NO.11 : 13 -9 
+Clause NO.12 : -1 -17 -19 
+Clause NO.13 : -10 -11 8 
+Clause NO.14 : 9 -17 
+Clause NO.15 : -9 -2 19 
+Clause NO.16 : -3 11 
+Clause NO.17 : 17 -9 
+Clause NO.18 : -18 3 11 
+Clause NO.19 : -10 -16 11 
+Clause NO.20 : 1 16 17 
+Clause NO.21 : 1 -20 19 
+Clause NO.22 : -20 -16 
+Clause NO.23 : -16 9 
+Clause NO.24 : 4 -18 19 
+Clause NO.25 : 6 10 
+Clause NO.26 : 20 14 -16 
+Clause NO.27 : 10 1 -19 
+Clause NO.28 : 17 19 
+Clause NO.29 : -18 14 -4 
+Clause NO.30 : -19 9 17 
+Clause NO.31 : -6 -17 -8 
+Clause NO.32 : -13 -19 
+Clause NO.33 : -16 18 -4 
+Clause NO.34 : 10 -19 -14 
+Clause NO.35 : -6 17 
+Clause NO.36 : -4 -9 -13 
+Clause NO.37 : 13 -4 10 
+Clause NO.38 : -8 -9 4 
+Clause NO.39 : 14 -6 
+Clause NO.40 : 20 4 
+Clause NO.41 : 20 9 4 
+Clause NO.42 : 4 18 
+Clause NO.43 : -19 18 
+Clause NO.44 : -18 14 1 
+Clause NO.45 : 9 6 1 
+Clause NO.46 : 1 6 11 
+Clause NO.47 : 2 -10 -18 
+Clause NO.48 : -18 -2 20 
+Clause NO.49 : -2 3 -13 
+Clause NO.50 : -2 -3 17 
+Clause NO.51 : -2 3 
+Clause NO.52 : -2 -13 -8 
+Clause NO.53 : 2 
+End of Showing
+
+Single Literal : 2
+
+DELETE :    2 -10 -18 
+DELETE :    2 REPlACE   17 -2     WITH    17 
+REPlACE   -9 -2 19     WITH    -9 19 
+REPlACE   -2 -13 -8     WITH    -8 -13 
+REPlACE   -18 -2 20     WITH    -18 20 
+REPlACE   -2 3 -13     WITH    -13 3 
+REPlACE   -2 -3 17     WITH    17 -3 
+REPlACE   -2 3     WITH    3 
+
+Single Literal : 3
+
+DELETE :    16 3 -11 
+DELETE :    3 
+DELETE :    -18 3 11 
+DELETE :    -13 3 REPlACE   17 -3     WITH    17 
+REPlACE   -3 11     WITH    11 
+
+Single Literal : 11
+
+DELETE :    -20 -18 11 
+DELETE :    19 11 14 
+DELETE :    1 6 11 
+DELETE :    -19 17 11 
+DELETE :    11 
+DELETE :    -10 -16 11 REPlACE   -11 20 -17     WITH    -17 20 
+REPlACE   -11 14 9     WITH    9 14 
+REPlACE   -10 -11 8     WITH    -10 8 
+
+Single Literal : 17
+
+DELETE :    17 
+DELETE :    17 
+DELETE :    17 -9 
+DELETE :    1 16 17 
+DELETE :    17 19 
+DELETE :    -19 9 17 
+DELETE :    -6 17 REPlACE   -17 20     WITH    20 
+REPlACE   -1 -17 -19     WITH    -1 -19 
+REPlACE   9 -17     WITH    9 
+REPlACE   -6 -17 -8     WITH    -6 -8 
+
+Single Literal : 9
+
+DELETE :    9 6 1 
+DELETE :    20 9 4 
+DELETE :    9 14 
+DELETE :    9 
+DELETE :    -16 9 REPlACE   13 -9     WITH    13 
+REPlACE   -9 19     WITH    19 
+REPlACE   -8 -9 4     WITH    -8 4 
+REPlACE   -4 -9 -13     WITH    -4 -13 
+
+Single Literal : 19
+
+DELETE :    19 
+DELETE :    1 -20 19 
+DELETE :    4 -18 19 REPlACE   10 -19 -14     WITH    10 -14 
+REPlACE   -13 -19     WITH    -13 
+REPlACE   -1 -19     WITH    -1 
+REPlACE   -19 18     WITH    18 
+REPlACE   10 1 -19     WITH    10 1 
+
+Single Literal : 18
+
+DELETE :    -16 18 -4 
+DELETE :    18 -10 13 
+DELETE :    18 
+DELETE :    4 18 REPlACE   -18 14 1     WITH    1 14 
+REPlACE   -18 14 -4     WITH    -4 14 
+REPlACE   -18 20     WITH    20 
+
+Single Literal : 20
+
+DELETE :    20 -1 14 
+DELETE :    20 
+DELETE :    20 14 -16 
+DELETE :    20 4 
+DELETE :    20 REPlACE   -20 -16     WITH    -16 
+
+Single Literal : -1
+
+DELETE :    -1 REPlACE   1 14     WITH    14 
+REPlACE   10 1     WITH    10 
+
+Single Literal : 10
+
+DELETE :    10 -14 
+DELETE :    10 
+DELETE :    14 10 
+DELETE :    13 -4 10 
+DELETE :    -13 10 
+DELETE :    6 10 REPlACE   -10 8     WITH    8 
+
+Single Literal : 13
+
+DELETE :    13 REPlACE   -8 -13     WITH    -8 
+REPlACE   -13     WITH    
+REPlACE   -4 -13     WITH    -4 
+
+ADD   -4 -13     BACK
+
+ADD   -13     BACK
+
+ADD   -8 -13     BACK
+
+ADD   13     BACK
+
+ADD   -10 8     BACK
+
+ADD   6 10     BACK
+
+ADD   -13 10     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   14 10     BACK
+
+ADD   10     BACK
+
+ADD   10 -14     BACK
+
+ADD   10 1     BACK
+
+ADD   1 14     BACK
+
+ADD   -1     BACK
+
+ADD   -20 -16     BACK
+
+ADD   20     BACK
+
+ADD   20 4     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   20     BACK
+
+ADD   20 -1 14     BACK
+
+ADD   -18 20     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   -18 14 1     BACK
+
+ADD   4 18     BACK
+
+ADD   18     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   10 1 -19     BACK
+
+ADD   -19 18     BACK
+
+ADD   -1 -19     BACK
+
+ADD   -13 -19     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   1 -20 19     BACK
+
+ADD   19     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   -9 19     BACK
+
+ADD   13 -9     BACK
+
+ADD   -16 9     BACK
+
+ADD   9     BACK
+
+ADD   9 14     BACK
+
+ADD   20 9 4     BACK
+
+ADD   9 6 1     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   9 -17     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   -17 20     BACK
+
+ADD   -6 17     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   17 19     BACK
+
+ADD   1 16 17     BACK
+
+ADD   17 -9     BACK
+
+ADD   17     BACK
+
+ADD   17     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   11     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   1 6 11     BACK
+
+ADD   19 11 14     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   -3 11     BACK
+
+ADD   17 -3     BACK
+
+ADD   -13 3     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   3     BACK
+
+ADD   16 3 -11     BACK
+
+ADD   -2 3     BACK
+
+ADD   -2 -3 17     BACK
+
+ADD   -2 3 -13     BACK
+
+ADD   -18 -2 20     BACK
+
+ADD   -2 -13 -8     BACK
+
+ADD   -9 -2 19     BACK
+
+ADD   17 -2     BACK
+
+ADD   2     BACK
+
+ADD   2 -10 -18     BACK
+
+DELETE    -4     BACK
+
+DELETE        BACK
+
+DELETE    -8     BACK
+
+DELETE    8     BACK
+
+DELETE    10     BACK
+
+DELETE    14     BACK
+
+DELETE    -16     BACK
+
+DELETE    20     BACK
+
+DELETE    -4 14     BACK
+
+DELETE    1 14     BACK
+
+DELETE    10 1     BACK
+
+DELETE    18     BACK
+
+DELETE    -1     BACK
+
+DELETE    -13     BACK
+
+DELETE    10 -14     BACK
+
+DELETE    -4 -13     BACK
+
+DELETE    -8 4     BACK
+
+DELETE    19     BACK
+
+DELETE    13     BACK
+
+DELETE    -6 -8     BACK
+
+DELETE    9     BACK
+
+DELETE    -1 -19     BACK
+
+DELETE    20     BACK
+
+DELETE    -10 8     BACK
+
+DELETE    9 14     BACK
+
+DELETE    -17 20     BACK
+
+DELETE    11     BACK
+
+DELETE    17     BACK
+
+DELETE    3     BACK
+
+DELETE    17 -3     BACK
+
+DELETE    -13 3     BACK
+
+DELETE    -18 20     BACK
+
+DELETE    -8 -13     BACK
+
+DELETE    -9 19     BACK
+
+DELETE    17     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 4
+ADD   -8 4 7     BACK
+
+ADD   7 -9 17     BACK
+
+ADD   -20 7 -16     BACK
+
+ADD   14 7 10     BACK
+
+ADD   6 10 7     BACK
+
+ADD   -17 -7     BACK
+
+ADD   -7 1 -20     BACK
+
+ADD   -7 -14     BACK
+
+ADD   -14 -7     BACK
+
+ADD   10 -13 -7     BACK
+
+ADD   -7 -2     BACK
+
+ADD   -7 -11     BACK
+
+ADD   -7     BACK
+
+ADD   -7 16 10     BACK
+
+DELETE    2     BACK
+
+DELETE    -8 4     BACK
+
+DELETE    17 -9     BACK
+
+DELETE    -20 -16     BACK
+
+DELETE    14 10     BACK
+
+DELETE    6 10     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 4
+Showing cnf class: 
+length : 63
+Clause NO.0 : 17 -2 
+Clause NO.1 : 16 3 -11 
+Clause NO.2 : -2 3 -13 
+Clause NO.3 : -10 -16 11 
+Clause NO.4 : -18 -2 20 
+Clause NO.5 : -9 -2 19 
+Clause NO.6 : 14 -6 
+Clause NO.7 : 1 6 11 
+Clause NO.8 : -7 16 10 
+Clause NO.9 : 2 -10 -18 
+Clause NO.10 : 19 11 14 
+Clause NO.11 : -3 11 
+Clause NO.12 : 9 -17 
+Clause NO.13 : -14 -7 
+Clause NO.14 : -10 -11 8 
+Clause NO.15 : 10 -13 -7 
+Clause NO.16 : -13 10 
+Clause NO.17 : 13 -4 10 
+Clause NO.18 : -7 -2 
+Clause NO.19 : -2 -13 -8 
+Clause NO.20 : -20 -18 11 
+Clause NO.21 : -18 3 11 
+Clause NO.22 : -19 9 17 
+Clause NO.23 : -6 17 
+Clause NO.24 : -7 -11 
+Clause NO.25 : -2 -3 17 
+Clause NO.26 : 20 4 
+Clause NO.27 : 20 14 -16 
+Clause NO.28 : -2 3 
+Clause NO.29 : 20 -1 14 
+Clause NO.30 : -1 -17 -19 
+Clause NO.31 : -18 14 -4 
+Clause NO.32 : -18 14 1 
+Clause NO.33 : 4 18 
+Clause NO.34 : 17 19 
+Clause NO.35 : 18 -10 13 
+Clause NO.36 : -16 18 -4 
+Clause NO.37 : 10 1 -19 
+Clause NO.38 : -19 18 
+Clause NO.39 : -11 14 9 
+Clause NO.40 : -13 -19 
+Clause NO.41 : 10 -19 -14 
+Clause NO.42 : 4 -18 19 
+Clause NO.43 : 1 -20 19 
+Clause NO.44 : -19 17 11 
+Clause NO.45 : -4 -9 -13 
+Clause NO.46 : -8 -9 4 
+Clause NO.47 : -6 -17 -8 
+Clause NO.48 : 13 -9 
+Clause NO.49 : -16 9 
+Clause NO.50 : -11 20 -17 
+Clause NO.51 : 1 16 17 
+Clause NO.52 : 20 9 4 
+Clause NO.53 : 9 6 1 
+Clause NO.54 : -8 4 7 
+Clause NO.55 : 7 -9 17 
+Clause NO.56 : -20 7 -16 
+Clause NO.57 : 14 7 10 
+Clause NO.58 : 6 10 7 
+Clause NO.59 : -17 -7 
+Clause NO.60 : -7 1 -20 
+Clause NO.61 : -7 -14 
+Clause NO.62 : 7 
+End of Showing
+
+Single Literal : 7
+
+DELETE :    -8 4 7 
+DELETE :    7 
+DELETE :    7 -9 17 
+DELETE :    -20 7 -16 
+DELETE :    14 7 10 
+DELETE :    6 10 7 REPlACE   -7 16 10     WITH    10 16 
+REPlACE   -14 -7     WITH    -14 
+REPlACE   10 -13 -7     WITH    10 -13 
+REPlACE   -7 -2     WITH    -2 
+REPlACE   -7 -11     WITH    -11 
+REPlACE   -7 -14     WITH    -14 
+REPlACE   -7 1 -20     WITH    -20 1 
+REPlACE   -17 -7     WITH    -17 
+
+Single Literal : -17
+
+DELETE :    9 -17 
+DELETE :    -17 
+DELETE :    -1 -17 -19 
+DELETE :    -6 -17 -8 
+DELETE :    -11 20 -17 REPlACE   17 -2     WITH    -2 
+REPlACE   -19 9 17     WITH    -19 9 
+REPlACE   -6 17     WITH    -6 
+REPlACE   -2 -3 17     WITH    -2 -3 
+REPlACE   17 19     WITH    19 
+REPlACE   -19 17 11     WITH    -19 11 
+REPlACE   1 16 17     WITH    1 16 
+
+Single Literal : 19
+
+DELETE :    -9 -2 19 
+DELETE :    19 11 14 
+DELETE :    19 
+DELETE :    4 -18 19 
+DELETE :    1 -20 19 REPlACE   -19 9     WITH    9 
+REPlACE   10 1 -19     WITH    10 1 
+REPlACE   -19 18     WITH    18 
+REPlACE   -13 -19     WITH    -13 
+REPlACE   10 -19 -14     WITH    10 -14 
+REPlACE   -19 11     WITH    11 
+
+Single Literal : 11
+
+DELETE :    -10 -16 11 
+DELETE :    1 6 11 
+DELETE :    -3 11 
+DELETE :    11 
+DELETE :    -20 -18 11 
+DELETE :    -18 3 11 REPlACE   16 3 -11     WITH    16 3 
+REPlACE   -10 -11 8     WITH    -10 8 
+REPlACE   -11     WITH    
+REPlACE   -11 14 9     WITH    9 14 
+
+ADD   -11 14 9     BACK
+
+ADD   -11     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   16 3 -11     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   11     BACK
+
+ADD   -3 11     BACK
+
+ADD   1 6 11     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   -19 11     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -19 18     BACK
+
+ADD   10 1 -19     BACK
+
+ADD   -19 9     BACK
+
+ADD   1 -20 19     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   19     BACK
+
+ADD   19 11 14     BACK
+
+ADD   -9 -2 19     BACK
+
+ADD   1 16 17     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   17 19     BACK
+
+ADD   -2 -3 17     BACK
+
+ADD   -6 17     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   17 -2     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   -17     BACK
+
+ADD   9 -17     BACK
+
+ADD   -17 -7     BACK
+
+ADD   -7 1 -20     BACK
+
+ADD   -7 -14     BACK
+
+ADD   -7 -11     BACK
+
+ADD   -7 -2     BACK
+
+ADD   10 -13 -7     BACK
+
+ADD   -14 -7     BACK
+
+ADD   -7 16 10     BACK
+
+ADD   6 10 7     BACK
+
+ADD   14 7 10     BACK
+
+ADD   -20 7 -16     BACK
+
+ADD   7 -9 17     BACK
+
+ADD   7     BACK
+
+ADD   -8 4 7     BACK
+
+DELETE    9 14     BACK
+
+DELETE        BACK
+
+DELETE    -10 8     BACK
+
+DELETE    16 3     BACK
+
+DELETE    11     BACK
+
+DELETE    10 -14     BACK
+
+DELETE    -13     BACK
+
+DELETE    18     BACK
+
+DELETE    10 1     BACK
+
+DELETE    9     BACK
+
+DELETE    1 16     BACK
+
+DELETE    -19 11     BACK
+
+DELETE    19     BACK
+
+DELETE    -2 -3     BACK
+
+DELETE    -6     BACK
+
+DELETE    -19 9     BACK
+
+DELETE    -2     BACK
+
+DELETE    -17     BACK
+
+DELETE    -20 1     BACK
+
+DELETE    -14     BACK
+
+DELETE    -11     BACK
+
+DELETE    -2     BACK
+
+DELETE    10 -13     BACK
+
+DELETE    -14     BACK
+
+DELETE    10 16     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 3
+ADD   12 -11 -7     BACK
+
+ADD   -7 -2 12     BACK
+
+ADD   12 3 -2     BACK
+
+ADD   14 -6 12     BACK
+
+ADD   12 -14 -7     BACK
+
+ADD   20 12 4     BACK
+
+ADD   12 -7 -17     BACK
+
+ADD   -3 11 12     BACK
+
+ADD   12 -7 -14     BACK
+
+ADD   12 18 -19     BACK
+
+ADD   12 -2 17     BACK
+
+ADD   -12 -9 17     BACK
+
+ADD   -12 -14 -13     BACK
+
+ADD   -12     BACK
+
+ADD   -12 8 -10     BACK
+
+DELETE    7     BACK
+
+DELETE    -7 -11     BACK
+
+DELETE    -7 -2     BACK
+
+DELETE    -2 3     BACK
+
+DELETE    14 -6     BACK
+
+DELETE    -7 -14     BACK
+
+DELETE    20 4     BACK
+
+DELETE    -17 -7     BACK
+
+DELETE    -3 11     BACK
+
+DELETE    -14 -7     BACK
+
+DELETE    -19 18     BACK
+
+DELETE    17 -2     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 2
+ADD   15 18 4     BACK
+
+ADD   9 -17 15     BACK
+
+ADD   15 -9 13     BACK
+
+ADD   -13 15 10     BACK
+
+ADD   -16 9 15     BACK
+
+ADD   -15 -12     BACK
+
+ADD   -6 -15 -2     BACK
+
+ADD   -15 -6 -3     BACK
+
+ADD   4 -15 -3     BACK
+
+ADD   -15 -10 4     BACK
+
+ADD   -16 -15 -1     BACK
+
+ADD   20 -14 -15     BACK
+
+ADD   20 -15 -16     BACK
+
+ADD   9 -15 13     BACK
+
+ADD   2 -15 -11     BACK
+
+ADD   7 17 -15     BACK
+
+ADD   -15     BACK
+
+ADD   -19 -15 10     BACK
+
+DELETE    -12     BACK
+
+DELETE    4 18     BACK
+
+DELETE    9 -17     BACK
+
+DELETE    13 -9     BACK
+
+DELETE    -13 10     BACK
+
+DELETE    -16 9     BACK
+
+
+****************************BEGIN****************************
+
+DEEPTH : 2
+Showing cnf class: 
+length : 78
+Clause NO.0 : -1 -17 -19 
+Clause NO.1 : -20 7 -16 
+Clause NO.2 : -2 3 -13 
+Clause NO.3 : -8 -9 4 
+Clause NO.4 : -18 -2 20 
+Clause NO.5 : -19 -15 10 
+Clause NO.6 : 12 -2 17 
+Clause NO.7 : -4 -9 -13 
+Clause NO.8 : 1 16 17 
+Clause NO.9 : 2 -10 -18 
+Clause NO.10 : 20 9 4 
+Clause NO.11 : 9 6 1 
+Clause NO.12 : 14 -6 12 
+Clause NO.13 : -19 9 17 
+Clause NO.14 : 7 -9 17 
+Clause NO.15 : 17 19 
+Clause NO.16 : -19 17 11 
+Clause NO.17 : 13 -4 10 
+Clause NO.18 : -6 -17 -8 
+Clause NO.19 : -2 -13 -8 
+Clause NO.20 : 2 -15 -11 
+Clause NO.21 : 6 10 7 
+Clause NO.22 : -12 -14 -13 
+Clause NO.23 : 7 17 -15 
+Clause NO.24 : -12 8 -10 
+Clause NO.25 : 12 -7 -17 
+Clause NO.26 : -3 11 12 
+Clause NO.27 : 20 14 -16 
+Clause NO.28 : -12 -9 17 
+Clause NO.29 : 20 -1 14 
+Clause NO.30 : -6 17 
+Clause NO.31 : -18 14 -4 
+Clause NO.32 : -18 14 1 
+Clause NO.33 : 20 -15 -16 
+Clause NO.34 : 9 -15 13 
+Clause NO.35 : 18 -10 13 
+Clause NO.36 : -16 18 -4 
+Clause NO.37 : 10 -13 -7 
+Clause NO.38 : 12 18 -19 
+Clause NO.39 : -8 4 7 
+Clause NO.40 : -7 16 10 
+Clause NO.41 : -11 14 9 
+Clause NO.42 : -2 -3 17 
+Clause NO.43 : -10 -11 8 
+Clause NO.44 : 16 3 -11 
+Clause NO.45 : -18 3 11 
+Clause NO.46 : -20 -18 11 
+Clause NO.47 : 14 7 10 
+Clause NO.48 : 20 12 4 
+Clause NO.49 : 1 6 11 
+Clause NO.50 : -10 -16 11 
+Clause NO.51 : 12 -7 -14 
+Clause NO.52 : 10 -19 -14 
+Clause NO.53 : -13 -19 
+Clause NO.54 : 12 -14 -7 
+Clause NO.55 : 10 1 -19 
+Clause NO.56 : -11 20 -17 
+Clause NO.57 : 1 -20 19 
+Clause NO.58 : 4 -18 19 
+Clause NO.59 : -7 1 -20 
+Clause NO.60 : 19 11 14 
+Clause NO.61 : -9 -2 19 
+Clause NO.62 : 12 -11 -7 
+Clause NO.63 : -7 -2 12 
+Clause NO.64 : 12 3 -2 
+Clause NO.65 : 15 18 4 
+Clause NO.66 : 9 -17 15 
+Clause NO.67 : 15 -9 13 
+Clause NO.68 : -13 15 10 
+Clause NO.69 : -16 9 15 
+Clause NO.70 : -15 -12 
+Clause NO.71 : -6 -15 -2 
+Clause NO.72 : -15 -6 -3 
+Clause NO.73 : 4 -15 -3 
+Clause NO.74 : -15 -10 4 
+Clause NO.75 : -16 -15 -1 
+Clause NO.76 : 20 -14 -15 
+Clause NO.77 : 15 
+End of Showing
+
+Single Literal : 15
+
+DELETE :    15 18 4 
+DELETE :    15 
+DELETE :    9 -17 15 
+DELETE :    15 -9 13 
+DELETE :    -13 15 10 
+DELETE :    -16 9 15 REPlACE   -19 -15 10     WITH    -19 10 
+REPlACE   2 -15 -11     WITH    2 -11 
+REPlACE   7 17 -15     WITH    7 17 
+REPlACE   20 -15 -16     WITH    20 -16 
+REPlACE   9 -15 13     WITH    9 13 
+REPlACE   20 -14 -15     WITH    20 -14 
+REPlACE   -16 -15 -1     WITH    -16 -1 
+REPlACE   -15 -10 4     WITH    4 -10 
+REPlACE   4 -15 -3     WITH    4 -3 
+REPlACE   -15 -6 -3     WITH    -3 -6 
+REPlACE   -15 -12     WITH    -12 
+REPlACE   -6 -15 -2     WITH    -6 -2 
+
+Single Literal : -12
+
+DELETE :    -12 -14 -13 
+DELETE :    -12 8 -10 
+DELETE :    -12 
+DELETE :    -12 -9 17 REPlACE   12 -2 17     WITH    17 -2 
+REPlACE   14 -6 12     WITH    14 -6 
+REPlACE   12 -7 -17     WITH    -17 -7 
+REPlACE   -3 11 12     WITH    -3 11 
+REPlACE   12 18 -19     WITH    -19 18 
+REPlACE   20 12 4     WITH    20 4 
+REPlACE   12 -7 -14     WITH    -14 -7 
+REPlACE   12 -14 -7     WITH    -7 -14 
+REPlACE   12 -11 -7     WITH    -7 -11 
+REPlACE   -7 -2 12     WITH    -7 -2 
+REPlACE   12 3 -2     WITH    -2 3 
+ADD:   3 
+
+****************************BEGIN****************************
+
+DEEPTH : 3
+Showing cnf class: 
+length : 69
+Clause NO.0 : -1 -17 -19 
+Clause NO.1 : -20 7 -16 
+Clause NO.2 : -2 3 -13 
+Clause NO.3 : -8 -9 4 
+Clause NO.4 : -18 -2 20 
+Clause NO.5 : -19 10 
+Clause NO.6 : 17 -2 
+Clause NO.7 : -4 -9 -13 
+Clause NO.8 : 1 16 17 
+Clause NO.9 : 2 -10 -18 
+Clause NO.10 : 20 9 4 
+Clause NO.11 : 9 6 1 
+Clause NO.12 : 14 -6 
+Clause NO.13 : -19 9 17 
+Clause NO.14 : 7 -9 17 
+Clause NO.15 : 17 19 
+Clause NO.16 : -19 17 11 
+Clause NO.17 : 13 -4 10 
+Clause NO.18 : -6 -17 -8 
+Clause NO.19 : -2 -13 -8 
+Clause NO.20 : 2 -11 
+Clause NO.21 : 6 10 7 
+Clause NO.22 : -6 -2 
+Clause NO.23 : 7 17 
+Clause NO.24 : -3 -6 
+Clause NO.25 : -17 -7 
+Clause NO.26 : -3 11 
+Clause NO.27 : 20 14 -16 
+Clause NO.28 : 4 -3 
+Clause NO.29 : 20 -1 14 
+Clause NO.30 : -6 17 
+Clause NO.31 : -18 14 -4 
+Clause NO.32 : -18 14 1 
+Clause NO.33 : 20 -16 
+Clause NO.34 : 9 13 
+Clause NO.35 : 18 -10 13 
+Clause NO.36 : -16 18 -4 
+Clause NO.37 : 10 -13 -7 
+Clause NO.38 : -19 18 
+Clause NO.39 : -8 4 7 
+Clause NO.40 : -7 16 10 
+Clause NO.41 : -11 14 9 
+Clause NO.42 : -2 -3 17 
+Clause NO.43 : -10 -11 8 
+Clause NO.44 : 16 3 -11 
+Clause NO.45 : -18 3 11 
+Clause NO.46 : -20 -18 11 
+Clause NO.47 : 14 7 10 
+Clause NO.48 : 20 4 
+Clause NO.49 : 1 6 11 
+Clause NO.50 : -10 -16 11 
+Clause NO.51 : -14 -7 
+Clause NO.52 : 10 -19 -14 
+Clause NO.53 : -13 -19 
+Clause NO.54 : -7 -14 
+Clause NO.55 : 10 1 -19 
+Clause NO.56 : -11 20 -17 
+Clause NO.57 : 1 -20 19 
+Clause NO.58 : 4 -18 19 
+Clause NO.59 : -7 1 -20 
+Clause NO.60 : 19 11 14 
+Clause NO.61 : -9 -2 19 
+Clause NO.62 : -7 -11 
+Clause NO.63 : -7 -2 
+Clause NO.64 : -2 3 
+Clause NO.65 : 20 -14 
+Clause NO.66 : -16 -1 
+Clause NO.67 : 4 -10 
+Clause NO.68 : 3 
+End of Showing
+
+Single Literal : 3
+
+DELETE :    -2 3 -13 
+DELETE :    3 
+DELETE :    16 3 -11 
+DELETE :    -18 3 11 
+DELETE :    -2 3 REPlACE   -3 -6     WITH    -6 
+REPlACE   -3 11     WITH    11 
+REPlACE   4 -3     WITH    4 
+REPlACE   -2 -3 17     WITH    -2 17 
+
+Single Literal : 4
+
+DELETE :    4 -10 
+DELETE :    -8 -9 4 
+DELETE :    20 9 4 
+DELETE :    4 
+DELETE :    -8 4 7 
+DELETE :    20 4 
+DELETE :    4 -18 19 REPlACE   -4 -9 -13     WITH    -13 -9 
+REPlACE   13 -4 10     WITH    13 10 
+REPlACE   -18 14 -4     WITH    -18 14 
+REPlACE   -16 18 -4     WITH    -16 18 
+
+Single Literal : 11
+
+DELETE :    -19 17 11 
+DELETE :    11 
+DELETE :    19 11 14 
+DELETE :    -20 -18 11 
+DELETE :    1 6 11 
+DELETE :    -10 -16 11 REPlACE   -7 -11     WITH    -7 
+REPlACE   -11 20 -17     WITH    -17 20 
+REPlACE   2 -11     WITH    2 
+REPlACE   -11 14 9     WITH    9 14 
+REPlACE   -10 -11 8     WITH    -10 8 
+
+Single Literal : -6
+
+DELETE :    14 -6 
+DELETE :    -6 -17 -8 
+DELETE :    -6 -2 
+DELETE :    -6 
+DELETE :    -6 17 REPlACE   9 6 1     WITH    9 1 
+REPlACE   6 10 7     WITH    7 10 
+
+Single Literal : 2
+
+DELETE :    2 -10 -18 
+DELETE :    2 REPlACE   -7 -2     WITH    -7 
+REPlACE   -18 -2 20     WITH    -18 20 
+REPlACE   17 -2     WITH    17 
+REPlACE   -9 -2 19     WITH    -9 19 
+REPlACE   -2 -13 -8     WITH    -8 -13 
+REPlACE   -2 17     WITH    17 
+
+Single Literal : 17
+
+DELETE :    17 
+DELETE :    1 16 17 
+DELETE :    17 
+DELETE :    -19 9 17 
+DELETE :    7 -9 17 
+DELETE :    17 19 
+DELETE :    7 17 REPlACE   -1 -17 -19     WITH    -1 -19 
+REPlACE   -17 20     WITH    20 
+REPlACE   -17 -7     WITH    -7 
+
+Single Literal : -7
+
+DELETE :    -7 
+DELETE :    -7 
+DELETE :    -14 -7 
+DELETE :    -7 16 10 
+DELETE :    -7 1 -20 
+DELETE :    10 -13 -7 
+DELETE :    -7 
+DELETE :    -7 -14 REPlACE   -20 7 -16     WITH    -20 -16 
+REPlACE   7 10     WITH    10 
+REPlACE   14 7 10     WITH    14 10 
+
+Single Literal : 10
+
+DELETE :    -19 10 
+DELETE :    13 10 
+DELETE :    10 -19 -14 
+DELETE :    10 1 -19 
+DELETE :    10 
+DELETE :    14 10 REPlACE   18 -10 13     WITH    18 13 
+REPlACE   -10 8     WITH    8 
+
+Single Literal : 20
+
+DELETE :    -18 20 
+DELETE :    20 -1 14 
+DELETE :    20 -14 
+DELETE :    20 -16 
+DELETE :    20 
+DELETE :    20 14 -16 REPlACE   -20 -16     WITH    -16 
+REPlACE   1 -20 19     WITH    1 19 
+
+Single Literal : 8
+
+DELETE :    8 REPlACE   -8 -13     WITH    -13 
+
+Single Literal : -13
+
+DELETE :    -13 -19 
+DELETE :    -13 -9 
+DELETE :    -13 REPlACE   18 13     WITH    18 
+REPlACE   9 13     WITH    9 
+
+Single Literal : 9
+
+DELETE :    9 14 
+DELETE :    9 
+DELETE :    9 1 REPlACE   -9 19     WITH    19 
+
+Single Literal : 19
+
+DELETE :    1 19 
+DELETE :    19 REPlACE   -1 -19     WITH    -1 
+REPlACE   -19 18     WITH    18 
+
+Single Literal : 18
+
+DELETE :    -16 18 
+DELETE :    18 
+DELETE :    18 REPlACE   -18 14 1     WITH    1 14 
+REPlACE   -18 14     WITH    14 
+
+Single Literal : 14
+
+DELETE :    1 14 
+DELETE :    14 
+Single Literal : -16
+
+DELETE :    -16 
+DELETE :    -16 -1 
+Single Literal : -1
+
+DELETE :    -1 
+ADD   -1     BACK
+
+ADD   -16 -1     BACK
+
+ADD   -16     BACK
+
+ADD   14     BACK
+
+ADD   1 14     BACK
+
+ADD   -18 14     BACK
+
+ADD   -18 14 1     BACK
+
+ADD   18     BACK
+
+ADD   18     BACK
+
+ADD   -16 18     BACK
+
+ADD   -19 18     BACK
+
+ADD   -1 -19     BACK
+
+ADD   19     BACK
+
+ADD   1 19     BACK
+
+ADD   -9 19     BACK
+
+ADD   9 1     BACK
+
+ADD   9     BACK
+
+ADD   9 14     BACK
+
+ADD   9 13     BACK
+
+ADD   18 13     BACK
+
+ADD   -13     BACK
+
+ADD   -13 -9     BACK
+
+ADD   -13 -19     BACK
+
+ADD   -8 -13     BACK
+
+ADD   8     BACK
+
+ADD   1 -20 19     BACK
+
+ADD   -20 -16     BACK
+
+ADD   20 14 -16     BACK
+
+ADD   20     BACK
+
+ADD   20 -16     BACK
+
+ADD   20 -14     BACK
+
+ADD   20 -1 14     BACK
+
+ADD   -18 20     BACK
+
+ADD   -10 8     BACK
+
+ADD   18 -10 13     BACK
+
+ADD   14 10     BACK
+
+ADD   10     BACK
+
+ADD   10 1 -19     BACK
+
+ADD   10 -19 -14     BACK
+
+ADD   13 10     BACK
+
+ADD   -19 10     BACK
+
+ADD   14 7 10     BACK
+
+ADD   7 10     BACK
+
+ADD   -20 7 -16     BACK
+
+ADD   -7 -14     BACK
+
+ADD   -7     BACK
+
+ADD   10 -13 -7     BACK
+
+ADD   -7 1 -20     BACK
+
+ADD   -7 16 10     BACK
+
+ADD   -14 -7     BACK
+
+ADD   -7     BACK
+
+ADD   -7     BACK
+
+ADD   -17 -7     BACK
+
+ADD   -17 20     BACK
+
+ADD   -1 -17 -19     BACK
+
+ADD   7 17     BACK
+
+ADD   17 19     BACK
+
+ADD   7 -9 17     BACK
+
+ADD   -19 9 17     BACK
+
+ADD   17     BACK
+
+ADD   1 16 17     BACK
+
+ADD   17     BACK
+
+ADD   -2 17     BACK
+
+ADD   -2 -13 -8     BACK
+
+ADD   -9 -2 19     BACK
+
+ADD   17 -2     BACK
+
+ADD   -18 -2 20     BACK
+
+ADD   -7 -2     BACK
+
+ADD   2     BACK
+
+ADD   2 -10 -18     BACK
+
+ADD   6 10 7     BACK
+
+ADD   9 6 1     BACK
+
+ADD   -6 17     BACK
+
+ADD   -6     BACK
+
+ADD   -6 -2     BACK
+
+ADD   -6 -17 -8     BACK
+
+ADD   14 -6     BACK
+
+ADD   -10 -11 8     BACK
+
+ADD   -11 14 9     BACK
+
+ADD   2 -11     BACK
+
+ADD   -11 20 -17     BACK
+
+ADD   -7 -11     BACK
+
+ADD   -10 -16 11     BACK
+
+ADD   1 6 11     BACK
+
+ADD   -20 -18 11     BACK
+
+ADD   19 11 14     BACK
+
+ADD   11     BACK
+
+ADD   -19 17 11     BACK
+
+ADD   -16 18 -4     BACK
+
+ADD   -18 14 -4     BACK
+
+ADD   13 -4 10     BACK
+
+ADD   -4 -9 -13     BACK
+
+ADD   4 -18 19     BACK
+
+ADD   20 4     BACK
+
+ADD   -8 4 7     BACK
+
+ADD   4     BACK
+
+ADD   20 9 4     BACK
+
+ADD   -8 -9 4     BACK
+
+ADD   4 -10     BACK
+
+ADD   -2 -3 17     BACK
+
+ADD   4 -3     BACK
+
+ADD   -3 11     BACK
+
+ADD   -3 -6     BACK
+
+ADD   -2 3     BACK
+
+ADD   -18 3 11     BACK
+
+ADD   16 3 -11     BACK
+
+ADD   3     BACK
+
+ADD   -2 3 -13     BACK
+
+DELETE    14     BACK
+
+DELETE    1 14     BACK
+
+DELETE    18     BACK
+
+DELETE    -1     BACK
+
+DELETE    19     BACK
+
+DELETE    9     BACK
+
+DELETE    18     BACK
+
+DELETE    -13     BACK
+
+DELETE    1 19     BACK
+
+DELETE    -16     BACK
+
+DELETE    8     BACK
+
+DELETE    18 13     BACK
+
+DELETE    14 10     BACK
+
+DELETE    10     BACK
+
+DELETE    -20 -16     BACK
+
+DELETE    -7     BACK
+
+DELETE    20     BACK
+
+DELETE    -1 -19     BACK
+
+DELETE    17     BACK
+
+DELETE    -8 -13     BACK
+
+DELETE    -9 19     BACK
+
+DELETE    17     BACK
+
+DELETE    -18 20     BACK
+
+DELETE    -7     BACK
+
+DELETE    7 10     BACK
+
+DELETE    9 1     BACK
+
+DELETE    -10 8     BACK
+
+DELETE    9 14     BACK
+
+DELETE    2     BACK
+
+DELETE    -17 20     BACK
+
+DELETE    -7     BACK
+
+DELETE    -16 18     BACK
+
+DELETE    -18 14     BACK
+
+DELETE    13 10     BACK
+
+DELETE    -13 -9     BACK
+
+DELETE    -2 17     BACK
+
+DELETE    4     BACK
+
+DELETE    11     BACK
+
+DELETE    -6     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 2
+DELETE  3     BACK
+ADD   12 3 -2     BACK
+
+ADD   -7 -2 12     BACK
+
+ADD   12 -11 -7     BACK
+
+ADD   12 -14 -7     BACK
+
+ADD   12 -7 -14     BACK
+
+ADD   20 12 4     BACK
+
+ADD   12 18 -19     BACK
+
+ADD   -3 11 12     BACK
+
+ADD   12 -7 -17     BACK
+
+ADD   14 -6 12     BACK
+
+ADD   12 -2 17     BACK
+
+ADD   -12 -9 17     BACK
+
+ADD   -12     BACK
+
+ADD   -12 8 -10     BACK
+
+ADD   -12 -14 -13     BACK
+
+ADD   -6 -15 -2     BACK
+
+ADD   -15 -12     BACK
+
+ADD   -15 -6 -3     BACK
+
+ADD   4 -15 -3     BACK
+
+ADD   -15 -10 4     BACK
+
+ADD   -16 -15 -1     BACK
+
+ADD   20 -14 -15     BACK
+
+ADD   9 -15 13     BACK
+
+ADD   20 -15 -16     BACK
+
+ADD   7 17 -15     BACK
+
+ADD   2 -15 -11     BACK
+
+ADD   -19 -15 10     BACK
+
+ADD   -16 9 15     BACK
+
+ADD   -13 15 10     BACK
+
+ADD   15 -9 13     BACK
+
+ADD   9 -17 15     BACK
+
+ADD   15     BACK
+
+ADD   15 18 4     BACK
+
+DELETE    3     BACK
+
+DELETE    -2 3     BACK
+
+DELETE    -7 -2     BACK
+
+DELETE    -7 -11     BACK
+
+DELETE    -7 -14     BACK
+
+DELETE    -14 -7     BACK
+
+DELETE    20 4     BACK
+
+DELETE    -19 18     BACK
+
+DELETE    -3 11     BACK
+
+DELETE    -17 -7     BACK
+
+DELETE    14 -6     BACK
+
+DELETE    17 -2     BACK
+
+DELETE    -6 -2     BACK
+
+DELETE    -12     BACK
+
+DELETE    -3 -6     BACK
+
+DELETE    4 -3     BACK
+
+DELETE    4 -10     BACK
+
+DELETE    -16 -1     BACK
+
+DELETE    20 -14     BACK
+
+DELETE    9 13     BACK
+
+DELETE    20 -16     BACK
+
+DELETE    7 17     BACK
+
+DELETE    2 -11     BACK
+
+DELETE    -19 10     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 1
+ADD   -13 5 -19     BACK
+
+ADD   -6 17 5     BACK
+
+ADD   5 -12 -15     BACK
+
+ADD   17 19 5     BACK
+
+ADD   -5 13 -17     BACK
+
+ADD   9 -5 -1     BACK
+
+ADD   -5 19 -18     BACK
+
+ADD   -13 -5 -1     BACK
+
+ADD   -8 12 -5     BACK
+
+ADD   -5 9 20     BACK
+
+ADD   -5 19 -8     BACK
+
+ADD   -5 -17 -19     BACK
+
+ADD   -5 12 15     BACK
+
+ADD   -9 1 -5     BACK
+
+ADD   11 -5 -14     BACK
+
+ADD   -5 -8 -15     BACK
+
+ADD   4 -16 -5     BACK
+
+ADD   -5     BACK
+
+ADD   3 18 -5     BACK
+
+DELETE    15     BACK
+
+DELETE    -13 -19     BACK
+
+DELETE    -6 17     BACK
+
+DELETE    -15 -12     BACK
+
+DELETE    17 19     BACK
+
+
+****************************RETURN****************************
+
+DEEPTH : 0
+DELETE  -5     BACK
+DELETE    -5     BACK
+Time used : 13.0623
+Class Cnf case created : 1 times.
+Dpll is called : 31 times.
+CNF可满足性验证成功！
