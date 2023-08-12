@@ -19,15 +19,19 @@ public:
         size = size * 2 + 10;
         arr = newArr; // commit 402027b3648a07cd70cf6684a23675b02ebe8830 出错的地方，原来没有这一句
     }
+
     Vector & Pop() {
+        if(Empty()) std::cout << "\n 栈下溢！";
         top--;
         return arr[top];
     }
-    void Push(Vector & v) { 
+
+    void Push(Vector & V) { 
         if(top >= size) BoostSize();
-        arr[top] = v;
+        arr[top] = V;
         top++;
     }
+
     bool Empty(void) {
         return top == 0;
     }

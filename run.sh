@@ -8,7 +8,8 @@ echo Snapshot:
 for file in `ls -r ./testset` 
     do
     echo "\n\nSolving ${file}" 
-    ./executable/dpll "./testset/${file}"
-    # ./executable/verify "./testset/${file}" "./output/${file%.*}.res"
-    break
+    # ./executable/dpll "./testset/${file}" 输入格式错误
+    ./executable/dpll "${file}"
+    ./executable/verify "./testset/${file}" "./output/${file%.*}.res"
+    # break
     done

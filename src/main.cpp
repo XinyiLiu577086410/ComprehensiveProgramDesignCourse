@@ -17,6 +17,7 @@ int main(int argc, char * argv[]){
     inputFileName = argv[1];
 
     /* 输入 */ 
+    // S.Read("./testset/" + inputFileName);
     S.Read("./testset/" + inputFileName);
     int VarNum = S.GetVariableNum();
     bool sat = -1;
@@ -27,11 +28,13 @@ int main(int argc, char * argv[]){
     std::chrono::duration<double> time = std::chrono::duration_cast< std::chrono::duration<double> >(t1 - t0);
    
     /* 输出 */ 
-    char tmp[128];
-    int i = 0;
+    char tmp[512];
+    int i = inputFileName.length();
     // 截去inputFileName的 ".cnf"
-    while(inputFileName[i] != '.' && i < 127) { tmp[i] = inputFileName[i]; ++i; }
-    tmp[i] = '\0';
+    while(inputFileName[i+1] != '.' && i > 0) { --i; }
+    int j = 0;
+    while(j <= i) { tmp[j] = inputFileName[j]; j++; } 
+    tmp[j] = '\0';
     std::string name = tmp;
     std::ofstream outFile;
     outFile.open("./output/" + name + ".res");

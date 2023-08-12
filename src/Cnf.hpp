@@ -36,7 +36,9 @@ public:
         if(clauses !=  nullptr) delete[] clauses; 
         if(assoiciationTable !=  nullptr) delete[] assoiciationTable; 
     }
-    void Resize(const int size);  // 重新分配CNF数据的内存，原有数据会被清空
+    // O(N*M)
+    void Resize(const int size);  // 重新分配CNF数据的内存。如果空间增大，原有数据保留，否则清空。
+    
     // O(N*M)
     Cnf & operator= (const Cnf & Obj){
         if(this != &Obj){
@@ -55,7 +57,7 @@ public:
         return * this;
     }
     bool Verify (bool rslt[])const;
-    int Read(std::string filename); // 从file中读取CNF范式的复合命题
+    int Read(std::string filename); // 从file中读取CNF范式命题
     bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
     int GetVariableNum(void) const{ return variableNum; }
     
@@ -113,17 +115,19 @@ void Cnf::Resize(const int newsize){
 
 //O(N*M)
 void Cnf::Show (void) const {
-    std::cout<<"\n\nlength:"<<length;
+    std::cout<<"\nShowing cnf class: ";
+    std::cout<<"\nlength : "<<length;
     for(int i = 0; i < length; i++){
-        std::cout << "\nClauses " << i << " : ";
+        std::cout << "\nClause NO." << i << " : ";
         clauses[i].Show();
     }
+    std::cout<<"\nEnd of Showing";
 }
 //O(N*M)
 bool Cnf::Verify (bool rslt[]) const {
     for(int i = 0; i < length; i++)
         if(!clauses[i].Verify(rslt)){
-            std::cout<<"不满足的子句："<<"\n**"<<i+1<<"**\n";  return false;
+            std::cout<<"\n不满足的子句："<<"**"<<i+1<<"**";  return false;
         }
     return true;
 }
@@ -145,7 +149,6 @@ int Cnf::Delete (const int index){
     for(int i = 0; i < vectorLength; i++) {
         assoiciationTable[clauses[index][i]+variableNum]--;
     }
-    // length++;  commit:ffa24b3的问题所在
     clauses[index] = clauses[length-1];
     length--;
     return SUCCESS;
@@ -225,16 +228,15 @@ int Cnf::Read (std::string filename) {
         for(int k = 0; k < j - 1; k++) {
             tmp.Add(p[k]);
         }
-        Add(tmp); // Add() 的值传递参数作为一个类会被析构
+        Add(tmp);
     }
-    Show();
     return SUCCESS;
 }
 //O(variableNum)
 int Cnf::Select (const int tag) const{
     int mostFrequentLiteral = GetFirstLiteral(0); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
-        if(/*O(n*m) Find(i) && */ assoiciationTable[i + variableNum] > assoiciationTable[mostFrequentLiteral + variableNum]) {
+        if(assoiciationTable[i + variableNum] > assoiciationTable[mostFrequentLiteral + variableNum]) {
             mostFrequentLiteral = i;
         }
     }
@@ -244,15 +246,10 @@ int Cnf::Select (const int tag) const{
 int Cnf::Select (void) const{
     return GetFirstLiteral(length/2);
 }
-//  这个函数在不可满足时证伪时效率很低
-//  正确性完成
-//  大数据集 效率很低
 
 bool Cnf::Dpll (bool solution[]) {
-    Show();
     countDPLLCalls++;
-    myStack toDelete, toAdd;
-    // Show();
+    myStack DeleteBack, AddBack;
     while(HaveSingle()){
         int literal = FindSingle();
         //记录结果
@@ -260,7 +257,7 @@ bool Cnf::Dpll (bool solution[]) {
         //Wash()
             for (int i = 0; i < length; ){
                 if(clauses[i].Find(literal) != ERROR) {
-                    toAdd.Push(clauses[i]);
+                    AddBack.Push(clauses[i]);
                     Delete(i); 
                 }
                 else i++;
@@ -269,48 +266,35 @@ bool Cnf::Dpll (bool solution[]) {
         //Reduce()
             for (int i = 0; i < length; i++)
                 if ( clauses[i].Find(-literal) != ERROR ) {
-                    toAdd.Push(clauses[i]);
-                    // Vector replaceVector = clauses[i];  commit 402027b3648a07cd70cf6684a23675b02ebe8830 的错误。
+                    AddBack.Push(clauses[i]);
                     Vector replaceVector;
                     replaceVector = clauses[i];
                     replaceVector.Delete(-literal);
-                    toDelete.Push(replaceVector);
+                    DeleteBack.Push(replaceVector);
                     Add(replaceVector);
                     Delete(i);
                     assoiciationTable[-literal + variableNum]--;
                 }
         //End Reduce()
-        // Show();
         if(Empty()) return true;
-        if (HaveEmpty()) return true;
+        if (HaveEmpty()) return false;
     }
     int p = Select(1);
-    /*
-    Cnf S1(length+1), S2(length+1);
-    S1 = *this;
-    S2 = *this;
-    */
     Vector V1(1, p), V2(1,-p);
     Add(V1);
-    // Show();
     if (Dpll(solution)) {
-        toDelete.Push(V1);
-        while (!toAdd.Empty()) Add(toAdd.Pop());
-        while (!toDelete.Empty()) DeleteDesignatedClause(toDelete.Pop());
-        // while(!toAdd.Empty()) {Vector tmp; tmp = toAdd.Pop(); Add(tmp);}
-        // while(!toDelete.Empty()) {Vector tmp; tmp = toDelete.Pop(); DeleteDesignatedClause(tmp);}
+        DeleteBack.Push(V1);
+        while (!AddBack.Empty()) Add(AddBack.Pop());
+        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
         return true;
     }
     else { 
         DeleteDesignatedClause(V1);
-        toDelete.Push(V2);
+        DeleteBack.Push(V2);
         Add(V2);
-        // Show();
         bool sat = Dpll(solution);
-        while (!toAdd.Empty()) Add(toAdd.Pop());
-        while (!toDelete.Empty()) DeleteDesignatedClause(toDelete.Pop());
-        // while(!toAdd.Empty()) {Vector tmp; tmp = toAdd.Pop(); Add(tmp);}
-        // while(!toDelete.Empty()) {Vector tmp; tmp = toDelete.Pop(); DeleteDesignatedClause(tmp);}
+        while (!AddBack.Empty()) Add(AddBack.Pop());
+        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
         return sat;
     }
 }
@@ -320,29 +304,4 @@ void Cnf::DeleteDesignatedClause(const Vector & target) {
         if(target == clauses[i]) Delete(i);
     }
 };
-
-/*
- CNF_SAT(76264,0x1ee68a080) malloc: *** error for object 0x60000000c000: pointer being freed was not allocated
- CNF_SAT(76264,0x1ee68a080) malloc: *** set a breakpoint in malloc_error_break to debug
- 
- 悬挂指针。。
- */
-
-/*
-test.请输入CNF文件名
-cnf
-
-length now is1
-
-length:1
-Clauses 0 : 50 59 89 
-length now is2
-length now is2CNF命题是可满足的
-成真赋值的解在solution文件中。
-Time used: 0.681542 ms.
-
-*/
-
-
-// 只有在打了一个通宵游戏后才会做出用size_t和longlong去替代int的事情
 #endif
