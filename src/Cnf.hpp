@@ -21,6 +21,7 @@
 class Cnf{
 public:
     static unsigned int countCases;
+    static unsigned int countDPLLCalls;
     Cnf(){      
         countCases++;  
         length = 0;
@@ -84,6 +85,7 @@ private:
 };
 
 unsigned int Cnf::countCases = 0;
+unsigned int Cnf::countDPLLCalls = 0;
 
 bool Cnf::Find(const int target) const{
     for(int i = 0; i < length; i++)if(clauses[i].Find(target) != ERROR) return true;
@@ -225,6 +227,7 @@ int Cnf::Read (std::string filename) {
         }
         Add(tmp); // Add() 的值传递参数作为一个类会被析构
     }
+    Show();
     return SUCCESS;
 }
 //O(variableNum)
@@ -246,9 +249,13 @@ int Cnf::Select (void) const{
 //  大数据集 效率很低
 
 bool Cnf::Dpll (bool solution[]) {
+    Show();
+    countDPLLCalls++;
     myStack toDelete, toAdd;
+    // Show();
     while(HaveSingle()){
         int literal = FindSingle();
+        //记录结果
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         //Wash()
             for (int i = 0; i < length; ){
@@ -259,24 +266,23 @@ bool Cnf::Dpll (bool solution[]) {
                 else i++;
             }
         //end Wash()
+        //Reduce()
+            for (int i = 0; i < length; i++)
+                if ( clauses[i].Find(-literal) != ERROR ) {
+                    toAdd.Push(clauses[i]);
+                    // Vector replaceVector = clauses[i];  commit 402027b3648a07cd70cf6684a23675b02ebe8830 的错误。
+                    Vector replaceVector;
+                    replaceVector = clauses[i];
+                    replaceVector.Delete(-literal);
+                    toDelete.Push(replaceVector);
+                    Add(replaceVector);
+                    Delete(i);
+                    assoiciationTable[-literal + variableNum]--;
+                }
+        //End Reduce()
+        // Show();
         if(Empty()) return true;
-        else{
-            //Reduce()
-                for (int i = 0; i < length; i++)
-                    if ( clauses[i].Find(-literal) != ERROR ) {
-                        toAdd.Push(clauses[i]);
-                        // Vector replaceVector = clauses[i];  commit 402027b3648a07cd70cf6684a23675b02ebe8830 的错误。
-                        Vector replaceVector;
-                        replaceVector = clauses[i];
-                        replaceVector.Delete(-literal);
-                        toDelete.Push(replaceVector);
-                        Add(replaceVector);
-                        Delete(i);
-                        assoiciationTable[-literal + variableNum]--;
-                    }
-            //End Reduce()
-            if (HaveEmpty()) return false;
-        }
+        if (HaveEmpty()) return true;
     }
     int p = Select(1);
     /*
@@ -286,6 +292,7 @@ bool Cnf::Dpll (bool solution[]) {
     */
     Vector V1(1, p), V2(1,-p);
     Add(V1);
+    // Show();
     if (Dpll(solution)) {
         toDelete.Push(V1);
         while (!toAdd.Empty()) Add(toAdd.Pop());
@@ -298,6 +305,7 @@ bool Cnf::Dpll (bool solution[]) {
         DeleteDesignatedClause(V1);
         toDelete.Push(V2);
         Add(V2);
+        // Show();
         bool sat = Dpll(solution);
         while (!toAdd.Empty()) Add(toAdd.Pop());
         while (!toDelete.Empty()) DeleteDesignatedClause(toDelete.Pop());

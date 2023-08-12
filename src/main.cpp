@@ -44,7 +44,8 @@ int main(int argc, char * argv[]){
     }
     outFile << "\nt " << time.count() * 1000 ;
     std::cout << "Time used : " << time.count() * 1000;
-    std::cout << "\nClass Cnf created : " << S.countCases;
+    std::cout << "\nClass Cnf case created : " << S.countCases << " times.";
+    std::cout << "\nDpll is called : " << S.countDPLLCalls << " times.";
     outFile.close();
     return 0;
 }

@@ -35,6 +35,7 @@ class Vector{
         }
         bool operator== (Vector & v) const {
             if(length != v.GetLength()) return false;
+            if(length==0 && v.length==0) return true;
             for(int i = 0; i < length; i++) { 
                 if(v.Find(a[i]) == ERROR) return false;
             }

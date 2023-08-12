@@ -1,0 +1,14 @@
+Snapshot:
+
+
+Solving small_unsatisfied_p_cnf_110_1892_u-5cnf_4300_4300_110.shuffled-110.cnf
+
+
+length:0
+
+length:0
+
+length:1
+Clauses 0 : 0 Time used : 0.008416
+Class Cnf case created : 1 times.
+Dpll is called : 2 times.
