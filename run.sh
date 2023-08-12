@@ -5,7 +5,7 @@ mkdir output
 g++ ./src/main.cpp -o ./executable/dpll -std=c++11 -O0 
 # g++ ./src/Verify.cpp -o ./executable/verify -std=c++11
 echo Snapshot:
-for file in `ls ./testset -r` 
+for file in `ls -r ./testset` 
     do
     echo "\nSolving ${file}"
     ./executable/dpll "${file}"

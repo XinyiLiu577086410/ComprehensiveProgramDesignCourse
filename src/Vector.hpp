@@ -1,3 +1,5 @@
+#ifndef VECTOR
+#define VECTOR
 #include <cstring>
 #include <algorithm>
 #include <iostream>
@@ -11,10 +13,10 @@ class Vector{
     public:
         int Add(int); //添加文字
         int Delete(int); // 删除文字，用末尾文字覆盖x
-        int Find(int); // 返回x的索引
-        bool IsSingle(void); // 判断是否是单子句
-        int GetFirstLiteral(void); // 返回第一个文字
-        bool Empty(void); // 判空
+        int Find(int) const; // 返回参数的索引
+        bool IsSingle(void) const; // 判断是否是单子句
+        int GetFirstLiteral(void) const; // 返回第一个文字
+        bool Empty(void) const; // 判空
         
         Vector(); // 默认构造函数
         Vector(int, int); // 设定数据域大小，添加一个x
@@ -31,14 +33,20 @@ class Vector{
             }
             return *this;
         }
+        bool operator== (Vector & v) const {
+            if(length != v.GetLength()) return false;
+            for(int i = 0; i < length; i++) { 
+                if(v.Find(a[i]) == ERROR) return false;
+            }
+            return true;
+        }
         int operator[] (int x) {
             if(x < 0 || x >= length) { std::cout << "class Vector::operater[]：索引越界!" << std::endl; return 0; }
             else return a[x];
         }
-        bool Verify(bool []); // 验证
-        void Show(void); // 展示Vector
-        void Static(int []); //
-        int GetLength(void) {return length;}
+        bool Verify(bool []) const; // 验证
+        void Show(void) const; // 展示Vector
+        int GetLength(void) const {return length;}
     private:
         int * a;
         int length;
@@ -63,18 +71,12 @@ void Vector::Resize(int newsize) {
     size = newsize;
 }
 
-
-void Vector::Static(int table[]) {
-    for (int i = 0; i < length; i++) table[a[i] + 100000]++;
-}
-
-
-void Vector::Show(void) {
+void Vector::Show(void) const{
     for(int i = 0; i < length; i++) std::cout << a[i] << ' ';
 }
 
 
-bool Vector::Verify(bool result[]) {
+bool Vector::Verify(bool result[]) const{
     for(int i = 0; i < length; i++ )
         if((a[i] > 0 && result[a[i]]) || (a[i] < 0 && !result[-a[i]]))  return true;
     return false;
@@ -99,7 +101,7 @@ Vector::Vector (int newsize){
     length = 0;
 }
 
-int Vector::Find (int x) {
+int Vector::Find (int x) const{
     int i;
     for (i = length - 1; i >= 0; i--) {
         if(a[i] == x) break;
@@ -126,13 +128,14 @@ int Vector::Delete (int x) {
     }else return ERROR;
 }
 
-bool Vector::IsSingle (void) {
+bool Vector::IsSingle (void) const{
     return length == 1;
 }
-bool Vector::Empty (void) {
+bool Vector::Empty (void) const{
     return length == 0;
 }
-int Vector::GetFirstLiteral (void) {
+int Vector::GetFirstLiteral (void) const{
     if (Empty()) return 0; // 没有找到
     return a[0];
 }
+#endif
