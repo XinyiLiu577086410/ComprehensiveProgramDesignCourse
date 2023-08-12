@@ -17,11 +17,14 @@
 
 class Cnf{
     public:
-        Cnf(){        
+        static unsigned int countCases;
+        Cnf(){      
+            countCases++;  
             length = 0;
             clauses = nullptr; 
         }
         Cnf(int size){
+            countCases++;  
             length = 0;
             clauses = new Vector[size];
         }
@@ -65,6 +68,7 @@ class Cnf{
         int Select(int); // 重载，传递任何一个无意义整型常数即可调用，参数无实际意义
         bool HaveEmpty(void); // 如果CNF命题含子句返回true，此时CNF命题是不可满足的
         bool Find(int);
+        // static unsigned long long int CountCases(void) { return countCases; }
     private:
         Vector * clauses; // 含动态分配内存的类对象的赋值可能会造成正确性错误，浅拷贝没有完成副本的赋值相当于原地工作。
         // Vector clauses[MAX_CLAUSES]; //  栈里的数组会带来段错误，尤其是在输入数据比较大的时候
@@ -74,6 +78,9 @@ class Cnf{
         int size = 0;
         int * assoiciationTable = nullptr; //统计每个变量出现次数，调用Read()时动态分配空间
 };
+
+unsigned int Cnf::countCases = 0;
+
 bool Cnf::Find(int target){
     for(int i = 0; i < length; i++)if(clauses[i].Find(target) != ERROR) return true;
     return false;
@@ -246,7 +253,7 @@ bool Cnf::Dpll (bool solution[]) {
             if (HaveEmpty()) return false;
         }
     }
-    int p = Select();
+    int p = Select(1);
     Cnf S1(length+1), S2(length+1);
     S1 = *this;
     S2 = *this;

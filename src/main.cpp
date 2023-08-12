@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <cstdio>
+#include <chrono>
 #include "cnf.hpp"
 #ifndef SUCCESS
 #define SUCCESS 0
@@ -42,6 +43,8 @@ int main(int argc, char * argv[]){
         }
     }
     outFile << "\nt " << time.count() * 1000 ;
+    std::cout << "Time used : " << time.count() * 1000;
+    std::cout << "\nClass Cnf created : " << S.countCases;
     outFile.close();
     return 0;
 }
