@@ -10,11 +10,14 @@ public:
     ~myStack();
     void BoostSize(){
         Vector * newArr = new Vector[size * 2 + 10];
-        for(int i = 0; i < top; i++) {
-            newArr[i] = arr[i];
+        if(arr){
+            for(int i = 0; i < top; i++) {
+                newArr[i] = arr[i];
+            }
+            delete[] arr;
         }
-        size = size * 2 + 1;
-        if(arr != nullptr) delete[] arr;
+        size = size * 2 + 10;
+        arr = newArr; // commit 402027b3648a07cd70cf6684a23675b02ebe8830 出错的地方，原来没有这一句
     }
     Vector & Pop() {
         top--;

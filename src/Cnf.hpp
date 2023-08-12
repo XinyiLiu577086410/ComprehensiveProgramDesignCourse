@@ -130,7 +130,6 @@ bool Cnf::Verify (bool rslt[]) const {
 int Cnf::Add (Vector & newClause){
     if( size <= length ) Resize(2 * length + 10);
     clauses[length] = newClause;
-    clauses[length] = newClause;
     for(int i = 0; i < newClause.GetLength(); i++) {
         assoiciationTable[newClause[i] + variableNum]++;
     }
@@ -251,7 +250,7 @@ bool Cnf::Dpll (bool solution[]) {
     while(HaveSingle()){
         int literal = FindSingle();
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
-        //Wash 
+        //Wash()
             for (int i = 0; i < length; ){
                 if(clauses[i].Find(literal) != ERROR) {
                     toAdd.Push(clauses[i]);
@@ -265,12 +264,14 @@ bool Cnf::Dpll (bool solution[]) {
             //Reduce()
                 for (int i = 0; i < length; i++)
                     if ( clauses[i].Find(-literal) != ERROR ) {
-                        Vector replaceVector = clauses[i];
                         toAdd.Push(clauses[i]);
-                        Delete(i);
+                        // Vector replaceVector = clauses[i];  commit 402027b3648a07cd70cf6684a23675b02ebe8830 的错误。
+                        Vector replaceVector;
+                        replaceVector = clauses[i];
                         replaceVector.Delete(-literal);
-                        Add(replaceVector);
                         toDelete.Push(replaceVector);
+                        Add(replaceVector);
+                        Delete(i);
                         assoiciationTable[-literal + variableNum]--;
                     }
             //End Reduce()
@@ -284,11 +285,13 @@ bool Cnf::Dpll (bool solution[]) {
     S2 = *this;
     */
     Vector V1(1, p), V2(1,-p);
-    toDelete.Push(V1);
     Add(V1);
     if (Dpll(solution)) {
-        while(!toAdd.Empty()) Add(toAdd.Pop());
-        while(!toDelete.Empty()) DeleteDesignatedClause(toDelete.Pop());
+        toDelete.Push(V1);
+        while (!toAdd.Empty()) Add(toAdd.Pop());
+        while (!toDelete.Empty()) DeleteDesignatedClause(toDelete.Pop());
+        // while(!toAdd.Empty()) {Vector tmp; tmp = toAdd.Pop(); Add(tmp);}
+        // while(!toDelete.Empty()) {Vector tmp; tmp = toDelete.Pop(); DeleteDesignatedClause(tmp);}
         return true;
     }
     else { 
@@ -296,8 +299,10 @@ bool Cnf::Dpll (bool solution[]) {
         toDelete.Push(V2);
         Add(V2);
         bool sat = Dpll(solution);
-        while(!toAdd.Empty()) Add(toAdd.Pop());
-        while(!toDelete.Empty()) DeleteDesignatedClause(toDelete.Pop());
+        while (!toAdd.Empty()) Add(toAdd.Pop());
+        while (!toDelete.Empty()) DeleteDesignatedClause(toDelete.Pop());
+        // while(!toAdd.Empty()) {Vector tmp; tmp = toAdd.Pop(); Add(tmp);}
+        // while(!toDelete.Empty()) {Vector tmp; tmp = toDelete.Pop(); DeleteDesignatedClause(tmp);}
         return sat;
     }
 }
