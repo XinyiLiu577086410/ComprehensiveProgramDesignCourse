@@ -30,7 +30,7 @@ int main(int argc, char * argv[]){
 
     /* 输出 */ 
     char tmp[512];
-    // 截去inputFileName的 ".cnf"
+    /* 截去inputFileName的 ".cnf"拓展名，并拼接输出文件名 */
     int i = inputFileName.length();
     while(inputFileName[i+1] != '.' && i > 0) { --i; }
     int j = 0;
