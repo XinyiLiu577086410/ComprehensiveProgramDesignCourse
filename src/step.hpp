@@ -12,21 +12,19 @@ public:
     char operation;
     Step();
     ~Step();
-    Step & operator= (Step & obj) {
-        if(this != &obj){
-            v = obj.v;
-            operation = obj.operation;
-        }
-        return *this;
-    }
+    Step & operator= (Step &);
 };
 
-Step::Step()
-{
-}
+Step::Step(){}
 
-Step::~Step()
-{
+Step::~Step(){}
+
+Step & Step::operator= (Step & obj) {
+    if(this != &obj){
+        v = obj.v;
+        operation = obj.operation;
+    }
+    return *this;
 }
 
 #endif

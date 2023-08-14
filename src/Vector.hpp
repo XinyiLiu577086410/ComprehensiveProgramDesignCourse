@@ -82,14 +82,12 @@ Vector & Vector::operator= (const Vector & obj) {   // 深拷贝
 
 
 bool Vector::operator== (Vector & V) const {
-    // if(length != V.GetLength()) return false;
     for(int i = 0; i < length; i++) { 
         if(V.Find(a[i]) == ERROR) return false;
     }
     for(int i = 0; i < V.GetLength(); i++) {
         if(Find(V[i]) == ERROR) return false;
     }
-    /* 上个版本中判等的实现有误 */ 
     return true;
 }
 

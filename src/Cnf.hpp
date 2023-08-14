@@ -23,7 +23,7 @@ class Cnf {
 public:
     // 静态成员变量
     static unsigned int countCases;                 // 记录实例数
-    static unsigned int countDPLLCalls;             // 记录Dpll()调用次数
+    static unsigned int countDpllCalls;             // 记录Dpll()调用次数
     
     // 构造函数、析构函数
     Cnf();
@@ -62,8 +62,11 @@ private:
     int * associationTable;                         // 统计每个变量出现的次数，空间在调用Read()时动态分配
 };
 
+
+// 初始化静态成员变量
 unsigned int Cnf::countCases = 0;
-unsigned int Cnf::countDPLLCalls = 0;
+unsigned int Cnf::countDpllCalls = 0;
+
 
 Cnf::Cnf() { 
     countCases++;                                   // 更新计数器
@@ -321,13 +324,14 @@ bool Cnf::Verify (bool rslt[]) const {
     return true;
 }
 
-
+// Dpll 的辅助变量（可以放在全局区）
 Vector replaceVector, V;
 int literal;
 Step singleStep;
 
 bool Cnf::Dpll (bool solution[]) {
-    countDPLLCalls++;
+    countDpllCalls++;
+    std::cout<<"\n"<<countDpllCalls;
     myStack toInverse; // 反演栈
     // 运用单子句规则进行化简
     while(HaveSingle()) {
@@ -337,8 +341,9 @@ bool Cnf::Dpll (bool solution[]) {
         // 化简正文字
         for (int i = 0; i < length; ) {
             if(clauses[i].Find(literal) != ERROR) {
-                singleStep.v = clauses[i];
+                // 删除子句
                 singleStep.operation = -1;
+                singleStep.v = clauses[i];
                 toInverse.Push(singleStep);
                 Delete(i); // 尾部子句被写到 clauses[i]，原地停留 
             }
