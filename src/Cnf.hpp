@@ -58,27 +58,35 @@ private:
     int length;                                     // 子句个数
     int clausesNum;                                 // CNF文件中子句数信息
     int variableNum;                                // CNF文件中变元数信息
-    int size = 0;                                   // 内存大小
-    int * associationTable = nullptr;               // 统计每个变量出现的次数，空间在调用Read()时动态分配
+    int size;                                       // 内存大小
+    int * associationTable;                         // 统计每个变量出现的次数，空间在调用Read()时动态分配
 };
 
 unsigned int Cnf::countCases = 0;
 unsigned int Cnf::countDPLLCalls = 0;
 
-Cnf::Cnf() {      
-    countCases++;  
-    length = 0;
+Cnf::Cnf() { 
+    countCases++;                                   // 更新计数器
+    clauses = nullptr; 
+    length = 0;     
     clausesNum = 0;
     variableNum = 0; 
     size = 0;  
-    clauses = nullptr; 
+    associationTable = nullptr;
 }
 
 
-Cnf::Cnf(int size) {
-    countCases++;  
+Cnf::Cnf(int initSize) {
+    countCases++;                                   // 更新计数器
+    clauses = new (std::nothrow) Vector[initSize];
+    /*  commit d0c128624825acff65725b3ab14aa98bd234627d : 这行的数组下标值好像也有问题*/
+    assert(clauses != nullptr);
     length = 0;
-    clauses = new Vector[size];
+    clausesNum = 0;
+    variableNum = 0;
+    size = initSize; 
+    /*  commit d0c128624825acff65725b3ab14aa98bd234627d : 缺少size的正确初始化*/
+    associationTable = nullptr;
 }
 
 
@@ -307,7 +315,7 @@ void Cnf::Show (void) const {
 bool Cnf::Verify (bool rslt[]) const {
     for(int i = 0; i < length; i++)
         if(!clauses[i].Verify(rslt)){
-            std::cout<<"\n不满足的子句："<<"**"<<i+1<<"**";  return false;
+            std::cout<<"\nCnf::Verify() : Clause unsatisfied : "<<"**"<<i+1<<"**";  return false;
         }
     return true;
 }

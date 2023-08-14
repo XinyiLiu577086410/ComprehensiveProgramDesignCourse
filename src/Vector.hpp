@@ -57,21 +57,24 @@ Vector::Vector(){
 }
 
 
-Vector::Vector (int newsize, int x){
-    if(newsize == 0) return;
-    a = new (std::nothrow) int[newsize];
+Vector::Vector (int initSize, int x){
+    if(initSize == 0) {
+        std::cout<<"\nVector::Vector : Bad construction, the initial size is zero.";
+        exit(-1);
+    }
+    a = new (std::nothrow) int[initSize];
     assert(a != nullptr);
-    size = newsize;
+    size = initSize;
     length = 0;
     Add(x);
 }
 
 
-Vector::Vector (int newsize){
-    if(newsize == 0) return;
-    a = new (std::nothrow) int[newsize];
+Vector::Vector (int initSize){
+    if(initSize == 0) return;
+    a = new (std::nothrow) int[initSize];
     assert(a != nullptr);
-    size = newsize;
+    size = initSize;
     length = 0;
 }
 
@@ -99,7 +102,7 @@ Vector & Vector::operator= (const Vector & Obj) {   // 深拷贝
 
 bool Vector::operator== (Vector & V) const {
     if(length != V.GetLength()) return false;
-    if(length==0 && V.length==0) return true;
+    if(length==0 && V.length==0) return true;       // 特判空子句
     for(int i = 0; i < length; i++) { 
         if(V.Find(a[i]) == ERROR) return false;
     }
@@ -109,8 +112,8 @@ bool Vector::operator== (Vector & V) const {
 
 int Vector::operator[] (int x) {
     if(x < 0 || x >= length) { 
-        std::cout << "class Vector::operater[]：索引越界!" << std::endl; 
-        return 0; 
+        std::cout << "\nVector::operater[] : Index fault!" << std::endl; 
+        exit(-1);
     }
     else return a[x];
 }
@@ -170,11 +173,11 @@ void Vector::Clear(void) {
 
 void Vector::Resize(int newSize) {
     if(newSize == 0) {
-        std::cout<<"Vector::Resize() : Bad resize, the new size is  zero.";  
+        std::cout<<"\nVector::Resize() : Bad resize, the new size is  zero.";  
         exit(-1);
     }
     if(newSize < length){
-        std::cout<<"Vector::Resize() : Bad resize, the new size is too small.";  
+        std::cout<<"\nVector::Resize() : Bad resize, the new size is too small.";  
         exit(-1);
     }
     int * newSpace = new (std::nothrow) int[newSize];

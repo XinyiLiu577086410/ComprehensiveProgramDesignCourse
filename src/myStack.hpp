@@ -11,7 +11,7 @@
 
 class myStack {
 public:
-    myStack(/* args */);
+    myStack();
     ~myStack();
     void Resize(int newSize);
     Vector & Pop(void);
@@ -24,7 +24,7 @@ private:
 };
 
 
-myStack::myStack(/* args */) {
+myStack::myStack() {
     arr = nullptr;
     size = 0;
     top = 0;
@@ -32,17 +32,17 @@ myStack::myStack(/* args */) {
 
 
 myStack::~myStack() {
-    if(arr) delete[] arr;
+    if(arr != nullptr) delete[] arr;
 }
 
 
 void myStack::Resize(int newSize) {
     if(newSize == 0) {
-        std::cout<<"myStack::Resize() : Bad resize, the new size is zero.";  
-        exit(-1);
+        std::cout<<"\nmyStack::Resize() : Bad resize, the new size is zero.";  
+        exit(-1);                   // 防衍生错误覆盖关键错误信息
     }
     if(newSize < top) { 
-        std::cout<<"myStack::Resize() : Bad resize, the new size is too small.";  
+        std::cout<<"\nmyStack::Resize() : Bad resize, the new size is too small.";  
         exit(-1);
     }
     Vector * newArr = new (std::nothrow) Vector[newSize];
@@ -60,7 +60,7 @@ void myStack::Resize(int newSize) {
 
 Vector & myStack::Pop() {
     if(Empty()) {
-        std::cout << "\nstack underflow!";
+        std::cout << "\nmyStack::Pop() : stack underflow!";
         exit(-1);
     }
     else top--;
