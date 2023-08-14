@@ -112,16 +112,18 @@ int Vector::Add (int V) {
     return SUCCESS;
 }
 
-
+// 返回的是删除的次数/个数
 int Vector::Delete (int x) {
+    int count = 0;
     int pos = Find(x);
     if(pos != ERROR){
         while (pos != ERROR) {
             a[pos] = a[length-1];
             length--;
+            count++;
             pos = Find(x);
         }
-        return SUCCESS;
+        return count;
     }else return ERROR;
 }
 
