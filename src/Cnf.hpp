@@ -340,7 +340,7 @@ bool Cnf::Dpll (bool solution[]) {
                 singleStep.v = clauses[i];
                 singleStep.operation = -1;
                 toInverse.Push(singleStep);
-                Delete(i); // 尾部子句被写到 clauses[i]，i 不递增 
+                Delete(i); // 尾部子句被写到 clauses[i]，原地停留 
             }
             else i++;
         }
@@ -365,14 +365,27 @@ bool Cnf::Dpll (bool solution[]) {
             }
         }
         if(Empty()) {
-            while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
-            while (!AddBack.Empty()) Add(AddBack.Pop()); 
-            /* 如果我这样写，意味着（前提是）操作是可以交换的，实际上不是，操作是可以反演的， 但不能改变次序*/
+            while (!toInverse.Empty()) {
+                singleStep = toInverse.Pop();
+                if(singleStep.operation == +1) {
+                    DeleteDesignatedClause(singleStep.v);
+                }
+                else if(singleStep.operation == -1){
+                    Add(singleStep.v);
+                }
+            }
             return true; // 递归终点
         }
-        if(HaveEmpty()) { // 大部分时候搜索分支会到达这里，这里的回溯尤为重要。
-            while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
-            while (!AddBack.Empty()) Add(AddBack.Pop());        
+        if(HaveEmpty()) { 
+            while (!toInverse.Empty()) {
+                singleStep = toInverse.Pop();
+                if(singleStep.operation == +1) {
+                    DeleteDesignatedClause(singleStep.v);
+                }
+                else if(singleStep.operation == -1){
+                    Add(singleStep.v);
+                }
+            }        
             return false; // 递归终点
         }
     }
@@ -381,29 +394,53 @@ bool Cnf::Dpll (bool solution[]) {
     // 构造单子句
     V.Clear();
     V.Add(p);
-    // 添加单子句
-    DeleteBack.Push(V);
+    // 添加单子句{p}
+    singleStep.operation = +1;
+    singleStep.v = V;
+    toInverse.Push(singleStep);
     Add(V);
-    // 求解分支
+    // 求解分支 S + {p}
     if (Dpll(solution)) {
-        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
-        while (!AddBack.Empty()) Add(AddBack.Pop());
+        while (!toInverse.Empty()) {
+            singleStep = toInverse.Pop();
+            if(singleStep.operation == +1) {
+                DeleteDesignatedClause(singleStep.v);
+            }
+            else if(singleStep.operation == -1){
+                Add(singleStep.v);
+            }
+        }    
         return true;
     }
     else { 
-        assert(!DeleteBack.Empty());
-        // 删除单子句
-        DeleteDesignatedClause(DeleteBack.Pop());
-        // 构造单子句
+        // 删除单子句{p}
+        singleStep = toInverse.Pop();
+        if(singleStep.operation == +1) {
+            DeleteDesignatedClause(singleStep.v);
+        }
+        else if(singleStep.operation == -1){
+            Add(singleStep.v);
+        }        
+        // 构造单子句{-p}
         V.Clear();
         V.Add(-p);
-        // 添加单子句
-        DeleteBack.Push(V);
+        // 添加单子句{-p}
+        singleStep.operation = +1;
+        singleStep.v = V;
+        toInverse.Push(singleStep);
         Add(V);
-        // 求解回溯并返回
+        // 求解S + {-p}
         bool sat = Dpll(solution);
-        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
-        while (!AddBack.Empty()) Add(AddBack.Pop());
+        // 回溯并返回
+        while (!toInverse.Empty()) {
+            singleStep = toInverse.Pop();
+            if(singleStep.operation == +1) {
+                DeleteDesignatedClause(singleStep.v);
+            }
+            else if(singleStep.operation == -1){
+                Add(singleStep.v);
+            }
+        }  
         return sat;
     }
 }
