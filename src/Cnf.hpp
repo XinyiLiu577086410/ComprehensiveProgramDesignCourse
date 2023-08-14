@@ -1,219 +1,122 @@
 #ifndef CNF
 #define CNF
+
 #include <fstream>
 #include <cstring>
 #include <iostream>
 #include <algorithm>
 #include <cassert>
+
 #include "myStack.hpp"
 #include "vector.hpp"
 
-/*
-#define MAX_CLAUSES 250000 // CNF范式允许的最多子句个数
-// 如果太大会爆栈，覆盖函数入口产生段错误
-// 这个版本采用了递降的递归内存分配方法，如果递归入口函数占了很多内存，允许的递归深度会变浅。
-*/
 #ifndef SUCCESS
 #define SUCCESS 0
 #endif
+
 #ifndef ERROR
 #define ERROR -1
 #endif
 
-class Cnf{
+class Cnf {
 public:
-    static unsigned int countCases;
-    static unsigned int countDPLLCalls;
-    Cnf(){      
-        countCases++;  
-        length = 0;
-        clauses = nullptr; 
-    }
-    Cnf(int size){
-        countCases++;  
-        length = 0;
-        clauses = new Vector[size];
-    }
-    ~Cnf() { 
-        if(clauses !=  nullptr) delete[] clauses; 
-        if(associationTable !=  nullptr) delete[] associationTable; 
-    }
-    // O(N*M)
-    void Resize(const int size);  // 重新分配CNF数据的内存。如果空间增大，原有数据保留，否则清空。
+    // 静态成员变量
+    static unsigned int countCases;                 // 记录实例数
+    static unsigned int countDPLLCalls;             // 记录Dpll()调用次数
     
-    // O(N*M)
-    Cnf & operator= (const Cnf & Obj){
-        if(this != &Obj){
-            length = Obj.length;
-            size = Obj.size;
-            variableNum = Obj.variableNum;
-            
-            if(associationTable != nullptr) { delete[] associationTable; associationTable = nullptr;}
-            associationTable = new (std::nothrow) int[Obj.variableNum * 2 + 1];
-            assert(associationTable != nullptr);
-            memcpy(associationTable, Obj.associationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
+    // 构造函数、析构函数
+    Cnf();
+    Cnf(int size);
+    ~Cnf();
+   
+    // 运算符重载
+    Cnf & operator= (const Cnf & Obj);              // 深拷贝
 
-            if(clauses != nullptr) { delete[] clauses; clauses = nullptr; }
-            clauses = new (std::nothrow) Vector[Obj.size];
-            assert(clauses != nullptr);
-            for(int i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
-        }
-        return * this;
-    }
-    bool Verify (bool rslt[])const;
-    int Read(std::string filename); // 从file中读取CNF范式命题
-    bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
-    int GetVariableNum(void) const{ return variableNum; }
-    
-    void Show (void)const; // 展示各个子句
-    int GetFirstLiteral (const int index)const; // 返回顺序为index（从0开始）的子句的第一个文字
-    int Delete(const int index); // 从CNF中删除clause[index]（会将最后的子句填充到这里，然后将length减小1。）
-    int Add(Vector & clause); // 在末尾添加一个子句 //  这里必须引用传递， 值传递是浅拷贝
-    int Wash(const int literal); // 删除所有含文字literal的clause
-    int Reduce(const int literal); // 在所有clause中删除literal
-    bool HaveSingle  (void)const; // 判断是否含单子句
-    bool Empty  (void)const; // 判空
-    int FindSingle (void)const; // 找出一个单子句
-    int Select (void)const; // 选择第一个子句的第一个文字
-    int Select (int)const; // 重载，传递任何一个无意义整型常数即可调用，参数无实际意义
-    bool HaveEmpty (void)const; // 如果CNF命题含子句返回true，此时CNF命题是不可满足的
-    bool Find (const int) const; // CNF命题中查找参数
-    void DeleteDesignatedClause(const Vector&);
-    // static unsigned long long int CountCases(void) { return countCases; }
+    // 功能函数
+    int Read(std::string filename);                 // 读取CNF文件
+    int Delete(const int index);                    // 删除子句
+    void DeleteDesignatedClause(const Vector&);     // 删除指定子句
+    int Add(Vector & clause);                       // 添加子句
+    void Resize(const int size);                    // 重新分配内存
+    int GetVariableNum(void) const;                 // 返回CNF文件的变元数信息
+    int GetFirstLiteral (const int index)const;     // 返回顺序为指定位序子句的第一个文字
+    bool HaveSingle  (void)const;                   // 判断子句集是否含有单子句
+    bool Empty  (void)const;                        // 判断子句集是否为空集
+    bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
+    bool Find (const int) const;                    // 判断子句集是否含有指定的文字
+    int FindSingle (void)const;                     // 从最后一个子句找出一个单子句
+    int Select (void)const;                         // 基准分支变元选择函数，返回第一个子句的第一个文字
+    int Select (int)const;                          // 重载分支变元选择函数
+    int Wash(const int literal);                    // 删除所有含指定文字的子句
+    int Reduce(const int literal);                  // 在所有子句中寻找并删除文字
+    bool Verify (bool rslt[])const;                 // 验证求解正确性
+    void Show (void)const;                          // 展示各个子句
+    bool Dpll(bool solution[]);                     // 用DPLL算法求解SAT问题
+
 private:
-    Vector * clauses; // 含动态分配内存的类对象的赋值可能会造成正确性错误，浅拷贝没有完成副本的赋值相当于原地工作。
-    // Vector clauses[MAX_CLAUSES]; //  栈里的数组会带来段错误，尤其是在输入数据比较大的时候
-    int length = 0; //子句的个数
-    int clausesNum = 0; //只能在调用DPLL算法之前用到
-    int variableNum = 0; //变量的总数
-    int size = 0;
-    int * associationTable = nullptr; //统计每个变量出现次数，调用Read()时动态分配空间
+    Vector * clauses;                               // 注意深拷贝
+    int length;                                     // 子句个数
+    int clausesNum;                                 // CNF文件中子句数信息
+    int variableNum;                                // CNF文件中变元数信息
+    int size = 0;                                   // 内存大小
+    int * associationTable = nullptr;               // 统计每个变量出现的次数，空间在调用Read()时动态分配
 };
 
 unsigned int Cnf::countCases = 0;
 unsigned int Cnf::countDPLLCalls = 0;
 
-bool Cnf::Find(const int target) const{
-    for(int i = 0; i < length; i++)if(clauses[i].Find(target) != ERROR) return true;
-    return false;
+Cnf::Cnf() {      
+    countCases++;  
+    length = 0;
+    clausesNum = 0;
+    variableNum = 0; 
+    size = 0;  
+    clauses = nullptr; 
 }
 
-// O(1) or O(N*M)
-void Cnf::Resize(const int newsize){
-    if(newsize < size) {
-        if(clauses) delete[] clauses;
-        clauses = nullptr;
-        if(newsize > 0) {
-            clauses = new (std::nothrow) Vector[newsize];
-            assert(clauses != nullptr);
-        }
-        length = 0;
-    }
-    else {
-        Vector * tmp = new (std::nothrow) Vector[newsize];
-        assert(tmp != nullptr);
-        if(clauses) {
-            for(int i = 0; i < length; i++) tmp[i] = clauses[i];
-            delete[] clauses;
-        }
-        clauses = tmp;
-    }
-    size = newsize;
+
+Cnf::Cnf(int size) {
+    countCases++;  
+    length = 0;
+    clauses = new Vector[size];
 }
 
-//O(N*M)
-void Cnf::Show (void) const {
-    std::cout<<"\nShowing cnf class: ";
-    std::cout<<"\nlength : "<<length;
-    for(int i = 0; i < length; i++){
-        std::cout << "\nClause NO." << i << " : ";
-        clauses[i].Show();
-    }
-    std::cout<<"\nEnd of Showing\n";
-}
-//O(N*M)
-bool Cnf::Verify (bool rslt[]) const {
-    for(int i = 0; i < length; i++)
-        if(!clauses[i].Verify(rslt)){
-            std::cout<<"\n不满足的子句："<<"**"<<i+1<<"**";  return false;
-        }
-    return true;
+
+Cnf::~Cnf() { 
+    if(clauses !=  nullptr) 
+        delete[] clauses; 
+    if(associationTable !=  nullptr) 
+        delete[] associationTable; 
 }
 
-// O(Resize) + O(M) + O(1)
-int Cnf::Add (Vector & newClause){
-    if( size <= length ) Resize(length + 10);
-    clauses[length] = newClause;
-    for(int i = 0; i < newClause.GetLength(); i++) {
-        associationTable[newClause[i] + variableNum]++;
-    }
-    length++;
-    return SUCCESS;
-}
-// O(M)
-int Cnf::Delete (const int index){
-    if(index < 0 || index >= length) return ERROR;
-    int vectorLength = clauses[index].GetLength();
-    for(int i = 0; i < vectorLength; i++) {
-        associationTable[clauses[index][i]+variableNum]--;
-    }
-    clauses[index] = clauses[length-1];
-    length--;
-    return SUCCESS;
-}
-// O(N)
-bool Cnf::HaveSingle (void) const{
-    int i;
-    for(i = length - 1; i >= 0; i--){
-        if(clauses[i].IsSingle()) return true;
-    }
-    return false;
-}
-//O(N)
-bool Cnf::HaveEmpty (void) const{
-    int i;
-    for(i = length - 1; i >= 0; i--){
-        if(clauses[i].Empty()) return true;
-    }
-    return false;
-}
-//O(N)
-int Cnf::FindSingle (void) const{
-    int i;
-    for(i = length - 1; i >= 0; i--){
-        if(clauses[i].IsSingle()) return clauses[i].GetFirstLiteral();
-    }
-    return 0; // 命题的编号不会是0， 用0代表没有找到单子句。
-}
-//O(1)
-int Cnf::GetFirstLiteral (const int index) const{
-    if (index < 0 || index >= length) return 0;
-    return clauses[index].GetFirstLiteral();
-}
-//O(N*M)
-int Cnf::Wash (const int literal) {
-    for (int i = 0; i < length; ){
-        if(clauses[i].Find(literal) != ERROR) {
-            Delete(i); 
+
+Cnf & Cnf::operator= (const Cnf & Obj) {
+    if(this != &Obj) {
+        length = Obj.length;
+        size = Obj.size;
+        variableNum = Obj.variableNum;
+        
+        if(associationTable != nullptr) { 
+            delete[] associationTable; 
+            associationTable = nullptr;
         }
-        else i++;
-    }
-    return SUCCESS;
-}
-//O(N*M)
-int Cnf::Reduce (const int literal){
-    for (int i = 0; i < length; i++)
-        if ( clauses[i].Find(literal) != ERROR ) {
-            clauses[i].Delete(literal);
-            associationTable[literal + variableNum]--;
+        associationTable = new (std::nothrow) int[Obj.variableNum * 2 + 1];
+        assert(associationTable != nullptr);
+        memcpy(associationTable, Obj.associationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
+        if(clauses != nullptr) { 
+            delete[] clauses; 
+            clauses = nullptr; 
         }
-    return SUCCESS;
+        clauses = new (std::nothrow) Vector[Obj.size];
+        assert(clauses != nullptr);
+        for(int i = 0; i < Obj.length; i++) { 
+            clauses[i] = Obj.clauses[i];
+        }
+    }
+    return * this;
 }
-//O(1)
-bool Cnf::Empty (void) const{
-    return length == 0;
-}
-//O(N*M)
+
+
 int Cnf::Read (std::string filename) {
     std::ifstream file;
     file.open(filename);
@@ -232,18 +135,128 @@ int Cnf::Read (std::string filename) {
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
         file >> p[j];
-        while (p[j++]) file >> p[j];
-        Vector tmp(j);
-        for(int k = 0; k < j - 1; k++) {
-            tmp.Add(p[k]);
+        while (p[j++]) {
+            file >> p[j];
         }
-        Add(tmp);
+        Vector vectorAppend(j);
+        for(int k = 0; k < j - 1; k++) {
+            vectorAppend.Add(p[k]);
+        }
+        Add(vectorAppend);
     }
     return SUCCESS;
 }
 
-//O(variableNum)
-int Cnf::Select (const int tag) const{
+
+int Cnf::Delete (const int index) {
+    if(index < 0 || index >= length) return ERROR;
+    int vectorLength = clauses[index].GetLength();
+    for(int i = 0; i < vectorLength; i++) {
+        associationTable[clauses[index][i]+variableNum]--;
+    }
+    clauses[index] = clauses[length-1];
+    length--;
+    if(length * 2 < size) Resize(length + 3);
+    return SUCCESS;
+}
+
+
+void Cnf::DeleteDesignatedClause(const Vector & target) {
+    for(int i = 0; i < length; i++) {
+        if(target == clauses[i]) Delete(i);
+    }
+}
+
+
+int Cnf::Add (Vector & newClause) {
+    if( size <= length ) Resize(size + 10);
+    clauses[length] = newClause;
+    for(int i = 0; i < newClause.GetLength(); i++) {
+        associationTable[newClause[i] + variableNum]++;
+    }
+    length++;
+    return SUCCESS;
+}
+
+
+void Cnf::Resize(const int newSize) {
+    if(newSize == 0) {
+        std::cout<<"Cnf::Resize() : Bad resize, the new size is zero.";  
+        exit(-1);
+    }
+    if(newSize < length) {
+        std::cout<<"Cnf::Resize() : Bad resize, the new size is too small.";  
+        exit(-1);
+    }
+    Vector * newSpace = new (std::nothrow) Vector[newSize];
+    assert(newSpace != nullptr);
+    if(clauses) {
+        for(int i = 0; i < length; i++){ 
+            newSpace[i] = clauses[i];
+        }
+        delete[] clauses;
+    }
+    clauses = newSpace;
+    size = newSize;
+}
+
+
+int Cnf::GetVariableNum(void) const {
+    return variableNum; 
+}
+
+
+int Cnf::GetFirstLiteral (const int index) const { 
+    if (index < 0 || index >= length) return 0;
+    return clauses[index].GetFirstLiteral();
+}
+
+
+bool Cnf::HaveSingle (void) const {
+    int i;
+    for(i = length - 1; i >= 0; i--){
+        if(clauses[i].IsSingle()) return true;
+    }
+    return false;
+}
+
+
+bool Cnf::Empty (void) const {
+    return length == 0;
+}
+
+
+bool Cnf::HaveEmpty (void) const {
+    int i;
+    for(i = length - 1; i >= 0; i--){
+        if(clauses[i].Empty()) return true;
+    }
+    return false;
+}
+
+
+bool Cnf::Find(const int target) const {
+    for(int i = 0; i < length; i++){
+        if(clauses[i].Find(target) != ERROR){ 
+            return true;
+        }
+    }
+    return false;
+}
+
+
+int Cnf::FindSingle (void) const {
+    int i;
+    for(i = length - 1; i >= 0; i--){
+        if(clauses[i].IsSingle()) {
+            return clauses[i].GetFirstLiteral();
+        }
+    }
+    return 0; // 命题的编号不会是0， 用0代表没有找到单子句。
+}
+
+
+int Cnf::Select (const int tag) const {
     int mostFrequentLiteral = GetFirstLiteral(0); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
         if(associationTable[i + variableNum] > associationTable[mostFrequentLiteral + variableNum]) {
@@ -253,29 +266,67 @@ int Cnf::Select (const int tag) const{
     return mostFrequentLiteral;
 }
 
-//O(1)
-int Cnf::Select (void) const{
+
+int Cnf::Select (void) const {
     return GetFirstLiteral(length/2);
 }
 
-void Cnf::DeleteDesignatedClause(const Vector & target) {
-    for(int i = 0; i < length; i++) {
-        if(target == clauses[i]) Delete(i); // 向量相等进行了重载
+
+int Cnf::Wash (const int literal) {
+    for (int i = 0; i < length; ){
+        if(clauses[i].Find(literal) != ERROR) {
+            Delete(i); 
+        }
+        else i++;
     }
-};
+    return SUCCESS;
+}
+
+
+int Cnf::Reduce (const int literal) {
+    for (int i = 0; i < length; i++)
+        if ( clauses[i].Find(literal) != ERROR ) {
+            clauses[i].Delete(literal);
+            associationTable[literal + variableNum]--;
+        }
+    return SUCCESS;
+}
+
+
+void Cnf::Show (void) const {
+    std::cout<<"\nShowing cnf class: ";
+    std::cout<<"\nlength : "<<length;
+    for(int i = 0; i < length; i++){
+        std::cout << "\nClause NO." << i << " : ";
+        clauses[i].Show();
+    }
+    std::cout<<"\nEnd of Showing\n";
+}
+
+
+bool Cnf::Verify (bool rslt[]) const {
+    for(int i = 0; i < length; i++)
+        if(!clauses[i].Verify(rslt)){
+            std::cout<<"\n不满足的子句："<<"**"<<i+1<<"**";  return false;
+        }
+    return true;
+}
+
 
 Vector replaceVector, V(10);
 int literal;
+
+
 bool Cnf::Dpll (bool solution[]) {
     countDPLLCalls++;
     myStack DeleteBack, AddBack;
     // 运用单子句规则进行化简
-    while(HaveSingle()){
+    while(HaveSingle()) {
         literal = FindSingle();
         //记录结果在solution布尔数组里
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         // 化简正文字
-        for (int i = 0; i < length; ){
+        for (int i = 0; i < length; ) {
             if(clauses[i].Find(literal) != ERROR) {
                 AddBack.Push(clauses[i]);
                 Delete(i); 
@@ -305,8 +356,8 @@ bool Cnf::Dpll (bool solution[]) {
             return false; // 递归终点
         }
     }
-    int p = Select(0); // p 的两次使用之间有Dpll()调用，不可以声明为全局变量
-    V.clear();
+    int p = Select(0);
+    V.Clear();
     V.Add(p);
     Add(V);
     DeleteBack.Push(V);
@@ -318,7 +369,7 @@ bool Cnf::Dpll (bool solution[]) {
     else { 
         assert(!DeleteBack.Empty());
         DeleteDesignatedClause(DeleteBack.Pop());
-        V.clear();
+        V.Clear();
         V.Add(-p);
         Add(V);
         DeleteBack.Push(V);
