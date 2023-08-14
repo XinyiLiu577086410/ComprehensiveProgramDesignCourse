@@ -25,7 +25,7 @@ class Vector{
         ~Vector();                      // 析构函数
 
         // 运算符重载
-        Vector & operator= (const Vector & Obj);
+        Vector & operator= (const Vector & );
         bool operator== (Vector & V) const;
         int operator[] (int x);         // 下标引用重载
 
@@ -63,10 +63,10 @@ Vector::~Vector() {
 }
 
 
-Vector & Vector::operator= (const Vector & Obj) {   // 深拷贝
-    if(&Obj != this) {
-        length = Obj.length;
-        size = Obj.size;
+Vector & Vector::operator= (const Vector & obj) {   // 深拷贝
+    if(&obj != this) {
+        length = obj.length;
+        size = obj.size;
         if(a != nullptr) {
             delete[] a;                             // 释放内存
             a = nullptr;                            // 防止 double free
@@ -74,7 +74,7 @@ Vector & Vector::operator= (const Vector & Obj) {   // 深拷贝
         if(size){
             a = new (std::nothrow) int[size];       // 防止 new int[0]
             assert(a != nullptr);
-            memcpy(a, Obj.a, Obj.length * sizeof(int));
+            memcpy(a, obj.a, obj.length * sizeof(int));
         }
     }
     return *this;
@@ -82,11 +82,14 @@ Vector & Vector::operator= (const Vector & Obj) {   // 深拷贝
 
 
 bool Vector::operator== (Vector & V) const {
-    if(length != V.GetLength()) return false;
-    if(length==0 && V.length==0) return true;       // 特判空子句
+    // if(length != V.GetLength()) return false;
     for(int i = 0; i < length; i++) { 
         if(V.Find(a[i]) == ERROR) return false;
     }
+    for(int i = 0; i < V.GetLength(); i++) {
+        if(Find(V[i]) == ERROR) return false;
+    }
+    /* 上个版本中判等的实现有误 */ 
     return true;
 }
 

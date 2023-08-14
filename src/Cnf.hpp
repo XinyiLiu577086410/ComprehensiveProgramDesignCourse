@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cassert>
 
+#include "step.hpp"
 #include "myStack.hpp"
 #include "vector.hpp"
 
@@ -29,16 +30,16 @@ public:
     ~Cnf();
    
     // 运算符重载
-    Cnf & operator= (const Cnf & Obj);              // 深拷贝
+    Cnf & operator= (const Cnf & );              // 深拷贝
 
     // 功能函数
-    int Read(std::string filename);                 // 读取CNF文件
-    int Delete(const int index);                    // 删除子句
-    void DeleteDesignatedClause(const Vector&);     // 删除指定子句
-    int Add(Vector & clause);                       // 添加子句
-    void Resize(const int size);                    // 重新分配内存
+    int Read(std::string);                 // 读取CNF文件
+    int Delete(const int);                    // 删除子句
+    int DeleteDesignatedClause(const Vector&);     // 删除指定子句
+    int Add(Vector &);                       // 添加子句
+    void Resize(const int);                    // 重新分配内存
     int GetVariableNum(void) const;                 // 返回CNF文件的变元数信息
-    int GetFirstLiteral (const int index)const;     // 返回顺序为指定位序子句的第一个文字
+    int GetFirstLiteral (const int)const;     // 返回顺序为指定位序子句的第一个文字
     bool HaveSingle  (void)const;                   // 判断子句集是否含有单子句
     bool Empty  (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
@@ -46,11 +47,11 @@ public:
     int FindSingle (void)const;                     // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 基准分支变元选择函数，返回第一个子句的第一个文字
     int Select (int)const;                          // 重载分支变元选择函数
-    int Wash(const int literal);                    // 删除所有含指定文字的子句
-    int Reduce(const int literal);                  // 在所有子句中寻找并删除文字
-    bool Verify (bool rslt[])const;                 // 验证求解正确性
+    int Wash(const int);                    // 删除所有含指定文字的子句
+    int Reduce(const int);                  // 在所有子句中寻找并删除文字
+    bool Verify (bool [])const;                 // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
-    bool Dpll(bool solution[]);                     // 用DPLL算法求解SAT问题
+    bool Dpll(bool []);                     // 用DPLL算法求解SAT问题
 
 private:
     Vector * clauses;                               // 注意深拷贝
@@ -87,11 +88,11 @@ Cnf::~Cnf() {
 }
 
 
-Cnf & Cnf::operator= (const Cnf & Obj) {
-    if(this != &Obj) {
-        length = Obj.length;
-        size = Obj.size;
-        variableNum = Obj.variableNum;
+Cnf & Cnf::operator= (const Cnf & obj) {
+    if(this != &obj) {
+        length = obj.length;
+        size = obj.size;
+        variableNum = obj.variableNum;
         
         if(associationTable != nullptr) { 
             delete[] associationTable; 
@@ -99,15 +100,15 @@ Cnf & Cnf::operator= (const Cnf & Obj) {
         }
         associationTable = new (std::nothrow) int[variableNum * 2 + 1];
         assert(associationTable != nullptr);
-        memcpy(associationTable, Obj.associationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
+        memcpy(associationTable, obj.associationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
         if(clauses != nullptr) { 
             delete[] clauses; 
             clauses = nullptr; 
         }
-        clauses = new (std::nothrow) Vector[Obj.size];
+        clauses = new (std::nothrow) Vector[obj.size];
         assert(clauses != nullptr);
-        for(int i = 0; i < Obj.length; i++) { 
-            clauses[i] = Obj.clauses[i];
+        for(int i = 0; i < obj.length; i++) { 
+            clauses[i] = obj.clauses[i];
         }
     }
     return * this;
@@ -159,15 +160,20 @@ int Cnf::Delete (const int index) {
 }
 
 
-void Cnf::DeleteDesignatedClause(const Vector & target) {
-    for(int i = 0; i < length; i++) {
-        if(target == clauses[i]) Delete(i);
+int Cnf::DeleteDesignatedClause(const Vector & target) {
+    int count = 0;
+    for(int i = 0; i < length;) {
+        if(target == clauses[i]) {
+            Delete(i);
+            return 1;
+        }
     }
+    return 0;
 }
 
 
 int Cnf::Add (Vector & newClause) {
-    if( size == length ) Resize(size + 10);
+    if(size == length) Resize(size + 10);
     if(size < length) {
         std::cout<<"\nCnf::Add() : size < length detected, heap is damaged!";
         exit(-1);
@@ -318,11 +324,11 @@ bool Cnf::Verify (bool rslt[]) const {
 
 Vector replaceVector, V;
 int literal;
-
+Step singleStep;
 
 bool Cnf::Dpll (bool solution[]) {
     countDPLLCalls++;
-    myStack DeleteBack, AddBack;
+    myStack toInverse; // 反演栈
     // 运用单子句规则进行化简
     while(HaveSingle()) {
         literal = FindSingle();
@@ -331,54 +337,73 @@ bool Cnf::Dpll (bool solution[]) {
         // 化简正文字
         for (int i = 0; i < length; ) {
             if(clauses[i].Find(literal) != ERROR) {
-                AddBack.Push(clauses[i]);
-                Delete(i); 
+                singleStep.v = clauses[i];
+                singleStep.operation = -1;
+                toInverse.Push(singleStep);
+                Delete(i); // 尾部子句被写到 clauses[i]，i 不递增 
             }
             else i++;
         }
         // 化简负文字
         for (int i = 0; i < length; i++){
             if ( clauses[i].Find(-literal) != ERROR ) {
-                AddBack.Push(clauses[i]);
+                // 构造新子句
                 replaceVector = clauses[i];
                 replaceVector.Delete(-literal);
-                DeleteBack.Push(replaceVector);
+                // 添加新子句
+                singleStep.operation = +1;
+                singleStep.v = replaceVector;
+                toInverse.Push(singleStep);
                 Add(replaceVector);
-                Delete(i);
+                // 删除旧子句
+                singleStep.operation = -1;
+                singleStep.v = clauses[i];
+                toInverse.Push(singleStep);
+                Delete(i); // replaceVector 被 Delete() 从尾部写回原处，不必原地停留
+                // 更新变元关联表
                 associationTable[-literal + variableNum]--;
             }
         }
         if(Empty()) {
-            while (!AddBack.Empty()) Add(AddBack.Pop());
             while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+            while (!AddBack.Empty()) Add(AddBack.Pop()); 
+            /* 如果我这样写，意味着（前提是）操作是可以交换的，实际上不是，操作是可以反演的， 但不能改变次序*/
             return true; // 递归终点
         }
-        if(HaveEmpty()) {
-            while (!AddBack.Empty()) Add(AddBack.Pop());
+        if(HaveEmpty()) { // 大部分时候搜索分支会到达这里，这里的回溯尤为重要。
             while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+            while (!AddBack.Empty()) Add(AddBack.Pop());        
             return false; // 递归终点
         }
     }
+    // 选取分支变元
     int p = Select(0);
+    // 构造单子句
     V.Clear();
     V.Add(p);
-    Add(V);
+    // 添加单子句
     DeleteBack.Push(V);
+    Add(V);
+    // 求解分支
     if (Dpll(solution)) {
-        while (!AddBack.Empty()) Add(AddBack.Pop());
         while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+        while (!AddBack.Empty()) Add(AddBack.Pop());
         return true;
     }
     else { 
         assert(!DeleteBack.Empty());
+        // 删除单子句
         DeleteDesignatedClause(DeleteBack.Pop());
+        // 构造单子句
         V.Clear();
         V.Add(-p);
-        Add(V);
+        // 添加单子句
         DeleteBack.Push(V);
+        Add(V);
+        // 求解回溯并返回
         bool sat = Dpll(solution);
-        while (!AddBack.Empty()) Add(AddBack.Pop());
         while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+        while (!AddBack.Empty()) Add(AddBack.Pop());
         return sat;
     }
 }

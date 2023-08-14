@@ -7,18 +7,21 @@
 #include <cassert>
 #include <cstdlib>
 
+#include "step.hpp"
 #include "vector.hpp"
+
+typedef Step type;
 
 class myStack {
 public:
     myStack();
     ~myStack();
     void Resize(int newSize);
-    Vector & Pop(void);
-    void Push(Vector & V);
+    type & Pop(void);
+    void Push(type & V);
     bool Empty(void);
 private:
-    Vector * arr;
+    type * arr;
     int top;
     int size;
 };
@@ -48,7 +51,7 @@ void myStack::Resize(int newSize) {
         std::cout<<"\nmyStack::Resize() : Bad resize, the new size is too small.";  
         exit(-1);
     }
-    Vector * newArr = new (std::nothrow) Vector[newSize];
+    type * newArr = new (std::nothrow) type[newSize];
     assert(newArr != nullptr);
     if(arr) {
         for(int i = 0; i < top; i++) {
@@ -62,7 +65,7 @@ void myStack::Resize(int newSize) {
 }
 
 
-Vector & myStack::Pop() {
+type & myStack::Pop() {
     if(Empty()) {
         std::cout << "\nmyStack::Pop() : stack underflow!";
         exit(-1);
@@ -73,7 +76,7 @@ Vector & myStack::Pop() {
 }
 
 
-void myStack::Push(Vector & V) { 
+void myStack::Push(type & V) { 
     if(top == size) Resize(size + 10);
     if(size < top) {
         std::cout<<"\nmyStack::Push() : size < top detected, heap is damaged!";
