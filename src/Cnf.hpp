@@ -165,7 +165,6 @@ int Cnf::Delete (const int index) {
 
 int Cnf::DeleteDesignatedClause(const Vector & target) {
     int count = 0;
-    /* 这里写成了死循环 commit 31ab073a57e508a4d31724daff1f18ef16e8b0cf */
     for(int i = 0; i < length; i++) {
         if(target == clauses[i]) {
             Delete(i);
@@ -333,6 +332,8 @@ Step singleStep;
 bool Cnf::Dpll (bool solution[]) {
     countDpllCalls++;
     myStack toInverse; // 反演栈
+    std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+    Show();
     // 运用单子句规则进行化简
     while(HaveSingle()) {
         literal = FindSingle();
@@ -379,6 +380,8 @@ bool Cnf::Dpll (bool solution[]) {
                     Add(singleStep.v);
                 }
             }
+            std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+            Show();
             return true; // 递归终点
         }
         if(HaveEmpty()) { 
@@ -391,6 +394,8 @@ bool Cnf::Dpll (bool solution[]) {
                     Add(singleStep.v);
                 }
             }        
+            std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+            Show();
             return false; // 递归终点
         }
     }
@@ -415,6 +420,8 @@ bool Cnf::Dpll (bool solution[]) {
                 Add(singleStep.v);
             }
         }    
+        std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+        Show();
         return true;
     }
     else { 
@@ -446,6 +453,8 @@ bool Cnf::Dpll (bool solution[]) {
                 Add(singleStep.v);
             }
         }  
+        std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+        Show();
         return sat;
     }
 }

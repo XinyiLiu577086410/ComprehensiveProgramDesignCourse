@@ -21,12 +21,12 @@ int main(int argc, char * argv[]){
     S.Read("./testset/" + inputFileName);
     int VarNum = S.GetVariableNum();
     bool sat = -1;
-
+    
     /* 计时开始 */    std::chrono::steady_clock::time_point  t0 = std::chrono::steady_clock::now();
     sat = S.Dpll(solution);
     /* 计时结束 */   std::chrono::steady_clock::time_point  t1 = std::chrono::steady_clock::now();
     std::chrono::duration<double> time = std::chrono::duration_cast< std::chrono::duration<double> >(t1 - t0);
-    
+
     /* 输出 */ 
     char tmp[512];
     // 截去inputFileName的 ".cnf"

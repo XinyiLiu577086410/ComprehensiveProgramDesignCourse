@@ -1,0 +1,49 @@
+
+countDpllCalls : 1
+Showing cnf class: 
+length : 4
+Clause NO.0 : 1 2 
+Clause NO.1 : -1 2 
+Clause NO.2 : 1 -2 
+Clause NO.3 : -1 -2 
+End of Showing
+
+countDpllCalls : 2
+Showing cnf class: 
+length : 5
+Clause NO.0 : 1 2 
+Clause NO.1 : -1 2 
+Clause NO.2 : 1 -2 
+Clause NO.3 : -1 -2 
+Clause NO.4 : 1 
+End of Showing
+
+countDpllCalls : 2
+Showing cnf class: 
+length : 2
+Clause NO.0 : -2 
+Clause NO.1 : -1 2 
+End of Showing
+
+countDpllCalls : 3
+Showing cnf class: 
+length : 3
+Clause NO.0 : -2 
+Clause NO.1 : -1 2 
+Clause NO.2 : -1 
+End of Showing
+
+countDpllCalls : 3
+Showing cnf class: 
+length : 0
+End of Showing
+
+countDpllCalls : 3
+Showing cnf class: 
+length : 0
+End of Showing
+
+dpll : 创建输出文件./output/base_function_p_cnf_20_91_sat-20.res成功！
+Time used : 0.08925ms
+Class Cnf case created : 1 times.
+Dpll() is called : 3 times.
