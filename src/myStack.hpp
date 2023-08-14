@@ -1,28 +1,32 @@
+#ifndef MYSTACK
+#define MYSTACK
 #include "vector.hpp"
+#include <cassert>
+#include <cstdlib>
 class myStack
 {
-private:
-    Vector * arr = nullptr;
-    int top = 0;
-    int size = 0;
 public:
     myStack(/* args */);
     ~myStack();
     void BoostSize(){
-        Vector * newArr = new Vector[size * 2 + 10];
+        Vector * newArr = new (std::nothrow) Vector[size + 10];
+        assert(newArr != nullptr);
         if(arr){
             for(int i = 0; i < top; i++) {
                 newArr[i] = arr[i];
             }
             delete[] arr;
         }
-        size = size * 2 + 10;
-        arr = newArr; // commit 402027b3648a07cd70cf6684a23675b02ebe8830 出错的地方，原来没有这一句
+        size = size + 10;
+        arr = newArr;
     }
 
     Vector & Pop() {
-        if(Empty()) std::cout << "\n 栈下溢！";
-        top--;
+        if(Empty()) {
+            std::cout << "\n 栈下溢！";
+            exit(-1);
+        }
+        else top--;
         return arr[top];
     }
 
@@ -35,13 +39,22 @@ public:
     bool Empty(void) {
         return top == 0;
     }
+private:
+    Vector * arr;
+    int top;
+    int size;
 };
 
 myStack::myStack(/* args */)
 {
+    arr = nullptr;
+    size = 0;
+    top = 0;
 }
 
 myStack::~myStack()
 {
     if(arr) delete[] arr;
 }
+
+#endif

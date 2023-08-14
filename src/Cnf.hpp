@@ -4,8 +4,10 @@
 #include <cstring>
 #include <iostream>
 #include <algorithm>
+#include <cassert>
 #include "myStack.hpp"
 #include "vector.hpp"
+
 /*
 #define MAX_CLAUSES 250000 // CNF范式允许的最多子句个数
 // 如果太大会爆栈，覆盖函数入口产生段错误
@@ -34,7 +36,7 @@ public:
     }
     ~Cnf() { 
         if(clauses !=  nullptr) delete[] clauses; 
-        if(assoiciationTable !=  nullptr) delete[] assoiciationTable; 
+        if(associationTable !=  nullptr) delete[] associationTable; 
     }
     // O(N*M)
     void Resize(const int size);  // 重新分配CNF数据的内存。如果空间增大，原有数据保留，否则清空。
@@ -46,22 +48,24 @@ public:
             size = Obj.size;
             variableNum = Obj.variableNum;
             
-            if(assoiciationTable != nullptr) delete[] assoiciationTable;
-            assoiciationTable = new int[Obj.variableNum * 2 + 1];
-            memcpy(assoiciationTable, Obj.assoiciationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
+            if(associationTable != nullptr) { delete[] associationTable; associationTable = nullptr;}
+            associationTable = new (std::nothrow) int[Obj.variableNum * 2 + 1];
+            assert(associationTable != nullptr);
+            memcpy(associationTable, Obj.associationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
 
-            if(clauses != nullptr) delete[] clauses;
-            clauses = new Vector[Obj.size];
+            if(clauses != nullptr) { delete[] clauses; clauses = nullptr; }
+            clauses = new (std::nothrow) Vector[Obj.size];
+            assert(clauses != nullptr);
             for(int i = 0; i < Obj.length; i++) clauses[i] = Obj.clauses[i];
         }
         return * this;
     }
     bool Verify (bool rslt[])const;
     int Read(std::string filename); // 从file中读取CNF范式命题
-    bool Dpll(bool solution[], int ); // DPLL算法求解CNF范式的SAT问题
+    bool Dpll(bool solution[]); // DPLL算法求解CNF范式的SAT问题
     int GetVariableNum(void) const{ return variableNum; }
     
-    void Show  (void)const; // 展示各个子句
+    void Show (void)const; // 展示各个子句
     int GetFirstLiteral (const int index)const; // 返回顺序为index（从0开始）的子句的第一个文字
     int Delete(const int index); // 从CNF中删除clause[index]（会将最后的子句填充到这里，然后将length减小1。）
     int Add(Vector & clause); // 在末尾添加一个子句 //  这里必须引用传递， 值传递是浅拷贝
@@ -83,7 +87,7 @@ private:
     int clausesNum = 0; //只能在调用DPLL算法之前用到
     int variableNum = 0; //变量的总数
     int size = 0;
-    int * assoiciationTable = nullptr; //统计每个变量出现次数，调用Read()时动态分配空间
+    int * associationTable = nullptr; //统计每个变量出现次数，调用Read()时动态分配空间
 };
 
 unsigned int Cnf::countCases = 0;
@@ -98,12 +102,16 @@ bool Cnf::Find(const int target) const{
 void Cnf::Resize(const int newsize){
     if(newsize < size) {
         if(clauses) delete[] clauses;
-        if(newsize == 0) clauses = nullptr;
-        else clauses = new Vector[newsize];
+        clauses = nullptr;
+        if(newsize > 0) {
+            clauses = new (std::nothrow) Vector[newsize];
+            assert(clauses != nullptr);
+        }
         length = 0;
     }
     else {
-        Vector * tmp = new Vector[newsize];
+        Vector * tmp = new (std::nothrow) Vector[newsize];
+        assert(tmp != nullptr);
         if(clauses) {
             for(int i = 0; i < length; i++) tmp[i] = clauses[i];
             delete[] clauses;
@@ -134,10 +142,10 @@ bool Cnf::Verify (bool rslt[]) const {
 
 // O(Resize) + O(M) + O(1)
 int Cnf::Add (Vector & newClause){
-    if( size <= length ) Resize(2 * length + 10);
+    if( size <= length ) Resize(length + 10);
     clauses[length] = newClause;
     for(int i = 0; i < newClause.GetLength(); i++) {
-        assoiciationTable[newClause[i] + variableNum]++;
+        associationTable[newClause[i] + variableNum]++;
     }
     length++;
     return SUCCESS;
@@ -147,7 +155,7 @@ int Cnf::Delete (const int index){
     if(index < 0 || index >= length) return ERROR;
     int vectorLength = clauses[index].GetLength();
     for(int i = 0; i < vectorLength; i++) {
-        assoiciationTable[clauses[index][i]+variableNum]--;
+        associationTable[clauses[index][i]+variableNum]--;
     }
     clauses[index] = clauses[length-1];
     length--;
@@ -197,7 +205,7 @@ int Cnf::Reduce (const int literal){
     for (int i = 0; i < length; i++)
         if ( clauses[i].Find(literal) != ERROR ) {
             clauses[i].Delete(literal);
-            assoiciationTable[literal + variableNum]--;
+            associationTable[literal + variableNum]--;
         }
     return SUCCESS;
 }
@@ -209,6 +217,7 @@ bool Cnf::Empty (void) const{
 int Cnf::Read (std::string filename) {
     std::ifstream file;
     file.open(filename);
+    assert(file.is_open());
     char ch;
     while(file >> ch && ch == 'c') {
         char buff[1024];
@@ -217,8 +226,8 @@ int Cnf::Read (std::string filename) {
     std::string type;
     file >> type >> variableNum >> clausesNum;
     Resize(clausesNum);
-    assoiciationTable = new int[2 * variableNum + 1];
-    memset(assoiciationTable, 0, sizeof(int) * (variableNum * 2 + 1));
+    associationTable = new int[2 * variableNum + 1];
+    memset(associationTable, 0, sizeof(int) * (variableNum * 2 + 1));
     int p[100000];
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
@@ -232,160 +241,92 @@ int Cnf::Read (std::string filename) {
     }
     return SUCCESS;
 }
+
 //O(variableNum)
 int Cnf::Select (const int tag) const{
     int mostFrequentLiteral = GetFirstLiteral(0); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
-        if(assoiciationTable[i + variableNum] > assoiciationTable[mostFrequentLiteral + variableNum]) {
+        if(associationTable[i + variableNum] > associationTable[mostFrequentLiteral + variableNum]) {
             mostFrequentLiteral = i;
         }
     }
     return mostFrequentLiteral;
 }
+
 //O(1)
 int Cnf::Select (void) const{
     return GetFirstLiteral(length/2);
 }
 
-bool Cnf::Dpll (bool solution[], int deepth) {
-    std::cout << "\n\n****************************BEGIN****************************\n\n" << "DEEPTH : " << deepth;
-    Show();
+void Cnf::DeleteDesignatedClause(const Vector & target) {
+    for(int i = 0; i < length; i++) {
+        if(target == clauses[i]) Delete(i); // 向量相等进行了重载
+    }
+};
+
+Vector replaceVector, V(10);
+int literal;
+bool Cnf::Dpll (bool solution[]) {
     countDPLLCalls++;
     myStack DeleteBack, AddBack;
+    // 运用单子句规则进行化简
     while(HaveSingle()){
-        int literal = FindSingle();
-        std::cout<<"\nSingle Literal : " << literal << std::endl;
-        //记录结果
+        literal = FindSingle();
+        //记录结果在solution布尔数组里
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
-        //Wash()
-            for (int i = 0; i < length; ){
-                if(clauses[i].Find(literal) != ERROR) {
-                    std::cout<<"\nDELETE :    ";
-                    clauses[i].Show();
-                    AddBack.Push(clauses[i]);
-                    Delete(i); 
-                }
-                else i++;
+        // 化简正文字
+        for (int i = 0; i < length; ){
+            if(clauses[i].Find(literal) != ERROR) {
+                AddBack.Push(clauses[i]);
+                Delete(i); 
             }
-        //end Wash()
-        //Reduce()
-            for (int i = 0; i < length; i++)
-                if ( clauses[i].Find(-literal) != ERROR ) {
-                    std::cout<<"REPlACE   ";
-                    clauses[i].Show();
-                    AddBack.Push(clauses[i]);
-                    Vector replaceVector;
-                    replaceVector = clauses[i];
-                    replaceVector.Delete(-literal);
-                    DeleteBack.Push(replaceVector);
-                    std::cout<<"    WITH    ";
-                    replaceVector.Show();
-                    std::cout << std::endl;
-                    Add(replaceVector);
-                    Delete(i);
-                    assoiciationTable[-literal + variableNum]--;
-                }
-        //End Reduce()
-        // 这里没有恢复原状，回溯失败
+            else i++;
+        }
+        // 化简负文字
+        for (int i = 0; i < length; i++){
+            if ( clauses[i].Find(-literal) != ERROR ) {
+                AddBack.Push(clauses[i]);
+                replaceVector = clauses[i];
+                replaceVector.Delete(-literal);
+                DeleteBack.Push(replaceVector);
+                Add(replaceVector);
+                Delete(i);
+                associationTable[-literal + variableNum]--;
+            }
+        }
         if(Empty()) {
-            while (!AddBack.Empty()) {
-            Vector tmp;
-            tmp = AddBack.Pop();
-            Add(tmp);
-            std::cout<<"\nADD   ";
-            tmp.Show();
-            std::cout<<"    BACK\n";
-            }
-            while (!DeleteBack.Empty()) {
-                Vector tmp;
-                tmp = DeleteBack.Pop();
-                DeleteDesignatedClause(tmp);
-                std::cout<<"\nDELETE    ";
-                tmp.Show();
-                std::cout<<"    BACK\n";
-            }
-            return true;
+            while (!AddBack.Empty()) Add(AddBack.Pop());
+            while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+            return true; // 递归终点
         }
         if(HaveEmpty()) {
-            while (!AddBack.Empty()) {
-            Vector tmp;
-            tmp = AddBack.Pop();
-            Add(tmp);
-            std::cout<<"\nADD   ";
-            tmp.Show();
-            std::cout<<"    BACK\n";
-            }
-            while (!DeleteBack.Empty()) {
-                Vector tmp;
-                tmp = DeleteBack.Pop();
-                DeleteDesignatedClause(tmp);
-                std::cout<<"\nDELETE    ";
-                tmp.Show();
-                std::cout<<"    BACK\n";
-            }
-            return false;
+            while (!AddBack.Empty()) Add(AddBack.Pop());
+            while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
+            return false; // 递归终点
         }
     }
-    int p = Select(1);
-    Vector V1(1, p), V2(1,-p);
-    Add(V1);
-    std::cout<<"ADD:   ";
-    V1.Show();
-    if (Dpll(solution, deepth+1)) {
-        std::cout << "\n\n****************************RETURN****************************\n\n";
-        std::cout<< "DEEPTH : " << deepth;
-        std::cout<<"\nDELETE  ";
-        V1.Show();
-        std::cout<<"    BACK";
-        DeleteBack.Push(V1);
-        while (!AddBack.Empty()) {
-            Vector tmp;
-            tmp = AddBack.Pop();
-            Add(tmp);
-            std::cout<<"\nADD   ";
-            tmp.Show();
-            std::cout<<"    BACK\n";
-        }
-        while (!DeleteBack.Empty()) {
-            Vector tmp;
-            tmp = DeleteBack.Pop();
-            DeleteDesignatedClause(tmp);
-            std::cout<<"\nDELETE    ";
-            tmp.Show();
-            std::cout<<"    BACK\n";
-        }
+    int p = Select(0); // p 的两次使用之间有Dpll()调用，不可以声明为全局变量
+    V.clear();
+    V.Add(p);
+    Add(V);
+    DeleteBack.Push(V);
+    if (Dpll(solution)) {
+        while (!AddBack.Empty()) Add(AddBack.Pop());
+        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
         return true;
     }
     else { 
-        DeleteDesignatedClause(V1);
-        DeleteBack.Push(V2);
-        Add(V2);
-        bool sat = Dpll(solution, deepth+1);
-        std::cout << "\n\n****************************RETURN****************************\n\n";
-        std::cout<< "DEEPTH : " << deepth;
-        while (!AddBack.Empty()) {
-            Vector tmp;
-            tmp = AddBack.Pop();
-            Add(tmp);
-            std::cout<<"\nADD   ";
-            tmp.Show();
-            std::cout<<"    BACK\n";
-        }
-        while (!DeleteBack.Empty()) {
-            Vector tmp;
-            tmp = DeleteBack.Pop();
-            DeleteDesignatedClause(tmp);
-            std::cout<<"\nDELETE    ";
-            tmp.Show();
-            std::cout<<"    BACK\n";
-        }
+        assert(!DeleteBack.Empty());
+        DeleteDesignatedClause(DeleteBack.Pop());
+        V.clear();
+        V.Add(-p);
+        Add(V);
+        DeleteBack.Push(V);
+        bool sat = Dpll(solution);
+        while (!AddBack.Empty()) Add(AddBack.Pop());
+        while (!DeleteBack.Empty()) DeleteDesignatedClause(DeleteBack.Pop());
         return sat;
     }
 }
 
-void Cnf::DeleteDesignatedClause(const Vector & target) {
-    for(int i = 0; i < length; i++) {
-        if(target == clauses[i]) Delete(i);
-    }
-};
 #endif

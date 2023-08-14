@@ -3,6 +3,7 @@
 #include <cstring>
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 #ifndef SUCCESS
 #define SUCCESS 0
 #endif
@@ -17,27 +18,30 @@ class Vector{
         bool IsSingle(void) const; // 判断是否是单子句
         int GetFirstLiteral(void) const; // 返回第一个文字
         bool Empty(void) const; // 判空
-        
+        void clear(void) { length = 0; }
         Vector(); // 默认构造函数
-        Vector(int, int); // 设定数据域大小，添加一个x
+        Vector(int, int); // 设定数据域大小，添加一个元素
         Vector(int); // 设定数据域大小
         ~Vector() { if(a != nullptr) delete[] a; } // 析构函数
         void Resize(int);
-        Vector & operator= (const Vector & Obj) { // 重载函数，深度拷贝
+        Vector & operator= (const Vector & Obj) { // 深拷贝
             if(&Obj != this) {
                 length = Obj.length;
                 size = Obj.size;
                 if(a != nullptr) delete[] a;
-                a = new int[Obj.size];
-                memcpy(a, Obj.a, Obj.length * sizeof(int));
+                if(size){
+                    a = new (std::nothrow) int[Obj.size];
+                    assert(a != nullptr);
+                    memcpy(a, Obj.a, Obj.length * sizeof(int));
+                }
             }
             return *this;
         }
-        bool operator== (Vector & v) const {
-            if(length != v.GetLength()) return false;
-            if(length==0 && v.length==0) return true;
+        bool operator== (Vector & V) const {
+            if(length != V.GetLength()) return false;
+            if(length==0 && V.length==0) return true;
             for(int i = 0; i < length; i++) { 
-                if(v.Find(a[i]) == ERROR) return false;
+                if(V.Find(a[i]) == ERROR) return false;
             }
             return true;
         }
@@ -47,7 +51,7 @@ class Vector{
         }
         bool Verify(bool []) const; // 验证
         void Show(void) const; // 展示Vector
-        int GetLength(void) const {return length;}
+        int GetLength(void) const { return length; }
     private:
         int * a;
         int length;
@@ -57,12 +61,16 @@ class Vector{
 void Vector::Resize(int newsize) {
     if(newsize < size){
         if(a) delete[] a;
-        if(newsize == 0) a = nullptr;
-        else a = new int[newsize];
+        a = nullptr;
+        if(newsize > 0) {
+            a = new (std::nothrow) int[newsize];
+            assert(a != nullptr);
+        }
         length = 0;
     }
     else {
-        int * tmp = new int[newsize];
+        int * tmp = new (std::nothrow) int[newsize];
+        assert(tmp != nullptr);
         if(a) {
             memcpy(tmp, a, length * sizeof(int));
             delete[] a;
@@ -90,14 +98,18 @@ Vector::Vector(){
 }
 
 Vector::Vector (int newsize, int x){
-    a = new int[newsize];
+    if(newsize == 0) return;
+    a = new (std::nothrow) int[newsize];
+    assert(a != nullptr);
     size = newsize;
     length = 0;
     Add(x);
 }
 
 Vector::Vector (int newsize){
-    a = new int[newsize];
+    if(newsize == 0) return;
+    a = new (std::nothrow) int[newsize];
+    assert(a != nullptr);
     size = newsize;
     length = 0;
 }
@@ -110,9 +122,9 @@ int Vector::Find (int x) const{
     return i; // 返回-1（ERROR）表示没有找到
 }
 
-int Vector::Add (int x) {
-    if(size <= length) Resize(2 * (length + 1));
-    a[length] = x;
+int Vector::Add (int V) {
+    if(size <= length) Resize(length + 10);
+    a[length] = V;
     length++;
     return SUCCESS;
 }
@@ -121,7 +133,7 @@ int Vector::Delete (int x) {
     int pos = Find(x);
     if(pos != ERROR){
         while (pos != ERROR) {
-            a[pos] = a[length-1];
+            a[pos] = a[length-1]; // 赋值时左值动态分配的内存被释放
             length--;
             pos = Find(x);
         }
@@ -132,9 +144,11 @@ int Vector::Delete (int x) {
 bool Vector::IsSingle (void) const{
     return length == 1;
 }
+
 bool Vector::Empty (void) const{
     return length == 0;
 }
+
 int Vector::GetFirstLiteral (void) const{
     if (Empty()) return 0; // 没有找到
     return a[0];
