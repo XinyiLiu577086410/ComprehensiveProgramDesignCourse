@@ -15,7 +15,7 @@ fi
 mkdir executable
 mkdir output
 
-g++ ./src/main.cpp -o ./executable/dpll -std=c++11
+g++ ./src/main.cpp -o ./executable/dpll -std=c++11 -O0 -Wl,-stack_size -Wl,0x20000000 
 g++ ./src/verify.cpp -o ./executable/verify -std=c++11
 
 echo "\n\nSnapshot:"

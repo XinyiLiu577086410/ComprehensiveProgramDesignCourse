@@ -51,7 +51,7 @@ public:
     int Reduce(const int);                  // 在所有子句中寻找并删除文字
     bool Verify (bool [])const;                 // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
-    bool Dpll(bool []);                     // 用DPLL算法求解SAT问题
+    bool Dpll(bool [], int);                     // 用DPLL算法求解SAT问题
 
 private:
     Vector * clauses;                               // 注意深拷贝
@@ -306,11 +306,23 @@ int Cnf::Reduce (const int literal) {
 void Cnf::Show (void) const {
     std::cout<<"\nShowing cnf class: ";
     std::cout<<"\nlength : "<<length;
+    uint64_t hashcode1 = 1, hashcode2 = 0;
     for(int i = 0; i < length; i++){
-        std::cout << "\nClause NO." << i << " : ";
+        std::cout << "\nClause NO." << i + 1 << " : ";
         clauses[i].Show();
+        u_int64_t hhashcode1 = 1;
+        u_int64_t hhashcode2 = 0;
+        for (int j = 0; j < clauses[i].GetLength(); j++)
+        {
+            hhashcode1 *= clauses[i][j] + clauses[i].GetLength();
+            hhashcode2 += clauses[i][j] * clauses[i].GetLength();
+        }
+        hashcode1 += hhashcode2;
+        hashcode2 += hhashcode1;
+
     }
-    std::cout<<"\nEnd of Showing\n";
+    std::cout << "\nHash code : " << hashcode1 * hashcode2;
+    std::cout << "\nEnd of Showing\n";
 }
 
 
@@ -324,10 +336,17 @@ bool Cnf::Verify (bool rslt[]) const {
 
 // Dpll 的辅助变量（可以放在全局区）
 Vector replaceVector, V;
-int literal;
+int literal, i;
 Step singleStep;
-
-bool Cnf::Dpll (bool solution[]) {
+bool error = false;
+bool Cnf::Dpll (bool solution[], int deepth) {
+    if(deepth > variableNum) {
+        std::cout << "\ndeep == " << deepth <<" . too DEEP the recursion  is. ";
+        // Show();
+        // exit(-1);
+        error = true;
+        return false;
+    }
     countDpllCalls++;
     myStack toInverse; // 反演栈
     // 运用单子句规则进行化简
@@ -336,7 +355,7 @@ bool Cnf::Dpll (bool solution[]) {
         //记录结果在solution布尔数组里
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         // 化简正文字
-        for (int i = 0; i < length; ) {
+        for (i = 0; i < length; ) {
             if(clauses[i].Find(literal) != ERROR) {
                 // 删除子句
                 singleStep.operation = -1;
@@ -347,7 +366,7 @@ bool Cnf::Dpll (bool solution[]) {
             else i++;
         }
         // 化简负文字
-        for (int i = 0; i < length; i++){
+        for (i = 0; i < length; i++){
             if ( clauses[i].Find(-literal) != ERROR ) {
                 // 构造新子句
                 replaceVector = clauses[i];
@@ -402,7 +421,7 @@ bool Cnf::Dpll (bool solution[]) {
     toInverse.Push(singleStep);
     Add(V);
     // 求解分支 S + {p}
-    if (Dpll(solution)) {
+    if (Dpll(solution, deepth + 1)) {
         while (!toInverse.Empty()) {
             singleStep = toInverse.Pop();
             if(singleStep.operation == +1) {
@@ -415,6 +434,18 @@ bool Cnf::Dpll (bool solution[]) {
         return true;
     }
     else { 
+        if(error) {
+            while (!toInverse.Empty()) {
+                singleStep = toInverse.Pop();
+                if(singleStep.operation == +1) {
+                    DeleteDesignatedClause(singleStep.v);
+                }
+                else if(singleStep.operation == -1){
+                    Add(singleStep.v);
+                }
+            }
+            return false;
+        }
         // 删除单子句{p}
         singleStep = toInverse.Pop();
         if(singleStep.operation == +1) {
@@ -432,7 +463,7 @@ bool Cnf::Dpll (bool solution[]) {
         toInverse.Push(singleStep);
         Add(V);
         // 求解S + {-p}
-        bool sat = Dpll(solution);
+        bool sat = Dpll(solution, deepth + 1);
         // 回溯并返回
         while (!toInverse.Empty()) {
             singleStep = toInverse.Pop();
