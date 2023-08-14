@@ -11,7 +11,6 @@
 #ifndef ERROR
 #define ERROR -1
 #endif
-bool solution[250000];
 int main(int argc, char * argv[]){
     Cnf S;
     std::string inputFileName;
@@ -21,7 +20,8 @@ int main(int argc, char * argv[]){
     S.Read("./testset/" + inputFileName);
     int VarNum = S.GetVariableNum();
     bool sat = -1;
-    
+    bool solution[VarNum + 1];
+
     /* 计时开始 */    std::chrono::steady_clock::time_point  t0 = std::chrono::steady_clock::now();
     sat = S.Dpll(solution);
     /* 计时结束 */   std::chrono::steady_clock::time_point  t1 = std::chrono::steady_clock::now();

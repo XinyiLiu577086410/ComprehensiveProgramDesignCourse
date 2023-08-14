@@ -121,7 +121,6 @@ int Vector::Delete (int x) {
             length--;
             pos = Find(x);
         }
-        if(length * 3 < size) Resize(length + 3);
         return SUCCESS;
     }else return ERROR;
 }
