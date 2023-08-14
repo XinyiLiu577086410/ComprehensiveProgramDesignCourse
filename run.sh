@@ -19,7 +19,6 @@ g++ ./src/main.cpp -o ./executable/dpll -std=c++11 -O0 -Wl,-stack_size -Wl,0x200
 g++ ./src/verify.cpp -o ./executable/verify -std=c++11
 
 echo "\n\nSnapshot:"
-
 for file in `ls  ./testset` 
     do
     echo "\nSolving ${file}" 

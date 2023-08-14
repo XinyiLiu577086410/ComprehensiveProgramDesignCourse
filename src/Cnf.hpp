@@ -30,16 +30,16 @@ public:
     ~Cnf();
    
     // 运算符重载
-    Cnf & operator= (const Cnf & );              // 深拷贝
+    Cnf & operator= (const Cnf & );                 // 深拷贝
 
     // 功能函数
-    int Add(Vector &);                       // 添加子句
-    int Delete(const int);                    // 删除子句
-    int Read(std::string);                 // 读取CNF文件
-    int DeleteDesignatedClause(const Vector&);     // 删除指定子句
-    void Resize(const int);                    // 重新分配内存
+    int Add(Vector &);                              // 添加子句
+    int Delete(const int);                          // 删除子句
+    int Read(std::string);                          // 读取CNF文件
+    int DeleteDesignatedClause(const Vector&);      // 删除指定子句
+    void Resize(const int);                         // 重新分配内存
     int GetVariableNum(void) const;                 // 返回CNF文件的变元数信息
-    int GetFirstLiteral (const int)const;     // 返回顺序为指定位序子句的第一个文字
+    int GetFirstLiteral (const int)const;           // 返回顺序为指定位序子句的第一个文字
     bool HaveSingle  (void)const;                   // 判断子句集是否含有单子句
     bool Empty  (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
@@ -47,11 +47,9 @@ public:
     int FindSingle (void)const;                     // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 基准分支变元选择函数，返回第一个子句的第一个文字
     int Select (int)const;                          // 重载分支变元选择函数
-    // int Wash(const int);                    // 删除所有含指定文字的子句
-    // int Reduce(const int);                  // 在所有子句中寻找并删除文字
-    bool Verify (bool [])const;                 // 验证求解正确性
+    bool Verify (bool [])const;                     // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
-    bool Dpll(bool [], int);                     // 用DPLL算法求解SAT问题
+    bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
 
 private:
     Vector * clauses;                               // 注意深拷贝
@@ -60,7 +58,6 @@ private:
     int variableNum;                                // CNF文件中变元数信息
     int size;                                       // 内存大小
     int * associationTable;                         // 统计每个变量出现的次数，空间在调用Read()时动态分配
-    bool * presentTable;
 };
 
 
@@ -77,7 +74,6 @@ Cnf::Cnf() {
     variableNum = 0; 
     size = 0;  
     associationTable = nullptr;
-    presentTable = nullptr;
 }
 
 
@@ -89,10 +85,6 @@ Cnf::~Cnf() {
     if(associationTable !=  nullptr) {
         delete[] associationTable; 
         associationTable = nullptr;
-    }
-    if(presentTable !=  nullptr) {
-        delete[] presentTable; 
-        presentTable = nullptr;
     }
 }
 
@@ -110,14 +102,6 @@ Cnf & Cnf::operator= (const Cnf & obj) {
         associationTable = new (std::nothrow) int[variableNum * 2 + 1];
         assert(associationTable != nullptr);
         memcpy(associationTable, obj.associationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
-
-        if(presentTable != nullptr) { 
-            delete[] presentTable; 
-            presentTable = nullptr;
-        }
-        presentTable = new (std::nothrow) bool[variableNum + 1];
-        assert(presentTable != nullptr);
-        memcpy(presentTable, obj.presentTable, sizeof(bool) * ( variableNum + 1 ) );
 
         if(clauses != nullptr) { 
             delete[] clauses; 
@@ -142,7 +126,6 @@ int Cnf::Add (Vector & newClause) {
     clauses[length] = newClause;
     for(int i = 0; i < newClause.GetLength(); i++) {
         associationTable[newClause[i] + variableNum]++;
-        presentTable[abs(newClause[i])] = true;
     }
     length++;
     return SUCCESS;
@@ -153,17 +136,10 @@ int Cnf::Delete (const int index) {
     if(index < 0 || index >= length) return ERROR;
     int vectorLength = clauses[index].GetLength();
     for(int i = 0; i < vectorLength; i++) {
-        if( presentTable[abs(clauses[index][i])] ) {
-            associationTable[clauses[index][i]+variableNum]--;
-            if( associationTable[clauses[index][i]+variableNum] == 0 &&
-                 associationTable[-clauses[index][i]+variableNum] == 0 ) {
-                    presentTable[abs(clauses[index][i])] = false;
-                 }
-            else if(associationTable[clauses[index][i]+variableNum] < 0 ||
-                 associationTable[-clauses[index][i]+variableNum] < 0) {
-                    std::cout << "\nCnf::Delete() : associationTable underflow!";
-                    exit(-1);
-                 }
+        associationTable[clauses[index][i]+variableNum]--;
+        if(associationTable[clauses[index][i]+variableNum] < 0 || associationTable[-clauses[index][i]+variableNum] < 0) {
+            std::cout << "\nCnf::Delete() : associationTable underflow!";
+            exit(-1);
         }
     }
     clauses[index] = clauses[length-1];
@@ -188,10 +164,7 @@ int Cnf::Read (std::string filename) {
     associationTable = new (std::nothrow) int[2 * variableNum + 1];
     assert(associationTable != nullptr);
     memset(associationTable, 0, sizeof(int) * (variableNum * 2 + 1));
-    presentTable = new (std::nothrow) bool[variableNum + 1];
-    assert(presentTable != nullptr);
-    memset(presentTable, 0, sizeof(bool) * (variableNum + 1));
-
+   
     int p[100000];
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
@@ -218,7 +191,6 @@ int Cnf::DeleteDesignatedClause(const Vector & target) {
     }
     return 0;
 }
-
 
 
 void Cnf::Resize(const int newSize) {
@@ -298,50 +270,28 @@ int Cnf::FindSingle (void) const {
     return 0; // 命题的编号不会是0， 用0代表没有找到单子句。
 }
 
-
+// 现在是O(VariableNum)，远小于 O(ClauseNum * ClauseLength)
 int Cnf::Select (const int tag) const {
     int mostFrequentLiteral = Select(); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
         if(i == 0) continue;
-        if(presentTable[abs(i)] && associationTable[i + variableNum] > associationTable[mostFrequentLiteral + variableNum]) {
+        if(associationTable[i + variableNum] > associationTable[mostFrequentLiteral + variableNum]) {
             mostFrequentLiteral = i;
         }
     }
-    if(Find(mostFrequentLiteral)) 
-        return mostFrequentLiteral; 
-    else {
-        std::cout << "\nCnf::Select() : associationTable error!";
-        exit(-1);
-        // presentTable[abs(mostFrequentLiteral)] = false;
-        // return Select(); // 如果返回当前搜索空间外的变元，可能导致无限递归和栈溢出
-    }
+    return mostFrequentLiteral; 
+    // if(Find(mostFrequentLiteral)) // O(ClauseNum * ClauseLength)
+    //     return mostFrequentLiteral; 
+    // else { // 最后一关， 避免无穷递归。删去了presentTable再测试一次
+    //     std::cout << "\nCnf::Select() : associationTable error!";
+    //     exit(-1);
+    // }
 }
 
 
 int Cnf::Select (void) const {
     return GetFirstLiteral(length / 2);
 }
-
-
-// int Cnf::Wash (const int literal) {
-//     for (int i = 0; i < length; ){
-//         if(clauses[i].Find(literal) != ERROR) {
-//             Delete(i); 
-//         }
-//         else i++;
-//     }
-//     return SUCCESS;
-// }
-
-
-// int Cnf::Reduce (const int literal) {
-//     for (int i = 0; i < length; i++)
-//         if ( clauses[i].Find(literal) != ERROR ) {
-//             clauses[i].Delete(literal);
-//             associationTable[literal + variableNum]--;
-//         }
-//     return SUCCESS;
-// }
 
 
 void Cnf::Show (void) const {
@@ -382,24 +332,16 @@ Step singleStep;
 bool error = false;
 bool Cnf::Dpll (bool solution[], int deepth) {
     // 调试：递归过深
-    if(deepth > 2 * variableNum) {
+    if(deepth > variableNum) {
         std::cout << "\ndeep == " << deepth <<" . too DEEP the recursion  is. ";
-        // Show();
-        // exit(-1);
-        // ** 设置error一律返回false **
-        error = true;
-        return false;
+        error = true; 
+        return false; // 程序出错，由(*error)处原路返回
     }
     countDpllCalls++;
     myStack toInverse; // 反演栈
     // 运用单子句规则进行化简
     while(HaveSingle()) {
         literal = FindSingle();
-        // // 避免选择按单子句规则化简的变元
-        // presentTable[abs(literal)] = false;
-        // associationTable[literal + variableNum] = 0;
-        // associationTable[-literal + variableNum] = 0;
-        // 记录结果在solution布尔数组里
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         // 化简正文字
         for (i = 0; i < length; ) {
@@ -480,8 +422,8 @@ bool Cnf::Dpll (bool solution[], int deepth) {
         return true;
     }
     else { 
-        // ** 返回false一律检查error **
-        if(error) { 
+        // 返回false一律检查error
+        if(error) {  // (*error)
             while (!toInverse.Empty()) {
                 singleStep = toInverse.Pop();
                 if(singleStep.operation == +1) {

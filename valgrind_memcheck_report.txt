@@ -1,3 +1,4 @@
+//好几个提交前的分析报告
 lxy@hustcpu01:~$ valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --show-reachable=yes --run-libc-freeres=yes --main-stacksize=10048576 ./executable/dpll base_function_p_cnf_30_420_unsat-5cnf-30.cnf
 valgrind: ./executable/dpll: No such file or directory
 lxy@hustcpu01:~$ cd ./cnf/
