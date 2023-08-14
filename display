@@ -1,4 +1,8 @@
 
+Added:1 2 
+Added:-1 2 
+Added:1 -2 
+Added:-1 -2 
 countDpllCalls : 1
 Showing cnf class: 
 length : 4
@@ -8,6 +12,7 @@ Clause NO.2 : 1 -2
 Clause NO.3 : -1 -2 
 End of Showing
 
+Added:1 
 countDpllCalls : 2
 Showing cnf class: 
 length : 5
@@ -18,32 +23,144 @@ Clause NO.3 : -1 -2
 Clause NO.4 : 1 
 End of Showing
 
-countDpllCalls : 2
+Deleted:1 2 
+Deleted:1 
+Deleted:1 -2 
+化简正文字完成
+Showing cnf class: 
+length : 2
+Clause NO.0 : -1 -2 
+Clause NO.1 : -1 2 
+End of Showing
+
+Added:-2 
+Deleted:-1 -2 
+Added:2 
+Deleted:-1 2 
+化简负文字完成
 Showing cnf class: 
 length : 2
 Clause NO.0 : -2 
-Clause NO.1 : -1 2 
+Clause NO.1 : 2 
 End of Showing
 
-countDpllCalls : 3
+Deleted:2 
+化简正文字完成
 Showing cnf class: 
-length : 3
+length : 1
 Clause NO.0 : -2 
+End of Showing
+
+Added:
+Deleted:-2 
+化简负文字完成
+Showing cnf class: 
+length : 1
+Clause NO.0 : 
+End of Showing
+
+Inversing:
+Added:-2 
+Deleted:
+Added:2 
+Added:-1 2 
+Deleted:2 
+Added:-1 -2 
+Deleted:-2 
+Added:1 -2 
+Added:1 
+Added:1 2 
+Before return FALSE, countDpllCalls : 2
+Showing cnf class: 
+length : 5
+Clause NO.0 : -1 -2 
 Clause NO.1 : -1 2 
-Clause NO.2 : -1 
+Clause NO.2 : 1 -2 
+Clause NO.3 : 1 
+Clause NO.4 : 1 2 
 End of Showing
 
+Deleted:1 
+Added:-1 
 countDpllCalls : 3
 Showing cnf class: 
-length : 0
+length : 5
+Clause NO.0 : -1 -2 
+Clause NO.1 : -1 2 
+Clause NO.2 : 1 -2 
+Clause NO.3 : 1 2 
+Clause NO.4 : -1 
 End of Showing
 
-countDpllCalls : 3
+Deleted:-1 -2 
+Deleted:-1 
+Deleted:-1 2 
+化简正文字完成
 Showing cnf class: 
-length : 0
+length : 2
+Clause NO.0 : 1 2 
+Clause NO.1 : 1 -2 
+End of Showing
+
+Added:2 
+Deleted:1 2 
+Added:-2 
+Deleted:1 -2 
+化简负文字完成
+Showing cnf class: 
+length : 2
+Clause NO.0 : 2 
+Clause NO.1 : -2 
+End of Showing
+
+Deleted:-2 
+化简正文字完成
+Showing cnf class: 
+length : 1
+Clause NO.0 : 2 
+End of Showing
+
+Added:
+Deleted:2 
+化简负文字完成
+Showing cnf class: 
+length : 1
+Clause NO.0 : 
+End of Showing
+
+Inversing:
+Added:2 
+Deleted:
+Added:-2 
+Added:1 -2 
+Deleted:-2 
+Added:1 2 
+Deleted:2 
+Added:-1 2 
+Added:-1 
+Added:-1 -2 
+Before return FALSE, countDpllCalls : 3
+Showing cnf class: 
+length : 5
+Clause NO.0 : 1 2 
+Clause NO.1 : 1 -2 
+Clause NO.2 : -1 2 
+Clause NO.3 : -1 
+Clause NO.4 : -1 -2 
+End of Showing
+
+Inversing:
+Deleted:-1 
+Before return Var sat, countDpllCalls : 3
+Showing cnf class: 
+length : 4
+Clause NO.0 : 1 2 
+Clause NO.1 : 1 -2 
+Clause NO.2 : -1 2 
+Clause NO.3 : -1 -2 
 End of Showing
 
 dpll : 创建输出文件./output/base_function_p_cnf_20_91_sat-20.res成功！
-Time used : 0.08925ms
+Time used : 0.188667ms
 Class Cnf case created : 1 times.
 Dpll() is called : 3 times.

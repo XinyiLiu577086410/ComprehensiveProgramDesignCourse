@@ -156,6 +156,12 @@ int Cnf::Delete (const int index) {
     for(int i = 0; i < vectorLength; i++) {
         associationTable[clauses[index][i]+variableNum]--;
     }
+
+
+    std::cout<<"\nDeleted:";
+    clauses[index].Show();
+
+
     clauses[index] = clauses[length-1];
     length--;
     if(length * 2 < size) Resize(length + 3);
@@ -182,6 +188,12 @@ int Cnf::Add (Vector & newClause) {
         exit(-1);
     }
     clauses[length] = newClause;
+
+
+    std::cout<<"\nAdded:";
+    newClause.Show();
+
+
     for(int i = 0; i < newClause.GetLength(); i++) {
         associationTable[newClause[i] + variableNum]++;
     }
@@ -350,6 +362,8 @@ bool Cnf::Dpll (bool solution[]) {
             }
             else i++;
         }
+        std::cout<<"\n化简正文字完成";
+        Show();
         // 化简负文字
         for (int i = 0; i < length; i++){
             if ( clauses[i].Find(-literal) != ERROR ) {
@@ -370,7 +384,12 @@ bool Cnf::Dpll (bool solution[]) {
                 associationTable[-literal + variableNum]--;
             }
         }
+        std::cout<<"\n化简负文字完成";
+        Show();
         if(Empty()) {
+
+            std::cout<<"\nInversing:";
+
             while (!toInverse.Empty()) {
                 singleStep = toInverse.Pop();
                 if(singleStep.operation == +1) {
@@ -380,11 +399,14 @@ bool Cnf::Dpll (bool solution[]) {
                     Add(singleStep.v);
                 }
             }
-            std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+            std::cout<<"\nBefore return TRUE, countDpllCalls : "<<countDpllCalls;
             Show();
             return true; // 递归终点
         }
         if(HaveEmpty()) { 
+
+            std::cout<<"\nInversing:";
+
             while (!toInverse.Empty()) {
                 singleStep = toInverse.Pop();
                 if(singleStep.operation == +1) {
@@ -394,7 +416,7 @@ bool Cnf::Dpll (bool solution[]) {
                     Add(singleStep.v);
                 }
             }        
-            std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+            std::cout<<"\nBefore return FALSE, countDpllCalls : "<<countDpllCalls;
             Show();
             return false; // 递归终点
         }
@@ -411,6 +433,9 @@ bool Cnf::Dpll (bool solution[]) {
     Add(V);
     // 求解分支 S + {p}
     if (Dpll(solution)) {
+
+        std::cout<<"\nInversing:";
+
         while (!toInverse.Empty()) {
             singleStep = toInverse.Pop();
             if(singleStep.operation == +1) {
@@ -420,7 +445,7 @@ bool Cnf::Dpll (bool solution[]) {
                 Add(singleStep.v);
             }
         }    
-        std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+        std::cout<<"\nBefore return TRUE, countDpllCalls : "<<countDpllCalls;
         Show();
         return true;
     }
@@ -444,6 +469,9 @@ bool Cnf::Dpll (bool solution[]) {
         // 求解S + {-p}
         bool sat = Dpll(solution);
         // 回溯并返回
+
+        std::cout<<"\nInversing:";
+
         while (!toInverse.Empty()) {
             singleStep = toInverse.Pop();
             if(singleStep.operation == +1) {
@@ -453,7 +481,7 @@ bool Cnf::Dpll (bool solution[]) {
                 Add(singleStep.v);
             }
         }  
-        std::cout<<"\ncountDpllCalls : "<<countDpllCalls;
+        std::cout<<"\nBefore return Var sat, countDpllCalls : "<<countDpllCalls;
         Show();
         return sat;
     }

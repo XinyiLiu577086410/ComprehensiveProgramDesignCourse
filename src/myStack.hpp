@@ -71,7 +71,8 @@ type & myStack::Pop() {
         exit(-1);
     }
     else top--;
-    if(top * 2 < size) Resize(top + 3);
+    // if(top * 2 < size) Resize(top + 3);
+    /* 这个注释后可以正常运行，实际上也没有作用 */
     return arr[top];
 }
 

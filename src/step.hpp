@@ -9,7 +9,7 @@ private:
 
 public:
     Vector v;
-    char operation;
+    int operation;
     Step();
     ~Step();
     Step & operator= (Step &);
