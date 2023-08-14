@@ -26,7 +26,6 @@ public:
     
     // 构造函数、析构函数
     Cnf();
-    Cnf(int size);
     ~Cnf();
    
     // 运算符重载
@@ -76,25 +75,15 @@ Cnf::Cnf() {
 }
 
 
-Cnf::Cnf(int initSize) {
-    countCases++;                                   // 更新计数器
-    clauses = new (std::nothrow) Vector[initSize];
-    /*  commit d0c128624825acff65725b3ab14aa98bd234627d : 这行的数组下标值好像也有问题*/
-    assert(clauses != nullptr);
-    length = 0;
-    clausesNum = 0;
-    variableNum = 0;
-    size = initSize; 
-    /*  commit d0c128624825acff65725b3ab14aa98bd234627d : 缺少size的正确初始化*/
-    associationTable = nullptr;
-}
-
-
 Cnf::~Cnf() { 
-    if(clauses !=  nullptr) 
+    if(clauses !=  nullptr) {
         delete[] clauses; 
-    if(associationTable !=  nullptr) 
+        clauses = nullptr;
+    }
+    if(associationTable !=  nullptr) {
         delete[] associationTable; 
+        associationTable = nullptr;
+    }
 }
 
 
@@ -108,7 +97,7 @@ Cnf & Cnf::operator= (const Cnf & Obj) {
             delete[] associationTable; 
             associationTable = nullptr;
         }
-        associationTable = new (std::nothrow) int[Obj.variableNum * 2 + 1];
+        associationTable = new (std::nothrow) int[variableNum * 2 + 1];
         assert(associationTable != nullptr);
         memcpy(associationTable, Obj.associationTable, sizeof(int) * ( variableNum * 2 + 1 ) );
         if(clauses != nullptr) { 
@@ -137,7 +126,8 @@ int Cnf::Read (std::string filename) {
     std::string type;
     file >> type >> variableNum >> clausesNum;
     Resize(clausesNum);
-    associationTable = new int[2 * variableNum + 1];
+    associationTable = new (std::nothrow) int[2 * variableNum + 1];
+    assert(associationTable != nullptr);
     memset(associationTable, 0, sizeof(int) * (variableNum * 2 + 1));
     int p[100000];
     for (int i = 0; i < clausesNum; i++) {
@@ -146,11 +136,11 @@ int Cnf::Read (std::string filename) {
         while (p[j++]) {
             file >> p[j];
         }
-        Vector vectorAppend(j);
+        Vector vectorToAppend;
         for(int k = 0; k < j - 1; k++) {
-            vectorAppend.Add(p[k]);
+            vectorToAppend.Add(p[k]);
         }
-        Add(vectorAppend);
+        Add(vectorToAppend);
     }
     return SUCCESS;
 }
@@ -177,7 +167,11 @@ void Cnf::DeleteDesignatedClause(const Vector & target) {
 
 
 int Cnf::Add (Vector & newClause) {
-    if( size <= length ) Resize(size + 10);
+    if( size == length ) Resize(size + 10);
+    if(size < length) {
+        std::cout<<"\nCnf::Add() : size < length detected, heap is damaged!";
+        exit(-1);
+    }
     clauses[length] = newClause;
     for(int i = 0; i < newClause.GetLength(); i++) {
         associationTable[newClause[i] + variableNum]++;
@@ -188,8 +182,8 @@ int Cnf::Add (Vector & newClause) {
 
 
 void Cnf::Resize(const int newSize) {
-    if(newSize == 0) {
-        std::cout<<"Cnf::Resize() : Bad resize, the new size is zero.";  
+    if(newSize <= 0) {
+        std::cout<<"Cnf::Resize() : Bad resize, the new size is zero or negative.";  
         exit(-1);
     }
     if(newSize < length) {
@@ -203,6 +197,7 @@ void Cnf::Resize(const int newSize) {
             newSpace[i] = clauses[i];
         }
         delete[] clauses;
+        clauses = nullptr;
     }
     clauses = newSpace;
     size = newSize;
@@ -321,7 +316,7 @@ bool Cnf::Verify (bool rslt[]) const {
 }
 
 
-Vector replaceVector, V(10);
+Vector replaceVector, V;
 int literal;
 
 

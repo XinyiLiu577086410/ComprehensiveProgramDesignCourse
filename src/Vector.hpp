@@ -22,8 +22,6 @@ class Vector{
     public:
         // 构造函数、析构函数
         Vector();                       // 默认构造函数
-        Vector(int, int);               // 设定数据域大小，添加一个元素
-        Vector(int);                    // 设定数据域大小
         ~Vector();                      // 析构函数
 
         // 运算符重载
@@ -57,31 +55,11 @@ Vector::Vector(){
 }
 
 
-Vector::Vector (int initSize, int x){
-    if(initSize == 0) {
-        std::cout<<"\nVector::Vector : Bad construction, the initial size is zero.";
-        exit(-1);
-    }
-    a = new (std::nothrow) int[initSize];
-    assert(a != nullptr);
-    size = initSize;
-    length = 0;
-    Add(x);
-}
-
-
-Vector::Vector (int initSize){
-    if(initSize == 0) return;
-    a = new (std::nothrow) int[initSize];
-    assert(a != nullptr);
-    size = initSize;
-    length = 0;
-}
-
-
 Vector::~Vector() { 
-    if(a != nullptr) 
+    if(a != nullptr) {
         delete[] a; 
+        a = nullptr;
+    }
 }
 
 
@@ -89,9 +67,12 @@ Vector & Vector::operator= (const Vector & Obj) {   // 深拷贝
     if(&Obj != this) {
         length = Obj.length;
         size = Obj.size;
-        if(a != nullptr) delete[] a;                // 释放内存
+        if(a != nullptr) {
+            delete[] a;                             // 释放内存
+            a = nullptr;                            // 防止 double free
+        }
         if(size){
-            a = new (std::nothrow) int[Obj.size];
+            a = new (std::nothrow) int[size];       // 防止 new int[0]
             assert(a != nullptr);
             memcpy(a, Obj.a, Obj.length * sizeof(int));
         }
@@ -120,7 +101,11 @@ int Vector::operator[] (int x) {
 
 
 int Vector::Add (int V) {
-    if(size <= length) Resize(length + 10);
+    if(size == length) Resize(length + 10);
+    if(size < length) {
+        std::cout<<"\nVector::Add() : size < length detected, heap is damaged!";
+        exit(-1);
+    }
     a[length] = V;
     length++;
     return SUCCESS;
@@ -172,8 +157,8 @@ void Vector::Clear(void) {
 
 
 void Vector::Resize(int newSize) {
-    if(newSize == 0) {
-        std::cout<<"\nVector::Resize() : Bad resize, the new size is  zero.";  
+    if(newSize <= 0) {
+        std::cout<<"\nVector::Resize() : Bad resize, the new size is zero or negative.";  
         exit(-1);
     }
     if(newSize < length){
@@ -185,6 +170,8 @@ void Vector::Resize(int newSize) {
     if(a) {
         memcpy(newSpace, a, length * sizeof(int));
         delete[] a;
+        a = nullptr;
+        // 这里修改之后 Segmentation fault 消失了
     }   
     a = newSpace;
     size = newSize;

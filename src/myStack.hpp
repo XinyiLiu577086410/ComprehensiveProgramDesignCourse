@@ -32,13 +32,16 @@ myStack::myStack() {
 
 
 myStack::~myStack() {
-    if(arr != nullptr) delete[] arr;
+    if(arr != nullptr) {
+        delete[] arr;
+        arr = 0;
+    }
 }
 
 
 void myStack::Resize(int newSize) {
-    if(newSize == 0) {
-        std::cout<<"\nmyStack::Resize() : Bad resize, the new size is zero.";  
+    if(newSize <= 0) {
+        std::cout<<"\nmyStack::Resize() : Bad resize, the new size is zero or negative.";
         exit(-1);                   // 防衍生错误覆盖关键错误信息
     }
     if(newSize < top) { 
@@ -52,6 +55,7 @@ void myStack::Resize(int newSize) {
             newArr[i] = arr[i];
         }
         delete[] arr;
+        arr = nullptr;
     }
     size = newSize;
     arr = newArr;
@@ -70,7 +74,11 @@ Vector & myStack::Pop() {
 
 
 void myStack::Push(Vector & V) { 
-    if(top >= size) Resize(size + 10);
+    if(top == size) Resize(size + 10);
+    if(size < top) {
+        std::cout<<"\nmyStack::Push() : size < top detected, heap is damaged!";
+        exit(-1);
+    }
     arr[top] = V;
     top++;
 }
