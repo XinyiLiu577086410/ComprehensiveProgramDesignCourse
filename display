@@ -1,5 +1,55 @@
+(base) xinyiliu@xinyideMacBook-Air CNF求解 % ./run.sh
+
+
+Snapshot:
+
+Solving base_function_p_cnf_20_91_sat-20.cnf
+
+Find solution at the deepth of 6 !!
+dpll : 创建输出文件./output/base_function_p_cnf_20_91_sat-20.res成功！
+Time used : 1.56221ms
+Class Cnf case created : 1 times.
+Dpll() is called : 22 times.
+CNF可满足性验证成功！
+
+
+Solving base_function_p_cnf_30_420_unsat-5cnf-30.cnf
 
 dpll : 创建输出文件./output/base_function_p_cnf_30_420_unsat-5cnf-30.res成功！
-Time used : 1390.71ms
+Time used : 877.267ms
 Class Cnf case created : 1 times.
-Dpll() is called : 3123 times.
+Dpll() is called : 1965 times.
+CNF是不可满足的。
+
+
+Solving base_performance_p_cnf_181_3151_ais10.cnf
+
+Find solution at the deepth of 87 !!
+dpll : 创建输出文件./output/base_performance_p_cnf_181_3151_ais10.res成功！
+Time used : 253.954ms
+Class Cnf case created : 1 times.
+Dpll() is called : 346 times.
+CNF可满足性验证成功！
+
+
+Solving base_performancep_cnf_303_2851_sud00009.cnf
+
+Find solution at the deepth of 36 !!
+dpll : 创建输出文件./output/base_performancep_cnf_303_2851_sud00009.res成功！
+Time used : 48595.6ms
+Class Cnf case created : 1 times.
+Dpll() is called : 28185 times.
+CNF可满足性验证成功！
+
+
+Solving large_p_cnf_1075_3152_eh-dp04s04.shuffled-1075.cnf
+
+Find solution at the deepth of 34 !!
+dpll : 创建输出文件./output/large_p_cnf_1075_3152_eh-dp04s04.shuffled-1075.res成功！
+Time used : 83913.6ms
+Class Cnf case created : 1 times.
+Dpll() is called : 28360 times.
+CNF可满足性验证成功！
+
+
+Solving large_p_cnf_1584_16587_ec-iso-ukn009.shuffled-as.sat05-3632-1584.cnf
