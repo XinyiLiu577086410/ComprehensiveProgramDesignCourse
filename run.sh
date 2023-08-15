@@ -15,8 +15,8 @@ fi
 mkdir executable
 mkdir output
 
-g++ ./src/main.cpp -o ./executable/dpll -std=c++11 -O0 
-g++ ./src/verify.cpp -o ./executable/verify -std=c++11 
+g++ ./src/main.cpp -o ./executable/dpll -std=c++11 -Ofast 
+g++ ./src/verify.cpp -o ./executable/verify -std=c++11 -O1
 
 echo "\n\nSnapshot:"
 for file in `ls  ./testset` 

@@ -10,6 +10,10 @@
 #include "step.hpp"
 #include "vector.hpp"
 
+#ifndef STK_MEM_INCR
+#define STK_MEM_INCR 100
+#endif
+
 typedef Step type;
 
 class myStack {
@@ -78,7 +82,7 @@ const type & myStack::Pop() {
 
 
 void myStack::Push(const type & V) { 
-    if(top == size) Resize(size + 10);
+    if(top == size) Resize(size + STK_MEM_INCR);
     if(size < top) {
         std::cout<<"\nmyStack::Push() : size < top detected, heap is damaged!";
         exit(-1);

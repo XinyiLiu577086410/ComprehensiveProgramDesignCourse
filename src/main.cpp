@@ -30,10 +30,9 @@ int main(int argc, char * argv[]){
     int VarNum = S.GetVariableNum();
     bool sat;
     bool * solution = new bool[VarNum + 1];
-    int ms;
-    std::thread tt(threadInterface, std::ref(S), solution,  0,  std::ref(sat), std::ref(ms));                          
-    //    std::thread tt(threadInterface, std::ref(S), solution,  0,  sat);       抛出错误：attempt to use a deleted function                
-    
+    double ms;
+    std::thread tt(threadInterface, std::ref(S), solution,  0,  std::ref(sat), std::ref(ms));   
+    tt.join();                           
     /* 输出 */ 
     char tmp[512];
     /* 截去inputFileName的 ".cnf"拓展名，并拼接输出文件名 */
@@ -56,8 +55,8 @@ int main(int argc, char * argv[]){
             outFile << i * (solution[i] ? +1 : -1) << ' ';
         }
     }
-    outFile << "\nt " << time.count() * 1000 ;
-    std::cout << "Time used : " << time.count() * 1000 << "ms";
+    outFile << "\nt " << std::fixed << std::setprecision(2) << ms ;
+    std::cout << "Time used : " << std::fixed << std::setprecision(2) << ms << "ms";
     std::cout << "\nClass Cnf case created : " << S.countCases << " times.";
     std::cout << "\nDpll() is called : " << S.countDpllCalls << " times.";
     outFile.close();

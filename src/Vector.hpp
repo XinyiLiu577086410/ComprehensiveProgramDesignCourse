@@ -18,6 +18,11 @@
 #define ERROR -1
 #endif
 
+
+#ifndef VCT_MEM_INCR
+#define VCT_MEM_INCR 10
+#endif
+
 class Vector{
     public:
         // 构造函数、析构函数
@@ -98,7 +103,7 @@ int Vector::operator[] (int x) const{
 
 
 int Vector::Add (int V) {
-    if(size == length) Resize(length + 10);
+    if(size == length) Resize(length + VCT_MEM_INCR);
     if(size < length) {
         std::cout<<"\nVector::Add() : size < length detected, heap is damaged!";
         exit(-1);

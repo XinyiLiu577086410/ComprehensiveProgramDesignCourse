@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cassert>
 #include <climits>
+#include <chrono>
 #include "step.hpp"
 #include "myStack.hpp"
 #include "vector.hpp"
@@ -17,6 +18,10 @@
 
 #ifndef ERROR
 #define ERROR -1
+#endif
+
+#ifndef CNF_MEM_INCR
+#define CNF_MEM_INCR 200
 #endif
 
 class Cnf {
@@ -37,7 +42,7 @@ public:
     int Delete(int);                                // 删除子句
 
     // 高级功能函数
-    int Reduce(void);                               // 子句集预处理
+    int Reduce(int);                               // 子句集预处理
     int Read(std::string);                    // 读取CNF文件
     int DeleteDesignatedClause(const Vector&);      // 删除指定子句
     void Resize(int);                               // 重新分配内存
@@ -53,7 +58,7 @@ public:
     bool Verify (bool [])const;                     // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
-    friend void threadInterface(Cnf &, bool [], int, bool&);
+    friend void threadInterface(Cnf &, bool [], int, bool &, double &);
 private:
     Vector * clauses;                               // 注意深拷贝
     int length;                                     // 子句个数
@@ -124,7 +129,7 @@ Cnf & Cnf::operator= (const Cnf & obj) {
 
 
 int Cnf::Add (const Vector & newClause) {
-    if(size == length) Resize(size + 10);
+    if(size == length) Resize(size + CNF_MEM_INCR);
     if(size < length) {
         std::cout<<"\nCnf::Add() : size < length detected, heap is damaged!";
         exit(-1);
@@ -157,19 +162,22 @@ int Cnf::Delete (int index) {
 }
 
 
-int Cnf::Reduce(void){
-    int count = 0;
+int Cnf::Reduce(int flag){
+    int count = 0, total = 0;
     if(maxLength == minLength) {
         std::cout << "\nCnf::Reduce() : maxLength == minLength. I'm returning!";
+        if(flag) std::cout << "\nReduced " << count << " clauses";    
         return 0;
     }
     if(variableNum <= 50) {
         std::cout << "\nCnf::Reduce() : variableNum <= 50. I'm returning!";
+        if(flag) std::cout << "\nReduced " << count << " clauses";
         return 0;
     }
     for(int i = 0; i < length; i++) {
         int lengthPivot = clauses[i].GetLength();
         for(int j = 0; j < length; ) {
+            total++;
             if(i == j) { 
                 j++; 
                 continue; 
@@ -184,6 +192,7 @@ int Cnf::Reduce(void){
             }
         }
     }
+    if(flag) std::cout << "\nReduced " << count << " clauses";
     return count;
 };
 
@@ -310,7 +319,7 @@ int Cnf::FindSingle (void) const {
     return 0; // 用0代表没有找到单子句。
 }
 
-int Cnf::Select (int tag) const {
+int Cnf::Select (int overloadFlag) const {
     int mostFrequentLiteral = Select(); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
         if(i == 0) continue;
@@ -371,8 +380,7 @@ bool Cnf::Dpll (bool solution[], int deepth) {
         return false;   // 过深，由(*error)处原路返回
     }
     if(deepth == 0) {         // 在Dpll() 入口处
-        int count = Reduce(); // 进行子句集预处理
-        std::cout << "\nReduced " << count << " clauses";
+        Reduce(1); // 进行子句集预处理
     }
     countDpllCalls++;
     myStack toInverse;  // 反演栈，Dpll所有添加和删除操作
@@ -510,7 +518,7 @@ bool Cnf::Dpll (bool solution[], int deepth) {
 }
 
 
-void threadInterface(Cnf & obj, bool solution[], int deepth, bool & returnValue, int & miniSecTime) {
+void threadInterface(Cnf & obj, bool solution[], int deepth, bool & returnValue, double & miniSecTime) {
     /* 计时开始 */    std::chrono::steady_clock::time_point t0 = std::chrono::steady_clock::now();       
     returnValue = obj.Dpll(solution, deepth);
     /* 计时结束 */   std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();        
