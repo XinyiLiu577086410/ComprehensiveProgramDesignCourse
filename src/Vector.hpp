@@ -26,27 +26,29 @@ class Vector{
 
         // 运算符重载
         Vector & operator= (const Vector & );
-        bool operator== (Vector & V) const;
-        int operator[] (int x);         // 下标引用重载
+        bool operator== (const Vector & V) const;
+        int operator[] (int x) const;         // 下标引用重载
 
-        // 功能函数
+        // 基本功能函数
         int Add(int);                   // 添加文字
         int Delete(int);                // 删除文字，用末尾文字覆盖x
+        void Clear(void);               // 清空向量
+        void Resize(int);               // 重新分配内存
+
+        // 高级功能函数
         int Find(int) const;            // 返回参数的索引
         bool IsSingle(void) const;      // 判断是否是单子句
         int GetFirstLiteral(void) const;// 返回第一个文字
         bool Empty(void) const;         // 判空
-        void Clear(void);               // 清空向量
-        void Resize(int);               // 重新分配内存
         int GetLength(void) const;      // 返回向量中元素的个数
-        bool Verify(bool []) const;     // 验证解的正确性
+        bool Verify(const bool []) const;     // 验证解的正确性
         void Show(void) const;          // 展示向量
+        bool Contain(const Vector &) const;         // 判断集合包含
     private:
         int * a;                        // 数据域
         int length;                     // 元素个数
         int size;                       // 数据域内存大小
 };
-
 
 Vector::Vector(){
     a = nullptr;
@@ -81,18 +83,12 @@ Vector & Vector::operator= (const Vector & obj) {   // 深拷贝
 }
 
 
-bool Vector::operator== (Vector & V) const {
-    for(int i = 0; i < length; i++) { 
-        if(V.Find(a[i]) == ERROR) return false;
-    }
-    for(int i = 0; i < V.GetLength(); i++) {
-        if(Find(V[i]) == ERROR) return false;
-    }
-    return true;
+bool Vector::operator== (const Vector & V) const {
+    return Contain(V) && V.Contain(*this);
 }
 
 
-int Vector::operator[] (int x) {
+int Vector::operator[] (int x) const{
     if(x < 0 || x >= length) { 
         std::cout << "\nVector::operater[] : Index fault!" << std::endl; 
         exit(-1);
@@ -112,7 +108,6 @@ int Vector::Add (int V) {
     return SUCCESS;
 }
 
-// 返回的是删除的次数/个数
 int Vector::Delete (int x) {
     int count = 0;
     int pos = Find(x);
@@ -123,7 +118,7 @@ int Vector::Delete (int x) {
             count++;
             pos = Find(x);
         }
-        return count;
+        return count;// 返回删除的个数
     }else return ERROR;
 }
 
@@ -133,23 +128,7 @@ int Vector::Find (int x) const{
     for (i = length - 1; i >= 0; i--) {
         if(a[i] == x) break;
     }
-    return i;                   // 返回-1（ERROR）时表示没有找到
-}
-
-
-bool Vector::IsSingle (void) const{
-    return length == 1;
-}
-
-
-int Vector::GetFirstLiteral (void) const{
-    if (Empty()) return 0;      // 返回0没有找到
-    return a[0];
-}
-
-
-bool Vector::Empty (void) const{
-    return length == 0;
+    return i;// 返回-1（ERROR）时表示没有找到
 }
 
 
@@ -180,12 +159,28 @@ void Vector::Resize(int newSize) {
 }
 
 
+bool Vector::IsSingle (void) const{
+    return length == 1;
+}
+
+
+int Vector::GetFirstLiteral (void) const{
+    if (Empty()) return 0;      // 返回0表示没有找到
+    return a[0];
+}
+
+
+bool Vector::Empty (void) const{
+    return length == 0;
+}
+
+
 int Vector::GetLength(void) const {
     return length; 
 }
 
 
-bool Vector::Verify(bool result[]) const{
+bool Vector::Verify(const bool result[]) const{
     for(int i = 0; i < length; i++ )
         if((a[i] > 0 && result[a[i]]) || (a[i] < 0 && !result[-a[i]]))  return true;
     return false;
@@ -194,6 +189,14 @@ bool Vector::Verify(bool result[]) const{
 
 void Vector::Show(void) const{
     for(int i = 0; i < length; i++) std::cout << a[i] << ' ';
+}
+
+
+bool Vector::Contain(const Vector & V) const{
+    for(int i = 0; i < V.GetLength(); i++) { 
+        if(Find(V[i]) == ERROR) return false;
+    }
+    return true;
 }
 
 

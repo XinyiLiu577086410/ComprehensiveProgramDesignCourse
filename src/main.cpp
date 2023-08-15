@@ -3,6 +3,8 @@
 #include <fstream>
 #include <cstdio>
 #include <chrono>
+#include <thread>
+#include <functional>
 
 #include "cnf.hpp"
 #ifndef SUCCESS
@@ -11,6 +13,13 @@
 #ifndef ERROR
 #define ERROR -1
 #endif
+
+
+void foo(int x){
+    return;
+}
+
+
 int main(int argc, char * argv[]){
     Cnf S;
     std::string inputFileName;
@@ -19,15 +28,12 @@ int main(int argc, char * argv[]){
     /* 输入 */ 
     S.Read("./testset/" + inputFileName);
     int VarNum = S.GetVariableNum();
-    bool sat = -1;
-    bool solution[VarNum + 1];
-    // S.Show();
-    /* 计时开始 */    std::chrono::steady_clock::time_point  t0 = std::chrono::steady_clock::now();
-    sat = S.Dpll(solution, 0);
-    /* 计时结束 */   std::chrono::steady_clock::time_point  t1 = std::chrono::steady_clock::now();
-    std::chrono::duration<double> time = std::chrono::duration_cast< std::chrono::duration<double> >(t1 - t0);
-    // S.Show();
-
+    bool sat;
+    bool * solution = new bool[VarNum + 1];
+    int ms;
+    std::thread tt(threadInterface, std::ref(S), solution,  0,  std::ref(sat), std::ref(ms));                          
+    //    std::thread tt(threadInterface, std::ref(S), solution,  0,  sat);       抛出错误：attempt to use a deleted function                
+    
     /* 输出 */ 
     char tmp[512];
     /* 截去inputFileName的 ".cnf"拓展名，并拼接输出文件名 */
@@ -40,8 +46,8 @@ int main(int argc, char * argv[]){
     std::ofstream outFile;
 
     outFile.open("./output/" + name + ".res");
-    if(!outFile.is_open()) std::cout<<"\nmain : 创建输出文件"<<"./output/" + name + ".res"<<"失败！\n";
-    else std::cout<<"\ndpll : 创建输出文件"<<"./output/" + name + ".res"<<"成功！\n";
+    if(!outFile.is_open()) std::cout<<"\ndpll : main() : FAIL to create " << "./output/" + name + ".res";
+    else std::cout<<"\ndpll : main() : Created output file " << "./output/" + name + ".res" << " SUCCESSFULLY!\n";
 
     outFile << "s " << sat ;
     if(sat == 1) {
@@ -55,5 +61,6 @@ int main(int argc, char * argv[]){
     std::cout << "\nClass Cnf case created : " << S.countCases << " times.";
     std::cout << "\nDpll() is called : " << S.countDpllCalls << " times.";
     outFile.close();
+    delete[] solution;
     return 0;
 }

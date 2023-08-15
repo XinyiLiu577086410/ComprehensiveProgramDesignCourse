@@ -8,20 +8,20 @@ class Step
 private:
 
 public:
-    Vector v;
+    Vector frame;
     int operation;
-    Step();
-    ~Step();
-    Step & operator= (Step &);
+    Step();                                 // 构造函数
+    ~Step();                                // 析构函数
+    Step & operator= (const Step &);        // 赋值重载
 };
 
 Step::Step(){}
 
 Step::~Step(){}
 
-Step & Step::operator= (Step & obj) {
+Step & Step::operator= (const Step & obj) {
     if(this != &obj){
-        v = obj.v;
+        frame = obj.frame;
         operation = obj.operation;
     }
     return *this;

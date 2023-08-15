@@ -14,12 +14,14 @@ typedef Step type;
 
 class myStack {
 public:
+    // 构造函数、析构函数
     myStack();
     ~myStack();
+    // 基本功能函数
     void Resize(int newSize);
-    type & Pop(void);
-    void Push(type & V);
-    bool Empty(void);
+    const type & Pop(void);         // 出栈 // 加const是只允许拷贝
+    void Push(const type & V);      // 进栈
+    bool Empty(void);               // 判空
 private:
     type * arr;
     int top;
@@ -45,7 +47,7 @@ myStack::~myStack() {
 void myStack::Resize(int newSize) {
     if(newSize <= 0) {
         std::cout<<"\nmyStack::Resize() : Bad resize, the new size is zero or negative.";
-        exit(-1);                   // 防衍生错误覆盖关键错误信息
+        exit(-1);// 及时结束程序，防止Segmentation fault覆盖错误位置信息
     }
     if(newSize < top) { 
         std::cout<<"\nmyStack::Resize() : Bad resize, the new size is too small.";  
@@ -65,7 +67,7 @@ void myStack::Resize(int newSize) {
 }
 
 
-type & myStack::Pop() {
+const type & myStack::Pop() {
     if(Empty()) {
         std::cout << "\nmyStack::Pop() : stack underflow!";
         exit(-1);
@@ -75,7 +77,7 @@ type & myStack::Pop() {
 }
 
 
-void myStack::Push(type & V) { 
+void myStack::Push(const type & V) { 
     if(top == size) Resize(size + 10);
     if(size < top) {
         std::cout<<"\nmyStack::Push() : size < top detected, heap is damaged!";
