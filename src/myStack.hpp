@@ -11,16 +11,16 @@
 #include "vector.hpp"
 
 #ifndef STK_MEM_INCR
-#define STK_MEM_INCR 100
+#define STK_MEM_INCR 50
 #endif
 
 typedef Step type;
 
-class myStack {
+class MyStack {
 public:
     // 构造函数、析构函数
-    myStack();
-    ~myStack();
+    MyStack();
+    ~MyStack();
     // 基本功能函数
     void Resize(int newSize);
     const type & Pop(void);         // 出栈 // 加const是只允许拷贝
@@ -33,14 +33,14 @@ private:
 };
 
 
-myStack::myStack() {
+MyStack::MyStack() {
     arr = nullptr;
     size = 0;
     top = 0;
 }
 
 
-myStack::~myStack() {
+MyStack::~MyStack() {
     if(arr != nullptr) {
         delete[] arr;
         arr = 0;
@@ -48,13 +48,13 @@ myStack::~myStack() {
 }
 
 
-void myStack::Resize(int newSize) {
+void MyStack::Resize(int newSize) {
     if(newSize <= 0) {
-        std::cout<<"\nmyStack::Resize() : Bad resize, the new size is zero or negative.";
+        std::cout<<"\nmyStack.hpp : myStack::Resize() : 重新分配内存失败，内存大小不能小于等于0！";
         exit(-1);// 及时结束程序，防止Segmentation fault覆盖错误位置信息
     }
     if(newSize < top) { 
-        std::cout<<"\nmyStack::Resize() : Bad resize, the new size is too small.";  
+        std::cout<<"\nmyStack.hpp : myStack::Resize() : 重新分配内存失败，内存大小不能小于已有有效数据所占大小！";  
         exit(-1);
     }
     type * newArr = new (std::nothrow) type[newSize];
@@ -71,9 +71,9 @@ void myStack::Resize(int newSize) {
 }
 
 
-const type & myStack::Pop() {
+const type & MyStack::Pop() {
     if(Empty()) {
-        std::cout << "\nmyStack::Pop() : stack underflow!";
+        std::cout << "\nmyStack.hpp : myStack::Pop() : 出栈失败，栈下溢！";
         exit(-1);
     }
     else top--;
@@ -81,10 +81,10 @@ const type & myStack::Pop() {
 }
 
 
-void myStack::Push(const type & V) { 
+void MyStack::Push(const type & V) { 
     if(top == size) Resize(size + STK_MEM_INCR);
     if(size < top) {
-        std::cout<<"\nmyStack::Push() : size < top detected, heap is damaged!";
+        std::cout<<"\nmyStack.hpp : myStack::Push() : 入栈失败，有效数据溢出内存区域，堆已经损坏！";
         exit(-1);
     }
     arr[top] = V;
@@ -92,7 +92,7 @@ void myStack::Push(const type & V) {
 }
 
 
-bool myStack::Empty(void) {
+bool MyStack::Empty(void) {
     return top == 0;
 }
 

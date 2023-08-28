@@ -16,9 +16,7 @@ fi
 mkdir dpllOutput
 
 g++ ./src/dpll.cpp -o ./executable/dpll -std=c++11 -Ofast -lpthread
-g++ ./src/verify.cpp -o ./executable/verify -std=c++11 -Ofast
-g++ ./src/haniCnfGen.cpp -o ./executable/haniCnfGen -std=c++11 -O0 
-g++ ./src/haniDisplay.cpp -o ./executable/haniDisplay -std=c++11 -O0
+g++ ./src/verify.cpp -o ./executable/verify -std=c++11 -O1
 
 echo "\n\nrun.sh : 求解快照："
 for file in `ls  ./testset` 

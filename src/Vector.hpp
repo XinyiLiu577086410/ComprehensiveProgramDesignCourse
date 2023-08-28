@@ -95,7 +95,7 @@ bool Vector::operator== (const Vector & V) const {
 
 int Vector::operator[] (int x) const{
     if(x < 0 || x >= length) { 
-        std::cout << "\nVector::operater[] : Index fault!" << std::endl; 
+        std::cout << "\nvector.hpp : Vector::operater[] : 索引越界!" << std::endl; 
         exit(-1);
     }
     else return a[x];
@@ -105,7 +105,7 @@ int Vector::operator[] (int x) const{
 int Vector::Add (int V) {
     if(size == length) Resize(length + VCT_MEM_INCR);
     if(size < length) {
-        std::cout<<"\nVector::Add() : size < length detected, heap is damaged!";
+        std::cout<<"\nvector.hpp : Vector::Add() : 数据越界，堆损坏！";
         exit(-1);
     }
     a[length] = V;
@@ -144,11 +144,11 @@ void Vector::Clear(void) {
 
 void Vector::Resize(int newSize) {
     if(newSize <= 0) {
-        std::cout<<"\nVector::Resize() : Bad resize, the new size is zero or negative.";  
+        std::cout<<"\nvector.hpp : Vector::Resize() : 重新分配内存失败，内存大小不能小于等于0！";  
         exit(-1);
     }
     if(newSize < length){
-        std::cout<<"\nVector::Resize() : Bad resize, the new size is too small.";  
+        std::cout<<"\nvector.hpp : Vector::Resize() : 重新分配内存失败，内存大小不能小于已有有效数据所占大小！";  
         exit(-1);
     }
     int * newSpace = new (std::nothrow) int[newSize];

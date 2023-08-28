@@ -21,7 +21,7 @@
 #endif
 
 #ifndef CNF_MEM_INCR
-#define CNF_MEM_INCR 200
+#define CNF_MEM_INCR 300
 #endif
 
 class Cnf {
@@ -48,13 +48,14 @@ public:
     void Resize(int);                               // 重新分配内存
     int GetVariableNum(void) const;                 // 返回CNF文件的变元数信息
     int GetFirstLiteral (int)const;                 // 返回顺序为指定位序子句的第一个文字
-    bool HaveSingle  (void)const;                   // 判断子句集是否含有单子句
+    bool HaveUnitClause  (void)const;                   // 判断子句集是否含有单子句
     bool Empty  (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
     bool Find (int) const;                          // 判断子句集是否含有指定的文字
-    int FindSingle (void)const;                     // 从最后一个子句找出一个单子句
-    int Select (void)const;                         // 基准分支变元选择函数，返回第一个子句的第一个文字
-    int Select (int)const;                          // 重载分支变元选择函数
+    int FindUnitClause (void)const;                     // 从最后一个子句找出一个单子句
+    int Select (void)const;                         // 选择第一个子句的第一个文字
+    int Select (int)const;                          // 选择出现次数最多的变元
+    int Select (int, int)const;                   // 选择最短子句的第一个变元
     bool Verify (bool [])const;                     // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
@@ -131,7 +132,7 @@ Cnf & Cnf::operator= (const Cnf & obj) {
 int Cnf::Add (const Vector & newClause) {
     if(size == length) Resize(size + CNF_MEM_INCR);
     if(size < length) {
-        std::cout<<"\nCnf::Add() : size < length detected, heap is damaged!";
+        std::cout << "\nCnf.hpp : Cnf::Add() : 数据越界，堆损坏！";
         exit(-1);
     }
     clauses[length] = newClause;
@@ -152,7 +153,7 @@ int Cnf::Delete (int index) {
     for(int i = 0; i < vectorLength; i++) {
         associationTable[clauses[index][i]+variableNum]--;
         if(associationTable[clauses[index][i]+variableNum] < 0 || associationTable[-clauses[index][i]+variableNum] < 0) {
-            std::cout << "\nCnf::Delete() : associationTable underflow!";
+            std::cout << "\nCnf.hpp : Cnf::Delete() : 关联表数据值小于零，发生下溢！";
             exit(-1);
         }
     }
@@ -165,13 +166,13 @@ int Cnf::Delete (int index) {
 int Cnf::Reduce(int flag){
     int count = 0, total = 0;
     if(maxLength == minLength) {
-        std::cout << "\nCnf::Reduce() : maxLength == minLength. I'm returning!";
-        if(flag) std::cout << "\nReduced " << count << " clauses";    
+        std::cout << "\nCnf.hpp : Cnf::Reduce() : 子句等长，不做化简!";
+        if(flag) std::cout << "\nCnf.hpp : Cnf::Reduce() : 化简子句数：" << count;    
         return 0;
     }
     if(variableNum <= 50) {
-        std::cout << "\nCnf::Reduce() : variableNum <= 50. I'm returning!";
-        if(flag) std::cout << "\nReduced " << count << " clauses";
+        std::cout << "\nCnf.hpp : Cnf::Reduce() : 变量数小于等于50，不做化简！";
+        if(flag) std::cout << "\nCnf.hpp : Cnf::Reduce() : 化简子句数：" << count;
         return 0;
     }
     for(int i = 0; i < length; i++) {
@@ -192,7 +193,7 @@ int Cnf::Reduce(int flag){
             }
         }
     }
-    if(flag) std::cout << "\nReduced " << count << " clauses";
+    if(flag) std::cout << "\nCnf.hpp : Cnf::Reduce() : 化简子句数：" << count;
     return count;
 };
 
@@ -200,7 +201,13 @@ int Cnf::Reduce(int flag){
 int Cnf::Read (std::string filename) {
     std::ifstream file;
     file.open(filename);
-    assert(file.is_open());
+    if(!file.is_open()) {
+        std::cout << "\nCnf.hpp : Cnf::Read() : 打开输入文件失败：" << filename;
+        exit(-1);
+    }
+    else {
+        std::cout << "\nCnf.hpp : Cnf::Read() : 打开输入文件成功：" << filename;
+    }   
     char ch;
     while(file >> ch && ch == 'c') {
         char buff[1024];
@@ -244,11 +251,11 @@ int Cnf::DeleteDesignatedClause(const Vector & target) {
 
 void Cnf::Resize(int newSize) {
     if(newSize <= 0) {
-        std::cout<<"Cnf::Resize() : Bad resize, the new size is zero or negative.";  
+        std::cout << "\nCnf.hpp : Cnf::Resize() : 重新分配内存失败，内存大小不能小于等于0！";  
         exit(-1);
     }
     if(newSize < length) {
-        std::cout<<"Cnf::Resize() : Bad resize, the new size is too small.";  
+        std::cout << "\nCnf.hpp : Cnf::Resize() : 重新分配内存失败，内存大小不能小于已有有效数据所占大小！";  
         exit(-1);
     }
     Vector * newSpace = new (std::nothrow) Vector[newSize];
@@ -276,7 +283,7 @@ int Cnf::GetFirstLiteral (int index) const {
 }
 
 
-bool Cnf::HaveSingle (void) const {
+bool Cnf::HaveUnitClause (void) const {
     int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].IsSingle()) return true;
@@ -309,7 +316,7 @@ bool Cnf::Find(int target) const {
 }
 
 
-int Cnf::FindSingle (void) const {
+int Cnf::FindUnitClause (void) const {
     int i;
     for(i = length - 1; i >= 0; i--){
         if(clauses[i].IsSingle()) {
@@ -319,7 +326,7 @@ int Cnf::FindSingle (void) const {
     return 0; // 用0代表没有找到单子句。
 }
 
-int Cnf::Select (int overloadFlag) const {
+int Cnf::Select (int a) const {
     int mostFrequentLiteral = Select(); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
         if(i == 0) continue;
@@ -336,12 +343,22 @@ int Cnf::Select (void) const {
 }
 
 
+int Cnf::Select (int a, int b) const {
+    int minLenPos = 0;
+    for(int i = 1; i < length; i++) {
+        if(clauses[minLenPos].GetLength() > clauses[i].GetLength())
+            minLenPos = i;
+    }
+    return clauses[minLenPos].GetFirstLiteral();
+}
+
+
 void Cnf::Show (void) const {
-    std::cout<<"\nShowing cnf class: ";
-    std::cout<<"\nlength : "<<length;
+    std::cout << "\nCnf.hpp : Cnf::Show() : 显示Cnf结构：";
+    std::cout << "\nCnf.hpp : Cnf::Show() : 子句总数："<<length;
     uint64_t hashcode1 = 1, hashcode2 = 0;
     for(int i = 0; i < length; i++){
-        std::cout << "\nClause NO." << i + 1 << " : ";
+        std::cout << "\nCnf.hpp : Cnf::Show() : NO." << i + 1 << " : ";
         clauses[i].Show();
         u_int64_t hhashcode1 = 1;
         u_int64_t hhashcode2 = 0;
@@ -355,15 +372,15 @@ void Cnf::Show (void) const {
         hashcode2 += hhashcode1;
 
     }
-    std::cout << "\nHash code : " << hashcode1 * hashcode2;
-    std::cout << "\nEnd of Showing\n";
+    std::cout << "\nCnf.hpp : Cnf::Show() : Cnf散列值：" << hashcode1 * hashcode2;
+    std::cout << "\nCnf.hpp : Cnf::Show() : 显示结束\n";
 }
 
 
 bool Cnf::Verify (bool rslt[]) const {
     for(int i = 0; i < length; i++)
         if(!clauses[i].Verify(rslt)){
-            std::cout<<"\nCnf::Verify() : Clause unsatisfied : "<<"**"<<i+1<<"**";  return false;
+            std::cout<<"\nCnf.hpp : Cnf::Verify() : 不满足的子句："<<"**NO."<<i+1<<"**";  return false;
         }
     return true;
 }
@@ -375,19 +392,19 @@ Step singleStep;
 bool error = false;
 bool Cnf::Dpll (bool solution[], int deepth) {
     if(deepth > variableNum) {
-        std::cout << "\ndeep == " << deepth <<" . too DEEP the recursion  is. ";
+        std::cout << "\nCnf.hpp : Cnf::dpll() : 现在深度是" << deepth <<" ， 递归深度过深，大于变元数，程序终止！";
         error = true;   // 检查程序出错，如果递归
         return false;   // 过深，由(*error)处原路返回
     }
-    if(deepth == 0) {         // 在Dpll() 入口处
-        Reduce(1); // 进行子句集预处理
+    if(deepth == 0) {   // 在Dpll() 入口处，
+        Reduce(1);      // 进行子句集预处理
     }
     countDpllCalls++;
-    myStack toInverse;  // 反演栈，Dpll所有添加和删除操作
+    MyStack toInverse;  // 反演栈，Dpll所有添加和删除操作
                         // 都会被封装为Step类压入栈中
     // 运用单子句规则进行化简
-    while(HaveSingle()) {
-        literal = FindSingle();
+    while(HaveUnitClause()) {
+        literal = FindUnitClause();
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         // 化简正文字（literal）
         for (i = 0; i < length; ) {
@@ -430,7 +447,7 @@ bool Cnf::Dpll (bool solution[], int deepth) {
                     Add(singleStep.frame);
                 }
             }
-            std::cout << "\nFind solution at the deepth of " << deepth <<" !!";
+            std::cout << "\nCnf.hpp : Cnf::dpll() : 找到解时的递归深度：" << deepth;
             return true; // 递归终点
         }
         if(HaveEmpty()) { 
@@ -518,12 +535,14 @@ bool Cnf::Dpll (bool solution[], int deepth) {
 }
 
 
-void threadInterface(Cnf & obj, bool solution[], int deepth, bool & returnValue, double & miniSecTime) {
+void threadInterface(Cnf & obj, bool solution[], int deepth, bool & returnValue, double & miniSecTime, bool & taskFinished) {
+    taskFinished = false;
     /* 计时开始 */    std::chrono::steady_clock::time_point t0 = std::chrono::steady_clock::now();       
     returnValue = obj.Dpll(solution, deepth);
     /* 计时结束 */   std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();        
     auto duration = std::chrono::duration_cast< std::chrono::duration<double> >(t1 - t0);
     miniSecTime =  duration.count() * 1000;
+    taskFinished = true;
 }
 
 
