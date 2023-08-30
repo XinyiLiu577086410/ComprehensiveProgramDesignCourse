@@ -38,7 +38,10 @@ void display(int resInXY[]) {
 int read(std::string filename, int res[]) {
     std::ifstream solution;
     solution.open(filename);
-    if(!solution.is_open()) { std::cout<<"\nhaniDisplay : main() : 打开文件失败！"; exit(-1); }
+    if(!solution.is_open()) { 
+        std::cout<<"\nhaniDisplay : main() : 打开文件失败！"; 
+        exit(-1); 
+    }
     int cur = 0;
     int p, returnValue;
     char ch;
@@ -46,7 +49,7 @@ int read(std::string filename, int res[]) {
     solution >> returnValue;
     if(returnValue == 1){
         while(!solution.eof() && solution >> ch && ch != 'v');
-        while(!solution.eof() && solution >> p && p != 't') { 
+        while(!solution.eof() && solution >> p && p != 0) { 
             res[++cur] = p;
         };
         res[0] = cur; // 保存个数

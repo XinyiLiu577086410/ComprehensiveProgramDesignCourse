@@ -188,6 +188,8 @@ int Vector::GetLength(void) const {
 bool Vector::Verify(const bool result[]) const{
     for(int i = 0; i < length; i++ )
         if((a[i] > 0 && result[a[i]]) || (a[i] < 0 && !result[-a[i]]))  return true;
+    std::cout << "\n变元取值：";
+    for(int i = 0; i < length; i++ ) std::cout << abs(a[i]) << " : " << (result[abs(a[i])] ? "true " : "false ");
     return false;
 }
 

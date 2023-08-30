@@ -6,8 +6,8 @@
 #include <thread>
 #include <functional>
 #include <iomanip>
-
 #include "cnf.hpp"
+
 #ifndef SUCCESS
 #define SUCCESS 0
 #endif
@@ -15,11 +15,7 @@
 #define ERROR -1
 #endif
 
-
-void foo(int x){
-    return;
-}
-
+#define TIME_LIMIT 5.0
 
 int main(int argc, char * argv[]){
     Cnf S;
@@ -43,13 +39,14 @@ int main(int argc, char * argv[]){
             tt.join();   
             break;
         }         
-        else if(secElapsed >= 10.0) {
-            std::cout << "\ndpll : main() : 线程超时10.0s";
+        else if(secElapsed >= TIME_LIMIT) {
+            std::cout << "\ndpll : main() : 线程超时"<< TIME_LIMIT <<"s";
             std::ofstream outFile;
             outFile.open(outputFileName);
             outFile << "s " << -1;
             outFile << "\nt "<< secElapsed * 1000;
             tt.detach();
+            outFile.close();
             return 0;
         }   
         else continue;           
@@ -64,6 +61,7 @@ int main(int argc, char * argv[]){
         for (int i = 1; i <= VarNum; i++) {
             outFile << i * (solution[i] ? +1 : -1) << ' ';
         }
+        outFile << "0";
     }
     outFile << "\nt " << std::fixed << std::setprecision(2) << ms ;
     std::cout << "\ndpll : main() : 用时：" << std::fixed << std::setprecision(2) << ms << "ms";

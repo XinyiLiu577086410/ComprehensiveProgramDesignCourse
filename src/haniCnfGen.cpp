@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <cassert>
+#include <cstring>
 #include "coordinate.hpp"
 using namespace std;
 
@@ -19,6 +20,8 @@ int lineMustContain[][10] = {
     {7, 2, 3, 4, 5, 6, 7, 8}, // 8
     {9, 1, 2, 3, 4, 5, 6, 7, 8, 9}, // 9
 };
+
+
 int lineAlternative[][11][2]{
     {-1}, // 0
     {-1}, // 1
@@ -61,26 +64,58 @@ int lineAlternative[][11][2]{
         {0, }
     }, // 9
 };
+
+bool isNum(char c) {
+    return c >= '0' && c <= '9';
+}
+
+
 int main(int argc, char * argv[]) {
+    if(argc != 3) {
+        std::cout << "\nhaniCnfGen : main() : 参数个数应该为2，请给出输出文件名和初始格局！";
+        exit(-1);
+    }
     ofstream outFile;
     std::string outputFileName = argv[1];
     outFile.open(outputFileName);
     assert(outFile.is_open());
-    outFile << "\np cnf " << 849 <<" "<< 10213; 
-
-    /*  abs(literal) is in [041, 849]  */
-    /*   每一格至少一个变元为真   */
-    for(int x = 0; x <= 8; x++){
-        int sup = supXY[x], inf = infXY[x]; 
-        for (int y = inf; y <= sup; y++) {
-            outFile << "\n";
-            for(int k = 1; k <= 9; k++){
-                outFile << x << y << k << " ";
-            }
-            outFile << " 0";
+    char initGrind[100];
+    strcpy(initGrind , argv[2]);
+    if(strcmp("null", initGrind) != 0) {
+        int start =  strlen(initGrind) - 1, count = 0, i = 0;
+        while(isNum(initGrind[start-1])) start--;   // 过滤前缀，定位起点
+        for(i = start; initGrind[i]!='\0'; i++) {
+            if(initGrind[i] != '0') count++;
         }
-        
+        outFile << "\np cnf " << 849 <<" "<< 7407 + count; 
+        i = start;
+        for(int row = 1; row <= 9; row++) {
+            int inf = infRow[row], sup = supRow[row];
+            for (int col = inf; col <= sup; col++) {
+                int k = initGrind[i++] - '0';
+                if(k != 0){
+                    VectorRowColumn rc = {row, col};
+                    VectorXY xy = RowColumnToXY(rc);
+                    outFile << "\n" << xy.x << xy.y << k << " 0";
+                }
+            }
+        }
     }
+    else{
+        outFile << "\np cnf " << 849 <<" "<< 7407; 
+    }
+    /*  格约束  */
+    /*   每一格至少一个变元为真   */
+    // for(int x = 0; x <= 8; x++){
+    //     int sup = supXY[x], inf = infXY[x]; 
+    //     for (int y = inf; y <= sup; y++) {
+    //         outFile << "\n";
+    //         for(int k = 1; k <= 9; k++){
+    //             outFile << x << y << k << " ";
+    //         }
+    //         outFile << " 0";
+    //     }  
+    // }
 
     /*   每一格至多一个变元为真   */
     for(int x = 0; x <= 8; x++){
@@ -94,7 +129,7 @@ int main(int argc, char * argv[]) {
         }
     }
 
-
+    /*   线约束   */
     /*  下降对角线不重复  */
     for(int k = 1; k <= 9; k++) {
         for(int x = 0; x <= 8; x++) {
@@ -111,9 +146,9 @@ int main(int argc, char * argv[]) {
     for(int k = 1; k <= 9; k++) {
         for(int y = 0; y <= 8; y++) {
             int sup = supXY[y], inf = infXY[y]; 
-            for(int i = inf; i <= sup; i++) {
-                for(int j = i + 1; j <= sup; j++) {
-                        outFile << "\n-" << i << y << k << " " << "-" << j << y << k << " 0";
+            for(int x = inf; x <= sup; x++) {
+                for(int xx = x + 1; xx <= sup; xx++) {
+                        outFile << "\n-" << x << y << k << " " << "-" << xx << y << k << " 0";
                 }
             }
         }

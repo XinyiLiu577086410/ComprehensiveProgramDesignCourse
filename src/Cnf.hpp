@@ -38,36 +38,37 @@ public:
     Cnf & operator= (const Cnf & );                 // 深拷贝
 
     // 基本功能函数，可以添加元素，删除元素，操作关联表
-    int Add(const Vector &);                              // 添加子句
+    int Add(const Vector &);                        // 添加子句
     int Delete(int);                                // 删除子句
 
     // 高级功能函数
-    int Reduce(int);                               // 子句集预处理
-    int Read(std::string);                    // 读取CNF文件
+    int Reduce(int);                                // 子句集预处理
+    int Read(std::string);                          // 读取CNF文件
     int DeleteDesignatedClause(const Vector&);      // 删除指定子句
     void Resize(int);                               // 重新分配内存
     int GetVariableNum(void) const;                 // 返回CNF文件的变元数信息
     int GetFirstLiteral (int)const;                 // 返回顺序为指定位序子句的第一个文字
-    bool HaveUnitClause  (void)const;                   // 判断子句集是否含有单子句
+    bool HaveUnitClause  (void)const;               // 判断子句集是否含有单子句
     bool Empty  (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
     bool Find (int) const;                          // 判断子句集是否含有指定的文字
-    int FindUnitClause (void)const;                     // 从最后一个子句找出一个单子句
+    int FindUnitClause (void)const;                 // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 选择第一个子句的第一个文字
     int Select (int)const;                          // 选择出现次数最多的变元
-    int Select (int, int)const;                   // 选择最短子句的第一个变元
+    int Select (int, int)const;                     // 选择最短子句的第一个变元
     bool Verify (bool [])const;                     // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
     friend void threadInterface(Cnf &, bool [], int, bool &, double &);
+                                                    // 线程接口函数
 private:
-    Vector * clauses;                               // 注意深拷贝
+    Vector * clauses;                               // 数据域
     int length;                                     // 子句个数
     int clausesNum;                                 // CNF文件中子句数信息
     int variableNum;                                // CNF文件中变元数信息
     int size;                                       // 内存大小
     int * associationTable;                         // 变元关联表，统计每个变量与子句关联的次数
-    int maxLength, minLength;
+    int maxLength, minLength;                       // 最大最小长度
 };
 
 
@@ -221,6 +222,7 @@ int Cnf::Read (std::string filename) {
     assert(associationTable != nullptr);
     memset(associationTable, 0, sizeof(int) * (variableNum * 2 + 1));
    
+
     int p[100000];
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
@@ -326,6 +328,7 @@ int Cnf::FindUnitClause (void) const {
     return 0; // 用0代表没有找到单子句。
 }
 
+
 int Cnf::Select (int a) const {
     int mostFrequentLiteral = Select(); // 缺省值
     for(int i = -variableNum; i <= variableNum; i++) {
@@ -356,7 +359,7 @@ int Cnf::Select (int a, int b) const {
 void Cnf::Show (void) const {
     std::cout << "\nCnf.hpp : Cnf::Show() : 显示Cnf结构：";
     std::cout << "\nCnf.hpp : Cnf::Show() : 子句总数："<<length;
-    uint64_t hashcode1 = 1, hashcode2 = 0;
+    uint64_t hashcode1 = 0, hashcode2 = 0;
     for(int i = 0; i < length; i++){
         std::cout << "\nCnf.hpp : Cnf::Show() : NO." << i + 1 << " : ";
         clauses[i].Show();
@@ -368,8 +371,8 @@ void Cnf::Show (void) const {
             hhashcode1 *= clauses[i][j] + clauseLength;
             hhashcode2 += clauses[i][j] * clauseLength;
         }
-        hashcode1 += hhashcode2;
-        hashcode2 += hhashcode1;
+        hashcode1 += hhashcode1;
+        hashcode2 += hhashcode2;
 
     }
     std::cout << "\nCnf.hpp : Cnf::Show() : Cnf散列值：" << hashcode1 * hashcode2;
@@ -377,34 +380,38 @@ void Cnf::Show (void) const {
 }
 
 
-bool Cnf::Verify (bool rslt[]) const {
+bool Cnf::Verify (bool result[]) const {
     for(int i = 0; i < length; i++)
-        if(!clauses[i].Verify(rslt)){
-            std::cout<<"\nCnf.hpp : Cnf::Verify() : 不满足的子句："<<"**NO."<<i+1<<"**";  return false;
+        if(!clauses[i].Verify(result)){
+            //输出的序号从1开始
+            std::cout << "\nCnf.hpp : Cnf::Verify() : 不满足的子句：" << "**NO." << i+1 << "** : "; 
+            clauses[i].Show();
+            return false;
         }
     return true;
 }
 
+
 // Dpll 的辅助变量
-Vector replaceVector, appendVector;
-int literal, i;
-Step singleStep;
 bool error = false;
+
 bool Cnf::Dpll (bool solution[], int deepth) {
+    Vector replaceVector, appendVector;
+    int literal, i;
+    Step singleStep;
     if(deepth > variableNum) {
         std::cout << "\nCnf.hpp : Cnf::dpll() : 现在深度是" << deepth <<" ， 递归深度过深，大于变元数，程序终止！";
         error = true;   // 检查程序出错，如果递归
         return false;   // 过深，由(*error)处原路返回
     }
     if(deepth == 0) {   // 在Dpll() 入口处，
-        Reduce(1);      // 进行子句集预处理
+        // Reduce(1);      // 进行子句集预处理
     }
     countDpllCalls++;
     MyStack toInverse;  // 反演栈，Dpll所有添加和删除操作
                         // 都会被封装为Step类压入栈中
     // 运用单子句规则进行化简
-    while(HaveUnitClause()) {
-        literal = FindUnitClause();
+    while((literal = FindUnitClause()) != 0) {
         if(literal > 0) solution[literal] = true; else solution[-literal] = false;
         // 化简正文字（literal）
         for (i = 0; i < length; ) {
@@ -544,7 +551,5 @@ void threadInterface(Cnf & obj, bool solution[], int deepth, bool & returnValue,
     miniSecTime =  duration.count() * 1000;
     taskFinished = true;
 }
-
-
 
 #endif

@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cassert>
 int main(int argc, char * argv[]){
+    std::cout << "\nverify : main() : 正在验证解的正确性。";
     Cnf S;
     std::string cnfAddress;
     cnfAddress = argv[1];
@@ -18,7 +19,7 @@ int main(int argc, char * argv[]){
     }
     int p;
     char ch;
-    bool rslt[250000];
+    bool result[250000];
     while(!solution.eof() && solution >> ch && ch != 's');
     solution >> p;
     if(p == 0) { 
@@ -30,17 +31,18 @@ int main(int argc, char * argv[]){
         return 0; 
     }
     while(!solution.eof() && solution >> ch && ch != 'v');
-    while(!solution.eof() && solution >> p && p != 't') { 
+    // while(!solution.eof() && solution >> p && p != 't') {  //ascii(t) == 116 
+    while(!solution.eof() && solution >> p && p != 0) { 
         int abs_p = abs(p);
         if(p > 0) 
-            rslt[abs_p] = true;
+            result[abs_p] = true;
         else if (p < 0) 
-            rslt[abs_p] = false;
+            result[abs_p] = false;
     };
-    if(S.Verify(rslt)) 
-        std::cout<<"\nverify : main() : CNF可满足性验证成功！"; 
+    if(S.Verify(result)) 
+        std::cout << "\nverify : main() : CNF可满足性验证成功！"; 
     else 
-        std::cout<<"\nverify : main() : CNF可满足性验证失败！";
+        std::cout << "\nverify : main() : CNF可满足性验证失败！";
     solution.close();
     return 0;
 }
