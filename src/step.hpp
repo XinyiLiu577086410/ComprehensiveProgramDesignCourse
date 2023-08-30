@@ -3,28 +3,10 @@
 
 #include "vector.hpp"
 
-class Step
-{
-private:
-
-public:
-    Vector frame;
-    int operation;
-    Step();                                 // 构造函数
-    ~Step();                                // 析构函数
-    Step & operator= (const Step &);        // 赋值重载
-};
-
-Step::Step(){}
-
-Step::~Step(){}
-
-Step & Step::operator= (const Step & obj) {
-    if(this != &obj){
-        frame = obj.frame;
-        operation = obj.operation;
-    }
-    return *this;
-}
+typedef struct {
+    char operation; // 1 : Delete a clause ; 2 : Delete literals in the clause
+    int cla;
+    int lit;
+} Step;
 
 #endif
