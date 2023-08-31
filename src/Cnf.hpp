@@ -52,12 +52,12 @@ public:
     void EnableClause(int);
     void DisableClause(int);
     void EnableLiteralInClause(int, int);
-    void DisableLiteralinClause(int, int);
+    void DisableLiteralInClause(int, int);
     friend void threadInterface(Cnf &, bool [], int, bool &, double &);
                                                     // 线程接口函数
 private:
     Vector * clauses;                               // 数据域
-    int length, use;                                // 子句个数
+    int length, use;                                // 子句个数, 子句总数（含标记为被删除的子句）
     int clausesNum;                                 // CNF文件中子句数信息
     int variableNum;                                // CNF文件中变元数信息
     int size;                                       // 内存大小
@@ -103,7 +103,8 @@ void Cnf::Inverse(Step stp) {
         EnableLiteralInClause(stp.cla, stp.lit);
         break;
     case 2:     // 添加了索引stp.cla的单子句
-        DisableClause(stp.lit);
+        // DisableClause(stp.lit); 这是出现cnf.hpp : Cnf::DisableClause() : trying to disable a disabled clause的原因。8.31.2023 15:39 Really BAD.
+        DisableClause(stp.cla);
         break;
     default:
         break;
@@ -146,7 +147,7 @@ int Cnf::Read (std::string filename) {
         file.getline(buff, 1024, '\n'); // 过滤注释
     }
     std::string type;
-    file >> type >> type >> variableNum >> clausesNum;
+    file >> type >> variableNum >> clausesNum;
     Resize(clausesNum);
 
     associationTable = new (std::nothrow) int[2 * variableNum + 1];
@@ -162,7 +163,6 @@ int Cnf::Read (std::string filename) {
             file >> p[j];
         }
         Vector vectorToAppend;
-        vectorToAppend.Enable();
         for(int k = 0; k <= j - 2; k++) {
             vectorToAppend.Add(p[k]);
         }
@@ -184,7 +184,7 @@ void Cnf::Resize(int newSize) {
     Vector * newSpace = new (std::nothrow) Vector[newSize];
     assert(newSpace != nullptr);
     if(clauses) {
-        for(int i = 0; i < size; i++){ 
+        for(int i = 0; i < use; i++){ 
             newSpace[i] = clauses[i];
         }
         delete[] clauses;
@@ -201,7 +201,7 @@ int Cnf::GetVariableNum(void) const {
 
 
 int Cnf::GetFirstLiteral () const { 
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < use; i++)
         if(clauses[i].GetStatus() && !clauses[i].Empty())
             return clauses[i].GetFirstLiteral();
     return 0;
@@ -210,7 +210,7 @@ int Cnf::GetFirstLiteral () const {
 
 bool Cnf::HaveUnitClause (void) const {
     int i;
-    for(i = 0; i < size; i++){
+    for(i = 0; i < use; i++){
         if(clauses[i].GetStatus() && clauses[i].IsUnit()) return true;
     }
     return false;
@@ -224,7 +224,7 @@ bool Cnf::Empty (void) const {
 
 bool Cnf::HaveEmpty (void) const {
     int i;
-    for(i = 0; i < size; i++){
+    for(i = 0; i < use; i++){
         if(clauses[i].GetStatus() && clauses[i].Empty()) return true;
     }
     return false;
@@ -233,7 +233,7 @@ bool Cnf::HaveEmpty (void) const {
 
 int Cnf::FindUnitClause (void) const {
     int i;
-    for(i = 0; i < size; i++){
+    for(i = 0; i < use; i++){
         if(clauses[i].GetStatus() && clauses[i].IsUnit()) {
             return clauses[i].GetFirstLiteral();
         }
@@ -255,7 +255,12 @@ int Cnf::FindUnitClause (void) const {
 
 
 int Cnf::Select (void) const {
-    return GetFirstLiteral();
+    int unit = GetFirstLiteral();
+    if(unit == 0) {
+        std::cout << "\ncnf.hpp : Cnf::Select() : unit == 0 detected!";
+        exit(-1);
+    }
+    return unit;
 }
 
 
@@ -263,7 +268,7 @@ void Cnf::Show (void) const {
     std::cout << "\nCnf.hpp : Cnf::Show() : 显示Cnf结构：";
     std::cout << "\nCnf.hpp : Cnf::Show() : 子句总数：" << length << "\n";
     // uint64_t hashcode1 = 0, hashcode2 = 0;
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < use; i++){
         if(clauses[i].GetStatus()) {
             clauses[i].Show();
             // u_int64_t hhashcode1 = 1;
@@ -286,7 +291,7 @@ void Cnf::Show (void) const {
 
 
 bool Cnf::Verify (bool result[]) const {
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < use; i++)
         if(clauses[i].GetStatus() && !clauses[i].Verify(result)){
             //输出的序号从1开始
             // std::cout << "\nCnf.hpp : Cnf::Verify() : 不满足的子句：" << "**NO." << i+1 << "** : ";  // 待修改
@@ -298,28 +303,27 @@ bool Cnf::Verify (bool result[]) const {
 
 
 void Cnf::EnableClause(int pos) {
-    if(clauses[pos].GetStatus()) {
-        std::cout << "\ncnf.hpp : Cnf::EnableClause() : trying to enable a enabled clause";
-        exit(-1);
-    }
     if(pos > use) {
         std::cout << "\ncnf.hpp : Cnf::EnableClause() : pos > use detected!";
         exit(-1);
     }
-
+    if(clauses[pos].GetStatus()) {
+        std::cout << "\ncnf.hpp : Cnf::EnableClause() : trying to enable a enabled clause";
+        exit(-1);
+    }
+    
     clauses[pos].Enable();
-
     length++;
 } 
 
 
 void Cnf::DisableClause(int pos) {
-    if(!clauses[pos].GetStatus()) {
-        std::cout << "\ncnf.hpp : Cnf::DisableClause() : trying to disable a disabled clause";
-        exit(-1);
-    }
     if(pos > use) {
         std::cout << "\ncnf.hpp : Cnf::DisableClause() : pos > use detected!";
+        exit(-1);
+    }
+    if(!clauses[pos].GetStatus()) {
+        std::cout << "\ncnf.hpp : Cnf::DisableClause() : trying to disable a disabled clause";
         exit(-1);
     }
     
@@ -338,7 +342,7 @@ void Cnf::EnableLiteralInClause(int pos, int lit) {
 }
 
 
-void Cnf::DisableLiteralinClause(int pos, int lit) {
+void Cnf::DisableLiteralInClause(int pos, int lit) {
     if(pos > use) {
         std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : pos > use detected!";
         exit(-1);
@@ -347,7 +351,7 @@ void Cnf::DisableLiteralinClause(int pos, int lit) {
 }
 
 
-// Dpll 的辅助变量
+// Dpll() 的辅助变量
 bool error = false;
 
 bool Cnf::Dpll (bool solution[], int deepth) {
@@ -361,9 +365,12 @@ bool Cnf::Dpll (bool solution[], int deepth) {
     // 单子句规则
     int unit;
     while((unit = FindUnitClause()) != 0) {
-        if(unit > 0) solution[unit] = true; else solution[-unit] = false;
+        if(unit > 0) 
+            solution[unit] = true;
+        else 
+            solution[-unit] = false;
         // 化简正文字（literal）
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < use; i++) {
             if(clauses[i].GetStatus() && clauses[i].Find(unit) != ERROR) {
                 DisableClause(i);
                 Step stp = {0, i, 0};
@@ -371,9 +378,9 @@ bool Cnf::Dpll (bool solution[], int deepth) {
             }
         }
         // 化简负文字（-literal）
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < use; i++){
             if (clauses[i].GetStatus() && clauses[i].Find(-unit) != ERROR ) {
-                DisableLiteralinClause(i, -unit);
+                DisableLiteralInClause(i, -unit);
                 Step stp = {1, i, -unit};
                 toInverse.Push(stp);
             }
@@ -396,8 +403,6 @@ bool Cnf::Dpll (bool solution[], int deepth) {
     // 选取分支变元
     int p = Select();
     Vector v1, v2;
-    v1.Enable();
-    v2.Enable();
     // 构造单子句、添加单子句{p}
     v1.Add(p);
     Step stp = {2, use, 0};

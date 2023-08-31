@@ -15,9 +15,13 @@
 #define ERROR -1
 #endif
 
-#define TIME_LIMIT 5.0
+#define TIME_LIMIT 30.0
 
 int main(int argc, char * argv[]){
+    if(argc != 3) {
+        std::cout << "\ndpll : main() : 参数数量错误！";
+        exit(-1);
+    }
     Cnf S;
     std::string inputFileName, outputFileName;
     inputFileName = argv[1];

@@ -1,5 +1,5 @@
 /*
-    Generat .cnf file for search a solution for hanidoku in coordinates of XY
+    Generate .cnf file for search a solution for hanidoku in coordinates of XY
 */
 #include <fstream>
 #include <iostream>

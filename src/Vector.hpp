@@ -24,7 +24,7 @@
 #define VCT_MEM_INCR 10
 #endif
 
-typedef literal typeV;
+typedef Literal typeV;
 
 class Vector{
     public:
@@ -71,7 +71,7 @@ int Vector::GetUse(void) {
 
 
 int Vector::Find(int x) const {
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < use; i++) {
         if(literals[i].GetStatus() && literals[i].GetLiteral() == x) {
             return i;
         }
@@ -98,7 +98,7 @@ Vector & Vector::operator=(Vector & obj) {
         if(literals) delete[] literals;
         literals = new (std::nothrow) typeV[size];
         assert(literals != nullptr);
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < use; i++) {
             literals[i].Write(obj[i].GetLiteral());
             literals[i].SetStatus(obj[i].GetStatus());
         }
@@ -179,14 +179,14 @@ int Vector::GetLength(void) const {
 
 
 int Vector::GetFirstLiteral(void) const {   // 返回第一个文字
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < use; i++)
         if(literals[i].GetStatus())
             return literals[i].GetLiteral();
     return 0;
 }
 
 bool Vector::Verify(const bool result[]) const{
-    for(int i = 0; i < size; i++ )
+    for(int i = 0; i < use; i++ )
         if(literals[i].GetStatus())
             if(
                 (literals[i].GetLiteral() > 0 && result[literals[i].GetLiteral()]) 
@@ -201,23 +201,33 @@ bool Vector::Verify(const bool result[]) const{
 
 
 void Vector::Show(void) const{
-    for(int i = 0; i < size; i++) if(literals[i].GetStatus()) std::cout << literals[i].GetLiteral() << ' ';
+    for(int i = 0; i < use; i++) 
+        if(literals[i].GetStatus()) 
+            std::cout << literals[i].GetLiteral() << ' ';
 }
 
 
 void Vector::Disable(void) {
+    if(status == false){
+        std::cout << "\n vector.hpp : Vector::Disable() : try to disable a disabled Vector!";
+        exit(-1);
+    }
     status = false;
 }
 
 
 void Vector::Enable(void) {
+    if(status == true){
+        std::cout << "\n vector.hpp : Vector::Enable() : try to enable a enabled Vector!";
+        exit(-1);
+    }
     status = true;
 }
 
 
 void Vector::EnableLiteral(int x) {
-    for(int i = 0; i < size; i++) {
-        if(literals[i].GetLiteral() == x) {  //这里有错，没有确认status
+    for(int i = 0; i < use; i++) {
+        if(!literals[i].GetStatus() && literals[i].GetLiteral() == x) {  //这里有错，没有确认status
             literals[i].Enable();
             length++;
         }
@@ -226,8 +236,8 @@ void Vector::EnableLiteral(int x) {
 
 
 void Vector::DisableLiteral(int x) {
-    for(int i = 0; i < size; i++) {
-        if(literals[i].GetLiteral() == x) {
+    for(int i = 0; i < use; i++) {
+        if(literals[i].GetStatus() && literals[i].GetLiteral() == x) {
             literals[i].Disable();
             length--;
         }   

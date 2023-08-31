@@ -2,13 +2,13 @@
 #define LITERAL
 #include <iostream>
 #include <cstdlib>
-class literal {
+class Literal {
 private:
     int lit;
     bool status;
 public:
-    literal();
-    ~literal();
+    Literal();
+    ~Literal();
     bool GetStatus(void);
     int GetLiteral(void);
     void Write(int);
@@ -17,48 +17,48 @@ public:
     void SetStatus(bool);
 };
 
-literal::literal() {
+Literal::Literal() {
     lit = 0;
     status = false;
 }
 
-literal::~literal(){
+Literal::~Literal(){
 }
 
-bool literal::GetStatus(void) {
+bool Literal::GetStatus(void) {
     return status;
 }
 
-int literal::GetLiteral(void) {
-    if(!GetStatus()) {
-        std::cout << "literal.hpp : literal::GetLiteral() : try to get the value of a deleted literal!";
-        exit(-1);
-    }    
+int Literal::GetLiteral(void) {
+    // if(!GetStatus()) {
+    //     std::cout << "\nliteral.hpp : Literal::GetLiteral() : try to get the value of a deleted Literal!";
+    //     exit(-1);
+    // }    
     return lit;
 }
 
 
-void literal::Write(int x) {
+void Literal::Write(int x) {
     lit = x;
 }
 
-void literal::Enable(void) {
+void Literal::Enable(void) {
     if(GetStatus()) {
-        std::cout << "literal.hpp : literal::Enable() : try to enable a enabled literal!";
+        std::cout << "\nliteral.hpp : Literal::Enable() : try to enable a enabled literal!";
         exit(-1);
     }   
     status = true;
 }
 
-void literal::Disable(void) {
+void Literal::Disable(void) {
      if(!GetStatus()) {
-        std::cout << "literal.hpp : literal::Disable() : try to disable a disabled literal!";
+        std::cout << "\nliteral.hpp : Literal::Disable() : try to disable a disabled literal!";
         exit(-1);
     }   
     status = false;
 }
 
-void literal::SetStatus(bool t) { 
+void Literal::SetStatus(bool t) { 
     status = t;
 }
 
