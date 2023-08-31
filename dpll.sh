@@ -22,7 +22,7 @@ read timelimit
 echo "\n\nrun.sh : 求解快照："
 for file in `ls  ./testset` 
     do
-    echo "\n\n\nrun.sh : 正在求解 ${file} : " 
+    echo "\nrun.sh : 正在求解 ${file} : " 
     ./executable/dpll "./testset/${file}" "./dpllOutput/${file%.*}.res" ${timelimit}
     ./executable/verify "./testset/${file}" "./dpllOutput/${file%.*}.res"
     done
