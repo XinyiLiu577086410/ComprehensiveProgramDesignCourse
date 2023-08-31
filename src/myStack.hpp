@@ -43,7 +43,7 @@ MyStack::MyStack() {
 MyStack::~MyStack() {
     if(arr != nullptr) {
         delete[] arr;
-        arr = 0;
+        arr = nullptr;
     }
 }
 
@@ -81,13 +81,13 @@ typeS MyStack::Pop() {
 }
 
 
-void MyStack::Push(typeS V) { 
+void MyStack::Push(typeS elem) { 
     if(top == size) Resize(size + STK_MEM_INCR);
     if(size < top) {
         std::cout<<"\nmyStack.hpp : myStack::Push() : 入栈失败，有效数据溢出内存区域，堆已经损坏！";
         exit(-1);
     }
-    arr[top] = V;
+    arr[top] = elem;
     top++;
 }
 
