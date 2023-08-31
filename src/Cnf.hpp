@@ -439,7 +439,7 @@ bool Cnf::Dpll (bool solution[], int deepth) {
         }
     }
     // 选取分支变元
-    int p = Select();
+    int p = abs(Select());
     Vector v1, v2;
     // 构造单子句、添加单子句{p}
     v1.Add(p);
