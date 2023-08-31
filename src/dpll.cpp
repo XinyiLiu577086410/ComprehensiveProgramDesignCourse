@@ -15,17 +15,20 @@
 #define ERROR -1
 #endif
 
-#define TIME_LIMIT 30.0
+#define TIME_LIMIT timeLimit
+
+float timeLimit = 10.0;
 
 int main(int argc, char * argv[]){
-    if(argc != 3) {
-        std::cout << "\ndpll : main() : 参数数量错误！";
+    if(argc != 4) {
+        std::cout << "\ndpll : main() : 参数数量错误！\nusage: ./dpll <*.cnf> <*.res> <time limit in integer>";
         exit(-1);
     }
     Cnf S;
     std::string inputFileName, outputFileName;
     inputFileName = argv[1];
     outputFileName = argv[2];
+    timeLimit = (float)atoi(argv[3]);
     /* 输入 */ 
     S.Read(inputFileName);
     int VarNum = S.GetVariableNum();
@@ -65,7 +68,7 @@ int main(int argc, char * argv[]){
         for (int i = 1; i <= VarNum; i++) {
             outFile << i * (solution[i] ? +1 : -1) << ' ';
         }
-        outFile << "0";
+        // outFile << "0";
     }
     outFile << "\nt " << std::fixed << std::setprecision(2) << ms ;
     std::cout << "\ndpll : main() : 用时：" << std::fixed << std::setprecision(2) << ms << "ms";

@@ -41,10 +41,10 @@ public:
     bool HaveUnitClause  (void)const;               // 判断子句集是否含有单子句
     bool Empty  (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
-    // bool Find (int) const;                          // 判断子句集是否含有指定的文字
+    // bool Find (int) const;                           // 判断子句集是否含有指定的文字
     int FindUnitClause (void)const;                 // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 选择第一个子句的第一个文字
-    // int Select (int)const;                          // 选择出现次数最多的变元
+    int Select (int)const;                          // 选择出现次数最多的变元
     bool Verify (bool [])const;                     // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
@@ -154,7 +154,6 @@ int Cnf::Read (std::string filename) {
     assert(associationTable != nullptr);
     memset(associationTable, 0, sizeof(int) * (variableNum * 2 + 1));
    
-
     int p[100000];
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
@@ -242,16 +241,18 @@ int Cnf::FindUnitClause (void) const {
 }
 
 
-// int Cnf::Select (int a) const {
-//     int mostFrequentLiteral = Select(); // 缺省值
-//     for(int i = -variableNum; i <= variableNum; i++) {
-//         if(i == 0) continue;
-//         if(associationTable[i + variableNum] > associationTable[mostFrequentLiteral + variableNum]) {
-//             mostFrequentLiteral = i;
-//         }
-//     }
-//     return mostFrequentLiteral; 
-// }
+int Cnf::Select (int a) const {
+    int mostFrequentLiteral = Select(); // 缺省值
+    int mostFrequency = associationTable[mostFrequentLiteral + variableNum];
+    for(int i = -variableNum; i <= variableNum; i++) {
+        if(i == 0) continue;
+        if(associationTable[i + variableNum] > mostFrequency) {
+            mostFrequentLiteral = i;
+            mostFrequency = associationTable[mostFrequentLiteral + variableNum];
+        }
+    }
+    return mostFrequentLiteral; 
+}
 
 
 int Cnf::Select (void) const {
@@ -313,6 +314,11 @@ void Cnf::EnableClause(int pos) {
     }
     
     clauses[pos].Enable();
+    int used = clauses[pos].GetUse();
+    for(int i = 0; i < used; i++) {
+        if(clauses[pos][i].GetStatus())
+            associationTable[clauses[pos][i].GetLiteral() + variableNum]++;
+    }
     length++;
 } 
 
@@ -326,8 +332,12 @@ void Cnf::DisableClause(int pos) {
         std::cout << "\ncnf.hpp : Cnf::DisableClause() : trying to disable a disabled clause";
         exit(-1);
     }
-    
     clauses[pos].Disable();
+    int used = clauses[pos].GetUse();
+    for(int i = 0; i < used; i++) {
+        if(clauses[pos][i].GetStatus())
+            associationTable[clauses[pos][i].GetLiteral() + variableNum]--;
+    }
     length--;
 }
 
@@ -338,7 +348,11 @@ void Cnf::EnableLiteralInClause(int pos, int lit) {
         exit(-1);
     }
     clauses[pos].EnableLiteral(lit);
-
+    int used = clauses[pos].GetUse();
+    for(int i = 0; i < used; i++) {
+        if(clauses[pos][i].GetLiteral() == lit)
+            associationTable[lit + variableNum]++;
+    }
 }
 
 
@@ -348,6 +362,11 @@ void Cnf::DisableLiteralInClause(int pos, int lit) {
         exit(-1);
     }
     clauses[pos].DisableLiteral(lit);
+    int used = clauses[pos].GetUse();
+    for(int i = 0; i < used; i++) {
+        if(clauses[pos][i].GetLiteral() == lit)
+            associationTable[lit + variableNum]--;
+    }
 }
 
 

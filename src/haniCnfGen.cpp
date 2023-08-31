@@ -72,27 +72,27 @@ bool isNum(char c) {
 
 int main(int argc, char * argv[]) {
     if(argc != 3) {
-        std::cout << "\nhaniCnfGen : main() : 参数个数应该为2，请给出输出文件名和初始格局！";
-        exit(-1);
+        std::cout << "\nhaniCnfGen : main() : 参数个数错误！\n usage: ./haniCnfGen <output file> <initial grid>";
+        exit(0);
     }
     ofstream outFile;
     std::string outputFileName = argv[1];
     outFile.open(outputFileName);
     assert(outFile.is_open());
-    char initGrind[100];
-    strcpy(initGrind , argv[2]);
-    if(strcmp("null", initGrind) != 0) {
-        int start =  strlen(initGrind) - 1, count = 0, i = 0;
-        while(isNum(initGrind[start-1])) start--;   // 过滤前缀，定位起点
-        for(i = start; initGrind[i]!='\0'; i++) {
-            if(initGrind[i] != '0') count++;
+    char initGrid[100];
+    strcpy(initGrid , argv[2]);
+    if(strcmp("null", initGrid) != 0) {
+        int start =  strlen(initGrid) - 1, count = 0, i = 0;
+        while(isNum(initGrid[start-1])) start--;   // 过滤前缀，定位起点
+        for(i = start; initGrid[i]!='\0'; i++) {
+            if(initGrid[i] != '0') count++;
         }
         outFile << "\np cnf " << 849 <<" "<< 7407 + count; 
         i = start;
         for(int row = 1; row <= 9; row++) {
             int inf = infRow[row], sup = supRow[row];
             for (int col = inf; col <= sup; col++) {
-                int k = initGrind[i++] - '0';
+                int k = initGrid[i++] - '0';
                 if(k != 0){
                     VectorRowColumn rc = {row, col};
                     VectorXY xy = RowColumnToXY(rc);

@@ -9,6 +9,7 @@ int main(int argc, char * argv[]){
     std::string cnfAddress;
     cnfAddress = argv[1];
     S.Read(cnfAddress);
+    int varNum = S.GetVariableNum();
     std::string solutionFile;
     solutionFile = argv[2];
     std::ifstream solution;
@@ -30,9 +31,13 @@ int main(int argc, char * argv[]){
         std::cout << "\nverify : main() : 求解程序未能在限定时间内完成求解。"; 
         return 0; 
     }
-    while(!solution.eof() && solution >> ch && ch != 'v');
+    while(!solution.eof() && solution >> ch && ch != 'v') continue;
     // while(!solution.eof() && solution >> p && p != 't') {  //ascii(t) == 116 
-    while(!solution.eof() && solution >> p && p != 0) { 
+    // char buff[50000];
+    // solution.getline(buff, 50000, '\n');
+    for(int i = 0; i < varNum; i++) { 
+        // sscanf(buff, "%d", &p);
+        solution >> p;
         int abs_p = abs(p);
         if(p > 0) 
             result[abs_p] = true;
