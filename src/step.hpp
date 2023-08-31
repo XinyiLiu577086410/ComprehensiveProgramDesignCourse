@@ -13,7 +13,7 @@
     lit：被删除的文字
 */
 typedef struct {
-    char operation; // 1 : Delete a clause ; 2 : Delete literals in the clause
+    char operation; // 0 : Delete a clause ; 1 : Delete a literal in the clause 2 : add an unit clause
     int cla;
     int lit;
 } Step; // Step 三元组

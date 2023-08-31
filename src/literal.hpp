@@ -7,7 +7,10 @@ private:
     int lit;
     bool status;
 public:
+    int clausePos;
+    int literalPos;
     Literal();
+    Literal(int, int);
     ~Literal();
     bool GetStatus(void);
     int GetLiteral(void);
@@ -21,6 +24,15 @@ Literal::Literal() {
     lit = 0;
     status = false;
 }
+
+
+Literal::Literal(int x, int y) {
+    lit = 0;
+    status = false;
+    clausePos = x;
+    literalPos = y;
+}
+
 
 Literal::~Literal(){
 }

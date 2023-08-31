@@ -35,11 +35,15 @@ class Vector{
         Vector & operator=(Vector & );
         // 功能函数
         int Add(int);                   // 添加文字
+        int Add(Literal);               // 添加坐标对
+        int Next(int);                  // 迭代器 
         void Resize(int);               // 重新分配内存
         void Enable(void);              // 标记为无效
         void Disable(void);             // 标记为有效
         void EnableLiteral(int x);      // 标记文字x为有效    
         void DisableLiteral(int x);     // 标记文字x为无效
+        void EnablePos(int pos);          // 标记文字[pos]为有效    
+        void DisablePos(int pos);         // 标记文字[pos]为无效
         bool IsUnit(void) const;        // 判断是否是单子句
         int GetFirstLiteral(void) const;// 返回第一个文字
         bool Empty(void) const;         // 判空
@@ -136,6 +140,19 @@ int Vector::Add (int x) {
     }
     literals[use].Write(x);
     literals[use].Enable();
+    length++;
+    use++;
+    return SUCCESS;
+}
+
+
+int Vector::Add(Literal newLit) {
+    if(size == use) Resize(size + VCT_MEM_INCR);
+    if(size < use) {
+        std::cout<<"\nvector.hpp : Vector::Add() : 数据越界，堆损坏！";
+        exit(-1);
+    }
+    literals[use] = newLit;
     length++;
     use++;
     return SUCCESS;
@@ -243,5 +260,24 @@ void Vector::DisableLiteral(int x) {
         }   
     }
 }
+
+void Vector::EnablePos(int pos) {
+    if(pos >= use || pos < 0) {
+        std::cout << "\nvector.cpp : Vector::EnablePos() : BAD pos!";
+        exit(-1);
+    }
+    literals[pos].Enable();
+    length++;
+}
+
+void Vector::DisablePos(int pos) {
+    if(pos >= use || pos < 0) {
+        std::cout << "\nvector.cpp : Vector::DisablePos() : BAD pos!";
+        exit(-1);
+    }
+    literals[pos].Disable();
+    length--;
+}
+
 
 #endif

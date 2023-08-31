@@ -44,7 +44,7 @@ public:
     // bool Find (int) const;                           // 判断子句集是否含有指定的文字
     int FindUnitClause (void)const;                 // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 选择第一个子句的第一个文字
-    int Select (int)const;                          // 选择出现次数最多的变元
+    // int Select (int)const;                          // 选择出现次数最多的变元
     bool Verify (bool [])const;                     // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
@@ -53,6 +53,7 @@ public:
     void DisableClause(int);
     void EnableLiteralInClause(int, int);
     void DisableLiteralInClause(int, int);
+    Literal Find(int lit);
     friend void threadInterface(Cnf &, bool [], int, bool &, double &);
                                                     // 线程接口函数
 private:
@@ -61,7 +62,8 @@ private:
     int clausesNum;                                 // CNF文件中子句数信息
     int variableNum;                                // CNF文件中变元数信息
     int size;                                       // 内存大小
-    int * associationTable;                         // 变元关联表，统计每个变量与子句关联的次数
+    Vector * relateTable;
+    // int * associationTable;                         // 变元关联表，统计每个变量与子句关联的次数
 };
 
 
@@ -78,7 +80,8 @@ Cnf::Cnf() {
     clausesNum = 0;
     variableNum = 0; 
     size = 0;  
-    associationTable = nullptr;
+    // associationTable = nullptr;
+    relateTable = nullptr;
 }
 
 
@@ -87,9 +90,13 @@ Cnf::~Cnf() {
         delete[] clauses; 
         clauses = nullptr;
     }
-    if(associationTable !=  nullptr) {
-        delete[] associationTable; 
-        associationTable = nullptr;
+    // if(associationTable !=  nullptr) {
+    //     delete[] associationTable; 
+    //     associationTable = nullptr;
+    // }
+    if(relateTable !=  nullptr) {
+        delete[] relateTable; 
+        relateTable = nullptr;
     }
 }
 
@@ -99,8 +106,9 @@ void Cnf::Inverse(Step stp) {
     case 0:     // 伪删除了一个子句， 索引为stp.cla
         EnableClause(stp.cla);
         break;
-    case 1:     // 伪删除索引stp.cla子句中的所有文字stp.lit
-        EnableLiteralInClause(stp.cla, stp.lit);
+    case 1:     // 伪删除索引stp.cla子句的[stp.lit]元素
+        // clauses[stp.cla].DisablePos(stp.lit); 这句话会重复删除Literal
+        clauses[stp.cla].EnablePos(stp.lit); 
         break;
     case 2:     // 添加了索引stp.cla的单子句
         // DisableClause(stp.lit); 这是出现cnf.hpp : Cnf::DisableClause() : trying to disable a disabled clause的原因。8.31.2023 15:39 Really BAD.
@@ -122,8 +130,7 @@ int Cnf::Add (Vector & newClause) {
     clauses[use].Enable();
     int newClauseSize = newClause.GetSize();
     for(int i = 0; i < newClauseSize; i++) {
-        if(newClause[i].GetStatus())
-            associationTable[newClause[i].GetLiteral() + variableNum]++;
+        relateTable[newClause[i].GetLiteral() + variableNum].Add(Literal(use, i));
     }
     length++;
     use++;
@@ -150,9 +157,8 @@ int Cnf::Read (std::string filename) {
     file >> type >> variableNum >> clausesNum;
     Resize(clausesNum);
 
-    associationTable = new (std::nothrow) int[2 * variableNum + 1];
-    assert(associationTable != nullptr);
-    memset(associationTable, 0, sizeof(int) * (variableNum * 2 + 1));
+    relateTable = new (std::nothrow) Vector[2 * variableNum + 1];
+    assert(relateTable != nullptr);
    
     int p[100000];
     for (int i = 0; i < clausesNum; i++) {
@@ -241,18 +247,18 @@ int Cnf::FindUnitClause (void) const {
 }
 
 
-int Cnf::Select (int a) const {
-    int mostFrequentLiteral = Select(); // 缺省值
-    int mostFrequency = associationTable[mostFrequentLiteral + variableNum];
-    for(int i = -variableNum; i <= variableNum; i++) {
-        if(i == 0) continue;
-        if(associationTable[i + variableNum] > mostFrequency) {
-            mostFrequentLiteral = i;
-            mostFrequency = associationTable[mostFrequentLiteral + variableNum];
-        }
-    }
-    return mostFrequentLiteral; 
-}
+// int Cnf::Select (int a) const {
+//     int mostFrequentLiteral = Select(); // 缺省值
+//     int mostFrequency = associationTable[mostFrequentLiteral + variableNum];
+//     for(int i = -variableNum; i <= variableNum; i++) {
+//         if(i == 0) continue;
+//         if(associationTable[i + variableNum] > mostFrequency) {
+//             mostFrequentLiteral = i;
+//             mostFrequency = associationTable[mostFrequentLiteral + variableNum];
+//         }
+//     }
+//     return mostFrequentLiteral; 
+// }
 
 
 int Cnf::Select (void) const {
@@ -314,11 +320,11 @@ void Cnf::EnableClause(int pos) {
     }
     
     clauses[pos].Enable();
-    int used = clauses[pos].GetUse();
-    for(int i = 0; i < used; i++) {
-        if(clauses[pos][i].GetStatus())
-            associationTable[clauses[pos][i].GetLiteral() + variableNum]++;
-    }
+    // int used = clauses[pos].GetUse();
+    // for(int i = 0; i < used; i++) {
+    //     if(clauses[pos][i].GetStatus())
+    //         associationTable[clauses[pos][i].GetLiteral() + variableNum]++;
+    // }
     length++;
 } 
 
@@ -333,11 +339,11 @@ void Cnf::DisableClause(int pos) {
         exit(-1);
     }
     clauses[pos].Disable();
-    int used = clauses[pos].GetUse();
-    for(int i = 0; i < used; i++) {
-        if(clauses[pos][i].GetStatus())
-            associationTable[clauses[pos][i].GetLiteral() + variableNum]--;
-    }
+    // int used = clauses[pos].GetUse();
+    // for(int i = 0; i < used; i++) {
+    //     if(clauses[pos][i].GetStatus())
+    //         associationTable[clauses[pos][i].GetLiteral() + variableNum]--;
+    // }
     length--;
 }
 
@@ -348,11 +354,11 @@ void Cnf::EnableLiteralInClause(int pos, int lit) {
         exit(-1);
     }
     clauses[pos].EnableLiteral(lit);
-    int used = clauses[pos].GetUse();
-    for(int i = 0; i < used; i++) {
-        if(clauses[pos][i].GetLiteral() == lit)
-            associationTable[lit + variableNum]++;
-    }
+    // int used = clauses[pos].GetUse();
+    // for(int i = 0; i < used; i++) {
+    //     if(clauses[pos][i].GetLiteral() == lit)
+    //         associationTable[lit + variableNum]++;
+    // }
 }
 
 
@@ -362,11 +368,11 @@ void Cnf::DisableLiteralInClause(int pos, int lit) {
         exit(-1);
     }
     clauses[pos].DisableLiteral(lit);
-    int used = clauses[pos].GetUse();
-    for(int i = 0; i < used; i++) {
-        if(clauses[pos][i].GetLiteral() == lit)
-            associationTable[lit + variableNum]--;
-    }
+    // int used = clauses[pos].GetUse();
+    // for(int i = 0; i < used; i++) {
+    //     if(clauses[pos][i].GetLiteral() == lit)
+    //         associationTable[lit + variableNum]--;
+    // }
 }
 
 
@@ -389,26 +395,39 @@ bool Cnf::Dpll (bool solution[], int deepth) {
         else 
             solution[-unit] = false;
         // 化简正文字（literal）
-        for (int i = 0; i < use; i++) {
-            if(clauses[i].GetStatus() && clauses[i].Find(unit) != ERROR) {
-                DisableClause(i);
-                Step stp = {0, i, 0};
+        int relateTableLength1 = relateTable[unit + variableNum].GetLength();
+        for (int i = 0; i < relateTableLength1; i++) {
+            Literal position = relateTable[unit + variableNum][i];
+            if(clauses[position.clausePos].GetStatus() && clauses[position.clausePos][position.literalPos].GetStatus()) {
+                if(clauses[position.clausePos][position.literalPos].GetLiteral() != unit) {
+                    std::cout << "\ndpll : Cnf::Dpll() : relateTable damaged!!";
+                    exit(-1);
+                }
+                DisableClause(position.clausePos);
+                Step stp = {0, position.clausePos, 0};
                 toInverse.Push(stp);
             }
         }
         // 化简负文字（-literal）
-        for (int i = 0; i < use; i++){
-            if (clauses[i].GetStatus() && clauses[i].Find(-unit) != ERROR ) {
-                DisableLiteralInClause(i, -unit);
-                Step stp = {1, i, -unit};
+        int relateTableLength2 = relateTable[-unit + variableNum].GetLength();
+        for (int i = 0; i < relateTableLength2; i++){
+            Literal position = relateTable[-unit + variableNum][i];
+            if(clauses[position.clausePos].GetStatus() && clauses[position.clausePos][position.literalPos].GetStatus()) {
+                // DisableLiteralInClause(i, -unit);
+                if(clauses[position.clausePos][position.literalPos].GetLiteral() != -unit) {
+                    std::cout << "\ndpll : Cnf::Dpll() : relateTable damaged!!";
+                    exit(-1);
+                }
+                clauses[position.clausePos].DisablePos(position.literalPos);
+                Step stp = {1, position.clausePos, position.literalPos};
                 toInverse.Push(stp);
             }
         }
         if(Empty()) {
             // 回溯
-            while (!toInverse.Empty()) {
-                Inverse(toInverse.Pop());
-            }
+            // while (!toInverse.Empty()) {
+            //     Inverse(toInverse.Pop());
+            // }
             std::cout << "\nCnf.hpp : Cnf::dpll() : 找到解时的递归深度：" << deepth;
             return true; // 递归终点
         }
@@ -430,9 +449,9 @@ bool Cnf::Dpll (bool solution[], int deepth) {
     // 求解分支 S + {p}
     if (Dpll(solution, deepth + 1)) {
         // 回溯
-        while (!toInverse.Empty()) {
-            Inverse(toInverse.Pop());
-        }
+        // while (!toInverse.Empty()) {
+        //     Inverse(toInverse.Pop());
+        // }
         return true;
     }
     else { 
@@ -450,9 +469,11 @@ bool Cnf::Dpll (bool solution[], int deepth) {
         // 求解S + {-p}
         bool sat = Dpll(solution, deepth + 1);
         // 回溯并返回
-        while (!toInverse.Empty()) {
-            Inverse(toInverse.Pop());
-        }  
+        if(sat == false) {
+            while (!toInverse.Empty()) {
+                Inverse(toInverse.Pop());
+            }  
+        }
         return sat;
     }
 }
