@@ -27,7 +27,6 @@ void display(int intGrid[]) {
 
     }
 }
-int intGrid[61];
 
 int main(int argc, char *argv[]){
     std::string charGrid;
@@ -42,7 +41,7 @@ int main(int argc, char *argv[]){
         exit(-1);
     }
     inFile >> charGrid;
-    // int intGrid[61];
+    int intGrid[61];
     int start = charGrid.length(), gridLen = charGrid.length();
     while(start != 0 && isNum(charGrid[start-1])) 
         start--;   // 过滤前缀，定位起点
@@ -99,7 +98,8 @@ int main(int argc, char *argv[]){
                 }
             }
             // S.Show();
-            bool solution[61*9+100];
+            // bool solution[61*9+100]; //找到了！！！
+            bool solution[849];
             bool sat = S.Dpll(solution, 0);
             if(sat) {
                 std::cout << "没有发现错误";
