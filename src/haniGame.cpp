@@ -97,7 +97,6 @@ int main(int argc, char *argv[]){
                     pos++;
                 }
             }
-            // S.Show();
             // bool solution[61*9+100]; 
             bool solution[849];
             bool sat = S.Dpll(solution, 0);
@@ -111,12 +110,12 @@ int main(int argc, char *argv[]){
             break;
         }
         default:
-            // inFile.close();
+            inFile.close();
             std::ofstream outFile;
             outFile.open(argv[1], std::ios_base::ate);
             for(int i = 0; i < 61; i++)
                 outFile << intGrid[i];
-            // outFile.close();
+            outFile.close();
             return 0;
             // break;
         }
@@ -149,4 +148,7 @@ int main(int argc, char *argv[]){
   65536 * 65536 * * 256 * 
    * * * * * * 
     * * * * * 
+没有正确估计数组大小
+bool solution[61*9+100]太小泄漏了，定义在全局区可能就出现段错误
+
 */
