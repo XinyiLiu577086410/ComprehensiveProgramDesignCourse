@@ -98,7 +98,8 @@ Cnf::~Cnf() {
         delete[] relateTable; 
         relateTable = nullptr;
     }
-}
+    // std::cout << "I'm distroyed!";
+ }
 
 void Cnf::Inverse(Step stp) {
     switch (stp.operation)

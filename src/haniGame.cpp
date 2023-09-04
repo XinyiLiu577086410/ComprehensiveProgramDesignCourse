@@ -27,7 +27,7 @@ void display(int intGrid[]) {
 
     }
 }
-
+int intGrid[61];
 
 int main(int argc, char *argv[]){
     std::string charGrid;
@@ -42,7 +42,8 @@ int main(int argc, char *argv[]){
         exit(-1);
     }
     inFile >> charGrid;
-    int intGrid[61], start = charGrid.length(), gridLen = charGrid.length();
+    // int intGrid[61];
+    int start = charGrid.length(), gridLen = charGrid.length();
     while(start != 0 && isNum(charGrid[start-1])) 
         start--;   // 过滤前缀，定位起点
     int i,j;
@@ -110,12 +111,12 @@ int main(int argc, char *argv[]){
             break;
         }
         default:
-            inFile.close();
+            // inFile.close();
             std::ofstream outFile;
             outFile.open(argv[1], std::ios_base::ate);
             for(int i = 0; i < 61; i++)
                 outFile << intGrid[i];
-            outFile.close();
+            // outFile.close();
             return 0;
             // break;
         }
