@@ -98,7 +98,7 @@ int main(int argc, char *argv[]){
                 }
             }
             // S.Show();
-            // bool solution[61*9+100]; //找到了！！！
+            // bool solution[61*9+100]; 
             bool solution[849];
             bool sat = S.Dpll(solution, 0);
             if(sat) {
