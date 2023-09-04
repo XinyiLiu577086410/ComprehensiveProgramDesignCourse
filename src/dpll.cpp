@@ -61,7 +61,7 @@ int main(int argc, char * argv[]){
     std::ofstream outFile;
     outFile.open(outputFileName);
     if(!outFile.is_open()) std::cout << "\ndpll : main() : 创建文件失败：" << outputFileName;
-    else std::cout << "\ndpll : main() : 创建输出文件成功：" << outputFileName;
+    // else std::cout << "\ndpll : main() : 创建输出文件成功：" << outputFileName;
     outFile << "s " << sat ;
     if(sat == 1) {
         outFile << "\nv ";
@@ -72,8 +72,8 @@ int main(int argc, char * argv[]){
     }
     outFile << "\nt " << std::fixed << std::setprecision(2) << ms ;
     std::cout << "\ndpll : main() : 用时：" << std::fixed << std::setprecision(2) << ms << "ms";
-    std::cout << "\ndpll : main() : Cnf实例数：" << S.countCases;
-    std::cout << "\ndpll : main() : Cnf::Dpll()的调用次数：" << S.countDpllCalls;
+    // std::cout << "\ndpll : main() : Cnf实例数：" << S.countCases;
+    // std::cout << "\ndpll : main() : Cnf::Dpll()的调用次数：" << S.countDpllCalls;
     outFile.close();
     delete[] solution;
     return 0;

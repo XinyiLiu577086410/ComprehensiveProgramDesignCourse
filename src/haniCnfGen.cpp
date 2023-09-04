@@ -83,7 +83,8 @@ int main(int argc, char * argv[]) {
     strcpy(initGrid , argv[2]);
     if(strcmp("null", initGrid) != 0) {
         int start =  strlen(initGrid) - 1, count = 0, i = 0;
-        while(isNum(initGrid[start-1])) start--;   // 过滤前缀，定位起点
+        while(start != 0 && isNum(initGrid[start-1])) 
+            start--;   // 过滤前缀，定位起点
         for(i = start; initGrid[i]!='\0'; i++) {
             if(initGrid[i] != '0') count++;
         }

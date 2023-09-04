@@ -44,25 +44,25 @@ public:
     // bool Find (int) const;                           // 判断子句集是否含有指定的文字
     int FindUnitClause (void)const;                 // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 选择第一个子句的第一个文字
-    // int Select (int)const;                          // 选择出现次数最多的变元
+    // int Select (int)const;                           // 选择出现次数最多的变元
     bool Verify (bool [])const;                     // 验证求解正确性
     void Show (void)const;                          // 展示各个子句
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
-    void Inverse(Step);
-    void EnableClause(int);
-    void DisableClause(int);
-    void EnableLiteralInClause(int, int);
-    void DisableLiteralInClause(int, int);
-    Literal Find(int lit);
+    void Inverse(Step);                             // 按Step的内容进行逆操作
+    void EnableClause(int);                         // 将一个子句标记为有效（恢复）
+    void DisableClause(int);                        // 将一个子句标记为无效（删除）
+    void EnableLiteralInClause(int, int);           // 将一个子句中特定文字标记为有效（恢复）
+    void DisableLiteralInClause(int, int);          // 将一个子句中特定文字标记为无效（删除）
+    // Literal Find(int lit);                         
     friend void threadInterface(Cnf &, bool [], int, bool &, double &);
-                                                    // 线程接口函数
+                                                    // 线程入口函数
 private:
     Vector * clauses;                               // 数据域
     int length, use;                                // 子句个数, 子句总数（含标记为被删除的子句）
     int clausesNum;                                 // CNF文件中子句数信息
     int variableNum;                                // CNF文件中变元数信息
     int size;                                       // 内存大小
-    Vector * relateTable;
+    Vector * relateTable;                           // 文字-子句关联表（按文字索引子句）
     // int * associationTable;                         // 变元关联表，统计每个变量与子句关联的次数
 };
 
@@ -146,7 +146,7 @@ int Cnf::Read (std::string filename) {
         exit(-1);
     }
     else {
-        std::cout << "\nCnf.hpp : Cnf::Read() : 打开输入文件成功：" << filename;
+        // std::cout << "\nCnf.hpp : Cnf::Read() : 打开输入文件成功：" << filename;
     }   
     char ch;
     while(file >> ch && ch == 'c') {
@@ -382,7 +382,7 @@ bool error = false;
 bool Cnf::Dpll (bool solution[], int deepth) {
     if(deepth > variableNum) {
         std::cout << "\nCnf.hpp : Cnf::dpll() : (ERROR)现在深度是" << deepth <<" ， 递归深度过深，大于变元数，程序终止！";
-        error = true;   // 检查程序出错，如果递归过深，由(*error)处原路返回
+        error = true;   // 检查程序出错，如果递归过深（往往由回溯部分的错误引起），打开错误标记
         return false;   
     }
     countDpllCalls++;
@@ -428,7 +428,7 @@ bool Cnf::Dpll (bool solution[], int deepth) {
             // while (!toInverse.Empty()) {
             //     Inverse(toInverse.Pop());
             // }
-            std::cout << "\nCnf.hpp : Cnf::dpll() : 找到解时的递归深度：" << deepth;
+            // std::cout << "\nCnf.hpp : Cnf::dpll() : 找到解时的递归深度：" << deepth;
             return true; // 递归终点
         }
         if(HaveEmpty()) { 
@@ -438,14 +438,12 @@ bool Cnf::Dpll (bool solution[], int deepth) {
             return false; // 递归终点
         }
     }
-    // 选取分支变元
-    int p = abs(Select());
+    int p = abs(Select());      // 选取分支变元
     Vector v1, v2;
-    // 构造单子句、添加单子句{p}
-    v1.Add(p);
-    Step stp = {2, use, 0};
-    toInverse.Push(stp);
-    Add(v1);
+    v1.Add(p);                  // 构造单子句
+    Step stp = {2, use, 0};     // 构造栈帧
+    toInverse.Push(stp);        // 压栈
+    Add(v1);                    // 添加单子句{p}
     // 求解分支 S + {p}
     if (Dpll(solution, deepth + 1)) {
         // 回溯
@@ -455,21 +453,19 @@ bool Cnf::Dpll (bool solution[], int deepth) {
         return true;
     }
     else { 
-        // 返回false一律检查error
-        if(error) {  // (*error)
+        // 返回false一律检查error（检查是否递归过深）
+        if(error) {  
            return false;
         }
-        // 删除单子句{p}
-        Inverse(toInverse.Pop());
-        // 构造单子句{-p}、添加单子句{-p}
-        v2.Add(-p);
+        Inverse(toInverse.Pop());        // 删除单子句{p}
+        v2.Add(-p);// 构造单子句{-p}
         Step stp = {2, use, -p};    // 在调用Cnf::Add()之前压栈，才能保存正确的use
         toInverse.Push(stp);
-        Add(v2);                    // 在这个函数中use++
+        Add(v2);                    // 添加单子句{-p}
         // 求解S + {-p}
         bool sat = Dpll(solution, deepth + 1);
-        // 回溯并返回
-        if(sat == false) {
+        // 仅当返回false回溯
+        if(sat == false) { 
             while (!toInverse.Empty()) {
                 Inverse(toInverse.Pop());
             }  

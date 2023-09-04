@@ -50,7 +50,7 @@ class Vector{
         int GetLength(void) const;      // 返回向量中元素的个数
         bool Verify(const bool []) const;   // 验证解的正确性
         void Show(void) const;          // 展示向量
-        int GetSize(void) const;
+        int GetSize(void) const;        //
         bool GetStatus(void) const;
         void SetStatus(bool);
         int GetUse(void);
@@ -218,6 +218,7 @@ bool Vector::Verify(const bool result[]) const{
 
 
 void Vector::Show(void) const{
+    std::cout << "\n";
     for(int i = 0; i < use; i++) 
         if(literals[i].GetStatus()) 
             std::cout << literals[i].GetLiteral() << ' ';
