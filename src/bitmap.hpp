@@ -17,7 +17,7 @@ unsigned char masks[8] = {
     bit4,
     bit5,
     bit6,
-    bit7,
+    bit7
 };
 
 #endif

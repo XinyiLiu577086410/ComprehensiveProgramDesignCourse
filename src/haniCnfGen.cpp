@@ -80,7 +80,7 @@ int main(int argc, char * argv[]) {
     outFile.open(outputFileName);
     assert(outFile.is_open());
     char initGrid[100];
-    strcpy(initGrid , argv[2]);
+    strlcpy(initGrid , argv[2], sizeof(initGrid));
     if(strcmp("null", initGrid) != 0) {
         int start =  strlen(initGrid) - 1, count = 0, i = 0;
         while(start != 0 && isNum(initGrid[start-1])) 

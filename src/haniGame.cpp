@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <cstdio>
+#include "vector.hpp"
 #include "coordinate.hpp"
 #include "cnf.hpp"
 
@@ -42,7 +43,7 @@ int main(int argc, char *argv[]){
     }
     inFile >> charGrid;
     int intGrid[61];
-    int start = charGrid.length(), gridLen = charGrid.length();
+    int start = charGrid.length()/*, gridLen = charGrid.length()*/;
     while(start != 0 && isNum(charGrid[start-1])) 
         start--;   // 过滤前缀，定位起点
     int i,j;
@@ -90,7 +91,7 @@ int main(int argc, char *argv[]){
                     if(intGrid[pos] != 0) {
                         VectorXY xy = RowColumnToXY({row,col});
                         int varBool = xy.x * 100 + xy.y * 10 + intGrid[pos];
-                        Vector v;
+                        Vector<int> v;
                         v.Add(varBool);
                         S.Add(v);
                     }

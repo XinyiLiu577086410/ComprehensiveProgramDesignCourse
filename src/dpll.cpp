@@ -52,7 +52,7 @@ int main(int argc, char * argv[]){
             outFile << "s " << -1;
             outFile << "\nt "<< secElapsed * 1000;
             outOfTime = true; // 通知线程退出
-            tt.join();
+            tt.detach();
             outFile.close();
             return 0;
         }   

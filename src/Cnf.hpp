@@ -8,10 +8,12 @@
 #include <cassert>
 #include <climits>
 #include <chrono>
+#include <utility>
 #include "step.hpp"
 #include "myStack.hpp"
 #include "vector.hpp"
 #include "bitmap.hpp"
+
 #ifndef SUCCESS
 #define SUCCESS 0
 #endif
@@ -37,8 +39,8 @@ public:
     int Read(std::string);                          // 读取CNF文件
     void Resize(int);                               // 重新分配内存
     int GetVariableNum(void) const;                 // 返回CNF文件的变元数信息
-    bool HaveUnitClause  (void)const;               // 判断子句集是否含有单子句
-    bool Empty  (void)const;                        // 判断子句集是否为空集
+    bool HaveUnitClause(void) const;               // 判断子句集是否含有单子句
+    bool Empty (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
     int FindUnitClause (void)const;                 // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 选择第一个子句的第一个文字
@@ -48,8 +50,9 @@ public:
     void DisableClause(int);                        // 将一个子句标记为无效（删除）
     void EnableLiteralInClause(int, int);           // 将一个子句中特定文字标记为有效（恢复）
     void DisableLiteralInClause(int, int);          // 将一个子句中特定文字标记为无效（删除）
-    bool GetClauseStatus(int);
-    bool GetClauseLiteralStatus(int, int);
+    bool GetClauseStatus(int) const;                      // 查询子句是否被满足
+    bool GetClauseLiteralStatus(int, int) const;          // 查询文字是否被删除
+    int GetFirstLiteral(int) const;
     friend void threadInterface(Cnf &, bool [], int, bool &, double &);     // 线程入口函数                     
 private:
     Vector<Vector<int>> clauses;                        // 子句域
@@ -64,6 +67,7 @@ private:
     unsigned char * variableBitmap = nullptr;           // 文字位图
     unsigned char * clauseBitmap = nullptr;             // 子句位图
     int * clauseLength = nullptr;                       // 各子句未满足文字数量
+    Vector<Vector<std::pair<int, int>>> whereTheLiteralIs;             // 变元会出现在哪些子句
 };
 
 
@@ -77,11 +81,32 @@ Cnf::Cnf() {
 }
 
 
-Cnf::~Cnf() {}
+Cnf::~Cnf() {
+    if(variableBitmap!=nullptr) delete[] variableBitmap;
+    if(clauseBitmap!=nullptr) delete[] clauseBitmap;
+    if(clauseLength!=nullptr) delete[] clauseLength;
+}
 
 
 void Cnf::Inverse(Step stp) {
+    switch (stp.operation) {
+    case 0:
+        EnableClause(stp.clau);
+        break;
 
+    case 1:
+        EnableLiteralInClause(stp.clau,stp.lit);
+        break; 
+
+    case 2:
+        DisableClause(stp.clau);
+        break;
+
+    default:
+        std::cout << "cnf.hpp : Cnf::Inverse() : Bad operation!";
+        exit(-1);
+        break;
+    }
 }
 
 
@@ -91,9 +116,17 @@ int Cnf::Add (Vector<int> & newClause) {
         std::cout << "\nCnf.hpp : Cnf::Add() : 数据越界，堆损坏！";
         exit(-1);
     }
-    clauses[length] = newClause; // newClause 拥有的内存被交换过来并设newClause为nullptr
-    EnableClause(length);
+    clauses[length] = newClause; 
+    clauseLength[length] = 0;
+    int len = clauses[length].Length();
+    for(int i = 0; i < len; i++){
+        std::pair<int,int> posV2(length, i);
+        whereTheLiteralIs[clauses[length][i]+variableNum].Add(posV2);  
+        // std::cout << "\ncnf.hpp : posV2 : {" << posV2.first << ", " << posV2.second << "}. \nwhereTheLiteralIs[clauses[length][i]+variableNum].Length() == " << whereTheLiteralIs[clauses[length][i]+variableNum].Length() << "\nclauses[length][i]+variableNum == "<<clauses[length][i]+variableNum;          
+    }
+    clauseLength[length] += clauses[length].Length();
     length++;
+    unsat++;
     return SUCCESS;
 }
 
@@ -112,18 +145,29 @@ void Cnf::Resize(int newSize) {
    
     // unsigned char * variableBitmap
     unsigned char * tmp1 = new unsigned char[size*clauseMaxLength/8+1];
-    memcpy(tmp1, variableBitmap, sizeof(unsigned char)*(length*clauseMaxLength/8+1));
-    delete[] variableBitmap;
+    memset(tmp1, 0xff, sizeof(unsigned char)*(size*clauseMaxLength/8+1));
+    if(variableBitmap != nullptr) {
+        memcpy(tmp1, variableBitmap, sizeof(unsigned char)*(length*clauseMaxLength/8+1));
+        delete[] variableBitmap;
+    }
     variableBitmap = tmp1;
+
     // unsigned char * clauseBitmap
     unsigned char * tmp2 = new unsigned char[size/8+1];
-    memcpy(tmp2, clauseBitmap, sizeof(unsigned char)*(length/8+1));
-    delete[] clauseBitmap;
+    memset(tmp2, 0xff, sizeof(unsigned char)*(size/8+1));
+    if(clauseBitmap != nullptr){
+        memcpy(tmp2, clauseBitmap, sizeof(unsigned char)*(length/8+1));
+        delete[] clauseBitmap;
+    }
     clauseBitmap = tmp2;
-    // int * clausesUnsat
+
+    // int * clauseLength
     int * tmp3 = new int[size];
-    memcpy(tmp3, clauseLength, sizeof(int)*(length));
-    delete[] clauseLength;
+    memset(tmp3, 0, sizeof(unsigned char)*(size));
+    if(clauseLength) {    
+        memcpy(tmp3, clauseLength, sizeof(int)*(length));
+        delete[] clauseLength;
+    }
     clauseLength = tmp3;
 }
 
@@ -134,13 +178,13 @@ int Cnf::GetVariableNum(void) const {
 
 
 bool Cnf::Empty (void) const {
-    return length == 0;
+    return unsat == 0;
 }
 
 
 bool Cnf::HaveEmpty (void) const {
     for(int i = 0; i < length; i++)
-        if(GetClauseStatus(i) && clauseLength[i]) {
+        if(GetClauseStatus(i) && clauseLength[i] == 0) {
             return true;
         }
     return false;
@@ -148,48 +192,80 @@ bool Cnf::HaveEmpty (void) const {
 
 
 int Cnf::FindUnitClause (void) const {
-
+    for(int i = 0; i < length; i++)
+        if(GetClauseStatus(i) && clauseLength[i] == 1) {
+            return GetFirstLiteral(i);
+        }
+    return 0;
+    // 不是return -1
 }
 
+int Cnf::GetFirstLiteral(int pos) const{
+    if(clauses[pos].Empty()) {
+        std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]为空！";
+        exit(-1);
+    }
+    if(clauseLength[pos] == 0) {
+        std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]的文字全被删除！";
+        exit(-1);
+    }
+    if(!GetClauseStatus(pos)) {
+        std::cout << "\nCan't get first literal from a disabled clause!";
+        exit(-1);
+    }
+    for(int i = 0; i < clauses[pos].Length(); i++) 
+        if(GetClauseStatus(pos) && GetClauseLiteralStatus(pos, i))
+            return clauses[pos][i];
+    if(1){
+        std::cout << "cnf.hpp:Cnf::GetFirstLiteral():找不到未被删除的文字。";
+        exit(-1);
+    }else return 0;
+}
 
 int Cnf::Select (void) const {
-    
+    for(int i = 0; i < length; i++)
+        if(GetClauseStatus(i) && clauseLength[i] != 0)
+            return GetFirstLiteral(i);
+    return 0;
 }
 
 inline void Cnf::EnableClause(int pos) {
     clauseBitmap[pos/8] |= masks[pos % 8];  
-    length++;
+    unsat++;
 }
 
 
 inline void Cnf::DisableClause(int pos) {
     clauseBitmap[pos/8] &= ~masks[pos % 8];  
-    length--;
+    unsat--;
 }
 
 
 inline void Cnf::EnableLiteralInClause(int clau, int lit) {
-    variableBitmap[(clau * clauseMaxLength + lit) / 8] |= masks[lit % 8];
+    int pos = (clau*clauseMaxLength+lit);
+    variableBitmap[pos/8] |= masks[pos % 8];
     clauseLength[clau]++;
 }
 
 
 inline void Cnf::DisableLiteralInClause(int clau, int lit) {
-    variableBitmap[(clau * clauseMaxLength + lit) / 8] &= ~masks[lit % 8];  
+    int pos = (clau*clauseMaxLength+lit);
+    variableBitmap[pos/8] &= ~masks[pos % 8];  
     clauseLength[clau]--;
 }
 
 
-inline bool Cnf::GetClauseStatus(int pos) {
-    if(clauseBitmap[pos/8] && masks[pos%8]) 
+inline bool Cnf::GetClauseStatus(int pos) const{
+    if(clauseBitmap[pos/8] & masks[pos%8]) 
         return true;
     else 
         return false;
 }
 
 
-inline bool Cnf::GetClauseLiteralStatus(int clau, int lit) {
-    if(clauseBitmap[(clau*clauseMaxLength+lit)/8] && masks[lit%8]) 
+inline bool Cnf::GetClauseLiteralStatus(int clau, int lit) const{
+    int pos = (clau*clauseMaxLength+lit);
+    if(variableBitmap[pos/8] & masks[pos%8])
         return true;
     else 
         return false;
@@ -202,10 +278,7 @@ int Cnf::Read (std::string filename) {
     if(!file.is_open()) {
         std::cout << "\nCnf.hpp : Cnf::Read() : 打开输入文件失败：" << filename;
         exit(-1);
-    }
-    else {
-        // std::cout << "\nCnf.hpp : Cnf::Read() : 打开输入文件成功：" << filename;
-    }   
+    } 
     char ch;
     while(file >> ch && ch == 'c') {
         char buff[1024];
@@ -213,33 +286,26 @@ int Cnf::Read (std::string filename) {
     }
     std::string type;
     file >> type >> variableNum >> clausesNum;
-    Resize(clausesNum);
-
-    clausesUnsat = new int[clausesNum];
-
-    // relateTable = new (std::nothrow) Vector<int>[2 * variableNum + 1];
-    // assert(relateTable != nullptr);
-   
-    int p[100000];
+    Resize(clausesNum + CNF_MEM_INCR);
+    whereTheLiteralIs.Resize(variableNum*2+1);
+    int buf[100000];
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
-        file >> p[j];
-        while (p[j++]) {
-            file >> p[j];
-        }
+        file >> buf[j];
+        while (buf[j++]) file >> buf[j];
         Vector<int> vectorToAppend;
         for(int k = 0; k <= j - 2; k++) {
-            vectorToAppend.Add(p[k]);
+            vectorToAppend.Add(buf[k]);
         }
         int len;
         if((len = vectorToAppend.Length()) > clauseMaxLength)
             clauseMaxLength = len;
         Add(vectorToAppend);
     }
-    variableBitmap = new unsigned char[clauseMaxLength*size/8+1];
-    clauseBitmap = new unsigned char[size/8+1];
-    memset(variableBitmap, 0xFF, (clauseMaxLength*clausesNum/8+1)*sizeof(unsigned char));
-    memset(clauseBitmap, 0xFF, (clausesNum/8+1)*sizeof(unsigned char));
+    // variableBitmap = new unsigned char[clauseMaxLength*size/8+1];
+    // clauseBitmap = new unsigned char[size/8+1];
+    memset(variableBitmap, 0xFF, (clauseMaxLength*size/8+1)*sizeof(unsigned char));
+    memset(clauseBitmap, 0xFF, (size/8+1)*sizeof(unsigned char));
     return SUCCESS;
 }
 
@@ -265,9 +331,30 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         else 
             solution[-unit] = false;
         //  化简正文字（literal）
-        
+        int len1 = whereTheLiteralIs[unit+variableNum].Length();
+        for(int i = 0; i < len1; i++) {
+            if(
+                GetClauseStatus(whereTheLiteralIs[unit+variableNum][i].first) 
+                &&
+                GetClauseLiteralStatus(whereTheLiteralIs[unit+variableNum][i].first, whereTheLiteralIs[unit+variableNum][i].second)
+            ) {
+                DisableClause(whereTheLiteralIs[unit+variableNum][i].first);
+                toInverse.Push({0, whereTheLiteralIs[-unit+variableNum][i].first, -1});
+            }
+        }
         //  化简负文字（-literal）
-        
+        int len2 = whereTheLiteralIs[-unit+variableNum].Length();
+        for(int i = 0; i < len2; i++) {
+            if(
+                GetClauseStatus(whereTheLiteralIs[-unit+variableNum][i].first) 
+                &&
+                GetClauseLiteralStatus(whereTheLiteralIs[-unit+variableNum][i].first, whereTheLiteralIs[-unit+variableNum][i].second)
+            ) {
+                DisableLiteralInClause(whereTheLiteralIs[-unit+variableNum][i].first, whereTheLiteralIs[-unit+variableNum][i].second);
+                toInverse.Push({1, whereTheLiteralIs[-unit+variableNum][i].first, whereTheLiteralIs[-unit+variableNum][i].second});
+            }
+
+        }
         if(Empty()) 
             return true; // 递归终点
 
@@ -281,24 +368,24 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
 
 
     Vector<int> v1, v2;         // 新的单子句
-    int p = abs(Select());      // 选取分支变元
-    v1.Add(p);                  // 构造单子句
-    Step stp = {2, length, 0};  // 构造栈帧
+    int l = abs(Select());      // 选取分支变元
+    v1.Add(l);                  // 构造单子句
+    Step stp = {2, length, -1};  // 构造栈帧
     toInverse.Push(stp);        // 压栈
-    Add(v1);                    // 添加单子句{p}
+    Add(v1);                    // 添加单子句{l}
 
     /*  分裂规则  */
-    if (Dpll(solution, deepth + 1))    // 求解分支 S + {p}
+    if (Dpll(solution, deepth + 1))    // 求解分支 S + {l}
         return true;                   // 递归终点
     else { 
         if(error) return false;        // 返回false一律检查error（检查是否递归过深）
-        Inverse(toInverse.Pop());      // 删除单子句{p}
-        v2.Add(-p);                    // 构造单子句{-p}
-        Step stp = {2, length, -p};    // 在调用Cnf::Add()之前压栈，才能保存正确的use
+        Inverse(toInverse.Pop());      // 删除单子句{l}
+        v2.Add(-l);                    // 构造单子句{-l}
+        Step stp = {2, length, };    // 在调用Cnf::Add()之前压栈，才能保存正确的length
         toInverse.Push(stp);
-        Add(v2);                       // 添加单子句{-p}
+        Add(v2);                       // 添加单子句{-l}
        
-        bool sat = Dpll(solution, deepth + 1);                      // 求解S + {-p}
+        bool sat = Dpll(solution, deepth + 1);                      // 求解S + {-l}
         if(sat == false) {        
             while (!toInverse.Empty()) Inverse(toInverse.Pop());    // 仅当返回false回溯
         }

@@ -14,7 +14,7 @@
 */
 typedef struct {
     char operation; // 0 : Delete a clause ; 1 : Delete a literal in the clause 2 : add an unit clause
-    int cla;
+    int clau;
     int lit;
 } Step; // Step 三元组
 

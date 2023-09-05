@@ -18,31 +18,6 @@ VectorXY posToXy(int pos) {
 }
 
 int main(void) { 
-    // int a[10] = {0,}; // 第五行
-    // for(int numFill = 1; numFill <= 9; numFill++) {
-    //     int pos = rand() % 9 + 1; 
-    //     while(a[pos] != 0) pos = rand( )% 9 + 1;
-    //     a[pos] = numFill;// 随机全排列
-    // } 
-    // int row = 5;
-    // Cnf S;
-    // S.Read("./hanidoku/standard.cnf");
-    // for(int col = 1; col <= 9; col++) {
-    //     VectorXY xy = RowColumnToXY({row, col});
-    //     Vector v;
-    //     v.Add(xy.x * 100 + xy.y * 10 + a[col]);
-    //     S.Add(v);
-    //     // std::cout << a[col] << " ";
-    // }
-    // // return 0;
-    // bool solution[849+200] = {false,}; //数组注意初始化和大小避免栈帧损坏
-    // bool sat = S.Dpll(solution);
-    // if(sat == false) {
-    //     std::cout << "\nBad arrangement:";
-    //     for(int i = 0; i < 9; i++) std::cout << a[i] << " ";
-    //     exit(-1);
-    // }
-
     int grid[61] = {0,};
     // 从完整合法填充开始，基于挖洞法生成
     char seed[8][61+10] = {
@@ -55,10 +30,10 @@ int main(void) {
         "5624374356243721566251873437862941554398762687495375683443526",
         "6534742756336984755781263424573918636298475438576261425352634",
     };
-    int selectSeed = rand() % 8;
+    int selectSeed = arc4random() % 8;
     for(int count = 0; count < 10; count++) {
-        int pos = rand() % 61 + 1;
-        while(grid[pos] != 0) pos = rand() % 61 + 1;
+        int pos = arc4random() % 61 + 1;
+        while(grid[pos] != 0) pos = arc4random() % 61 + 1;
         // auto xy = posToXy(pos);
         // int xyv = xy.x * 100 + xy.y * 10;
         // for(int i = xyv + 1; i <= xyv + 9; i++) 
