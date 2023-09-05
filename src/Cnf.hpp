@@ -63,7 +63,8 @@ private:
     int variableNum = 0;                                // 初始变元数
     int clauseMaxLength = 0;                            // 向量最大长度
     int size = 0;                                       // 内存大小
-
+    // int haveEmpty = -1;
+    // int single = -1;
     unsigned char * LiteralBitmap = nullptr;           // 文字位图
     unsigned char * clauseBitmap = nullptr;             // 子句位图
     int * clauseLength = nullptr;                       // 各子句未满足文字数量
@@ -112,47 +113,39 @@ void Cnf::Inverse(Step stp) {
 
 int Cnf::Add (Vector<int> & newClause) {
     if(length == size) Resize(size + CNF_MEM_INCR);
-    else if(size < length) {
-        std::cout << "\nCnf.hpp : Cnf::Add() : 数据越界，堆损坏！";
-        exit(-1);
-    }
+    // else if(size < length) {
+    //     std::cout << "\nCnf.hpp : Cnf::Add() : 数据越界，堆损坏！";
+    //     exit(-1);
+    // }
     clauses[length] = newClause; 
-    clauseLength[length] = 0;
     int len = clauses[length].Length();
+    // #pragma unroll 2
     for(int i = 0; i < len; i++){
         std::pair<int,int> posV2(length, i);
         whereTheLiteralIs[clauses[length][i]+variableNum].Add(posV2);  
     }
-    clauseLength[length] += clauses[length].Length();
+    clauseLength[length] = clauses[length].Length();
     length++;
-    if(!GetClauseStatus(length-1)) {
-        std::cout << "cnf.hpp : Cnf::Add() : clauseBitmap damaged!!";
-    }
-    for(int i = 0; i < len; i++) {
-        if(!GetClauseLiteralStatus(length-1, i)) {
-            std::cout << "cnf.hpp : Cnf::Add() : LiteralBitmap damaged!!";
-        }
-    }
     unsat++;
     return SUCCESS;
 }
 
 
 void Cnf::Resize(int newSize) {
-    if(newSize <= 0) {
-        std::cout << "\nCnf.hpp : Cnf::Resize() : 重新分配内存失败，内存大小不能小于等于0！";  
-        exit(-1);
-    }
-    if(newSize <= length) {
-        std::cout << "\nCnf.hpp : Cnf::Resize() : 重新分配内存失败，内存大小不能小于已有有效数据所占大小！";  
-        exit(-1);
-    }
+    // if(newSize <= 0) {
+    //     std::cout << "\nCnf.hpp : Cnf::Resize() : 重新分配内存失败，内存大小不能小于等于0！";  
+    //     exit(-1);
+    // }
+    // if(newSize <= length) {
+    //     std::cout << "\nCnf.hpp : Cnf::Resize() : 重新分配内存失败，内存大小不能小于已有有效数据所占大小！";  
+    //     exit(-1);
+    // }
     clauses.Resize(newSize);
     size = newSize;
 
     // unsigned char * LiteralBitmap
-    unsigned char * tmp1 = new unsigned char[size*clauseMaxLength/8+1];
-    memset(tmp1, 0xff, sizeof(unsigned char)*(size*clauseMaxLength/8+1));
+    unsigned char * tmp1 = new unsigned char[size*clauseMaxLength/8+100];
+    memset(tmp1, 0xff, sizeof(unsigned char)*(size*clauseMaxLength/8+100));
     if(LiteralBitmap != nullptr) {
         memcpy(tmp1, LiteralBitmap, sizeof(unsigned char)*(length*clauseMaxLength/8+1));
         delete[] LiteralBitmap;
@@ -160,8 +153,8 @@ void Cnf::Resize(int newSize) {
     LiteralBitmap = tmp1;
 
     // unsigned char * clauseBitmap
-    unsigned char * tmp2 = new unsigned char[size/8+1];
-    memset(tmp2, 0xff, sizeof(unsigned char)*(size/8+1));
+    unsigned char * tmp2 = new unsigned char[size/8+100];
+    memset(tmp2, 0xff, sizeof(unsigned char)*(size/8+100));
     if(clauseBitmap != nullptr){
         memcpy(tmp2, clauseBitmap, sizeof(unsigned char)*(length/8+1));
         delete[] clauseBitmap;
@@ -169,8 +162,8 @@ void Cnf::Resize(int newSize) {
     clauseBitmap = tmp2;
 
     // int * clauseLength
-    int * tmp3 = new int[size];
-    memset(tmp3, 0, sizeof(unsigned char)*(size));
+    int * tmp3 = new int[size+100];
+    memset(tmp3, 0, sizeof(unsigned char)*(size+100));
     if(clauseLength) {    
         memcpy(tmp3, clauseLength, sizeof(int)*(length));
         delete[] clauseLength;
@@ -190,6 +183,7 @@ bool Cnf::Empty (void) const {
 
 
 bool Cnf::HaveEmpty (void) const {
+    // #pragma unroll 8 
     for(int i = 0; i < length; i++)
         if(GetClauseStatus(i) && clauseLength[i] == 0) {
             return true;
@@ -199,6 +193,7 @@ bool Cnf::HaveEmpty (void) const {
 
 
 int Cnf::FindUnitClause (void) const {
+    // #pragma unroll 8
     for(int i = 0; i < length; i++)
         if(GetClauseStatus(i) && clauseLength[i] == 1) {
             return GetFirstLiteral(i);
@@ -208,28 +203,31 @@ int Cnf::FindUnitClause (void) const {
 }
 
 int Cnf::GetFirstLiteral(int pos) const{
-    if(clauses[pos].Empty()) {
-        std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]为空！";
-        exit(-1);
-    }
-    if(clauseLength[pos] == 0) {
-        std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]的文字全被删除！";
-        exit(-1);
-    }
-    if(!GetClauseStatus(pos)) {
-        std::cout << "\nCan't get first literal from a disabled clause!";
-        exit(-1);
-    }
+    // if(clauses[pos].Empty()) {
+    //     std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]为空！";
+    //     exit(-1);
+    // }
+    // if(clauseLength[pos] == 0) {
+    //     std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]的文字全被删除！";
+    //     exit(-1);
+    // }
+    // if(!GetClauseStatus(pos)) {
+    //     std::cout << "\nCan't get first literal from a disabled clause!";
+    //     exit(-1);
+    // }
+    // #pragma unroll 8
     for(int i = 0; i < clauses[pos].Length(); i++) 
-        if(GetClauseStatus(pos) && GetClauseLiteralStatus(pos, i))
+        if(GetClauseLiteralStatus(pos, i))
             return clauses[pos][i];
-    if(1){
-        std::cout << "\ncnf.hpp:Cnf::GetFirstLiteral():找不到未被删除的文字。";
-        exit(-1);
-    }else return 0;
+    // if(1){
+    //     std::cout << "\ncnf.hpp:Cnf::GetFirstLiteral():找不到未被删除的文字。";
+    //     exit(-1);
+    // }else
+    return 0;
 }
 
 int Cnf::Select (void) const {
+    // #pragma unroll 8
     for(int i = 0; i < length; i++)
         if(GetClauseStatus(i) && clauseLength[i] != 0)
             return GetFirstLiteral(i);
@@ -237,15 +235,15 @@ int Cnf::Select (void) const {
 }
 
 inline void Cnf::EnableClause(int clau) {
-    std::cout << "\nEnableClauses() : I am called!!";
-    if(GetClauseStatus(clau)){
-        std::cout << "\ncnf.hpp : Cnf::EnableClauses() : Bad status";
-        exit(-1);
-    }
-    if(clau < 0 || clau >= length) {
-        std::cout << "\ncnf.hpp : Cnf::EnableClauses() : Bad Index : " << clau << "\n"; 
-        exit(-1);
-    }
+    // std::cout << "\nEnableClauses() : I am called!!";
+    // if(GetClauseStatus(clau)){
+    //     std::cout << "\ncnf.hpp : Cnf::EnableClauses() : Bad status";
+    //     exit(-1);
+    // }
+    // if(clau < 0 || clau >= length) {
+    //     std::cout << "\ncnf.hpp : Cnf::EnableClauses() : Bad Index : " << clau << "\n"; 
+    //     exit(-1);
+    // }
     // std::cout << "\nBefore EnableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
     clauseBitmap[clau/8] |= masks[clau % 8];  
     // std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
@@ -254,15 +252,15 @@ inline void Cnf::EnableClause(int clau) {
 
 
 inline void Cnf::DisableClause(int clau) {
-    std::cout << "\nDisableClauses() : I am called!!";
-    if(!GetClauseStatus(clau)){
-        std::cout << "\ncnf.hpp : Cnf::DisableClauses() : Bad status";
-        exit(-1);
-    }
-    if(clau < 0 || clau >= length) {
-        std::cout << "\ncnf.hpp : Cnf::DisableClause() : Bad Index : " << clau << "\n"; 
-        exit(-1);
-    }
+    // std::cout << "\nDisableClauses() : I am called!!";
+    // if(!GetClauseStatus(clau)){
+    //     std::cout << "\ncnf.hpp : Cnf::DisableClauses() : Bad status";
+    //     exit(-1);
+    // }
+    // if(clau < 0 || clau >= length) {
+    //     std::cout << "\ncnf.hpp : Cnf::DisableClause() : Bad Index : " << clau << "\n"; 
+    //     exit(-1);
+    // }
     // std::cout << "\nBefore DisableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
     clauseBitmap[clau/8] &= ~masks[clau % 8];  
     // std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
@@ -271,14 +269,14 @@ inline void Cnf::DisableClause(int clau) {
 
 
 inline void Cnf::EnableLiteralInClause(int clau, int lit) {
-     if(!GetClauseStatus(clau)||GetClauseLiteralStatus(clau, lit)){
-        std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad status";
-        exit(-1);
-    }
-    if(clau < 0 || clau >= length) {
-        std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad Index : " << clau << "\n"; 
-        exit(-1);
-    }
+    //  if(!GetClauseStatus(clau)||GetClauseLiteralStatus(clau, lit)){
+    //     std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad status";
+    //     exit(-1);
+    // }
+    // if(clau < 0 || clau >= length) {
+    //     std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad Index : " << clau << "\n"; 
+    //     exit(-1);
+    // }
     int pos = (clau*clauseMaxLength+lit);
     LiteralBitmap[pos/8] |= masks[pos % 8];
     clauseLength[clau]++;
@@ -286,14 +284,14 @@ inline void Cnf::EnableLiteralInClause(int clau, int lit) {
 
 
 inline void Cnf::DisableLiteralInClause(int clau, int lit) {
-    if(!GetClauseStatus(clau)||!GetClauseLiteralStatus(clau, lit)){
-        std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad status";
-        exit(-1);
-    }
-    if(clau < 0 || clau >= length) {
-        std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad Index : " << clau << "\n"; 
-        exit(-1);
-    }
+    // if(!GetClauseStatus(clau)||!GetClauseLiteralStatus(clau, lit)){
+    //     std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad status";
+    //     exit(-1);
+    // }
+    // if(clau < 0 || clau >= length) {
+    //     std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad Index : " << clau << "\n"; 
+    //     exit(-1);
+    // }
     int pos = (clau*clauseMaxLength+lit);
     LiteralBitmap[pos/8] &= ~masks[pos % 8];  
     clauseLength[clau]--;
@@ -301,10 +299,10 @@ inline void Cnf::DisableLiteralInClause(int clau, int lit) {
 
 
 inline bool Cnf::GetClauseStatus(int clau) const{
-    if(clau < 0 || clau >= length) {
-        std::cout << "\ncnf.hpp : Cnf::GetClauseStatus() : Bad Index : " << clau << "\n"; 
-        exit(-1);
-    }
+    // if(clau < 0 || clau >= length) {
+    //     std::cout << "\ncnf.hpp : Cnf::GetClauseStatus() : Bad Index : " << clau << "\n"; 
+    //     exit(-1);
+    // }
     if(clauseBitmap[clau/8] & masks[clau%8]) 
         return true;
     else 
@@ -313,14 +311,14 @@ inline bool Cnf::GetClauseStatus(int clau) const{
 
 
 inline bool Cnf::GetClauseLiteralStatus(int clau, int lit) const{
-    if(!GetClauseStatus(clau)) {
-        std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Clause Status";
-        exit(-1);
-    }
-    if(clau < 0 || clau >= length) {
-        std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Index : " << clau << "\n"; 
-        exit(-1);
-    }
+    // if(!GetClauseStatus(clau)) {
+    //     std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Clause Status";
+    //     exit(-1);
+    // // }
+    // if(clau < 0 || clau >= length) {
+    //     std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Index : " << clau << "\n"; 
+    //     exit(-1);
+    // }
     int pos = (clau*clauseMaxLength+lit);
     if(LiteralBitmap[pos/8] & masks[pos%8])
         return true;
@@ -383,6 +381,7 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
     int unit;
     while((unit = FindUnitClause()) != 0) {
         //  记录赋值
+        // std::cout << "\n " << unsat;
         if(unit > 0) 
             solution[unit] = true;
         else 

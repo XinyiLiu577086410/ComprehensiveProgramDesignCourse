@@ -21,7 +21,7 @@
 
 
 #ifndef VCT_MEM_INCR
-#define VCT_MEM_INCR 20
+#define VCT_MEM_INCR 50
 #endif
 
 // typedef Literal typeV;
@@ -38,7 +38,7 @@ class Vector{
         bool Empty(void) const;      // 判空
         int Length(void) const;      // 向量长度
         int Size(void) const;        // 可用空间
-        int Find(typeV & x) const;   // 寻找元素 
+        // int Find(typeV & x) const;   // 寻找元素 
         typeV * SwapElem();          // 交换指针域
     private:
         typeV * elem;                // 数据域
@@ -73,15 +73,15 @@ typeV & Vector<typeV>::operator[](int x) const{
 }
 
 
-template <typename typeV>
-int Vector<typeV>::Find(typeV & x) const {
-    for (int i = 0; i < length; i++) {
-        if(elem == x) {
-            return i;
-        }
-    }
-    return ERROR;
-}
+// template <typename typeV>
+// int Vector<typeV>::Find(typeV & x) const {
+//     for (int i = 0; i < length; i++) {
+//         if(elem == x) {
+//             return i;
+//         }
+//     }
+//     return ERROR;
+// }
 
 template <typename typeV>
 int Vector<typeV>::Size(void) const {
@@ -123,7 +123,10 @@ void Vector<typeV>::Resize(int newSize) {
     assert(newSpace != nullptr);
     if(elem) {
         // memcpy(newSpace, elem, size * sizeof(typeV));
-        for(int i = 0; i < length; i++) newSpace[i] = elem[i];
+        // #pragma unroll 3
+        for(int i = 0; i < length; i++){
+            newSpace[i] = elem[i];
+        }
         delete[] elem;
         elem = nullptr;
     }   

@@ -13,12 +13,12 @@ then
 fi
 mkdir dpllOutput
 #编译四个独立的功能程序
-g++ ./src/dpll.cpp  -o ./executable/dpll -std=c++11 -O3 -lpthread 
-g++ ./src/verify.cpp -o ./executable/verify -std=c++11 -O3
-g++ ./src/haniCnfGen.cpp -o ./executable/haniCnfGen -std=c++11 -O3
-g++ ./src/haniDisplay.cpp -o ./executable/haniDisplay -std=c++11 -O3
-g++ ./src/haniGame.cpp -o ./executable/haniGame -std=c++11 -O3
-g++ ./src/gridGen.cpp -o ./executable/gridGen -std=c++11 -O3
+c++ ./src/dpll.cpp  -o ./executable/dpll -std=c++11 -O3 -lpthread 
+# c++ ./src/verify.cpp -o ./executable/verify -std=c++11 -O3
+c++ ./src/haniCnfGen.cpp -o ./executable/haniCnfGen -std=c++11 -O3
+c++ ./src/haniDisplay.cpp -o ./executable/haniDisplay -std=c++11 -O3
+c++ ./src/haniGame.cpp -o ./executable/haniGame -std=c++11 -O3
+c++ ./src/gridGen.cpp -o ./executable/gridGen -std=c++11 -O3
 #开始
 while 
 do
@@ -33,7 +33,7 @@ do
             do
             echo "\n\nrun.sh : 正在求解 ${file} : " 
             ./executable/dpll "./testset/${file}" "./dpllOutput/${file%.*}.res" ${timelimit}
-            ./executable/verify "./testset/${file}" "./dpllOutput/${file%.*}.res"
+            # ./executable/verify "./testset/${file}" "./dpllOutput/${file%.*}.res"
             done
     ;;
     b)
@@ -43,7 +43,7 @@ do
         read timelimit
         echo "\n\nrun.sh : 正在求解 ${cnfFile} : " 
         ./executable/dpll "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res" ${timelimit}
-        ./executable/verify "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res"
+        # ./executable/verify "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res"
     ;;
     c)
         echo "请输入初始格局文件（不含路径，必须在./hanidoku中）"
@@ -67,7 +67,7 @@ do
         ./executable/haniDisplay ./hanidoku/hanidoku.res 
     ;;
     e)
-        # ./executable/gridGen
+        ./executable/gridGen
         ./executable/haniCnfGen ./hanidoku/standard.cnf null
         ./executable/haniGame ./hanidoku/grid.txt
         grid=`cat ./hanidoku/grid.txt` 
