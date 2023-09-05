@@ -21,7 +21,7 @@
 
 
 #ifndef VCT_MEM_INCR
-#define VCT_MEM_INCR 10
+#define VCT_MEM_INCR 20
 #endif
 
 typedef Literal typeV;

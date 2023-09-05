@@ -18,7 +18,6 @@
 #define TIME_LIMIT timeLimit
 
 float timeLimit = 10.0;
-
 int main(int argc, char * argv[]){
     if(argc != 4) {
         std::cout << "\ndpll : main() : 参数数量错误！\nusage: ./dpll <*.cnf> <*.res> <time limit in integer>";
@@ -52,7 +51,8 @@ int main(int argc, char * argv[]){
             outFile.open(outputFileName);
             outFile << "s " << -1;
             outFile << "\nt "<< secElapsed * 1000;
-            tt.detach();
+            outOfTime = true; // 通知线程退出
+            tt.join();
             outFile.close();
             return 0;
         }   

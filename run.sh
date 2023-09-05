@@ -13,11 +13,12 @@ then
 fi
 mkdir dpllOutput
 #编译四个独立的功能程序
-g++ ./src/dpll.cpp  -o ./executable/dpll -std=c++11 -O3 -lpthread
+g++ ./src/dpll.cpp  -o ./executable/dpll -std=c++11 -O3 -lpthread 
 g++ ./src/verify.cpp -o ./executable/verify -std=c++11 -O3
 g++ ./src/haniCnfGen.cpp -o ./executable/haniCnfGen -std=c++11 -O3
 g++ ./src/haniDisplay.cpp -o ./executable/haniDisplay -std=c++11 -O3
 g++ ./src/haniGame.cpp -o ./executable/haniGame -std=c++11 -O3
+g++ ./src/gridGen.cpp -o ./executable/gridGen -std=c++11 -O3
 #开始
 while 
 do
@@ -66,12 +67,13 @@ do
         ./executable/haniDisplay ./hanidoku/hanidoku.res 
     ;;
     e)
+        # ./executable/gridGen
         ./executable/haniCnfGen ./hanidoku/standard.cnf null
         ./executable/haniGame ./hanidoku/grid.txt
         grid=`cat ./hanidoku/grid.txt` 
         ./executable/haniCnfGen ./hanidoku/hanidoku.cnf ${grid}
         ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res "30"
-        echo "解如下"
+        echo "\n解如下"
         ./executable/haniDisplay ./hanidoku/hanidoku.res 
     ;;
     *)

@@ -378,9 +378,9 @@ void Cnf::DisableLiteralInClause(int pos, int lit) {
 
 
 // Dpll() 的辅助变量
-bool error = false;
-
-bool Cnf::Dpll (bool solution[], int deepth) {
+bool error = false, outOfTime = false;
+bool Cnf::Dpll (bool solution[], int deepth = 0) {
+    if(outOfTime) exit(-1);
     if(deepth > variableNum) {
         std::cout << "\nCnf.hpp : Cnf::dpll() : (ERROR)现在深度是" << deepth <<" ， 递归深度过深，大于变元数，程序终止！";
         error = true;   // 检查程序出错，如果递归过深（往往由回溯部分的错误引起），打开错误标记

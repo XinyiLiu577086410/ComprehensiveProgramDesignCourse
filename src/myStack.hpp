@@ -11,7 +11,7 @@
 #include "vector.hpp"
 
 #ifndef STK_MEM_INCR
-#define STK_MEM_INCR 50
+#define STK_MEM_INCR 250
 #endif
 
 typedef Step typeS;

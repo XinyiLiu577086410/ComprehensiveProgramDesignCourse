@@ -39,15 +39,7 @@ dpll : main() : 创建输出文件成功：./hanidoku/hanidoku.res
 dpll : main() : 用时：951.66ms
 dpll : main() : Cnf实例数：1
 dpll : main() : Cnf::Dpll()的调用次数：4732
-    6 5 3 4 7 
-   4 2 7 5 6 3 
-  3 6 9 8 4 7 5 
- 5 7 8 1 2 6 3 4 
-2 4 5 7 3 9 1 8 6 
- 3 6 2 9 8 4 7 5 
-  4 3 8 5 7 6 2 
-   6 1 4 2 5 3 
-    5 2 6 3 4 
+6534742756336984755781263424573918636298475438576261425352634
 
 Cnf.hpp : Cnf::Read() : 打开输入文件成功：./hanidoku/hanidoku.cnf
 Cnf.hpp : Cnf::dpll() : 找到解时的递归深度：43
@@ -268,15 +260,7 @@ dpll : main() : 创建输出文件成功：./hanidoku/hanidoku.res
 dpll : main() : 用时：997.57ms
 dpll : main() : Cnf实例数：1
 dpll : main() : Cnf::Dpll()的调用次数：4540
-    5 6 3 7 4 
-   6 1 5 4 2 3 
-  7 4 6 3 1 5 2 
- 4 3 8 9 7 2 6 5 
-3 5 9 2 8 1 7 4 6 
- 2 7 5 9 4 8 6 3 
-  4 8 6 7 3 2 5 
-   6 3 8 5 7 4 
-    5 6 4 3 2 
+5637461542374631524389726535928174627594863486732563857456432
 
 haniDispaly.cpp : read() : Bad .res file!
 haniDispaly.cpp : read() : Bad .res file!
