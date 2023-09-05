@@ -91,7 +91,6 @@ Cnf::~Cnf() {
 void Cnf::Inverse(Step stp) {
     switch (stp.operation) {
     case 0:
-        std::cout<<"\n回溯：";
         EnableClause(stp.clau);
         break;
 
@@ -100,7 +99,6 @@ void Cnf::Inverse(Step stp) {
         break; 
 
     case 2:
-        std::cout<<"\n回溯：";
         DisableClause(stp.clau);
         break;
 
@@ -242,19 +240,16 @@ inline void Cnf::EnableClause(int clau) {
     std::cout << "\nEnableClauses() : I am called!!";
     if(GetClauseStatus(clau)){
         std::cout << "\ncnf.hpp : Cnf::EnableClauses() : Bad status";
-        // exit(-1);
+        exit(-1);
     }
     if(clau < 0 || clau >= length) {
         std::cout << "\ncnf.hpp : Cnf::EnableClauses() : Bad Index : " << clau << "\n"; 
-        // exit(-1);
+        exit(-1);
     }
-    std::cout << "\nBefore EnableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
+    // std::cout << "\nBefore EnableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
     clauseBitmap[clau/8] |= masks[clau % 8];  
-    std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
+    // std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
     unsat++;
-    if(!GetClauseStatus(clau)) {
-        std::cout << "\nBad EnableClause!";
-    }
 }
 
 
@@ -262,62 +257,53 @@ inline void Cnf::DisableClause(int clau) {
     std::cout << "\nDisableClauses() : I am called!!";
     if(!GetClauseStatus(clau)){
         std::cout << "\ncnf.hpp : Cnf::DisableClauses() : Bad status";
-        // exit(-1);
+        exit(-1);
     }
     if(clau < 0 || clau >= length) {
         std::cout << "\ncnf.hpp : Cnf::DisableClause() : Bad Index : " << clau << "\n"; 
-        // exit(-1);
+        exit(-1);
     }
-    std::cout << "\nBefore DisableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
+    // std::cout << "\nBefore DisableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
     clauseBitmap[clau/8] &= ~masks[clau % 8];  
-    std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
+    // std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
     unsat--;
-    if(GetClauseStatus(clau)) {
-        std::cout << "\nBad DisableClause!";
-    }
 }
 
 
 inline void Cnf::EnableLiteralInClause(int clau, int lit) {
      if(!GetClauseStatus(clau)||GetClauseLiteralStatus(clau, lit)){
         std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad status";
-        // exit(-1);
+        exit(-1);
     }
     if(clau < 0 || clau >= length) {
         std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad Index : " << clau << "\n"; 
-        // exit(-1);
+        exit(-1);
     }
     int pos = (clau*clauseMaxLength+lit);
     LiteralBitmap[pos/8] |= masks[pos % 8];
     clauseLength[clau]++;
-    if(!GetClauseLiteralStatus(clau,lit)) {
-        std::cout << "\nBad EnableLiteralInClause!";
-    }
 }
 
 
 inline void Cnf::DisableLiteralInClause(int clau, int lit) {
     if(!GetClauseStatus(clau)||!GetClauseLiteralStatus(clau, lit)){
         std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad status";
-        // exit(-1);
+        exit(-1);
     }
     if(clau < 0 || clau >= length) {
         std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad Index : " << clau << "\n"; 
-        // exit(-1);
+        exit(-1);
     }
     int pos = (clau*clauseMaxLength+lit);
     LiteralBitmap[pos/8] &= ~masks[pos % 8];  
     clauseLength[clau]--;
-    if(GetClauseLiteralStatus(clau,lit)) {
-        std::cout << "\nBad DisableLiteralInClause!";
-    }
 }
 
 
 inline bool Cnf::GetClauseStatus(int clau) const{
     if(clau < 0 || clau >= length) {
         std::cout << "\ncnf.hpp : Cnf::GetClauseStatus() : Bad Index : " << clau << "\n"; 
-        // exit(-1);
+        exit(-1);
     }
     if(clauseBitmap[clau/8] & masks[clau%8]) 
         return true;
@@ -327,10 +313,13 @@ inline bool Cnf::GetClauseStatus(int clau) const{
 
 
 inline bool Cnf::GetClauseLiteralStatus(int clau, int lit) const{
-    if(!GetClauseStatus(clau)) std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Clause Status";
+    if(!GetClauseStatus(clau)) {
+        std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Clause Status";
+        exit(-1);
+    }
     if(clau < 0 || clau >= length) {
         std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Index : " << clau << "\n"; 
-        // exit(-1);
+        exit(-1);
     }
     int pos = (clau*clauseMaxLength+lit);
     if(LiteralBitmap[pos/8] & masks[pos%8])
@@ -402,15 +391,10 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         int len1 = whereTheLiteralIs[unit+variableNum].Length();
         for(int i = 0; i < len1; i++) {
             std::pair<int, int> where = whereTheLiteralIs[unit+variableNum][i];
-            if(GetClauseStatus(where.first) &&
+            if(GetClauseStatus(where.first)     &&
                         GetClauseLiteralStatus(where.first, where.second)) 
             {
-                std::cout<<"\n化简正文字（literal）";
                 DisableClause(where.first);
-                if(GetClauseStatus(where.first)) {
-                    std::cout << "\nBad DisableClause!";
-                }
-                // toInverse.Push({0, whereTheLiteralIs[-unit+variableNum][i].first, -1}); //IT'S FUCKING HERE!!!!! (-unit)
                 toInverse.Push({0, where.first, -1});
             }
         }
@@ -418,15 +402,10 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         int len2 = whereTheLiteralIs[-unit+variableNum].Length();
         for(int i = 0; i < len2; i++) {
             std::pair<int, int> where = whereTheLiteralIs[-unit+variableNum][i];
-            if(
-                GetClauseStatus(where.first) 
-                &&
-                GetClauseLiteralStatus(where.first, where.second)
+            if(GetClauseStatus(where.first) 
+                        &&  GetClauseLiteralStatus(where.first, where.second)
             ) {
                 DisableLiteralInClause(where.first, where.second);
-                if(GetClauseLiteralStatus(where.first, where.second)) {
-                    std::cout << "\nBad DisableLitralInClause!";
-                }
                 toInverse.Push({1, where.first, where.second});
             }
 
@@ -442,7 +421,6 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         }
     }
 
-
     Vector<int> v1, v2;         // 新的单子句
     int l = abs(Select());      // 选取分支变元
     v1.Add(l);                  // 构造单子句
@@ -455,18 +433,12 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         return true;                   // 递归终点
     else { 
         if(error) return false;        // 返回false一律检查error（检查是否递归过深）
-        std::cout << "\nNew vector Add";
         Inverse(toInverse.Pop());      // 删除单子句{l}
         v2.Add(-l);                    // 构造单子句{-l}
         Step stp = {2, length, -1};    // 在调用Cnf::Add()之前压栈，才能保存正确的length
         toInverse.Push(stp);
         Add(v2);                       // 添加单子句{-l}
-       
         bool sat = Dpll(solution, deepth + 1);                      // 求解S + {-l}
-        std::cout << "\nStep Added : {"<<(int)stp.operation<<", "<<stp.clau<<", "<<stp.lit<<"}";
-        stp = toInverse.Pop();
-        std::cout << "\nStep Poped : {"<<(int)stp.operation<<", "<<stp.clau<<", "<<stp.lit<<"}";
-        Inverse(stp);
         if(sat == false) {        
             while (!toInverse.Empty()) Inverse(toInverse.Pop());    // 仅当返回false回溯
         }
