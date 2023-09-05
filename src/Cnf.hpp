@@ -99,6 +99,7 @@ void Cnf::Inverse(Step stp) {
         break; 
 
     case 2:
+        std::cout<<"\n回溯：";
         DisableClause(stp.clau);
         break;
 
@@ -149,7 +150,7 @@ void Cnf::Resize(int newSize) {
     }
     clauses.Resize(newSize);
     size = newSize;
-   
+
     // unsigned char * LiteralBitmap
     unsigned char * tmp1 = new unsigned char[size*clauseMaxLength/8+1];
     memset(tmp1, 0xff, sizeof(unsigned char)*(size*clauseMaxLength/8+1));
@@ -246,7 +247,9 @@ inline void Cnf::EnableClause(int clau) {
         std::cout << "\ncnf.hpp : Cnf::EnableClauses() : Bad Index : " << clau << "\n"; 
         // exit(-1);
     }
+    std::cout << "\nBefore EnableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
     clauseBitmap[clau/8] |= masks[clau % 8];  
+    std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
     unsat++;
     if(!GetClauseStatus(clau)) {
         std::cout << "\nBad EnableClause!";
@@ -264,7 +267,9 @@ inline void Cnf::DisableClause(int clau) {
         std::cout << "\ncnf.hpp : Cnf::DisableClause() : Bad Index : " << clau << "\n"; 
         // exit(-1);
     }
+    std::cout << "\nBefore DisableClause(): clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8]<<" And clau == "<<clau;
     clauseBitmap[clau/8] &= ~masks[clau % 8];  
+    std::cout << "\nAfter : clauseBitmap[clau/8] = "<< (int) clauseBitmap[clau/8];
     unsat--;
     if(GetClauseStatus(clau)) {
         std::cout << "\nBad DisableClause!";
@@ -273,7 +278,7 @@ inline void Cnf::DisableClause(int clau) {
 
 
 inline void Cnf::EnableLiteralInClause(int clau, int lit) {
-     if(GetClauseLiteralStatus(clau, lit)){
+     if(!GetClauseStatus(clau)||GetClauseLiteralStatus(clau, lit)){
         std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad status";
         // exit(-1);
     }
@@ -291,7 +296,7 @@ inline void Cnf::EnableLiteralInClause(int clau, int lit) {
 
 
 inline void Cnf::DisableLiteralInClause(int clau, int lit) {
-    if(!GetClauseLiteralStatus(clau, lit)){
+    if(!GetClauseStatus(clau)||!GetClauseLiteralStatus(clau, lit)){
         std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad status";
         // exit(-1);
     }
@@ -321,6 +326,7 @@ inline bool Cnf::GetClauseStatus(int clau) const{
 
 
 inline bool Cnf::GetClauseLiteralStatus(int clau, int lit) const{
+    if(!GetClauseStatus(clau)) std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Clause Status";
     if(clau < 0 || clau >= length) {
         std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Index : " << clau << "\n"; 
         // exit(-1);
@@ -352,7 +358,7 @@ int Cnf::Read (std::string filename) {
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
         file >> buf[i][j];
-        while (buf[i][j++]) file >> buf[i][j];
+        while (j<100 && buf[i][j++]) file >> buf[i][j];
         int len = j - 1;
         if(len > clauseMaxLength)
             clauseMaxLength = len;
@@ -360,7 +366,7 @@ int Cnf::Read (std::string filename) {
     Resize(clausesNum + CNF_MEM_INCR);      // 注意和clauseMaxNum的次序
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
-        while (buf[i][j++]);
+        while (j<100 && buf[i][j++]);
         Vector<int> vectorToAppend;
         for(int k = 0; k <= j - 2; k++) {
             vectorToAppend.Add(buf[i][k]);
@@ -394,11 +400,10 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         //  化简正文字（literal）
         int len1 = whereTheLiteralIs[unit+variableNum].Length();
         for(int i = 0; i < len1; i++) {
-            if(
-                GetClauseStatus(whereTheLiteralIs[unit+variableNum][i].first) 
-                &&
-                GetClauseLiteralStatus(whereTheLiteralIs[unit+variableNum][i].first, whereTheLiteralIs[unit+variableNum][i].second)
-            ) {
+            if(GetClauseStatus(whereTheLiteralIs[unit+variableNum][i].first) &&
+                        GetClauseLiteralStatus(whereTheLiteralIs[unit+variableNum][i].first, whereTheLiteralIs[unit+variableNum][i].second)) 
+            {
+                std::cout<<"\n化简正文字（literal）";
                 DisableClause(whereTheLiteralIs[unit+variableNum][i].first);
                 if(GetClauseStatus(whereTheLiteralIs[unit+variableNum][i].first)) {
                     std::cout << "\nBad DisableClause!";
