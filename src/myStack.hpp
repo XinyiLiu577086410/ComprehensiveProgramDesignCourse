@@ -42,10 +42,8 @@ MyStack<typeS>::MyStack() {
 
 template <typename typeS> 
 MyStack<typeS>::~MyStack() {
-    if(arr != nullptr) {
+    if(arr != nullptr) 
         delete[] arr;
-        arr = nullptr;
-    }
 }
 
 template <typename typeS> 

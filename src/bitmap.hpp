@@ -1,6 +1,6 @@
 #ifndef BITMAP
 #define BITMAP
-unsigned char bit0 = 0x1;
+unsigned char bit0 = 0x01;
 unsigned char bit1 = bit0 << 1;
 unsigned char bit2 = bit1 << 1;
 unsigned char bit3 = bit2 << 1;
@@ -19,5 +19,16 @@ unsigned char masks[8] = {
     bit6,
     bit7
 };
+
+// unsigned char masks[8] = {
+//     bit7,
+//     bit6,
+//     bit5,
+//     bit4,
+//     bit3,
+//     bit2,
+//     bit1,
+//     bit0
+// };
 
 #endif

@@ -102,6 +102,7 @@ Vector<typeV> & Vector<typeV>::operator=(Vector<typeV> & obj) {
     if(this != &obj) {
         length = obj.Length();
         size = obj.Size();
+        if(elem != nullptr) delete[] elem;
         elem = obj.SwapElem();
     }
     return *this;

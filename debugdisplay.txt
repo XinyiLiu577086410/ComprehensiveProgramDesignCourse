@@ -1,0 +1,2892 @@
+
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+New vector Add
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+New vector Add
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+New vector Add
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+New vector Add
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+New vector Add
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+New vector Add
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+New vector Add
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+DisableClauses() : I am called!!
+Cnf.hpp : Cnf::dpll() : (ERROR)现在深度是201 ， 递归深度过深，大于变元数，程序终止！
+Step Added : {2, 1235, -1}
+Step Poped : {2, 1235, -1}
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+Step Added : {2, 1231, -1}
+Step Poped : {2, 1231, -1}
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+Step Added : {2, 1227, -1}
+Step Poped : {2, 1227, -1}
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+Step Added : {2, 1222, -1}
+Step Poped : {2, 1222, -1}
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+Step Added : {2, 1218, -1}
+Step Poped : {2, 1218, -1}
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+Step Added : {2, 1211, -1}
+Step Poped : {2, 1211, -1}
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+Step Added : {2, 1205, -1}
+Step Poped : {2, 1205, -1}
+DisableClauses() : I am called!!
+cnf.hpp : Cnf::DisableClauses() : Bad status
+EnableClauses() : I am called!!
+cnf.hpp : Cnf::EnableClauses() : Bad status
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+EnableClauses() : I am called!!
+dpll : main() : 用时：6.68ms
