@@ -1,78 +1,78 @@
-#ifndef LITERAL
-#define LITERAL
-#include <iostream>
-#include <cstdlib>
-class Literal {
-private:
-    int lit;
-    bool status;
-public:
-    int clausePos;
-    int literalPos;
-    Literal();
-    Literal(int, int);
-    ~Literal();
-    bool GetStatus(void);
-    int GetLiteral(void);
-    void Write(int);
-    void Enable(void);
-    void Disable(void);
-    void SetStatus(bool);
-};
+// #ifndef LITERAL
+// #define LITERAL
+// #include <iostream>
+// #include <cstdlib>
+// class Literal {
+// private:
+//     int lit;
+//     bool status;
+// public:
+//     // int clausePos;
+//     // int literalPos;
+//     Literal();
+//     Literal(int, int);
+//     ~Literal();
+//     bool GetStatus(void);
+//     int GetLiteral(void);
+//     void Write(int);
+//     void Enable(void);
+//     void Disable(void);
+//     void SetStatus(bool);
+// };
 
-Literal::Literal() {
-    lit = 0;
-    status = false;
-}
-
-
-Literal::Literal(int x, int y) {
-    lit = 0;
-    status = false;
-    clausePos = x;
-    literalPos = y;
-}
+// Literal::Literal() {
+//     lit = 0;
+//     status = false;
+// }
 
 
-Literal::~Literal(){
-}
-
-bool Literal::GetStatus(void) {
-    return status;
-}
-
-int Literal::GetLiteral(void) {
-    // if(!GetStatus()) {
-    //     std::cout << "\nliteral.hpp : Literal::GetLiteral() : try to get the value of a deleted Literal!";
-    //     exit(-1);
-    // }    
-    return lit;
-}
+// Literal::Literal(int x, int y) {
+//     lit = 0;
+//     status = false;
+//     // clausePos = x;
+//     // literalPos = y;
+// }
 
 
-void Literal::Write(int x) {
-    lit = x;
-}
+// Literal::~Literal(){
+// }
 
-void Literal::Enable(void) {
-    if(GetStatus()) {
-        std::cout << "\nliteral.hpp : Literal::Enable() : try to enable a enabled literal!";
-        exit(-1);
-    }   
-    status = true;
-}
+// bool Literal::GetStatus(void) {
+//     return status;
+// }
 
-void Literal::Disable(void) {
-     if(!GetStatus()) {
-        std::cout << "\nliteral.hpp : Literal::Disable() : try to disable a disabled literal!";
-        exit(-1);
-    }   
-    status = false;
-}
-
-void Literal::SetStatus(bool t) { 
-    status = t;
-}
+// int Literal::GetLiteral(void) {
+//     // if(!GetStatus()) {
+//     //     std::cout << "\nliteral.hpp : Literal::GetLiteral() : try to get the value of a deleted Literal!";
+//     //     exit(-1);
+//     // }    
+//     return lit;
+// }
 
 
-#endif
+// void Literal::Write(int x) {
+//     lit = x;
+// }
+
+// void Literal::Enable(void) {
+//     if(GetStatus()) {
+//         std::cout << "\nliteral.hpp : Literal::Enable() : try to enable a enabled literal!";
+//         exit(-1);
+//     }   
+//     status = true;
+// }
+
+// void Literal::Disable(void) {
+//      if(!GetStatus()) {
+//         std::cout << "\nliteral.hpp : Literal::Disable() : try to disable a disabled literal!";
+//         exit(-1);
+//     }   
+//     status = false;
+// }
+
+// void Literal::SetStatus(bool t) { 
+//     status = t;
+// }
+
+
+// #endif

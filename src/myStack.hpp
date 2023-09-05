@@ -7,15 +7,15 @@
 #include <cassert>
 #include <cstdlib>
 
-#include "step.hpp"
-#include "vector.hpp"
+// #include "step.hpp"
+// #include "vector.hpp"
 
 #ifndef STK_MEM_INCR
 #define STK_MEM_INCR 250
 #endif
 
-typedef Step typeS;
-
+// typedef Step typeS;
+template <typename typeS> 
 class MyStack {
 public:
     // 构造函数、析构函数
@@ -32,23 +32,23 @@ private:
     int size;
 };
 
-
-MyStack::MyStack() {
+template <typename typeS> 
+MyStack<typeS>::MyStack() {
     arr = nullptr;
     size = 0;
     top = 0;
 }
 
-
-MyStack::~MyStack() {
+template <typename typeS> 
+MyStack<typeS>::~MyStack() {
     if(arr != nullptr) {
         delete[] arr;
         arr = nullptr;
     }
 }
 
-
-void MyStack::Resize(int newSize) {
+template <typename typeS> 
+void MyStack<typeS>::Resize(int newSize) {
     if(newSize <= 0) {
         std::cout << "\nmyStack.hpp : myStack::Resize() : 重新分配内存失败，内存大小不能小于等于0！";
         exit(-1);// 及时结束程序，防止Segmentation fault覆盖错误位置信息
@@ -70,8 +70,8 @@ void MyStack::Resize(int newSize) {
     arr = newArr;
 }
 
-
-typeS MyStack::Pop() {
+template <typename typeS> 
+typeS MyStack<typeS>::Pop() {
     if(Empty()) {
         std::cout << "\nmyStack.hpp : myStack::Pop() : 出栈失败，栈下溢！";
         exit(-1);
@@ -80,8 +80,8 @@ typeS MyStack::Pop() {
     return arr[top];
 }
 
-
-void MyStack::Push(typeS elem) { 
+template <typename typeS> 
+void MyStack<typeS>::Push(typeS elem) { 
     if(top == size) Resize(size + STK_MEM_INCR);
     if(size < top) {
         std::cout<<"\nmyStack.hpp : myStack::Push() : 入栈失败，有效数据溢出内存区域，堆已经损坏！";
@@ -91,8 +91,8 @@ void MyStack::Push(typeS elem) {
     top++;
 }
 
-
-bool MyStack::Empty(void) {
+template <typename typeS> 
+bool MyStack<typeS>::Empty(void) {
     return top == 0;
 }
 

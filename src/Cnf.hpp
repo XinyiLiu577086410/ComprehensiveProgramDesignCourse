@@ -387,7 +387,7 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         return false;   
     }
     countDpllCalls++;
-    MyStack toInverse;  // 反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
+    MyStack<Step> toInverse;  // 反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
     // 单子句规则
     int unit;
     while((unit = FindUnitClause()) != 0) {
