@@ -1,6 +1,6 @@
 #include "coordinate.hpp"
 #include "cnf.hpp"
-#include "vector.hpp"
+// #include "vector.hpp"
 #include <iostream>
 #include <fstream>
 #include <algorithm>

@@ -6,7 +6,8 @@
 
 #include <cassert>
 #include <cstdlib>
-
+#include <cstdlib>
+#include <iostream>
 // #include "step.hpp"
 // #include "vector.hpp"
 

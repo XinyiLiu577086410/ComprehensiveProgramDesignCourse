@@ -32,7 +32,7 @@ class Vector{
         Vector();                    // 默认构造函数
         ~Vector();                   // 析构函数
         typeV & operator[](int x);
-        Vector & operator=(Vector & );
+        Vector<typeV> & operator=(Vector<typeV> & ); // 交换指针域的赋值，右值清空
         // 功能函数
         int Add(typeV);              // 添加元素
         void Resize(int);            // 重新分配内存
@@ -40,7 +40,8 @@ class Vector{
         bool Empty(void) const;      // 判空
         int Length(void) const;      // 向量长度
         int Size(void) const;        // 可用空间
-        int Find(typeV x) const;       //  
+        int Find(typeV x) const;     // 寻找元素 
+        typeV * SwapElem();          // 交换指针域
         // int Used(void);              //   
         // bool Status(void) const;
         // void SetStatus(bool);
@@ -124,20 +125,29 @@ int Vector<typeV>::Size(void) const {
 
 
 template <typename typeV>
-Vector<typeV> & Vector<typeV>::operator=(Vector & obj) {
+typeV * Vector<typeV>::SwapElem() {
+    typeV * tmp = elem;
+    elem = nullptr;
+    return elem;
+}
+
+
+template <typename typeV>
+Vector<typeV> & Vector<typeV>::operator=(Vector<typeV> & obj) {
     if(this != &obj) {
-        length = obj.GetLength();
-        size = obj.GetSize();
+        length = obj.Length();
+        size = obj.Size();
+        elem = obj.SwapElem();
         // status = obj.GetStatus();
         // use = obj.GetUse();
-        if(elem) delete[] elem;
-        elem = new (std::nothrow) typeV[size];
-        assert(elem != nullptr);
-        for (int i = 0; i < length; i++) {
-            // elem[i].Write(obj[i].GetLiteral());
-            // elem[i].SetStatus(obj[i].GetStatus());
-            elem[i] = obj[i];
-        }
+        // if(elem) delete[] elem;
+        // elem = new (std::nothrow) typeV[size];
+        // assert(elem != nullptr);
+        // for (int i = 0; i < length; i++) {
+        //     // elem[i].Write(obj[i].GetLiteral());
+        //     // elem[i].SetStatus(obj[i].GetStatus());
+        //     elem[i] = obj[i];
+        // }
     }
     return *this;
 }
@@ -186,7 +196,7 @@ void Vector<typeV>::Resize(int newSize) {
     assert(newSpace != nullptr);
     if(elem) {
         // memcpy(newSpace, elem, size * sizeof(typeV));
-        for(int i = 0;i < length; i++) newSpace[i] = elem[i];
+        for(int i = 0; i < length; i++) newSpace[i] = elem[i];
         delete[] elem;
         elem = nullptr;
     }   
