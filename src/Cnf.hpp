@@ -91,6 +91,7 @@ Cnf::~Cnf() {
 void Cnf::Inverse(Step stp) {
     switch (stp.operation) {
     case 0:
+        std::cout<<"\n回溯：";
         EnableClause(stp.clau);
         break;
 
@@ -400,30 +401,33 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         //  化简正文字（literal）
         int len1 = whereTheLiteralIs[unit+variableNum].Length();
         for(int i = 0; i < len1; i++) {
-            if(GetClauseStatus(whereTheLiteralIs[unit+variableNum][i].first) &&
-                        GetClauseLiteralStatus(whereTheLiteralIs[unit+variableNum][i].first, whereTheLiteralIs[unit+variableNum][i].second)) 
+            std::pair<int, int> where = whereTheLiteralIs[unit+variableNum][i];
+            if(GetClauseStatus(where.first) &&
+                        GetClauseLiteralStatus(where.first, where.second)) 
             {
                 std::cout<<"\n化简正文字（literal）";
-                DisableClause(whereTheLiteralIs[unit+variableNum][i].first);
-                if(GetClauseStatus(whereTheLiteralIs[unit+variableNum][i].first)) {
+                DisableClause(where.first);
+                if(GetClauseStatus(where.first)) {
                     std::cout << "\nBad DisableClause!";
                 }
-                toInverse.Push({0, whereTheLiteralIs[-unit+variableNum][i].first, -1});
+                // toInverse.Push({0, whereTheLiteralIs[-unit+variableNum][i].first, -1}); //IT'S FUCKING HERE!!!!! (-unit)
+                toInverse.Push({0, where.first, -1});
             }
         }
         //  化简负文字（-literal）
         int len2 = whereTheLiteralIs[-unit+variableNum].Length();
         for(int i = 0; i < len2; i++) {
+            std::pair<int, int> where = whereTheLiteralIs[-unit+variableNum][i];
             if(
-                GetClauseStatus(whereTheLiteralIs[-unit+variableNum][i].first) 
+                GetClauseStatus(where.first) 
                 &&
-                GetClauseLiteralStatus(whereTheLiteralIs[-unit+variableNum][i].first, whereTheLiteralIs[-unit+variableNum][i].second)
+                GetClauseLiteralStatus(where.first, where.second)
             ) {
-                DisableLiteralInClause(whereTheLiteralIs[-unit+variableNum][i].first, whereTheLiteralIs[-unit+variableNum][i].second);
-                if(GetClauseLiteralStatus(whereTheLiteralIs[-unit+variableNum][i].first, whereTheLiteralIs[-unit+variableNum][i].second)) {
+                DisableLiteralInClause(where.first, where.second);
+                if(GetClauseLiteralStatus(where.first, where.second)) {
                     std::cout << "\nBad DisableLitralInClause!";
                 }
-                toInverse.Push({1, whereTheLiteralIs[-unit+variableNum][i].first, whereTheLiteralIs[-unit+variableNum][i].second});
+                toInverse.Push({1, where.first, where.second});
             }
 
         }
