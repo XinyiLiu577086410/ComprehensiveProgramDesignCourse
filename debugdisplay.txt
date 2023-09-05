@@ -1614,7 +1614,7 @@ Before DisableClause(): clauseBitmap[clau/8] = 255 And clau == 734
 After : clauseBitmap[clau/8] = 191
 化简正文字（literal）
 DisableClauses() : I am called!!
-Before DisableClause(): clauseBitmap[clau/8] = 255 And clau == 1208
+Before DisableClause(): clauseBitmap[clau/8] = 255 And clau == 1208 *
 After : clauseBitmap[clau/8] = 254
 化简正文字（literal）
 DisableClauses() : I am called!!
@@ -1930,7 +1930,7 @@ Before DisableClause(): clauseBitmap[clau/8] = 255 And clau == 1064
 After : clauseBitmap[clau/8] = 254
 化简正文字（literal）
 DisableClauses() : I am called!!
-Before DisableClause(): clauseBitmap[clau/8] = 254 And clau == 1209
+Before DisableClause(): clauseBitmap[clau/8] = 254 And clau == 1209 *
 After : clauseBitmap[clau/8] = 252
 化简正文字（literal）
 DisableClauses() : I am called!!
@@ -1998,7 +1998,7 @@ Before DisableClause(): clauseBitmap[clau/8] = 255 And clau == 757
 After : clauseBitmap[clau/8] = 223
 化简正文字（literal）
 DisableClauses() : I am called!!
-Before DisableClause(): clauseBitmap[clau/8] = 252 And clau == 1210
+Before DisableClause(): clauseBitmap[clau/8] = 252 And clau == 1210 *
 After : clauseBitmap[clau/8] = 248
 化简正文字（literal）
 DisableClauses() : I am called!!
@@ -2074,7 +2074,7 @@ Before DisableClause(): clauseBitmap[clau/8] = 255 And clau == 1090
 After : clauseBitmap[clau/8] = 251
 化简正文字（literal）
 DisableClauses() : I am called!!
-Before DisableClause(): clauseBitmap[clau/8] = 248 And clau == 1211
+Before DisableClause(): clauseBitmap[clau/8] = 248 And clau == 1211 *
 After : clauseBitmap[clau/8] = 240
 化简正文字（literal）
 DisableClauses() : I am called!!
@@ -4622,7 +4622,7 @@ Before EnableClause(): clauseBitmap[clau/8] = 16 And clau == 19
 After : clauseBitmap[clau/8] = 24
 回溯：
 EnableClauses() : I am called!!
-Before EnableClause(): clauseBitmap[clau/8] = 240 And clau == 1211
+Before EnableClause(): clauseBitmap[clau/8] = 240 And clau == 1211*
 After : clauseBitmap[clau/8] = 248
 回溯：
 EnableClauses() : I am called!!
@@ -4663,7 +4663,7 @@ After : clauseBitmap[clau/8] = 255
 New vector Add
 回溯：
 DisableClauses() : I am called!!
-Before DisableClause(): clauseBitmap[clau/8] = 248 And clau == 1211
+Before DisableClause(): clauseBitmap[clau/8] = 248 And clau == 1211* //begin
 After : clauseBitmap[clau/8] = 240
 化简正文字（literal）
 DisableClauses() : I am called!!
@@ -4699,7 +4699,7 @@ Before DisableClause(): clauseBitmap[clau/8] = 251 And clau == 817
 After : clauseBitmap[clau/8] = 249
 化简正文字（literal）
 DisableClauses() : I am called!!
-Before DisableClause(): clauseBitmap[clau/8] = 240 And clau == 1212
+Before DisableClause(): clauseBitmap[clau/8] = 240 And clau == 1212*
 After : clauseBitmap[clau/8] = 224
 化简正文字（literal）
 DisableClauses() : I am called!!
@@ -4739,7 +4739,7 @@ Before DisableClause(): clauseBitmap[clau/8] = 255 And clau == 1105
 After : clauseBitmap[clau/8] = 253
 化简正文字（literal）
 DisableClauses() : I am called!!
-Before DisableClause(): clauseBitmap[clau/8] = 224 And clau == 1213
+Before DisableClause(): clauseBitmap[clau/8] = 224 And clau == 1213 *
 After : clauseBitmap[clau/8] = 192
 化简正文字（literal）
 DisableClauses() : I am called!!
@@ -8874,14 +8874,14 @@ Step Poped : {2, 1212, -1}
 回溯：
 DisableClauses() : I am called!!
 cnf.hpp : Cnf::DisableClauses() : Bad status
-Before DisableClause(): clauseBitmap[clau/8] = 192 And clau == 1212
+Before DisableClause(): clauseBitmap[clau/8] = 192 And clau == 1212*
 After : clauseBitmap[clau/8] = 192
 Step Added : {2, 1208, -1}
 Step Poped : {2, 1208, -1}
 回溯：
 DisableClauses() : I am called!!
 cnf.hpp : Cnf::DisableClauses() : Bad status
-Before DisableClause(): clauseBitmap[clau/8] = 192 And clau == 1208
+Before DisableClause(): clauseBitmap[clau/8] = 192 And clau == 1208*
 After : clauseBitmap[clau/8] = 192
 Step Added : {2, 1206, -1}
 Step Poped : {2, 1206, -1}
