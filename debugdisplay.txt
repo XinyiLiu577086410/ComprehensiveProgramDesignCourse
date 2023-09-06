@@ -1,850 +1,920 @@
 
-Added unit at length == 122
-Added unit at length == 609
-Added unit at length == 832
-Added unit at length == 1435
-Added unit at length == 1571
-Added unit at length == 1832
-Added unit at length == 2391
-Added unit at length == 2438
-Added unit at length == 2553
-Added unit at length == 2846
+Before Reduce , unitQueue length == 0
+After Reduce , unitQueue length == 0
+Added unit at length == 1200
+Before Reduce , unitQueue length == 1
+Before unit == 108, unitQueue length == 0
+unit == 108, unitPos == 1200, deepth == 1
+After unit == 108, unitQueue length == 0
+After Reduce , unitQueue length == 0
+Added unit at length == 1201
+Before Reduce , unitQueue length == 1
+Before unit == 158, unitQueue length == 0
+unit == 158, unitPos == 1201, deepth == 2
+After unit == 158, unitQueue length == 0
+After Reduce , unitQueue length == 0
+Added unit at length == 1202
+Before Reduce , unitQueue length == 1
+Before unit == 45, unitQueue length == 0
+unit == 45, unitPos == 1202, deepth == 3
+After unit == 45, unitQueue length == 0
+After Reduce , unitQueue length == 0
+Added unit at length == 1203
+Before Reduce , unitQueue length == 1
+Before unit == 100, unitQueue length == 0
+unit == 100, unitPos == 1203, deepth == 4
+After unit == 100, unitQueue length == 0
+After Reduce , unitQueue length == 0
+Added unit at length == 1204
+Before Reduce , unitQueue length == 1
+Before unit == 15, unitQueue length == 0
+unit == 15, unitPos == 1204, deepth == 5
+After unit == 15, unitQueue length == 2
+Before unit == -141, unitQueue length == 1
+unit == -141, unitPos == 15, deepth == 5
+After unit == -141, unitQueue length == 4
+Before unit == -103, unitQueue length == 3
+unit == -103, unitPos == 715, deepth == 5
+After unit == -103, unitQueue length == 3
+Before unit == 53, unitQueue length == 2
+unit == 53, unitPos == 10, deepth == 5
+After unit == 53, unitQueue length == 4
+Added unit at length == 1205
+Before Reduce , unitQueue length == 11
+Before unit == -15, unitQueue length == 0
+unit == -15, unitPos == 1205, deepth == 5
+After unit == -15, unitQueue length == 1
+Before unit == -57, unitQueue length == 0
+unit == -57, unitPos == 17, deepth == 5
+After unit == -57, unitQueue length == 2
+Before unit == 106, unitQueue length == 1
+unit == 106, unitPos == 22, deepth == 5
+After unit == 106, unitQueue length == 2
+Before unit == -178, unitQueue length == 1
+unit == -178, unitPos == 34, deepth == 5
+After unit == -178, unitQueue length == 1
+Before unit == 47, unitQueue length == 0
+unit == 47, unitPos == 23, deepth == 5
+After unit == 47, unitQueue length == 3
+Before unit == -13, unitQueue length == 2
+unit == -13, unitPos == 24, deepth == 5
+After unit == -13, unitQueue length == 4
+Before unit == -50, unitQueue length == 2
+unit == -50, unitPos == 56, deepth == 5
+After unit == -50, unitQueue length == 4
+Before unit == -191, unitQueue length == 3
+unit == -191, unitPos == 32, deepth == 5
+After unit == -191, unitQueue length == 4
+Before unit == 11, unitQueue length == 3
+unit == 11, unitPos == 742, deepth == 5
+After unit == 11, unitQueue length == 3
+Before unit == 30, unitQueue length == 2
+unit == 30, unitPos == 40, deepth == 5
+After unit == 30, unitQueue length == 4
+Before unit == 80, unitQueue length == 2
+unit == 80, unitPos == 588, deepth == 5
+After unit == 80, unitQueue length == 2
+Before unit == 49, unitQueue length == 1
+unit == 49, unitPos == 38, deepth == 5
+After unit == 49, unitQueue length == 2
+Before unit == -34, unitQueue length == 1
+unit == -34, unitPos == 536, deepth == 5
+After unit == -34, unitQueue length == 1
+Before unit == 93, unitQueue length == 0
+unit == 93, unitPos == 29, deepth == 5
+After unit == 93, unitQueue length == 4
+Before unit == 54, unitQueue length == 3
+unit == 54, unitPos == 26, deepth == 5
+After unit == 54, unitQueue length == 4
+Added unit at length == 1206
+Before Reduce , unitQueue length == 25
+Before unit == -100, unitQueue length == 0
+unit == -100, unitPos == 1206, deepth == 4
+After unit == -100, unitQueue length == 1
+Before unit == -133, unitQueue length == 0
+unit == -133, unitPos == 8, deepth == 4
+After unit == -133, unitQueue length == 0
+After Reduce , unitQueue length == 0
+Added unit at length == 1207
+Before Reduce , unitQueue length == 1
+Before unit == 15, unitQueue length == 0
+unit == 15, unitPos == 1207, deepth == 5
+After unit == 15, unitQueue length == 1
+Before unit == -141, unitQueue length == 0
+unit == -141, unitPos == 15, deepth == 5
+After unit == -141, unitQueue length == 3
+Before unit == 53, unitQueue length == 2
+unit == 53, unitPos == 10, deepth == 5
+After unit == 53, unitQueue length == 4
+Added unit at length == 1208
 Before Reduce , unitQueue length == 10
-Before unit == 107, unitQueue length == 9
-unit == 107, unitPos == 122, deepth == 0
-After unit == 107, unitQueue length == 11
-Before unit == -886, unitQueue length == 10
-unit == -886, unitPos == 609, deepth == 0
-After unit == -886, unitQueue length == 12
-Before unit == -276, unitQueue length == 11
-unit == -276, unitPos == 832, deepth == 0
-After unit == -276, unitQueue length == 51
-Before unit == -188, unitQueue length == 50
-unit == -188, unitPos == 1435, deepth == 0
-After unit == -188, unitQueue length == 52
-Before unit == 101, unitQueue length == 51
-unit == 101, unitPos == 1571, deepth == 0
-After unit == 101, unitQueue length == 53
-Before unit == -1016, unitQueue length == 52
-unit == -1016, unitPos == 1832, deepth == 0
-After unit == -1016, unitQueue length == 54
-Before unit == -104, unitQueue length == 53
-unit == -104, unitPos == 2391, deepth == 0
-After unit == -104, unitQueue length == 55
-Before unit == -801, unitQueue length == 54
-unit == -801, unitPos == 2438, deepth == 0
-After unit == -801, unitQueue length == 56
-Before unit == 392, unitQueue length == 55
-unit == 392, unitPos == 2553, deepth == 0
-After unit == 392, unitQueue length == 57
-Before unit == -126, unitQueue length == 56
-unit == -126, unitPos == 2846, deepth == 0
-After unit == -126, unitQueue length == 58
-Before unit == 947, unitQueue length == 57
-unit == 947, unitPos == 41, deepth == 0
-After unit == 947, unitQueue length == 59
-Before unit == 942, unitQueue length == 58
-unit == 942, unitPos == 2167, deepth == 0
-After unit == 942, unitQueue length == 58
-Before unit == -423, unitQueue length == 57
-unit == -423, unitPos == 672, deepth == 0
-After unit == -423, unitQueue length == 59
-Before unit == -57, unitQueue length == 58
-unit == -57, unitPos == 1496, deepth == 0
-After unit == -57, unitQueue length == 58
-Before unit == 961, unitQueue length == 57
-unit == 961, unitPos == 13, deepth == 0
-After unit == 961, unitQueue length == 57
-Before unit == 658, unitQueue length == 56
-unit == 658, unitPos == 59, deepth == 0
-After unit == 658, unitQueue length == 56
-Before unit == 770, unitQueue length == 55
-unit == 770, unitPos == 91, deepth == 0
-After unit == 770, unitQueue length == 55
-Before unit == 133, unitQueue length == 54
-unit == 133, unitPos == 211, deepth == 0
-After unit == 133, unitQueue length == 54
-Before unit == -248, unitQueue length == 53
-unit == -248, unitPos == 212, deepth == 0
-After unit == -248, unitQueue length == 55
-Before unit == 415, unitQueue length == 54
-unit == 415, unitPos == 245, deepth == 0
-After unit == 415, unitQueue length == 55
-Before unit == 538, unitQueue length == 54
-unit == 538, unitPos == 320, deepth == 0
-After unit == 538, unitQueue length == 55
-Before unit == 58, unitQueue length == 54
-unit == 58, unitPos == 398, deepth == 0
-After unit == 58, unitQueue length == 55
-Before unit == -28, unitQueue length == 54
-unit == -28, unitPos == 403, deepth == 0
-After unit == -28, unitQueue length == 54
-Before unit == 315, unitQueue length == 52
-unit == 315, unitPos == 630, deepth == 0
-After unit == 315, unitQueue length == 52
-Before unit == 870, unitQueue length == 51
-unit == 870, unitPos == 704, deepth == 0
-After unit == 870, unitQueue length == 52
-Before unit == -953, unitQueue length == 51
-unit == -953, unitPos == 853, deepth == 0
-After unit == -953, unitQueue length == 51
-Before unit == -135, unitQueue length == 50
-unit == -135, unitPos == 881, deepth == 0
-After unit == -135, unitQueue length == 50
-Before unit == -411, unitQueue length == 49
-unit == -411, unitPos == 901, deepth == 0
-After unit == -411, unitQueue length == 50
-Before unit == 625, unitQueue length == 49
-unit == 625, unitPos == 1001, deepth == 0
-After unit == 625, unitQueue length == 49
-Before unit == 555, unitQueue length == 48
-unit == 555, unitPos == 1026, deepth == 0
-After unit == 555, unitQueue length == 48
-Before unit == -779, unitQueue length == 47
-unit == -779, unitPos == 1050, deepth == 0
-After unit == -779, unitQueue length == 47
-Before unit == 575, unitQueue length == 46
-unit == 575, unitPos == 1170, deepth == 0
-After unit == 575, unitQueue length == 46
-Before unit == 511, unitQueue length == 45
-unit == 511, unitPos == 1239, deepth == 0
-After unit == 511, unitQueue length == 46
-Before unit == 403, unitQueue length == 45
-unit == 403, unitPos == 1240, deepth == 0
-After unit == 403, unitQueue length == 45
-Before unit == -861, unitQueue length == 44
-unit == -861, unitPos == 1271, deepth == 0
-After unit == -861, unitQueue length == 44
-Before unit == -320, unitQueue length == 43
-unit == -320, unitPos == 1333, deepth == 0
-After unit == -320, unitQueue length == 44
-Before unit == 451, unitQueue length == 43
-unit == 451, unitPos == 1446, deepth == 0
-After unit == 451, unitQueue length == 43
-Before unit == -817, unitQueue length == 41
-unit == -817, unitPos == 1666, deepth == 0
-After unit == -817, unitQueue length == 41
-Before unit == -1052, unitQueue length == 40
-unit == -1052, unitPos == 1766, deepth == 0
-After unit == -1052, unitQueue length == 42
-Before unit == -909, unitQueue length == 41
-unit == -909, unitPos == 1811, deepth == 0
-After unit == -909, unitQueue length == 41
-Before unit == -950, unitQueue length == 40
-unit == -950, unitPos == 1958, deepth == 0
-After unit == -950, unitQueue length == 40
-Before unit == -144, unitQueue length == 39
-unit == -144, unitPos == 1983, deepth == 0
-After unit == -144, unitQueue length == 39
-Before unit == 925, unitQueue length == 37
-unit == 925, unitPos == 2270, deepth == 0
-After unit == 925, unitQueue length == 37
-Before unit == 218, unitQueue length == 36
-unit == 218, unitPos == 2405, deepth == 0
-After unit == 218, unitQueue length == 37
-Before unit == 286, unitQueue length == 36
-unit == 286, unitPos == 2663, deepth == 0
-After unit == 286, unitQueue length == 36
-Before unit == -710, unitQueue length == 35
-unit == -710, unitPos == 2712, deepth == 0
-After unit == -710, unitQueue length == 37
-Before unit == -570, unitQueue length == 36
-unit == -570, unitPos == 2762, deepth == 0
-After unit == -570, unitQueue length == 36
-Before unit == 212, unitQueue length == 35
-unit == 212, unitPos == 2860, deepth == 0
-After unit == 212, unitQueue length == 36
-Before unit == -646, unitQueue length == 35
-unit == -646, unitPos == 2954, deepth == 0
-After unit == -646, unitQueue length == 35
-Before unit == 439, unitQueue length == 34
-unit == 439, unitPos == 3016, deepth == 0
-After unit == 439, unitQueue length == 34
-Before unit == 835, unitQueue length == 33
-unit == 835, unitPos == 3087, deepth == 0
-After unit == 835, unitQueue length == 33
-Before unit == 487, unitQueue length == 32
-unit == 487, unitPos == 1148, deepth == 0
-After unit == 487, unitQueue length == 32
-Before unit == 637, unitQueue length == 31
-unit == 637, unitPos == 2771, deepth == 0
-After unit == 637, unitQueue length == 33
-Before unit == -413, unitQueue length == 32
-unit == -413, unitPos == 1263, deepth == 0
-After unit == -413, unitQueue length == 32
-Before unit == 337, unitQueue length == 31
-unit == 337, unitPos == 1573, deepth == 0
-After unit == 337, unitQueue length == 33
-Before unit == 372, unitQueue length == 32
-unit == 372, unitPos == 180, deepth == 0
-After unit == 372, unitQueue length == 32
-Before unit == -176, unitQueue length == 31
-unit == -176, unitPos == 3061, deepth == 0
-After unit == -176, unitQueue length == 33
-Before unit == 628, unitQueue length == 32
-unit == 628, unitPos == 1690, deepth == 0
-After unit == 628, unitQueue length == 34
-Before unit == 235, unitQueue length == 33
-unit == 235, unitPos == 2447, deepth == 0
-After unit == 235, unitQueue length == 33
-Before unit == 617, unitQueue length == 32
-unit == 617, unitPos == 2301, deepth == 0
-After unit == 617, unitQueue length == 32
-Before unit == -697, unitQueue length == 31
-unit == -697, unitPos == 2722, deepth == 0
-After unit == -697, unitQueue length == 32
-Before unit == -690, unitQueue length == 31
-unit == -690, unitPos == 10, deepth == 0
-After unit == -690, unitQueue length == 31
-Before unit == -64, unitQueue length == 30
-unit == -64, unitPos == 2283, deepth == 0
-After unit == -64, unitQueue length == 31
-Before unit == -692, unitQueue length == 30
-unit == -692, unitPos == 1889, deepth == 0
-After unit == -692, unitQueue length == 31
-Before unit == -512, unitQueue length == 30
-unit == -512, unitPos == 2867, deepth == 0
-After unit == -512, unitQueue length == 30
-Before unit == 479, unitQueue length == 28
-unit == 479, unitPos == 748, deepth == 0
-After unit == 479, unitQueue length == 29
-Before unit == -267, unitQueue length == 28
-unit == -267, unitPos == 643, deepth == 0
-After unit == -267, unitQueue length == 29
-Before unit == -679, unitQueue length == 27
-unit == -679, unitPos == 1002, deepth == 0
-After unit == -679, unitQueue length == 28
-Before unit == -523, unitQueue length == 26
-unit == -523, unitPos == 1319, deepth == 0
-After unit == -523, unitQueue length == 27
-Before unit == -221, unitQueue length == 26
-unit == -221, unitPos == 2250, deepth == 0
-After unit == -221, unitQueue length == 28
-Before unit == -92, unitQueue length == 27
-unit == -92, unitPos == 1316, deepth == 0
-After unit == -92, unitQueue length == 28
-Before unit == -125, unitQueue length == 27
-unit == -125, unitPos == 857, deepth == 0
-After unit == -125, unitQueue length == 28
-Before unit == -31, unitQueue length == 27
-unit == -31, unitPos == 3026, deepth == 0
-After unit == -31, unitQueue length == 28
-Before unit == -363, unitQueue length == 27
-unit == -363, unitPos == 192, deepth == 0
-After unit == -363, unitQueue length == 29
-Before unit == 255, unitQueue length == 28
-unit == 255, unitPos == 1914, deepth == 0
-After unit == 255, unitQueue length == 30
-Before unit == -289, unitQueue length == 29
-unit == -289, unitPos == 1586, deepth == 0
-After unit == -289, unitQueue length == 29
-Before unit == 171, unitQueue length == 28
-unit == 171, unitPos == 1785, deepth == 0
-After unit == 171, unitQueue length == 28
-Before unit == 943, unitQueue length == 27
-unit == 943, unitPos == 2687, deepth == 0
-After unit == 943, unitQueue length == 28
-Before unit == 448, unitQueue length == 27
-unit == 448, unitPos == 390, deepth == 0
-After unit == 448, unitQueue length == 27
-Before unit == -193, unitQueue length == 26
-unit == -193, unitPos == 3004, deepth == 0
-After unit == -193, unitQueue length == 26
-Before unit == -791, unitQueue length == 25
-unit == -791, unitPos == 2387, deepth == 0
-After unit == -791, unitQueue length == 26
-Before unit == -239, unitQueue length == 25
-unit == -239, unitPos == 126, deepth == 0
-After unit == -239, unitQueue length == 25
-Before unit == 492, unitQueue length == 24
-unit == 492, unitPos == 2746, deepth == 0
-After unit == 492, unitQueue length == 26
-Before unit == -774, unitQueue length == 25
-unit == -774, unitPos == 338, deepth == 0
-After unit == -774, unitQueue length == 25
-Before unit == 510, unitQueue length == 24
-unit == 510, unitPos == 2810, deepth == 0
-After unit == 510, unitQueue length == 26
-Before unit == 352, unitQueue length == 25
-unit == 352, unitPos == 2833, deepth == 0
-After unit == 352, unitQueue length == 27
-Before unit == -140, unitQueue length == 26
-unit == -140, unitPos == 2901, deepth == 0
-After unit == -140, unitQueue length == 26
-Before unit == 122, unitQueue length == 25
-unit == 122, unitPos == 110, deepth == 0
-After unit == 122, unitQueue length == 27
-Before unit == 898, unitQueue length == 26
-unit == 898, unitPos == 2941, deepth == 0
-After unit == 898, unitQueue length == 26
-Before unit == -1030, unitQueue length == 25
-unit == -1030, unitPos == 104, deepth == 0
-After unit == -1030, unitQueue length == 26
-Before unit == -85, unitQueue length == 25
-unit == -85, unitPos == 1532, deepth == 0
-After unit == -85, unitQueue length == 26
-Before unit == 695, unitQueue length == 25
-unit == 695, unitPos == 256, deepth == 0
-After unit == 695, unitQueue length == 26
-Before unit == -896, unitQueue length == 25
-unit == -896, unitPos == 2944, deepth == 0
-After unit == -896, unitQueue length == 27
-Before unit == -220, unitQueue length == 26
-unit == -220, unitPos == 2872, deepth == 0
-After unit == -220, unitQueue length == 27
-Before unit == -261, unitQueue length == 26
-unit == -261, unitPos == 2164, deepth == 0
-After unit == -261, unitQueue length == 27
-Before unit == 271, unitQueue length == 26
-unit == 271, unitPos == 2093, deepth == 0
-After unit == 271, unitQueue length == 26
-Before unit == 966, unitQueue length == 25
-unit == 966, unitPos == 253, deepth == 0
-After unit == 966, unitQueue length == 25
-Before unit == 259, unitQueue length == 24
-unit == 259, unitPos == 422, deepth == 0
-After unit == 259, unitQueue length == 24
-Before unit == 227, unitQueue length == 23
-unit == 227, unitPos == 1433, deepth == 0
-After unit == 227, unitQueue length == 24
-Before unit == 469, unitQueue length == 23
-unit == 469, unitPos == 2968, deepth == 0
-After unit == 469, unitQueue length == 23
-Before unit == 360, unitQueue length == 22
-unit == 360, unitPos == 2657, deepth == 0
-After unit == 360, unitQueue length == 23
-Before unit == 249, unitQueue length == 22
-unit == 249, unitPos == 900, deepth == 0
-After unit == 249, unitQueue length == 22
-Before unit == -336, unitQueue length == 21
-unit == -336, unitPos == 2775, deepth == 0
-After unit == -336, unitQueue length == 21
-Before unit == -812, unitQueue length == 20
-unit == -812, unitPos == 1849, deepth == 0
-After unit == -812, unitQueue length == 20
-Before unit == -417, unitQueue length == 19
-unit == -417, unitPos == 2608, deepth == 0
-After unit == -417, unitQueue length == 19
-Before unit == -671, unitQueue length == 17
-unit == -671, unitPos == 1209, deepth == 0
-After unit == -671, unitQueue length == 17
-Before unit == -569, unitQueue length == 16
-unit == -569, unitPos == 1485, deepth == 0
-After unit == -569, unitQueue length == 16
-Before unit == -1040, unitQueue length == 15
-unit == -1040, unitPos == 1500, deepth == 0
-After unit == -1040, unitQueue length == 15
-Before unit == 937, unitQueue length == 14
-unit == 937, unitPos == 292, deepth == 0
-After unit == 937, unitQueue length == 14
-Before unit == -787, unitQueue length == 13
-unit == -787, unitPos == 1745, deepth == 0
-After unit == -787, unitQueue length == 13
-Before unit == -882, unitQueue length == 12
-unit == -882, unitPos == 708, deepth == 0
-After unit == -882, unitQueue length == 12
-Before unit == -670, unitQueue length == 11
-unit == -670, unitPos == 1338, deepth == 0
-After unit == -670, unitQueue length == 11
-Before unit == -68, unitQueue length == 10
-unit == -68, unitPos == 1460, deepth == 0
-After unit == -68, unitQueue length == 10
-Before unit == 813, unitQueue length == 9
-unit == 813, unitPos == 2021, deepth == 0
-After unit == 813, unitQueue length == 9
-Before unit == -543, unitQueue length == 8
-unit == -543, unitPos == 1269, deepth == 0
-After unit == -543, unitQueue length == 10
-Before unit == 460, unitQueue length == 9
-unit == 460, unitPos == 1457, deepth == 0
-After unit == 460, unitQueue length == 11
-Before unit == 960, unitQueue length == 10
-unit == 960, unitPos == 699, deepth == 0
-After unit == 960, unitQueue length == 12
-Before unit == 576, unitQueue length == 11
-unit == 576, unitPos == 1682, deepth == 0
-After unit == 576, unitQueue length == 11
-Before unit == -562, unitQueue length == 10
-unit == -562, unitPos == 2744, deepth == 0
-After unit == -562, unitQueue length == 10
-Before unit == -989, unitQueue length == 9
-unit == -989, unitPos == 1731, deepth == 0
-After unit == -989, unitQueue length == 9
-Before unit == -82, unitQueue length == 6
-unit == -82, unitPos == 634, deepth == 0
-After unit == -82, unitQueue length == 6
-Before unit == -781, unitQueue length == 5
-unit == -781, unitPos == 2083, deepth == 0
-After unit == -781, unitQueue length == 5
-Before unit == 147, unitQueue length == 4
-unit == 147, unitPos == 2909, deepth == 0
-After unit == 147, unitQueue length == 4
-Before unit == -819, unitQueue length == 3
-unit == -819, unitPos == 1195, deepth == 0
-After unit == -819, unitQueue length == 3
-Before unit == -703, unitQueue length == 2
-unit == -703, unitPos == 2636, deepth == 0
-After unit == -703, unitQueue length == 2
-Before unit == 605, unitQueue length == 1
-unit == 605, unitPos == 1871, deepth == 0
-After unit == 605, unitQueue length == 1
-Before unit == 745, unitQueue length == 0
-unit == 745, unitPos == 2760, deepth == 0
-After unit == 745, unitQueue length == 0
+Before unit == -15, unitQueue length == 0
+unit == -15, unitPos == 1208, deepth == 5
+After unit == -15, unitQueue length == 1
+Before unit == -57, unitQueue length == 0
+unit == -57, unitPos == 17, deepth == 5
+After unit == -57, unitQueue length == 2
+Before unit == 106, unitQueue length == 1
+unit == 106, unitPos == 22, deepth == 5
+After unit == 106, unitQueue length == 2
+Before unit == -178, unitQueue length == 1
+unit == -178, unitPos == 34, deepth == 5
+After unit == -178, unitQueue length == 1
+Before unit == 47, unitQueue length == 0
+unit == 47, unitPos == 23, deepth == 5
+After unit == 47, unitQueue length == 2
+Before unit == -13, unitQueue length == 1
+unit == -13, unitPos == 24, deepth == 5
+After unit == -13, unitQueue length == 3
+Before unit == -191, unitQueue length == 1
+unit == -191, unitPos == 32, deepth == 5
+After unit == -191, unitQueue length == 2
+Before unit == 11, unitQueue length == 1
+unit == 11, unitPos == 742, deepth == 5
+After unit == 11, unitQueue length == 1
+Before unit == 80, unitQueue length == 0
+unit == 80, unitPos == 588, deepth == 5
+After unit == 80, unitQueue length == 0
 After Reduce , unitQueue length == 0
-Added unit at length == 3152
+Added unit at length == 1209
 Before Reduce , unitQueue length == 1
-Before unit == 1066, unitQueue length == 0
-unit == 1066, unitPos == 3152, deepth == 1
-After unit == 1066, unitQueue length == 0
+Before unit == 33, unitQueue length == 0
+unit == 33, unitPos == 1209, deepth == 6
+After unit == 33, unitQueue length == 1
+Before unit == 97, unitQueue length == 0
+unit == 97, unitPos == 215, deepth == 6
+After unit == 97, unitQueue length == 0
 After Reduce , unitQueue length == 0
-Added unit at length == 3153
+Added unit at length == 1210
 Before Reduce , unitQueue length == 1
-Before unit == 718, unitQueue length == 0
-unit == 718, unitPos == 3153, deepth == 2
-After unit == 718, unitQueue length == 2
-Before unit == -981, unitQueue length == 1
-unit == -981, unitPos == 489, deepth == 2
-After unit == -981, unitQueue length == 5
-Before unit == 117, unitQueue length == 4
-unit == 117, unitPos == 2541, deepth == 2
-After unit == 117, unitQueue length == 4
-Before unit == 827, unitQueue length == 3
-unit == 827, unitPos == 75, deepth == 2
-After unit == 827, unitQueue length == 6
-Before unit == -838, unitQueue length == 5
-unit == -838, unitPos == 137, deepth == 2
-After unit == -838, unitQueue length == 7
-Before unit == -734, unitQueue length == 6
-unit == -734, unitPos == 678, deepth == 2
-After unit == -734, unitQueue length == 7
-Before unit == 465, unitQueue length == 6
-unit == 465, unitPos == 2384, deepth == 2
-After unit == 465, unitQueue length == 6
-Before unit == 309, unitQueue length == 5
-unit == 309, unitPos == 956, deepth == 2
-After unit == 309, unitQueue length == 5
-Before unit == 247, unitQueue length == 4
-unit == 247, unitPos == 1353, deepth == 2
-After unit == 247, unitQueue length == 5
-Before unit == -181, unitQueue length == 4
-unit == -181, unitPos == 2947, deepth == 2
-After unit == -181, unitQueue length == 4
-Before unit == 900, unitQueue length == 3
-unit == 900, unitPos == 880, deepth == 2
-After unit == 900, unitQueue length == 3
-Before unit == -589, unitQueue length == 2
-unit == -589, unitPos == 2511, deepth == 2
-After unit == -589, unitQueue length == 2
-Before unit == -137, unitQueue length == 1
-unit == -137, unitPos == 2518, deepth == 2
-After unit == -137, unitQueue length == 1
-Before unit == -604, unitQueue length == 0
-unit == -604, unitPos == 2095, deepth == 2
-After unit == -604, unitQueue length == 0
+Before unit == 53, unitQueue length == 0
+unit == 53, unitPos == 1210, deepth == 7
+After unit == 53, unitQueue length == 1
+Before unit == -81, unitQueue length == 0
+unit == -81, unitPos == 14, deepth == 7
+After unit == -81, unitQueue length == 0
 After Reduce , unitQueue length == 0
-Added unit at length == 3154
+Added unit at length == 1211
 Before Reduce , unitQueue length == 1
-Before unit == 175, unitQueue length == 0
-unit == 175, unitPos == 3154, deepth == 3
-After unit == 175, unitQueue length == 1
-Before unit == -395, unitQueue length == 0
-unit == -395, unitPos == 1, deepth == 3
-After unit == -395, unitQueue length == 0
+Before unit == 8, unitQueue length == 0
+unit == 8, unitPos == 1211, deepth == 8
+After unit == 8, unitQueue length == 4
+Before unit == 14, unitQueue length == 3
+unit == 14, unitPos == 19, deepth == 8
+After unit == 14, unitQueue length == 4
+Before unit == 59, unitQueue length == 3
+unit == 59, unitPos == 20, deepth == 8
+After unit == 59, unitQueue length == 4
+Before unit == 73, unitQueue length == 3
+unit == 73, unitPos == 500, deepth == 8
+After unit == 73, unitQueue length == 4
+Before unit == -67, unitQueue length == 3
+unit == -67, unitPos == 817, deepth == 8
+After unit == -67, unitQueue length == 4
+Before unit == -171, unitQueue length == 3
+unit == -171, unitPos == 227, deepth == 8
+After unit == -171, unitQueue length == 3
+Before unit == -26, unitQueue length == 2
+unit == -26, unitPos == 1165, deepth == 8
+After unit == -26, unitQueue length == 3
+Before unit == -29, unitQueue length == 2
+unit == -29, unitPos == 507, deepth == 8
+After unit == -29, unitQueue length == 3
+Before unit == -85, unitQueue length == 2
+unit == -85, unitPos == 1146, deepth == 8
+After unit == -85, unitQueue length == 4
+Before unit == -65, unitQueue length == 3
+unit == -65, unitPos == 953, deepth == 8
+After unit == -65, unitQueue length == 3
+Before unit == 98, unitQueue length == 2
+unit == 98, unitPos == 730, deepth == 8
+After unit == 98, unitQueue length == 3
+Before unit == -58, unitQueue length == 2
+unit == -58, unitPos == 114, deepth == 8
+After unit == -58, unitQueue length == 3
+Before unit == 60, unitQueue length == 1
+unit == 60, unitPos == 402, deepth == 8
+After unit == 60, unitQueue length == 2
+Before unit == 94, unitQueue length == 1
+unit == 94, unitPos == 639, deepth == 8
+After unit == 94, unitQueue length == 3
+Before unit == 105, unitQueue length == 2
+unit == 105, unitPos == 470, deepth == 8
+After unit == 105, unitQueue length == 2
+Before unit == 62, unitQueue length == 1
+unit == 62, unitPos == 61, deepth == 8
+After unit == 62, unitQueue length == 6
+Before unit == -52, unitQueue length == 5
+unit == -52, unitPos == 593, deepth == 8
+After unit == -52, unitQueue length == 6
+Before unit == -120, unitQueue length == 5
+unit == -120, unitPos == 64, deepth == 8
+After unit == -120, unitQueue length == 8
+Before unit == 115, unitQueue length == 7
+unit == 115, unitPos == 74, deepth == 8
+After unit == 115, unitQueue length == 8
+Before unit == 122, unitQueue length == 7
+unit == 122, unitPos == 75, deepth == 8
+After unit == 122, unitQueue length == 8
+Before unit == 99, unitQueue length == 7
+unit == 99, unitPos == 84, deepth == 8
+After unit == 99, unitQueue length == 8
+Before unit == -96, unitQueue length == 7
+unit == -96, unitPos == 86, deepth == 8
+After unit == -96, unitQueue length == 7
+Before unit == -22, unitQueue length == 6
+unit == -22, unitPos == 1148, deepth == 8
+After unit == -22, unitQueue length == 6
+Before unit == 109, unitQueue length == 5
+unit == 109, unitPos == 73, deepth == 8
+After unit == 109, unitQueue length == 6
+Before unit == 66, unitQueue length == 5
+unit == 66, unitPos == 488, deepth == 8
+After unit == 66, unitQueue length == 5
+Before unit == -172, unitQueue length == 4
+unit == -172, unitPos == 809, deepth == 8
+After unit == -172, unitQueue length == 4
+Before unit == 144, unitQueue length == 3
+unit == 144, unitPos == 835, deepth == 8
+After unit == 144, unitQueue length == 3
+Before unit == -159, unitQueue length == 2
+unit == -159, unitPos == 1043, deepth == 8
+After unit == -159, unitQueue length == 3
+Before unit == -78, unitQueue length == 2
+unit == -78, unitPos == 216, deepth == 8
+After unit == -78, unitQueue length == 4
+Before unit == 136, unitQueue length == 3
+unit == 136, unitPos == 95, deepth == 8
+After unit == 136, unitQueue length == 6
+Before unit == 186, unitQueue length == 5
+unit == 186, unitPos == 354, deepth == 8
+After unit == 186, unitQueue length == 5
+Before unit == -184, unitQueue length == 4
+unit == -184, unitPos == 218, deepth == 8
+After unit == -184, unitQueue length == 5
+Before unit == -156, unitQueue length == 4
+unit == -156, unitPos == 228, deepth == 8
+After unit == -156, unitQueue length == 5
+Before unit == -190, unitQueue length == 4
+unit == -190, unitPos == 511, deepth == 8
+After unit == -190, unitQueue length == 5
+Before unit == 41, unitQueue length == 4
+unit == 41, unitPos == 962, deepth == 8
+After unit == 41, unitQueue length == 4
+Before unit == -6, unitQueue length == 3
+unit == -6, unitPos == 1119, deepth == 8
+After unit == -6, unitQueue length == 5
+Before unit == -24, unitQueue length == 4
+unit == -24, unitPos == 232, deepth == 8
+After unit == -24, unitQueue length == 6
+Before unit == -177, unitQueue length == 5
+unit == -177, unitPos == 241, deepth == 8
+After unit == -177, unitQueue length == 7
+Before unit == -12, unitQueue length == 6
+unit == -12, unitPos == 322, deepth == 8
+After unit == -12, unitQueue length == 9
+Before unit == -55, unitQueue length == 8
+unit == -55, unitPos == 390, deepth == 8
+After unit == -55, unitQueue length == 8
+Before unit == -193, unitQueue length == 7
+unit == -193, unitPos == 816, deepth == 8
+After unit == -193, unitQueue length == 10
+Before unit == -142, unitQueue length == 9
+unit == -142, unitPos == 229, deepth == 8
+After unit == -142, unitQueue length == 10
+Before unit == -198, unitQueue length == 9
+unit == -198, unitPos == 1118, deepth == 8
+After unit == -198, unitQueue length == 9
+Before unit == -2, unitQueue length == 8
+unit == -2, unitPos == 661, deepth == 8
+After unit == -2, unitQueue length == 10
+Before unit == -111, unitQueue length == 9
+unit == -111, unitPos == 813, deepth == 8
+After unit == -111, unitQueue length == 9
+Before unit == 196, unitQueue length == 8
+unit == 196, unitPos == 329, deepth == 8
+After unit == 196, unitQueue length == 9
+Before unit == 107, unitQueue length == 7
+unit == 107, unitPos == 1115, deepth == 8
+After unit == 107, unitQueue length == 8
+Before unit == -23, unitQueue length == 7
+unit == -23, unitPos == 454, deepth == 8
+After unit == -23, unitQueue length == 7
+Before unit == -4, unitQueue length == 6
+unit == -4, unitPos == 1070, deepth == 8
+After unit == -4, unitQueue length == 9
+Before unit == -82, unitQueue length == 8
+unit == -82, unitPos == 1142, deepth == 8
+After unit == -82, unitQueue length == 10
+Before unit == -5, unitQueue length == 9
+unit == -5, unitPos == 1014, deepth == 8
+After unit == -5, unitQueue length == 9
+Before unit == -42, unitQueue length == 8
+unit == -42, unitPos == 677, deepth == 8
+After unit == -42, unitQueue length == 12
+Before unit == -3, unitQueue length == 10
+unit == -3, unitPos == 1015, deepth == 8
+After unit == -3, unitQueue length == 12
+Before unit == -44, unitQueue length == 11
+unit == -44, unitPos == 911, deepth == 8
+After unit == -44, unitQueue length == 15
+Before unit == -197, unitQueue length == 14
+unit == -197, unitPos == 395, deepth == 8
+After unit == -197, unitQueue length == 17
+Before unit == -117, unitQueue length == 16
+unit == -117, unitPos == 1171, deepth == 8
+After unit == -117, unitQueue length == 18
+Before unit == -46, unitQueue length == 17
+unit == -46, unitPos == 1185, deepth == 8
+After unit == -46, unitQueue length == 19
+Before unit == 194, unitQueue length == 18
+unit == 194, unitPos == 219, deepth == 8
+After unit == 194, unitQueue length == 20
+Before unit == -145, unitQueue length == 19
+unit == -145, unitPos == 901, deepth == 8
+After unit == -145, unitQueue length == 19
+Before unit == 77, unitQueue length == 18
+unit == 77, unitPos == 242, deepth == 8
+After unit == 77, unitQueue length == 23
+Before unit == -187, unitQueue length == 22
+unit == -187, unitPos == 647, deepth == 8
+After unit == -187, unitQueue length == 24
+Before unit == 170, unitQueue length == 23
+unit == 170, unitPos == 752, deepth == 8
+After unit == 170, unitQueue length == 23
+Before unit == -160, unitQueue length == 22
+unit == -160, unitPos == 946, deepth == 8
+After unit == -160, unitQueue length == 24
+Before unit == 27, unitQueue length == 23
+unit == 27, unitPos == 260, deepth == 8
+After unit == 27, unitQueue length == 24
+Before unit == 10, unitQueue length == 23
+unit == 10, unitPos == 261, deepth == 8
+After unit == 10, unitQueue length == 23
+Before unit == 91, unitQueue length == 22
+unit == 91, unitPos == 642, deepth == 8
+After unit == 91, unitQueue length == 23
+Before unit == 200, unitQueue length == 22
+unit == 200, unitPos == 1006, deepth == 8
+After unit == 200, unitQueue length == 24
+Before unit == -112, unitQueue length == 23
+unit == -112, unitPos == 1054, deepth == 8
+After unit == -112, unitQueue length == 25
+Before unit == 146, unitQueue length == 23
+unit == 146, unitPos == 400, deepth == 8
+After unit == 146, unitQueue length == 24
+Before unit == -70, unitQueue length == 23
+unit == -70, unitPos == 660, deepth == 8
+After unit == -70, unitQueue length == 23
+Added unit at length == 1212
+Before Reduce , unitQueue length == 99
+Before unit == -8, unitQueue length == 0
+unit == -8, unitPos == 1212, deepth == 8
+After unit == -8, unitQueue length == 0
 After Reduce , unitQueue length == 0
-Added unit at length == 3155
+Added unit at length == 1213
 Before Reduce , unitQueue length == 1
-Before unit == 243, unitQueue length == 0
-unit == 243, unitPos == 3155, deepth == 4
-After unit == 243, unitQueue length == 0
-After Reduce , unitQueue length == 0
-Added unit at length == 3156
-Before Reduce , unitQueue length == 1
-Before unit == 77, unitQueue length == 0
-unit == 77, unitPos == 3156, deepth == 5
-After unit == 77, unitQueue length == 4
-Before unit == -494, unitQueue length == 3
-unit == -494, unitPos == 155, deepth == 5
-After unit == -494, unitQueue length == 4
-Before unit == 284, unitQueue length == 3
-unit == 284, unitPos == 1238, deepth == 5
-After unit == 284, unitQueue length == 3
-Before unit == 61, unitQueue length == 2
-unit == 61, unitPos == 2291, deepth == 5
-After unit == 61, unitQueue length == 5
-Before unit == 1044, unitQueue length == 4
-unit == 1044, unitPos == 3091, deepth == 5
-After unit == 1044, unitQueue length == 6
-Before unit == -375, unitQueue length == 5
-unit == -375, unitPos == 2579, deepth == 5
-After unit == -375, unitQueue length == 5
-Before unit == -38, unitQueue length == 4
-unit == -38, unitPos == 766, deepth == 5
-After unit == -38, unitQueue length == 4
-Before unit == -4, unitQueue length == 3
-unit == -4, unitPos == 1412, deepth == 5
-After unit == -4, unitQueue length == 3
-Before unit == 199, unitQueue length == 2
-unit == 199, unitPos == 1938, deepth == 5
-After unit == 199, unitQueue length == 2
-Before unit == -799, unitQueue length == 1
-unit == -799, unitPos == 2575, deepth == 5
-After unit == -799, unitQueue length == 1
-Before unit == 159, unitQueue length == 0
-unit == 159, unitPos == 2685, deepth == 5
-After unit == 159, unitQueue length == 0
-After Reduce , unitQueue length == 0
-Added unit at length == 3157
-Before Reduce , unitQueue length == 1
-Before unit == 640, unitQueue length == 0
-unit == 640, unitPos == 3157, deepth == 6
-After unit == 640, unitQueue length == 1
-Before unit == -169, unitQueue length == 0
-unit == -169, unitPos == 4, deepth == 6
-After unit == -169, unitQueue length == 2
-Before unit == 1000, unitQueue length == 1
-unit == 1000, unitPos == 2226, deepth == 6
-After unit == 1000, unitQueue length == 3
-Before unit == 294, unitQueue length == 2
-unit == 294, unitPos == 2530, deepth == 6
-After unit == 294, unitQueue length == 2
-Before unit == 1043, unitQueue length == 1
-unit == 1043, unitPos == 473, deepth == 6
-After unit == 1043, unitQueue length == 1
-Before unit == 459, unitQueue length == 0
-unit == 459, unitPos == 1182, deepth == 6
-After unit == 459, unitQueue length == 6
-Before unit == 700, unitQueue length == 5
-unit == 700, unitPos == 492, deepth == 6
-After unit == 700, unitQueue length == 5
-Before unit == 146, unitQueue length == 4
-unit == 146, unitPos == 695, deepth == 6
-After unit == 146, unitQueue length == 6
-Before unit == 32, unitQueue length == 5
-unit == 32, unitPos == 719, deepth == 6
-After unit == 32, unitQueue length == 5
-Before unit == 128, unitQueue length == 4
-unit == 128, unitPos == 1588, deepth == 6
-After unit == 128, unitQueue length == 7
-Before unit == -376, unitQueue length == 6
-unit == -376, unitPos == 1644, deepth == 6
-After unit == -376, unitQueue length == 8
-Before unit == 185, unitQueue length == 7
-unit == 185, unitPos == 2585, deepth == 6
-After unit == 185, unitQueue length == 9
-Before unit == -733, unitQueue length == 8
-unit == -733, unitPos == 718, deepth == 6
-After unit == -733, unitQueue length == 8
-Before unit == 979, unitQueue length == 7
-unit == 979, unitPos == 3150, deepth == 6
-After unit == 979, unitQueue length == 7
-Before unit == 911, unitQueue length == 6
-unit == 911, unitPos == 1308, deepth == 6
-After unit == 911, unitQueue length == 7
-Before unit == 256, unitQueue length == 6
-unit == 256, unitPos == 2483, deepth == 6
-After unit == 256, unitQueue length == 8
-Before unit == 527, unitQueue length == 7
-unit == 527, unitPos == 2615, deepth == 6
-After unit == 527, unitQueue length == 10
-Before unit == 772, unitQueue length == 9
-unit == 772, unitPos == 1286, deepth == 6
-After unit == 772, unitQueue length == 10
-Before unit == -583, unitQueue length == 9
-unit == -583, unitPos == 1713, deepth == 6
-After unit == -583, unitQueue length == 16
-Before unit == -969, unitQueue length == 15
-unit == -969, unitPos == 757, deepth == 6
-After unit == -969, unitQueue length == 20
-Before unit == -454, unitQueue length == 19
-unit == -454, unitPos == 3135, deepth == 6
-After unit == -454, unitQueue length == 25
-Before unit == -759, unitQueue length == 24
-unit == -759, unitPos == 2487, deepth == 6
-After unit == -759, unitQueue length == 24
-Before unit == 716, unitQueue length == 23
-unit == 716, unitPos == 1406, deepth == 6
-After unit == 716, unitQueue length == 28
-Before unit == -22, unitQueue length == 27
-unit == -22, unitPos == 2777, deepth == 6
-After unit == -22, unitQueue length == 32
-Before unit == 818, unitQueue length == 31
-unit == 818, unitPos == 587, deepth == 6
-After unit == 818, unitQueue length == 32
-Before unit == 90, unitQueue length == 31
-unit == 90, unitPos == 2234, deepth == 6
-After unit == 90, unitQueue length == 34
-Before unit == 796, unitQueue length == 33
-unit == 796, unitPos == 3070, deepth == 6
-After unit == 796, unitQueue length == 35
-Before unit == 815, unitQueue length == 34
-unit == 815, unitPos == 2664, deepth == 6
-After unit == 815, unitQueue length == 34
-Before unit == -752, unitQueue length == 33
-unit == -752, unitPos == 566, deepth == 6
-After unit == -752, unitQueue length == 34
-Before unit == 619, unitQueue length == 33
-unit == 619, unitPos == 872, deepth == 6
-After unit == 619, unitQueue length == 34
-Before unit == -304, unitQueue length == 33
-unit == -304, unitPos == 1675, deepth == 6
-After unit == -304, unitQueue length == 34
-Before unit == -610, unitQueue length == 33
-unit == -610, unitPos == 2619, deepth == 6
-After unit == -610, unitQueue length == 34
-Before unit == 281, unitQueue length == 33
-unit == 281, unitPos == 2816, deepth == 6
-After unit == 281, unitQueue length == 34
-Before unit == -322, unitQueue length == 33
-unit == -322, unitPos == 2829, deepth == 6
-After unit == -322, unitQueue length == 33
-Before unit == 1006, unitQueue length == 32
-unit == 1006, unitPos == 3115, deepth == 6
-After unit == 1006, unitQueue length == 32
-Before unit == -387, unitQueue length == 31
-unit == -387, unitPos == 210, deepth == 6
-After unit == -387, unitQueue length == 31
-Before unit == -343, unitQueue length == 30
-unit == -343, unitPos == 397, deepth == 6
-After unit == -343, unitQueue length == 30
-Before unit == 470, unitQueue length == 29
-unit == 470, unitPos == 931, deepth == 6
-After unit == 470, unitQueue length == 31
-Before unit == 330, unitQueue length == 30
-unit == 330, unitPos == 1535, deepth == 6
-After unit == 330, unitQueue length == 31
-Before unit == 384, unitQueue length == 30
-unit == 384, unitPos == 2113, deepth == 6
-After unit == 384, unitQueue length == 30
-Before unit == 3, unitQueue length == 28
-unit == 3, unitPos == 1431, deepth == 6
-After unit == 3, unitQueue length == 30
-Before unit == -735, unitQueue length == 29
-unit == -735, unitPos == 1627, deepth == 6
-After unit == -735, unitQueue length == 30
-Before unit == -636, unitQueue length == 28
-unit == -636, unitPos == 2831, deepth == 6
-After unit == -636, unitQueue length == 28
-Before unit == -530, unitQueue length == 27
-unit == -530, unitPos == 2897, deepth == 6
-After unit == -530, unitQueue length == 28
-Before unit == -498, unitQueue length == 27
-unit == -498, unitPos == 239, deepth == 6
-After unit == -498, unitQueue length == 28
-Before unit == -962, unitQueue length == 27
-unit == -962, unitPos == 426, deepth == 6
-After unit == -962, unitQueue length == 28
-Before unit == -988, unitQueue length == 27
-unit == -988, unitPos == 665, deepth == 6
-After unit == -988, unitQueue length == 30
-Before unit == -474, unitQueue length == 29
-unit == -474, unitPos == 2186, deepth == 6
-After unit == -474, unitQueue length == 30
-Before unit == -102, unitQueue length == 29
-unit == -102, unitPos == 3099, deepth == 6
-After unit == -102, unitQueue length == 29
-Before unit == 711, unitQueue length == 28
-unit == 711, unitPos == 854, deepth == 6
-After unit == 711, unitQueue length == 28
-Before unit == 784, unitQueue length == 26
-unit == 784, unitPos == 1320, deepth == 6
-After unit == 784, unitQueue length == 26
-Before unit == -553, unitQueue length == 25
-unit == -553, unitPos == 1805, deepth == 6
-After unit == -553, unitQueue length == 25
-Before unit == 878, unitQueue length == 24
-unit == 878, unitPos == 3107, deepth == 6
-After unit == 878, unitQueue length == 25
-Before unit == -664, unitQueue length == 24
-unit == -664, unitPos == 2852, deepth == 6
-After unit == -664, unitQueue length == 24
-Before unit == -378, unitQueue length == 23
-unit == -378, unitPos == 177, deepth == 6
-After unit == -378, unitQueue length == 24
-Before unit == -444, unitQueue length == 23
-unit == -444, unitPos == 2591, deepth == 6
-After unit == -444, unitQueue length == 25
-Before unit == -463, unitQueue length == 24
-unit == -463, unitPos == 3062, deepth == 6
-After unit == -463, unitQueue length == 24
-Before unit == 364, unitQueue length == 23
-unit == 364, unitPos == 1549, deepth == 6
-After unit == 364, unitQueue length == 26
-Before unit == -737, unitQueue length == 25
-unit == -737, unitPos == 2281, deepth == 6
-After unit == -737, unitQueue length == 28
-Before unit == 826, unitQueue length == 27
-unit == 826, unitPos == 1981, deepth == 6
-After unit == 826, unitQueue length == 27
-Before unit == -832, unitQueue length == 26
-unit == -832, unitPos == 3078, deepth == 6
-After unit == -832, unitQueue length == 26
-Before unit == 935, unitQueue length == 25
-unit == 935, unitPos == 3003, deepth == 6
-After unit == 935, unitQueue length == 26
-Before unit == -168, unitQueue length == 25
-unit == -168, unitPos == 3123, deepth == 6
-After unit == -168, unitQueue length == 26
-Before unit == 66, unitQueue length == 25
-unit == 66, unitPos == 3090, deepth == 6
-After unit == 66, unitQueue length == 26
-Before unit == -268, unitQueue length == 25
-unit == -268, unitPos == 2230, deepth == 6
-After unit == -268, unitQueue length == 28
-Before unit == -222, unitQueue length == 27
-unit == -222, unitPos == 2711, deepth == 6
-After unit == -222, unitQueue length == 27
-Before unit == 584, unitQueue length == 26
-unit == 584, unitPos == 2367, deepth == 6
-After unit == 584, unitQueue length == 26
-Before unit == 931, unitQueue length == 25
-unit == 931, unitPos == 417, deepth == 6
-After unit == 931, unitQueue length == 29
-Before unit == 190, unitQueue length == 28
-unit == 190, unitPos == 658, deepth == 6
-After unit == 190, unitQueue length == 29
-Before unit == 956, unitQueue length == 28
-unit == 956, unitPos == 1012, deepth == 6
-After unit == 956, unitQueue length == 29
-Before unit == 425, unitQueue length == 28
-unit == 425, unitPos == 1372, deepth == 6
-After unit == 425, unitQueue length == 28
-Before unit == -596, unitQueue length == 27
-unit == -596, unitPos == 734, deepth == 6
-After unit == -596, unitQueue length == 27
-Before unit == 809, unitQueue length == 26
-unit == 809, unitPos == 2643, deepth == 6
-After unit == 809, unitQueue length == 27
-Before unit == -219, unitQueue length == 26
-unit == -219, unitPos == 1656, deepth == 6
-After unit == -219, unitQueue length == 28
-Before unit == 963, unitQueue length == 27
-unit == 963, unitPos == 2107, deepth == 6
-After unit == 963, unitQueue length == 28
-Before unit == 380, unitQueue length == 27
-unit == 380, unitPos == 2222, deepth == 6
-After unit == 380, unitQueue length == 28
-Before unit == -1068, unitQueue length == 27
-unit == -1068, unitPos == 401, deepth == 6
-After unit == -1068, unitQueue length == 28
-Before unit == 587, unitQueue length == 27
-unit == 587, unitPos == 782, deepth == 6
-After unit == 587, unitQueue length == 28
-Before unit == 368, unitQueue length == 27
-unit == 368, unitPos == 676, deepth == 6
-After unit == 368, unitQueue length == 29
-Before unit == -1041, unitQueue length == 27
-unit == -1041, unitPos == 1730, deepth == 6
-After unit == -1041, unitQueue length == 27
-Before unit == 359, unitQueue length == 26
-unit == 359, unitPos == 234, deepth == 6
-After unit == 359, unitQueue length == 26
-Before unit == 377, unitQueue length == 25
-unit == 377, unitPos == 1125, deepth == 6
-After unit == 377, unitQueue length == 26
-Before unit == 138, unitQueue length == 25
-unit == 138, unitPos == 1997, deepth == 6
-After unit == 138, unitQueue length == 25
-Before unit == 95, unitQueue length == 24
-unit == 95, unitPos == 1515, deepth == 6
-After unit == 95, unitQueue length == 24
-Before unit == 100, unitQueue length == 22
-unit == 100, unitPos == 2819, deepth == 6
-After unit == 100, unitQueue length == 22
-Before unit == 579, unitQueue length == 21
-unit == 579, unitPos == 9, deepth == 6
-After unit == 579, unitQueue length == 22
-Before unit == 257, unitQueue length == 21
-unit == 257, unitPos == 2848, deepth == 6
-After unit == 257, unitQueue length == 24
-Before unit == 807, unitQueue length == 23
-unit == 807, unitPos == 1255, deepth == 6
-After unit == 807, unitQueue length == 27
-Before unit == -899, unitQueue length == 26
-unit == -899, unitPos == 500, deepth == 6
-After unit == -899, unitQueue length == 27
-Before unit == 442, unitQueue length == 26
-unit == 442, unitPos == 2296, deepth == 6
-After unit == 442, unitQueue length == 26
-Before unit == -609, unitQueue length == 25
-unit == -609, unitPos == 2979, deepth == 6
-After unit == -609, unitQueue length == 25
-Before unit == 514, unitQueue length == 24
-unit == 514, unitPos == 1620, deepth == 6
-After unit == 514, unitQueue length == 24
-Before unit == -433, unitQueue length == 23
-unit == -433, unitPos == 1755, deepth == 6
-After unit == -433, unitQueue length == 24
-Before unit == 1051, unitQueue length == 23
-unit == 1051, unitPos == 2324, deepth == 6
-After unit == 1051, unitQueue length == 24
-Before unit == -766, unitQueue length == 23
-unit == -766, unitPos == 3049, deepth == 6
-After unit == -766, unitQueue length == 23
-Before unit == -477, unitQueue length == 22
-unit == -477, unitPos == 538, deepth == 6
-After unit == -477, unitQueue length == 23
-Before unit == 707, unitQueue length == 22
-unit == 707, unitPos == 1920, deepth == 6
-After unit == 707, unitQueue length == 27
-Before unit == -277, unitQueue length == 26
-unit == -277, unitPos == 2524, deepth == 6
-After unit == -277, unitQueue length == 26
-Before unit == -696, unitQueue length == 25
-unit == -696, unitPos == 1371, deepth == 6
-After unit == -696, unitQueue length == 26
-Before unit == 293, unitQueue length == 25
-unit == 293, unitPos == 1378, deepth == 6
-After unit == 293, unitQueue length == 26
-Before unit == 709, unitQueue length == 23
-unit == 709, unitPos == 3027, deepth == 6
-After unit == 709, unitQueue length == 24
-Before unit == 456, unitQueue length == 23
-unit == 456, unitPos == 1107, deepth == 6
-After unit == 456, unitQueue length == 23
-Added unit at length == 3158
-Before Reduce , unitQueue length == 134
-Before unit == 640, unitQueue length == 1
-unit == 640, unitPos == 3157, deepth == 6
-After unit == 640, unitQueue length == 2
-Added unit at length == 3159
-Before Reduce , unitQueue length == 15
-Before unit == -640, unitQueue length == 12
-unit == -640, unitPos == 3158, deepth == 5
-After unit == -640, unitQueue length == 15
-Before unit == 77, unitQueue length == 4
-unit == 77, unitPos == 3156, deepth == 5
-After unit == 77, unitQueue length == 8
-Added unit at length == 3160
-Before Reduce , unitQueue length == 12
-Before unit == -77, unitQueue length == 3
-unit == -77, unitPos == 3159, deepth == 4
-After unit == -77, unitQueue length == 8
-Before unit == 243, unitQueue length == 6
-unit == 243, unitPos == 3155, deepth == 4
-After unit == 243, unitQueue length == 6
-Added unit at length == 3161
-Before Reduce , unitQueue length == 10
-Before unit == -243, unitQueue length == 3
-unit == -243, unitPos == 3160, deepth == 3
-After unit == -243, unitQueue length == 6
-Before unit == 175, unitQueue length == 4
-unit == 175, unitPos == 3154, deepth == 3
-After unit == 175, unitQueue length == 5
-Added unit at length == 3162
-Before Reduce , unitQueue length == 21
-Before unit == -175, unitQueue length == 15
-unit == -175, unitPos == 3161, deepth == 2
-After unit == -175, unitQueue length == 17
-Before unit == 718, unitQueue length == 3
-unit == 718, unitPos == 3153, deepth == 2
-After unit == 718, unitQueue length == 5
-Added unit at length == 3163
-Before Reduce , unitQueue length == 8
-Before unit == -718, unitQueue length == 2
-unit == -718, unitPos == 3162, deepth == 1
-After unit == -718, unitQueue length == 2
-Before unit == 1066, unitQueue length == 1
-unit == 1066, unitPos == 3152, deepth == 1
-After unit == 1066, unitQueue length == 2
-dpll : main() : 用时：5.76ms
+Before unit == 54, unitQueue length == 0
+unit == 54, unitPos == 1213, deepth == 9
+After unit == 54, unitQueue length == 2
+Before unit == -93, unitQueue length == 1
+unit == -93, unitPos == 27, deepth == 9
+After unit == -93, unitQueue length == 4
+Before unit == -49, unitQueue length == 2
+unit == -49, unitPos == 29, deepth == 9
+After unit == -49, unitQueue length == 4
+Before unit == -16, unitQueue length == 3
+unit == -16, unitPos == 35, deepth == 9
+After unit == -16, unitQueue length == 4
+Before unit == -152, unitQueue length == 3
+unit == -152, unitPos == 437, deepth == 9
+After unit == -152, unitQueue length == 4
+Before unit == 169, unitQueue length == 3
+unit == 169, unitPos == 30, deepth == 9
+After unit == 169, unitQueue length == 5
+Before unit == -30, unitQueue length == 4
+unit == -30, unitPos == 38, deepth == 9
+After unit == -30, unitQueue length == 10
+Before unit == -76, unitQueue length == 9
+unit == -76, unitPos == 540, deepth == 9
+After unit == -76, unitQueue length == 9
+Before unit == 98, unitQueue length == 8
+unit == 98, unitPos == 1034, deepth == 9
+After unit == 98, unitQueue length == 9
+Before unit == -175, unitQueue length == 8
+unit == -175, unitPos == 33, deepth == 9
+After unit == -175, unitQueue length == 9
+Before unit == -78, unitQueue length == 8
+unit == -78, unitPos == 697, deepth == 9
+After unit == -78, unitQueue length == 9
+Before unit == 144, unitQueue length == 8
+unit == 144, unitPos == 39, deepth == 9
+After unit == 144, unitQueue length == 8
+Before unit == 50, unitQueue length == 7
+unit == 50, unitPos == 40, deepth == 9
+After unit == 50, unitQueue length == 9
+Before unit == -39, unitQueue length == 7
+unit == -39, unitPos == 42, deepth == 9
+After unit == -39, unitQueue length == 8
+Before unit == -25, unitQueue length == 7
+unit == -25, unitPos == 43, deepth == 9
+After unit == -25, unitQueue length == 8
+Before unit == 168, unitQueue length == 7
+unit == 168, unitPos == 48, deepth == 9
+After unit == 168, unitQueue length == 9
+Before unit == 60, unitQueue length == 8
+unit == 60, unitPos == 402, deepth == 9
+After unit == 60, unitQueue length == 9
+Before unit == -179, unitQueue length == 8
+unit == -179, unitPos == 583, deepth == 9
+After unit == -179, unitQueue length == 10
+Before unit == -184, unitQueue length == 9
+unit == -184, unitPos == 218, deepth == 9
+After unit == -184, unitQueue length == 9
+Before unit == 180, unitQueue length == 8
+unit == 180, unitPos == 223, deepth == 9
+After unit == 180, unitQueue length == 9
+Before unit == -28, unitQueue length == 8
+unit == -28, unitPos == 526, deepth == 9
+After unit == -28, unitQueue length == 9
+Before unit == -150, unitQueue length == 8
+unit == -150, unitPos == 47, deepth == 9
+After unit == -150, unitQueue length == 8
+Before unit == 48, unitQueue length == 7
+unit == 48, unitPos == 733, deepth == 9
+After unit == 48, unitQueue length == 7
+Before unit == -185, unitQueue length == 6
+unit == -185, unitPos == 49, deepth == 9
+After unit == -185, unitQueue length == 7
+Before unit == 105, unitQueue length == 5
+unit == 105, unitPos == 470, deepth == 9
+After unit == 105, unitQueue length == 6
+Before unit == -138, unitQueue length == 5
+unit == -138, unitPos == 281, deepth == 9
+After unit == -138, unitQueue length == 5
+Before unit == -26, unitQueue length == 4
+unit == -26, unitPos == 574, deepth == 9
+After unit == -26, unitQueue length == 6
+Before unit == -79, unitQueue length == 5
+unit == -79, unitPos == 1147, deepth == 9
+After unit == -79, unitQueue length == 6
+Before unit == -36, unitQueue length == 5
+unit == -36, unitPos == 1053, deepth == 9
+After unit == -36, unitQueue length == 8
+Before unit == -51, unitQueue length == 7
+unit == -51, unitPos == 63, deepth == 9
+After unit == -51, unitQueue length == 10
+Before unit == 72, unitQueue length == 9
+unit == 72, unitPos == 568, deepth == 9
+After unit == 72, unitQueue length == 10
+Before unit == -127, unitQueue length == 9
+unit == -127, unitPos == 106, deepth == 9
+After unit == -127, unitQueue length == 11
+Before unit == -65, unitQueue length == 10
+unit == -65, unitPos == 953, deepth == 9
+After unit == -65, unitQueue length == 10
+Before unit == -75, unitQueue length == 9
+unit == -75, unitPos == 335, deepth == 9
+After unit == -75, unitQueue length == 11
+Before unit == 94, unitQueue length == 10
+unit == 94, unitPos == 59, deepth == 9
+After unit == 94, unitQueue length == 13
+Before unit == -89, unitQueue length == 12
+unit == -89, unitPos == 656, deepth == 9
+After unit == -89, unitQueue length == 12
+Before unit == 126, unitQueue length == 11
+unit == 126, unitPos == 1059, deepth == 9
+After unit == 126, unitQueue length == 13
+Before unit == -143, unitQueue length == 12
+unit == -143, unitPos == 36, deepth == 9
+After unit == -143, unitQueue length == 16
+Before unit == 163, unitQueue length == 15
+unit == 163, unitPos == 890, deepth == 9
+After unit == 163, unitQueue length == 15
+Before unit == 181, unitQueue length == 14
+unit == 181, unitPos == 988, deepth == 9
+After unit == 181, unitQueue length == 15
+Before unit == -162, unitQueue length == 14
+unit == -162, unitPos == 806, deepth == 9
+After unit == -162, unitQueue length == 15
+Before unit == -192, unitQueue length == 14
+unit == -192, unitPos == 799, deepth == 9
+After unit == -192, unitQueue length == 17
+Before unit == -130, unitQueue length == 16
+unit == -130, unitPos == 895, deepth == 9
+After unit == -130, unitQueue length == 18
+Before unit == 40, unitQueue length == 17
+unit == 40, unitPos == 874, deepth == 9
+After unit == 40, unitQueue length == 17
+Before unit == 146, unitQueue length == 16
+unit == 146, unitPos == 915, deepth == 9
+After unit == 146, unitQueue length == 17
+Before unit == 62, unitQueue length == 16
+unit == 62, unitPos == 61, deepth == 9
+After unit == 62, unitQueue length == 21
+Before unit == -113, unitQueue length == 20
+unit == -113, unitPos == 62, deepth == 9
+After unit == -113, unitQueue length == 20
+Before unit == -52, unitQueue length == 19
+unit == -52, unitPos == 593, deepth == 9
+After unit == -52, unitQueue length == 21
+Before unit == -124, unitQueue length == 20
+unit == -124, unitPos == 340, deepth == 9
+After unit == -124, unitQueue length == 20
+Before unit == -44, unitQueue length == 19
+unit == -44, unitPos == 873, deepth == 9
+After unit == -44, unitQueue length == 20
+Before unit == -46, unitQueue length == 19
+unit == -46, unitPos == 44, deepth == 9
+After unit == -46, unitQueue length == 22
+Before unit == 58, unitQueue length == 20
+unit == 58, unitPos == 512, deepth == 9
+After unit == 58, unitQueue length == 21
+Before unit == 1, unitQueue length == 20
+unit == 1, unitPos == 560, deepth == 9
+After unit == 1, unitQueue length == 21
+Before unit == -139, unitQueue length == 20
+unit == -139, unitPos == 345, deepth == 9
+After unit == -139, unitQueue length == 20
+Before unit == -5, unitQueue length == 19
+unit == -5, unitPos == 287, deepth == 9
+After unit == -5, unitQueue length == 19
+Before unit == 41, unitQueue length == 18
+unit == 41, unitPos == 141, deepth == 9
+After unit == 41, unitQueue length == 19
+Before unit == 37, unitQueue length == 18
+unit == 37, unitPos == 518, deepth == 9
+After unit == 37, unitQueue length == 20
+Before unit == -43, unitQueue length == 19
+unit == -43, unitPos == 784, deepth == 9
+After unit == -43, unitQueue length == 22
+Before unit == -56, unitQueue length == 21
+unit == -56, unitPos == 781, deepth == 9
+After unit == -56, unitQueue length == 22
+Before unit == -182, unitQueue length == 21
+unit == -182, unitPos == 906, deepth == 9
+After unit == -182, unitQueue length == 23
+Before unit == 115, unitQueue length == 22
+unit == 115, unitPos == 496, deepth == 9
+After unit == 115, unitQueue length == 23
+Before unit == -120, unitQueue length == 22
+unit == -120, unitPos == 64, deepth == 9
+After unit == -120, unitQueue length == 24
+Before unit == 122, unitQueue length == 22
+unit == 122, unitPos == 75, deepth == 9
+After unit == 122, unitQueue length == 23
+Before unit == 99, unitQueue length == 22
+unit == 99, unitPos == 84, deepth == 9
+After unit == 99, unitQueue length == 22
+Before unit == -96, unitQueue length == 21
+unit == -96, unitPos == 86, deepth == 9
+After unit == -96, unitQueue length == 22
+Before unit == -22, unitQueue length == 21
+unit == -22, unitPos == 1148, deepth == 9
+After unit == -22, unitQueue length == 21
+Before unit == -157, unitQueue length == 20
+unit == -157, unitPos == 1175, deepth == 9
+After unit == -157, unitQueue length == 21
+Before unit == -34, unitQueue length == 20
+unit == -34, unitPos == 277, deepth == 9
+After unit == -34, unitQueue length == 21
+Before unit == 59, unitQueue length == 20
+unit == 59, unitPos == 51, deepth == 9
+After unit == 59, unitQueue length == 21
+Before unit == -132, unitQueue length == 20
+unit == -132, unitPos == 675, deepth == 9
+After unit == -132, unitQueue length == 20
+Before unit == -4, unitQueue length == 19
+unit == -4, unitPos == 1181, deepth == 9
+After unit == -4, unitQueue length == 21
+Before unit == 20, unitQueue length == 20
+unit == 20, unitPos == 681, deepth == 9
+After unit == 20, unitQueue length == 20
+Before unit == 131, unitQueue length == 19
+unit == 131, unitPos == 957, deepth == 9
+After unit == 131, unitQueue length == 20
+Before unit == -151, unitQueue length == 18
+unit == -151, unitPos == 803, deepth == 9
+After unit == -151, unitQueue length == 20
+Before unit == -123, unitQueue length == 19
+unit == -123, unitPos == 1025, deepth == 9
+After unit == -123, unitQueue length == 22
+Before unit == 90, unitQueue length == 21
+unit == 90, unitPos == 294, deepth == 9
+After unit == 90, unitQueue length == 24
+Before unit == -68, unitQueue length == 22
+unit == -68, unitPos == 628, deepth == 9
+After unit == -68, unitQueue length == 23
+Before unit == -129, unitQueue length == 22
+unit == -129, unitPos == 790, deepth == 9
+After unit == -129, unitQueue length == 26
+Before unit == -134, unitQueue length == 24
+unit == -134, unitPos == 666, deepth == 9
+After unit == -134, unitQueue length == 26
+Before unit == 118, unitQueue length == 25
+unit == 118, unitPos == 67, deepth == 9
+After unit == 118, unitQueue length == 27
+Before unit == 109, unitQueue length == 26
+unit == 109, unitPos == 73, deepth == 9
+After unit == 109, unitQueue length == 29
+Before unit == -172, unitQueue length == 28
+unit == -172, unitPos == 809, deepth == 9
+After unit == -172, unitQueue length == 31
+Before unit == -159, unitQueue length == 30
+unit == -159, unitPos == 1043, deepth == 9
+After unit == -159, unitQueue length == 31
+Before unit == 91, unitQueue length == 30
+unit == 91, unitPos == 642, deepth == 9
+After unit == 91, unitQueue length == 32
+Before unit == -111, unitQueue length == 31
+unit == -111, unitPos == 1197, deepth == 9
+After unit == -111, unitQueue length == 32
+Before unit == -121, unitQueue length == 31
+unit == -121, unitPos == 293, deepth == 9
+After unit == -121, unitQueue length == 33
+Before unit == -167, unitQueue length == 32
+unit == -167, unitPos == 52, deepth == 9
+After unit == -167, unitQueue length == 34
+Before unit == 164, unitQueue length == 33
+unit == 164, unitPos == 1041, deepth == 9
+After unit == 164, unitQueue length == 35
+Before unit == 136, unitQueue length == 34
+unit == 136, unitPos == 1191, deepth == 9
+After unit == 136, unitQueue length == 35
+Before unit == -155, unitQueue length == 33
+unit == -155, unitPos == 594, deepth == 9
+After unit == -155, unitQueue length == 36
+Before unit == 27, unitQueue length == 34
+unit == 27, unitPos == 636, deepth == 9
+After unit == 27, unitQueue length == 36
+Before unit == -86, unitQueue length == 35
+unit == -86, unitPos == 1137, deepth == 9
+After unit == -86, unitQueue length == 36
+Before unit == 153, unitQueue length == 35
+unit == 153, unitPos == 1182, deepth == 9
+After unit == 153, unitQueue length == 37
+Before unit == 101, unitQueue length == 35
+unit == 101, unitPos == 1153, deepth == 9
+After unit == 101, unitQueue length == 38
+Before unit == 148, unitQueue length == 37
+unit == 148, unitPos == 1180, deepth == 9
+After unit == 148, unitQueue length == 38
+Before unit == -183, unitQueue length == 37
+unit == -183, unitPos == 160, deepth == 9
+After unit == -183, unitQueue length == 41
+Before unit == -176, unitQueue length == 40
+unit == -176, unitPos == 355, deepth == 9
+After unit == -176, unitQueue length == 42
+Before unit == 95, unitQueue length == 40
+unit == 95, unitPos == 629, deepth == 9
+After unit == 95, unitQueue length == 44
+Before unit == -82, unitQueue length == 43
+unit == -82, unitPos == 801, deepth == 9
+After unit == -82, unitQueue length == 46
+Before unit == -23, unitQueue length == 45
+unit == -23, unitPos == 276, deepth == 9
+After unit == -23, unitQueue length == 46
+Before unit == -87, unitQueue length == 45
+unit == -87, unitPos == 288, deepth == 9
+After unit == -87, unitQueue length == 46
+Before unit == -112, unitQueue length == 45
+unit == -112, unitPos == 303, deepth == 9
+After unit == -112, unitQueue length == 46
+Before unit == 200, unitQueue length == 43
+unit == 200, unitPos == 1006, deepth == 9
+After unit == 200, unitQueue length == 45
+Before unit == -116, unitQueue length == 43
+unit == -116, unitPos == 184, deepth == 9
+After unit == -116, unitQueue length == 43
+Before unit == -190, unitQueue length == 42
+unit == -190, unitPos == 413, deepth == 9
+After unit == -190, unitQueue length == 43
+Before unit == 9, unitQueue length == 42
+unit == 9, unitPos == 1002, deepth == 9
+After unit == 9, unitQueue length == 44
+Before unit == 186, unitQueue length == 43
+unit == 186, unitPos == 354, deepth == 9
+After unit == 186, unitQueue length == 44
+Before unit == -154, unitQueue length == 41
+unit == -154, unitPos == 410, deepth == 9
+After unit == -154, unitQueue length == 41
+Before unit == -77, unitQueue length == 40
+unit == -77, unitPos == 300, deepth == 9
+After unit == -77, unitQueue length == 41
+Before unit == 63, unitQueue length == 37
+unit == 63, unitPos == 375, deepth == 9
+After unit == 63, unitQueue length == 39
+Before unit == -195, unitQueue length == 36
+unit == -195, unitPos == 393, deepth == 9
+After unit == -195, unitQueue length == 36
+Before unit == 32, unitQueue length == 35
+unit == 32, unitPos == 399, deepth == 9
+After unit == 32, unitQueue length == 37
+Before unit == -31, unitQueue length == 36
+unit == -31, unitPos == 614, deepth == 9
+After unit == -31, unitQueue length == 37
+Before unit == 149, unitQueue length == 34
+unit == 149, unitPos == 562, deepth == 9
+After unit == 149, unitQueue length == 34
+Before unit == 107, unitQueue length == 31
+unit == 107, unitPos == 306, deepth == 9
+After unit == 107, unitQueue length == 32
+Before unit == -70, unitQueue length == 31
+unit == -70, unitPos == 893, deepth == 9
+After unit == -70, unitQueue length == 33
+Before unit == -19, unitQueue length == 32
+unit == -19, unitPos == 1176, deepth == 9
+After unit == -19, unitQueue length == 35
+Before unit == 73, unitQueue length == 34
+unit == 73, unitPos == 263, deepth == 9
+After unit == 73, unitQueue length == 36
+Before unit == 84, unitQueue length == 35
+unit == 84, unitPos == 177, deepth == 9
+After unit == 84, unitQueue length == 40
+Before unit == -74, unitQueue length == 39
+unit == -74, unitPos == 182, deepth == 9
+After unit == -74, unitQueue length == 42
+Before unit == -145, unitQueue length == 41
+unit == -145, unitPos == 183, deepth == 9
+After unit == -145, unitQueue length == 43
+Before unit == 125, unitQueue length == 42
+unit == 125, unitPos == 572, deepth == 9
+After unit == 125, unitQueue length == 45
+Before unit == 61, unitQueue length == 44
+unit == 61, unitPos == 358, deepth == 9
+After unit == 61, unitQueue length == 45
+Before unit == -104, unitQueue length == 44
+unit == -104, unitPos == 359, deepth == 9
+After unit == -104, unitQueue length == 46
+Before unit == -174, unitQueue length == 44
+unit == -174, unitPos == 950, deepth == 9
+After unit == -174, unitQueue length == 45
+Before unit == -6, unitQueue length == 43
+unit == -6, unitPos == 1166, deepth == 9
+After unit == -6, unitQueue length == 45
+Before unit == 194, unitQueue length == 44
+unit == 194, unitPos == 219, deepth == 9
+After unit == 194, unitQueue length == 45
+Before unit == -142, unitQueue length == 43
+unit == -142, unitPos == 910, deepth == 9
+After unit == -142, unitQueue length == 45
+Before unit == -114, unitQueue length == 44
+unit == -114, unitPos == 1050, deepth == 9
+After unit == -114, unitQueue length == 44
+Before unit == 7, unitQueue length == 43
+unit == 7, unitPos == 295, deepth == 9
+After unit == 7, unitQueue length == 46
+Before unit == 147, unitQueue length == 45
+unit == 147, unitPos == 320, deepth == 9
+After unit == 147, unitQueue length == 48
+Before unit == -17, unitQueue length == 47
+unit == -17, unitPos == 447, deepth == 9
+After unit == -17, unitQueue length == 48
+Before unit == -161, unitQueue length == 47
+unit == -161, unitPos == 648, deepth == 9
+After unit == -161, unitQueue length == 48
+Before unit == -12, unitQueue length == 47
+unit == -12, unitPos == 322, deepth == 9
+After unit == -12, unitQueue length == 49
+Before unit == 137, unitQueue length == 47
+unit == 137, unitPos == 876, deepth == 9
+After unit == 137, unitQueue length == 47
+Before unit == -38, unitQueue length == 44
+unit == -38, unitPos == 382, deepth == 9
+After unit == -38, unitQueue length == 46
+Before unit == 66, unitQueue length == 45
+unit == 66, unitPos == 386, deepth == 9
+After unit == 66, unitQueue length == 46
+Before unit == -2, unitQueue length == 40
+unit == -2, unitPos == 1157, deepth == 9
+After unit == -2, unitQueue length == 41
+Before unit == -24, unitQueue length == 40
+unit == -24, unitPos == 363, deepth == 9
+After unit == -24, unitQueue length == 40
+Before unit == -88, unitQueue length == 39
+unit == -88, unitPos == 374, deepth == 9
+After unit == -88, unitQueue length == 39
+Before unit == -29, unitQueue length == 37
+unit == -29, unitPos == 507, deepth == 9
+After unit == -29, unitQueue length == 41
+Before unit == 165, unitQueue length == 38
+unit == 165, unitPos == 307, deepth == 9
+After unit == 165, unitQueue length == 41
+Before unit == -197, unitQueue length == 40
+unit == -197, unitPos == 673, deepth == 9
+After unit == -197, unitQueue length == 40
+Before unit == -110, unitQueue length == 39
+unit == -110, unitPos == 827, deepth == 9
+After unit == -110, unitQueue length == 40
+Before unit == -71, unitQueue length == 35
+unit == -71, unitPos == 187, deepth == 9
+After unit == -71, unitQueue length == 39
+Before unit == -156, unitQueue length == 38
+unit == -156, unitPos == 524, deepth == 9
+After unit == -156, unitQueue length == 42
+Before unit == 64, unitQueue length == 41
+unit == 64, unitPos == 88, deepth == 9
+After unit == 64, unitQueue length == 43
+Before unit == -189, unitQueue length == 42
+unit == -189, unitPos == 137, deepth == 9
+After unit == -189, unitQueue length == 42
+Before unit == -171, unitQueue length == 41
+unit == -171, unitPos == 952, deepth == 9
+After unit == -171, unitQueue length == 44
+Before unit == 170, unitQueue length == 42
+unit == 170, unitPos == 364, deepth == 9
+After unit == 170, unitQueue length == 43
+Before unit == -42, unitQueue length == 42
+unit == -42, unitPos == 755, deepth == 9
+After unit == -42, unitQueue length == 44
+Before unit == -55, unitQueue length == 42
+unit == -55, unitPos == 390, deepth == 9
+After unit == -55, unitQueue length == 42
+Before unit == -193, unitQueue length == 41
+unit == -193, unitPos == 816, deepth == 9
+After unit == -193, unitQueue length == 42
+Before unit == 14, unitQueue length == 38
+unit == 14, unitPos == 221, deepth == 9
+After unit == 14, unitQueue length == 38
+Before unit == 135, unitQueue length == 33
+unit == 135, unitPos == 1081, deepth == 9
+After unit == 135, unitQueue length == 34
+Before unit == -140, unitQueue length == 32
+unit == -140, unitPos == 576, deepth == 9
+After unit == -140, unitQueue length == 32
+Before unit == 196, unitQueue length == 31
+unit == 196, unitPos == 329, deepth == 9
+After unit == 196, unitQueue length == 33
+Before unit == -83, unitQueue length == 31
+unit == -83, unitPos == 383, deepth == 9
+After unit == -83, unitQueue length == 33
+Before unit == 119, unitQueue length == 31
+unit == 119, unitPos == 750, deepth == 9
+After unit == 119, unitQueue length == 32
+Before unit == -198, unitQueue length == 29
+unit == -198, unitPos == 1118, deepth == 9
+After unit == -198, unitQueue length == 30
+Before unit == -103, unitQueue length == 29
+unit == -103, unitPos == 1155, deepth == 9
+After unit == -103, unitQueue length == 29
+Before unit == -117, unitQueue length == 28
+unit == -117, unitPos == 1171, deepth == 9
+After unit == -117, unitQueue length == 28
+Before unit == -69, unitQueue length == 24
+unit == -69, unitPos == 649, deepth == 9
+After unit == -69, unitQueue length == 24
+Before unit == 35, unitQueue length == 23
+unit == 35, unitPos == 203, deepth == 9
+After unit == 35, unitQueue length == 23
+Before unit == -177, unitQueue length == 18
+unit == -177, unitPos == 240, deepth == 9
+After unit == -177, unitQueue length == 18
+Before unit == -141, unitQueue length == 16
+unit == -141, unitPos == 245, deepth == 9
+After unit == -141, unitQueue length == 19
+Before unit == -102, unitQueue length == 18
+unit == -102, unitPos == 91, deepth == 9
+After unit == -102, unitQueue length == 19
+Before unit == -92, unitQueue length == 18
+unit == -92, unitPos == 98, deepth == 9
+After unit == -92, unitQueue length == 19
+Before unit == -160, unitQueue length == 18
+unit == -160, unitPos == 233, deepth == 9
+After unit == -160, unitQueue length == 18
+Before unit == -3, unitQueue length == 16
+unit == -3, unitPos == 412, deepth == 9
+After unit == -3, unitQueue length == 17
+Before unit == -187, unitQueue length == 15
+unit == -187, unitPos == 647, deepth == 9
+After unit == -187, unitQueue length == 17
+Before unit == -85, unitQueue length == 13
+unit == -85, unitPos == 112, deepth == 9
+After unit == -85, unitQueue length == 15
+Before unit == -128, unitQueue length == 13
+unit == -128, unitPos == 45, deepth == 9
+After unit == -128, unitQueue length == 14
+Before unit == 199, unitQueue length == 13
+unit == 199, unitPos == 391, deepth == 9
+After unit == 199, unitQueue length == 14
+Before unit == 10, unitQueue length == 13
+unit == 10, unitPos == 1000, deepth == 9
+After unit == 10, unitQueue length == 13
+Before unit == -188, unitQueue length == 9
+unit == -188, unitPos == 401, deepth == 9
+After unit == -188, unitQueue length == 11
+Before unit == 166, unitQueue length == 10
+unit == 166, unitPos == 89, deepth == 9
+After unit == 166, unitQueue length == 12
+Before unit == 18, unitQueue length == 11
+unit == 18, unitPos == 101, deepth == 9
+After unit == 18, unitQueue length == 11
+Before unit == 67, unitQueue length == 7
+unit == 67, unitPos == 114, deepth == 9
+After unit == 67, unitQueue length == 7
+Before unit == 173, unitQueue length == 3
+unit == 173, unitPos == 266, deepth == 9
+After unit == 173, unitQueue length == 3
+Before unit == 21, unitQueue length == 1
+unit == 21, unitPos == 92, deepth == 9
+After unit == 21, unitQueue length == 1
+dpll : main() : 用时：6.02ms
