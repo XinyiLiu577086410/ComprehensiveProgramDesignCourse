@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "cnf.hpp"
-#include "coordinate.hpp"
+#include "ultilities.hpp"
 VectorXY posToXy(int pos) {
     if(pos < 0 || pos > 60) {
         std::cout << "gridGen : posToXy() : Bad Pos!";

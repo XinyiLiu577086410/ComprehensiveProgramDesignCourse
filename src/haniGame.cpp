@@ -2,8 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <cstdio>
-#include "vector.hpp"
-#include "coordinate.hpp"
+#include "ultilities.hpp"
 #include "cnf.hpp"
 
 

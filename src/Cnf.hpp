@@ -9,11 +9,7 @@
 #include <climits>
 #include <chrono>
 #include <utility>
-// #include <functional>
-#include "step.hpp"
-#include "myStack.hpp"
-#include "vector.hpp"
-#include "bitmap.hpp"
+#include "ultilities.hpp"
 
 #ifndef SUCCESS
 #define SUCCESS 0
@@ -64,8 +60,8 @@ private:
     int variableNum = 0;                                // 初始变元数
     int clauseMaxLength = 0;                            // 向量最大长度
     int size = 0;                                       // 内存大小
-    // int haveEmpty = -1;
-    // int single = -1;
+    MyQueue<int> unitQueue;
+    bool haveEmpty = false;
     unsigned char * LiteralBitmap = nullptr;           // 文字位图
     unsigned char * clauseBitmap = nullptr;             // 子句位图
     int * LiteralsRemainInClauseNo = nullptr;                       // 各子句未满足文字数量
@@ -116,12 +112,13 @@ int Cnf::Add (Vector<int> & newClause) {
     if(length == size) Resize(size + CNF_MEM_INCR);
     clauses.Add(newClause);
     int len = clauses[length].Length();
-    // #pragma unroll 2
+    #pragma unroll 2
     for(int i = 0; i < len; i++){
         std::pair<int,int> posV2(length, i);
         whereTheLiteralIs[clauses[length][i]+variableNum].Add(posV2);  
     }
     LiteralsRemainInClauseNo[length] = len;
+    if(len == 1) unitQueue.Push(length);
     length++; // Cnf长度自增
     unsat++;  // 不满足的子句数自增
     return SUCCESS;
@@ -172,7 +169,7 @@ bool Cnf::Empty (void) const {
 
 
 bool Cnf::HaveEmpty (void) const {
-    // #pragma unroll 8 
+    #pragma unroll 8 
     for(int i = 0; i < length; i++) {
         if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] == 0) {
             return true;
@@ -182,25 +179,28 @@ bool Cnf::HaveEmpty (void) const {
 }
 
 
-int Cnf::FindUnitClause (void) const {
+int Cnf::FindUnitClause (void) const {  //unitQueue 唯一的消费者
     // #pragma unroll 8
-    for(int i = 0; i < length; i++)
-        if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] == 1) {
-            return GetFirstLiteral(i);
-        }
+    // for(int i = 0; i < length; i++)
+    //     if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] == 1) {
+    //         return GetFirstLiteral(i);
+    //     }
+    
+    if(unitQueue.Empty() == false) return unitQueue.Pop();
     return 0;
 }
 
 int Cnf::GetFirstLiteral(int pos) const{
-    // #pragma unroll 8
+    #pragma unroll 8
     for(int i = 0; i < clauses[pos].Length(); i++)  // 遍历一个子句应当遍历子句的向量长度
         if(GetLiteralStatus(pos, i))
             return clauses[pos][i];
+    std::cout << "\ncnf.hpp : Cnf::GetFirstLiteral() : 找不到未被删除的文字！";
     exit(-1);
 }
 
 int Cnf::Select (void) const {
-    // #pragma unroll 8
+    #pragma unroll 8
     for(int i = 0; i < length; i++)
         if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] != 0)
             return GetFirstLiteral(i);
@@ -208,7 +208,8 @@ int Cnf::Select (void) const {
 }
 
 inline void Cnf::EnableClause(int clau) {
-    clauseBitmap[clau/8] |= masks[clau % 8];  
+    clauseBitmap[clau/8] |= masks[clau % 8];
+    if(LiteralsRemainInClauseNo[clau] == 1) unitQueue.Push(clau);  
     unsat++;
 }
 
@@ -230,6 +231,7 @@ inline void Cnf::DisableLiteralInClause(int clau, int lit) {
     int pos = (clau*clauseMaxLength+lit);
     LiteralBitmap[pos/8] &= ~masks[pos % 8];  
     LiteralsRemainInClauseNo[clau]--;
+    if(LiteralsRemainInClauseNo[clau] == 1) unitQueue.Push(clau);  
 }
 
 
@@ -331,7 +333,6 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
                 DisableLiteralInClause(where.first, where.second);
                 toInverse.Push({1, where.first, where.second});
             }
-
         }
         if(Empty()) 
             return true; // 递归终点

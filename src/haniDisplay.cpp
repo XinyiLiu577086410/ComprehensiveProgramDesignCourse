@@ -1,6 +1,5 @@
-#include "coordinate.hpp"
 #include "cnf.hpp"
-// #include "vector.hpp"
+#include "ultilities.hpp"
 #include <iostream>
 #include <fstream>
 #include <algorithm>

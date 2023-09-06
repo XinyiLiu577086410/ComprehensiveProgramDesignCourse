@@ -1,3 +1,10 @@
+#include <cassert>
+#include <cstdlib>
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+
+
 #ifndef BITMAP
 #define BITMAP
 unsigned char bit0 = 0x01;
@@ -20,24 +27,12 @@ unsigned char masks[8] = {
     bit7
 };
 
-// unsigned char masks[8] = {
-//     bit7,
-//     bit6,
-//     bit5,
-//     bit4,
-//     bit3,
-//     bit2,
-//     bit1,
-//     bit0
-// };
 
 #endif
 
 
 #ifndef COORDINATE
 #define COORDINATE
-#include <iostream>
-
 /*
       RANGES:
 ROW          COLUMN
@@ -87,12 +82,6 @@ struct VectorXY{
 struct VectorRowColumn{
     int row, col;  
 };
-
-
-// union Coordinate{
-//     VectorXY xy;
-//     VectorRowColumn rowCol;
-// };
 
 
 bool InAreaXY(int x, int y);
@@ -149,24 +138,14 @@ VectorRowColumn XYtoRowColunm(VectorXY xy){
     return rowCol;
 };
 
-
-
 #endif
 
 
+#ifndef MYSTACK
+#define MYSTACK
 /*
     自己实现的stack类，用于子句集的回溯
 */
-#ifndef MYSTACK
-#define MYSTACK
-
-#include <cassert>
-#include <cstdlib>
-#include <cstdlib>
-#include <iostream>
-// #include "step.hpp"
-// #include "vector.hpp"
-
 #ifndef STK_MEM_INCR
 #define STK_MEM_INCR 250
 #endif
@@ -204,14 +183,14 @@ MyStack<typeS>::~MyStack() {
 
 template <typename typeS> 
 void MyStack<typeS>::Resize(int newSize) {
-    if(newSize <= 0) {
-        std::cout << "\nmyStack.hpp : myStack::Resize() : 重新分配内存失败，内存大小不能小于等于0！";
-        exit(-1);// 及时结束程序，防止Segmentation fault覆盖错误位置信息
-    }
-    if(newSize < top) { 
-        std::cout << "\nmyStack.hpp : myStack::Resize() : 重新分配内存失败，内存大小不能小于已有有效数据所占大小！";  
-        exit(-1);
-    }
+    // if(newSize <= 0) {
+    //     std::cout << "\nmyStack.hpp : myStack::Resize() : 重新分配内存失败，内存大小不能小于等于0！";
+    //     exit(-1);// 及时结束程序，防止Segmentation fault覆盖错误位置信息
+    // }
+    // if(newSize < top) { 
+    //     std::cout << "\nmyStack.hpp : myStack::Resize() : 重新分配内存失败，内存大小不能小于已有有效数据所占大小！";  
+    //     exit(-1);
+    // }
     typeS * newArr = new (std::nothrow) typeS[newSize];
     assert(newArr != nullptr);
     if(arr) {
@@ -227,21 +206,22 @@ void MyStack<typeS>::Resize(int newSize) {
 
 template <typename typeS> 
 typeS MyStack<typeS>::Pop() {
-    if(Empty()) {
-        std::cout << "\nmyStack.hpp : myStack::Pop() : 出栈失败，栈下溢！";
-        exit(-1);
-    }
-    else top--;
+    // if(Empty()) {
+    //     std::cout << "\nmyStack.hpp : myStack::Pop() : 出栈失败，栈下溢！";
+    //     exit(-1);
+    // }
+    // else
+    top--;
     return arr[top];
 }
 
 template <typename typeS> 
 void MyStack<typeS>::Push(typeS elem) { 
     if(top == size) Resize(size + STK_MEM_INCR);
-    if(size < top) {
-        std::cout<<"\nmyStack.hpp : myStack::Push() : 入栈失败，有效数据溢出内存区域，堆已经损坏！";
-        exit(-1);
-    }
+    // if(size < top) {
+    //     std::cout<<"\nmyStack.hpp : myStack::Push() : 入栈失败，有效数据溢出内存区域，堆已经损坏！";
+    //     exit(-1);
+    // }
     arr[top] = elem;
     top++;
 }
@@ -254,10 +234,9 @@ bool MyStack<typeS>::Empty(void) {
 
 #endif
 
+
 #ifndef STEP
 #define STEP
-
-#include "vector.hpp"
 
 /*
     Step 三元组
@@ -276,18 +255,12 @@ typedef struct {
 
 #endif
 
-/*
-    自己实现的vector类，用来存储子句
-*/
 
 #ifndef VECTOR
 #define VECTOR
-
-#include <cstring>
-#include <algorithm>
-#include <iostream>
-#include <cassert>
-// #include "literal.hpp"
+/*
+    自己实现的vector类，用来存储子句
+*/
 
 #ifndef SUCCESS
 #define SUCCESS 0
@@ -381,19 +354,19 @@ Vector<typeV> & Vector<typeV>::operator=(Vector<typeV> & obj) {
 
 template <typename typeV>
 void Vector<typeV>::Resize(int newSize) {
-    if(newSize <= 0) {
-        std::cout<<"\nvector.hpp : Vector<typeV>::Resize() : 重新分配内存失败，内存大小不能小于等于0！";  
-        exit(-1);
-    }
-    if(newSize <= size) {
-        std::cout<<"\nvector.hpp : Vector<typeV>::Resize() : 重新分配内存失败，内存大小不能小于等于已有大小！";  
-        exit(-1);
-    }
+    // if(newSize <= 0) {
+    //     std::cout<<"\nvector.hpp : Vector<typeV>::Resize() : 重新分配内存失败，内存大小不能小于等于0！";  
+    //     exit(-1);
+    // }
+    // if(newSize <= size) {
+    //     std::cout<<"\nvector.hpp : Vector<typeV>::Resize() : 重新分配内存失败，内存大小不能小于等于已有大小！";  
+    //     exit(-1);
+    // }
     typeV * newSpace = new (std::nothrow) typeV[newSize];
     assert(newSpace != nullptr);
     if(elem) {
         // memcpy(newSpace, elem, size * sizeof(typeV));
-        // #pragma unroll 3
+        #pragma unroll 3
         for(int i = 0; i < length; i++){
             newSpace[i] = elem[i];
         }
@@ -422,7 +395,69 @@ int Vector<typeV>::Length(void) const {
     return length; 
 }
 
+#endif
 
+
+#ifndef MYQUEUE
+#define MYQUEUE
+#define QUU_MEM_INCR 50
+template<typename typeQ>
+class MyQueue
+{
+private:
+    typeQ * elem = nullptr;
+    int size = 0;
+    int length = 0;
+    int front = 0;
+    int back = 0; // 约定back指向队尾后一个位置
+public:
+    MyQueue();
+    ~MyQueue() {
+        if(elem != nullptr) delete elem;
+    };
+    void Resize(int n) {
+        typeQ * tmp = new (std::nothrow) typeQ[n];
+        assert(tmp != nullptr);
+        if(elem) {
+            if(back >= front) {
+                for(int i = front, j = 0; i < back; i++, j++){
+                    tmp[j] = elem[i];
+                }
+                back = back - front;
+                front = 0;
+            }
+            else{
+                int j = 0;
+                for(int i = front; i < size; i++, j++){
+                    tmp[j] = elem[i];
+                }
+                for(int i = 0; i < back; i++, j++){
+                    tmp[j] = elem[i];
+                }
+                back = length;
+                front = 0;
+            }
+            delete[] elem;
+        }
+        size = n; // capacity = n-1
+        elem = tmp;
+    }
+    typeQ Pop(void) {
+        typeQ tmp = elem[front];
+        front = (front+1)%size;
+        length--;
+        return tmp;
+    }
+    void Push(typeQ & x) {
+        if(length == size - 1) Resize(size+QUU_MEM_INCR);
+        elem[back] = x;
+        back = (back+1)%size;
+        length++;
+    }
+    bool Empty(void) {
+        return length == 0;
+    }
+};
 
 
 #endif
