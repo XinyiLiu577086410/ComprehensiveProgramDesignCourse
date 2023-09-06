@@ -39,7 +39,7 @@ public:
     bool HaveUnitClause(void) const;               // 判断子句集是否含有单子句
     bool Empty (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
-    int FindUnitClause (void)const;                 // 从最后一个子句找出一个单子句
+    int FindUnitClausePos (void);                 // 从最后一个子句找出一个单子句
     int Select (void)const;                         // 选择第一个子句的第一个文字
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
     void Inverse(Step);                             // 按Step的内容进行逆操作
@@ -179,7 +179,7 @@ bool Cnf::HaveEmpty (void) const {
 }
 
 
-int Cnf::FindUnitClause (void) const {  //unitQueue 唯一的消费者
+int Cnf::FindUnitClausePos (void)  {  //unitQueue 唯一的消费者
     // #pragma unroll 8
     // for(int i = 0; i < length; i++)
     //     if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] == 1) {
@@ -187,7 +187,7 @@ int Cnf::FindUnitClause (void) const {  //unitQueue 唯一的消费者
     //     }
     
     if(unitQueue.Empty() == false) return unitQueue.Pop();
-    return 0;
+    return ERROR;
 }
 
 int Cnf::GetFirstLiteral(int pos) const{
@@ -292,7 +292,6 @@ int Cnf::Read (std::string filename) {
 
 // Dpll() 的辅助变量
 bool error = false, outOfTime = false;
-// int l;
 bool Cnf::Dpll (bool solution[], int deepth = 0) {
     if(outOfTime) exit(-1);
     if(deepth > variableNum) {
@@ -303,9 +302,10 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
     countDpllCalls++;
     MyStack<Step> toInverse;  //    反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
     /*  单子句规则  */
-    int unit;
-    while((unit = FindUnitClause()) != 0) {
+    int unitPos;
+    while((unitPos = FindUnitClausePos()) != ERROR) {
         //  记录赋值
+        int unit = GetFirstLiteral(unitPos);
         if(unit > 0) 
             solution[unit] = true;
         else 

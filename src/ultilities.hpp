@@ -411,7 +411,7 @@ private:
     int front = 0;
     int back = 0; // 约定back指向队尾后一个位置
 public:
-    MyQueue();
+    MyQueue(){}
     ~MyQueue() {
         if(elem != nullptr) delete elem;
     };
@@ -449,12 +449,13 @@ public:
         return tmp;
     }
     void Push(typeQ & x) {
-        if(length == size - 1) Resize(size+QUU_MEM_INCR);
+        if(length >= size - 1) 
+            Resize(size+QUU_MEM_INCR);
         elem[back] = x;
         back = (back+1)%size;
         length++;
     }
-    bool Empty(void) {
+    bool Empty(void) const{
         return length == 0;
     }
 };
