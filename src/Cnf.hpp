@@ -51,7 +51,7 @@ public:
     void EnableLiteralInClause(int, int);           // 将一个子句中特定文字标记为有效（恢复）
     void DisableLiteralInClause(int, int);          // 将一个子句中特定文字标记为无效（删除）
     bool GetClauseStatus(int) const;                      // 查询子句是否被满足
-    bool GetClauseLiteralStatus(int, int) const;          // 查询文字是否被删除
+    bool GetLiteralStatus(int, int) const;          // 查询文字是否被删除
     int GetFirstLiteral(int) const;
     friend void threadInterface(Cnf &, bool [], int, bool &, double &);     // 线程入口函数                     
 private:
@@ -117,7 +117,8 @@ int Cnf::Add (Vector<int> & newClause) {
     //     std::cout << "\nCnf.hpp : Cnf::Add() : 数据越界，堆损坏！";
     //     exit(-1);
     // }
-    clauses[length] = newClause; 
+    // clauses[length] = newClause; //2023.9.6 递归BUG：非法操作>错误长度>选取错误的子句中的决策文字>l == 0>无穷递归
+    clauses.Add(newClause);
     int len = clauses[length].Length();
     // #pragma unroll 2
     for(int i = 0; i < len; i++){
@@ -184,10 +185,12 @@ bool Cnf::Empty (void) const {
 
 bool Cnf::HaveEmpty (void) const {
     // #pragma unroll 8 
-    for(int i = 0; i < length; i++)
+    for(int i = 0; i < length; i++) {
         if(GetClauseStatus(i) && clauseLength[i] == 0) {
             return true;
         }
+
+    }
     return false;
 }
 
@@ -196,6 +199,10 @@ int Cnf::FindUnitClause (void) const {
     // #pragma unroll 8
     for(int i = 0; i < length; i++)
         if(GetClauseStatus(i) && clauseLength[i] == 1) {
+            if(clauses[i].Empty()){
+                std::cout << "\nclauseLength[] damaged!  clauseLength[i] == " << clauseLength[i] << " i == " << i <<" clauses[i].size == "<<clauses[i].Size()<<"clauses[i].length == "<<clauses[i].Length()<<"clauses[i].elem == "<< clauses[i].SwapElem();
+                exit(-1);
+            }
             return GetFirstLiteral(i);
         }
     return 0;
@@ -203,27 +210,25 @@ int Cnf::FindUnitClause (void) const {
 }
 
 int Cnf::GetFirstLiteral(int pos) const{
-    // if(clauses[pos].Empty()) {
-    //     std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]为空！";
-    //     exit(-1);
-    // }
-    // if(clauseLength[pos] == 0) {
-    //     std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]的文字全被删除！";
-    //     exit(-1);
-    // }
-    // if(!GetClauseStatus(pos)) {
-    //     std::cout << "\nCan't get first literal from a disabled clause!";
-    //     exit(-1);
-    // }
+    if(clauses[pos].Empty()) {
+        std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]为空！";
+        exit(-1);
+    }
+    if(clauseLength[pos] == 0) {
+        std::cout << "cnf.hpp:Cnf::GetFirstLiteral():子句[pos]的文字全被删除！";
+        exit(-1);
+    }
+    if(!GetClauseStatus(pos)) {
+        std::cout << "\nCan't get first literal from a disabled clause!";
+        exit(-1);
+    }
     // #pragma unroll 8
     for(int i = 0; i < clauses[pos].Length(); i++) 
-        if(GetClauseLiteralStatus(pos, i))
+        if(GetLiteralStatus(pos, i))
             return clauses[pos][i];
-    // if(1){
-    //     std::cout << "\ncnf.hpp:Cnf::GetFirstLiteral():找不到未被删除的文字。";
-    //     exit(-1);
-    // }else
-    return 0;
+    std::cout << "\ncnf.hpp:Cnf::GetFirstLiteral():找不到未被删除的文字。";
+    exit(-1);
+    // return 0;
 }
 
 int Cnf::Select (void) const {
@@ -269,7 +274,7 @@ inline void Cnf::DisableClause(int clau) {
 
 
 inline void Cnf::EnableLiteralInClause(int clau, int lit) {
-    //  if(!GetClauseStatus(clau)||GetClauseLiteralStatus(clau, lit)){
+    //  if(!GetClauseStatus(clau)||GetLiteralStatus(clau, lit)){
     //     std::cout << "\ncnf.hpp : Cnf::EnableLiteralInClause() : Bad status";
     //     exit(-1);
     // }
@@ -284,7 +289,7 @@ inline void Cnf::EnableLiteralInClause(int clau, int lit) {
 
 
 inline void Cnf::DisableLiteralInClause(int clau, int lit) {
-    // if(!GetClauseStatus(clau)||!GetClauseLiteralStatus(clau, lit)){
+    // if(!GetClauseStatus(clau)||!GetLiteralStatus(clau, lit)){
     //     std::cout << "\ncnf.hpp : Cnf::DisableLiteralInClause() : Bad status";
     //     exit(-1);
     // }
@@ -310,13 +315,13 @@ inline bool Cnf::GetClauseStatus(int clau) const{
 }
 
 
-inline bool Cnf::GetClauseLiteralStatus(int clau, int lit) const{
+inline bool Cnf::GetLiteralStatus(int clau, int lit) const{
     // if(!GetClauseStatus(clau)) {
-    //     std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Clause Status";
+    //     std::cout << "\ncnf.hpp : Cnf::GetLiteralStatus() : Bad Clause Status";
     //     exit(-1);
     // // }
     // if(clau < 0 || clau >= length) {
-    //     std::cout << "\ncnf.hpp : Cnf::GetClauseLiteralStatus() : Bad Index : " << clau << "\n"; 
+    //     std::cout << "\ncnf.hpp : Cnf::GetLiteralStatus() : Bad Index : " << clau << "\n"; 
     //     exit(-1);
     // }
     int pos = (clau*clauseMaxLength+lit);
@@ -375,40 +380,51 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         return false;   
     }
     countDpllCalls++;
-    
+    if(length != clauses.Length()){
+        std::cout << "\nlength != clauses.Length(), length == " << length <<" , clauses.Length() == "<<clauses.Length();
+    }
+    for(int i = 0; i < length; i++){
+        if(clauseLength[i] != clauses[i].Length()){
+            std::cout << "\nclauseLength[i] != clauses[i].Length(), i == "<< i << " , clauseLength[i] == "<<clauseLength[i]<<" , clauses[i].Length()" << clauses[i].Length();
+    }
+    }
     MyStack<Step> toInverse;  //    反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
     /*  单子句规则  */
     int unit;
+    std::cout << "\nEntering dpll, deepth:" << deepth;
     while((unit = FindUnitClause()) != 0) {
         //  记录赋值
-        // std::cout << "\n " << unsat;
+        std::cout << "\n Before, unit == " << unit;
         if(unit > 0) 
             solution[unit] = true;
         else 
             solution[-unit] = false;
+
         //  化简正文字（literal）
         int len1 = whereTheLiteralIs[unit+variableNum].Length();
         for(int i = 0; i < len1; i++) {
             std::pair<int, int> where = whereTheLiteralIs[unit+variableNum][i];
             if(GetClauseStatus(where.first)     &&
-                        GetClauseLiteralStatus(where.first, where.second)) 
+                        GetLiteralStatus(where.first, where.second)) 
             {
                 DisableClause(where.first);
                 toInverse.Push({0, where.first, -1});
             }
         }
+
         //  化简负文字（-literal）
         int len2 = whereTheLiteralIs[-unit+variableNum].Length();
         for(int i = 0; i < len2; i++) {
             std::pair<int, int> where = whereTheLiteralIs[-unit+variableNum][i];
             if(GetClauseStatus(where.first) 
-                        &&  GetClauseLiteralStatus(where.first, where.second)
+                        &&  GetLiteralStatus(where.first, where.second)
             ) {
                 DisableLiteralInClause(where.first, where.second);
                 toInverse.Push({1, where.first, where.second});
             }
 
         }
+        std::cout << "\nAfter, unsat == " << unsat;
         if(Empty()) 
             return true; // 递归终点
 
@@ -422,6 +438,11 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
 
     Vector<int> v1, v2;         // 新的单子句
     int l = abs(Select());      // 选取分支变元
+    if(l == 0) { 
+        std::cout << "\ncnf.hpp : Cnf::dpll() : Bad l!";
+        exit(-1);
+    }
+    std::cout << "\nselected l == " << l ;
     v1.Add(l);                  // 构造单子句
     Step stp = {2, length, -1};  // 构造栈帧
     toInverse.Push(stp);        // 压栈

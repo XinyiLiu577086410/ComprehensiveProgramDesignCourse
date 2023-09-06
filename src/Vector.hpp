@@ -31,7 +31,7 @@ class Vector{
         Vector();                    // 默认构造函数
         ~Vector();                   // 析构函数
         typeV & operator[](int x) const;
-        Vector<typeV> & operator=(Vector<typeV> & ); // 交换指针域的赋值，右值清空
+        Vector<typeV> & operator=(Vector<typeV> & ); // 这个交换指针域的赋值，右值清空
         // 功能函数
         void Add(const typeV&);      // 添加元素
         void Resize(int);            // 重新分配内存
@@ -93,6 +93,8 @@ template <typename typeV>
 typeV * Vector<typeV>::SwapElem() {
     typeV * tmp = elem;
     elem = nullptr;
+    length = -1;
+    size = -1;
     return tmp;
 }
 
