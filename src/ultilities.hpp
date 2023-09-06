@@ -401,7 +401,8 @@ int Vector<typeV>::Length(void) const {
 #ifndef MYQUEUE
 #define MYQUEUE
 #define QUU_MEM_INCR 50
-template<typename typeQ>
+// template<typename typeQ>
+typedef  std::pair<int, int> typeQ;
 class MyQueue
 {
 private:
@@ -458,6 +459,51 @@ public:
     bool Empty(void) const{
         return length == 0;
     }
+    int Length(void) const{
+        return length;
+    }
+    void Delete2(int literal) {
+        if(back >= front) {
+            for(int i = front, j = 0; i < back; i++, j++){
+                if(elem[i].second == literal)
+                    elem[i].first = -1;
+            }
+        }
+        else{
+            for(int i = front; i < size; i++){
+                if(elem[i].second == literal)
+                    elem[i].first = -1;
+            }
+            for(int i = 0; i < back; i++){
+                if(elem[i].second == literal)
+                    elem[i].first = -1;
+            }
+        }    
+    };
+    void Delete1(int clausePos) {
+        if(back >= front) {
+            for(int i = front, j = 0; i < back; i++, j++){
+                if(elem[i].first == clausePos){
+                    elem[i].first = -1;
+                    break;
+                }
+            }
+        }
+        else{
+            for(int i = front; i < size; i++){
+                if(elem[i].first == clausePos){
+                    elem[i].first = -1;
+                    break;
+                }
+            }
+            for(int i = 0; i < back; i++){
+                if(elem[i].first == clausePos){
+                    elem[i].first = -1;
+                    break;
+                }
+            }
+        }    
+    };
 };
 
 
