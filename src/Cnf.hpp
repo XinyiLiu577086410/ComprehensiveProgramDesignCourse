@@ -121,7 +121,7 @@ int Cnf::Add (Vector<int> & newClause) {
     std::pair<int,int> pair(length,GetFirstLiteral(length));
     if(len == 1) {
         unitQueue.Push(pair);
-        std::cout<<"\nAdded unit at length == "<<length;
+        // std::cout<<"\nAdded unit at length == "<<length;
     }
     length++; // Cnf长度自增
     unsat++;  // 不满足的子句数自增
@@ -195,7 +195,7 @@ int Cnf::FindUnitClausePos (void)  {  //unitQueue 唯一的消费者
     while (pair.first == -1 && !unitQueue.Empty()) {
         pair = unitQueue.Pop();
     }
-    if(pair.first > -1) unitQueue.Delete2(pair.second); // 维护单子句队列
+    // if(pair.first > -1) unitQueue.Delete2(pair.second); // 维护单子句队列，Delete2 会删除所有相同单子句记录//见line227
     return pair.first;
 }
 
@@ -218,13 +218,18 @@ int Cnf::Select (void) const {
 
 inline void Cnf::EnableClause(int clau) {
     clauseBitmap[clau/8] |= masks[clau % 8];    // 先Enable才能调用GetFirstLiteral()
-    std::pair<int,int> pair(clau, GetFirstLiteral(clau));
-    if(LiteralsRemainInClauseNo[clau] == 1) unitQueue.Push(pair);  // 维护单子句队列
     unsat++;
+    // 维护单子句队列
+    std::pair<int,int> pair(clau, GetFirstLiteral(clau));
+    if(LiteralsRemainInClauseNo[clau] == 1) unitQueue.Push(pair);  
 }
 
-
+//不能让FindUnitClausePos为DisableClause代劳，因为ToInverse栈中还有Add的帧需要DisableClauses来处理
 inline void Cnf::DisableClause(int clau) {
+    if(LiteralsRemainInClauseNo[clau] == 1) {
+        unitQueue.Delete1(clau);
+    }
+
     clauseBitmap[clau/8] &= ~masks[clau % 8];  
     unsat--;
 }
@@ -325,14 +330,15 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
     }
     countDpllCalls++;
     MyStack<Step> toInverse;  //    反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
-    std::cout << "\nBefore Reduce , unitQueue length == " << unitQueue.Length(); 
+    // std::cout << "\nBefore Reduce , unitQueue length == " << unitQueue.Length(); 
     /*  单子句规则  */
     int unitPos;
     while((unitPos = FindUnitClausePos()) != ERROR) {
         //  记录赋值
         int unit = GetFirstLiteral(unitPos);
-        std::cout << "\nBefore unit == "<< unit << ", unitQueue length == " << unitQueue.Length(); 
-        std::cout<<"\nunit == "<<unit<<", unitPos == "<<unitPos<<", deepth == "<<deepth;
+        // if(LiteralsRemainInClauseNo[unitPos] != 1) std::cout<<"\n"<<unit<<" is Not Unit"; //结论：队列里面全是单子句
+        // std::cout << "\nBefore unit == "<< unit << ", unitQueue length == " << unitQueue.Length(); 
+        // std::cout<<"\nunit == "<<unit<<", unitPos == "<<unitPos<<", deepth == "<<deepth;
         if(unit > 0) 
             solution[unit] = true;
         else 
@@ -361,7 +367,7 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
                 toInverse.Push({1, where.first, where.second});
             }
         }
-        std::cout << "\nAfter unit == "<< unit << ", unitQueue length == " << unitQueue.Length(); 
+        // std::cout << "\nAfter unit == "<< unit << ", unitQueue length == " << unitQueue.Length(); 
         if(Empty()) 
             return true; // 递归终点
 
@@ -373,7 +379,7 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
             return false; // 递归终点
         }
     }
-    std::cout << "\nAfter Reduce , unitQueue length == " << unitQueue.Length(); 
+    // std::cout << "\nAfter Reduce , unitQueue length == " << unitQueue.Length(); 
     Vector<int> v1, v2;         // 新的单子句
     int l = abs(Select());      // 选取分支变元
     v1.Add(l);                  // 构造单子句

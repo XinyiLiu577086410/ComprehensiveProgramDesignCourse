@@ -421,6 +421,7 @@ public:
         assert(tmp != nullptr);
         if(elem) {
             if(back >= front) {
+                #pragma unroll 8
                 for(int i = front, j = 0; i < back; i++, j++){
                     tmp[j] = elem[i];
                 }
@@ -429,9 +430,11 @@ public:
             }
             else{
                 int j = 0;
+                #pragma unroll 8
                 for(int i = front; i < size; i++, j++){
                     tmp[j] = elem[i];
                 }
+                #pragma unroll 8
                 for(int i = 0; i < back; i++, j++){
                     tmp[j] = elem[i];
                 }
@@ -449,6 +452,9 @@ public:
         length--;
         return tmp;
     }
+    // typeQ Top(void) {
+    //     return elem[front];
+    // }
     void Push(typeQ & x) {
         if(length >= size - 1) 
             Resize(size+QUU_MEM_INCR);
@@ -462,26 +468,9 @@ public:
     int Length(void) const{
         return length;
     }
-    void Delete2(int literal) {
-        if(back >= front) {
-            for(int i = front, j = 0; i < back; i++, j++){
-                if(elem[i].second == literal)
-                    elem[i].first = -1;
-            }
-        }
-        else{
-            for(int i = front; i < size; i++){
-                if(elem[i].second == literal)
-                    elem[i].first = -1;
-            }
-            for(int i = 0; i < back; i++){
-                if(elem[i].second == literal)
-                    elem[i].first = -1;
-            }
-        }    
-    };
     void Delete1(int clausePos) {
         if(back >= front) {
+            #pragma unroll 8
             for(int i = front, j = 0; i < back; i++, j++){
                 if(elem[i].first == clausePos){
                     elem[i].first = -1;
@@ -490,12 +479,14 @@ public:
             }
         }
         else{
+            #pragma unroll 8
             for(int i = front; i < size; i++){
                 if(elem[i].first == clausePos){
                     elem[i].first = -1;
                     break;
                 }
             }
+            #pragma unroll 8
             for(int i = 0; i < back; i++){
                 if(elem[i].first == clausePos){
                     elem[i].first = -1;
@@ -504,6 +495,28 @@ public:
             }
         }    
     };
+
+    // void Delete2(int literal) {
+    //     if(back >= front) {
+    //         #pragma unroll 8
+    //         for(int i = front, j = 0; i < back; i++, j++){
+    //             if(elem[i].second == literal)
+    //                 elem[i].first = -1;
+    //         }
+    //     }
+    //     else{
+    //         #pragma unroll 8
+    //         for(int i = front; i < size; i++){
+    //             if(elem[i].second == literal)
+    //                 elem[i].first = -1;
+    //         }
+    //         #pragma unroll 8
+    //         for(int i = 0; i < back; i++){
+    //             if(elem[i].second == literal)
+    //                 elem[i].first = -1;
+    //         }
+    //     }    
+    // };
 };
 
 
