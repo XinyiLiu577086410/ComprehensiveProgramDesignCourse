@@ -114,11 +114,6 @@ void Cnf::Inverse(Step stp) {
 
 int Cnf::Add (Vector<int> & newClause) {
     if(length == size) Resize(size + CNF_MEM_INCR);
-    // else if(size < length) {
-    //     std::cout << "\nCnf.hpp : Cnf::Add() : 数据越界，堆损坏！";
-    //     exit(-1);
-    // }
-    // clauses[length] = newClause; //2023.9.6 递归BUG：非法Add操作>错误长度>选取错误的子句中的决策文字>l == 0>无穷递归
     clauses.Add(newClause);
     int len = clauses[length].Length();
     // #pragma unroll 2
@@ -201,9 +196,7 @@ int Cnf::GetFirstLiteral(int pos) const{
     for(int i = 0; i < clauses[pos].Length(); i++)  // 遍历一个子句应当遍历子句的向量长度
         if(GetLiteralStatus(pos, i))
             return clauses[pos][i];
-    std::cout << "\ncnf.hpp:Cnf::GetFirstLiteral():找不到未被删除的文字。";
     exit(-1);
-    // return 0;
 }
 
 int Cnf::Select (void) const {
