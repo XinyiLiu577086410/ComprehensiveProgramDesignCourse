@@ -33,7 +33,7 @@ class Vector{
         typeV & operator[](int x) const;
         Vector<typeV> & operator=(Vector<typeV> & ); // 这个交换指针域的赋值，右值清空
         // 功能函数
-        void Add(const typeV&);      // 添加元素
+        void Add(typeV&);            // 添加元素，typeV == Vector 时 > operator=() > SwapElem，参数向量会被清空
         void Resize(int);            // 重新分配内存
         bool Empty(void) const;      // 判空
         int Length(void) const;      // 向量长度
@@ -61,7 +61,7 @@ Vector<typeV>::~Vector() {
 }
 
 template <typename typeV>
-void Vector<typeV>::Add(const typeV & v) {
+void Vector<typeV>::Add( typeV & v) {
     if(length == size) 
         Resize(size+VCT_MEM_INCR);
     elem[length++] = v;
@@ -73,16 +73,6 @@ typeV & Vector<typeV>::operator[](int x) const{
 }
 
 
-// template <typename typeV>
-// int Vector<typeV>::Find(typeV & x) const {
-//     for (int i = 0; i < length; i++) {
-//         if(elem == x) {
-//             return i;
-//         }
-//     }
-//     return ERROR;
-// }
-
 template <typename typeV>
 int Vector<typeV>::Size(void) const {
     return size;
@@ -93,8 +83,8 @@ template <typename typeV>
 typeV * Vector<typeV>::SwapElem() {
     typeV * tmp = elem;
     elem = nullptr;
-    length = -1;
-    size = -1;
+    length = 0;
+    size = 0;
     return tmp;
 }
 

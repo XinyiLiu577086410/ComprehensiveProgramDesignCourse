@@ -117,7 +117,7 @@ int Cnf::Add (Vector<int> & newClause) {
     //     std::cout << "\nCnf.hpp : Cnf::Add() : 数据越界，堆损坏！";
     //     exit(-1);
     // }
-    // clauses[length] = newClause; //2023.9.6 递归BUG：非法操作>错误长度>选取错误的子句中的决策文字>l == 0>无穷递归
+    // clauses[length] = newClause; //2023.9.6 递归BUG：非法Add操作>错误长度>选取错误的子句中的决策文字>l == 0>无穷递归
     clauses.Add(newClause);
     int len = clauses[length].Length();
     // #pragma unroll 2
@@ -391,10 +391,10 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
     MyStack<Step> toInverse;  //    反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
     /*  单子句规则  */
     int unit;
-    std::cout << "\nEntering dpll, deepth:" << deepth;
+    // std::cout << "\nEntering dpll, deepth:" << deepth;
     while((unit = FindUnitClause()) != 0) {
         //  记录赋值
-        std::cout << "\n Before, unit == " << unit;
+        // std::cout << "\n Before, unit == " << unit;
         if(unit > 0) 
             solution[unit] = true;
         else 
@@ -424,7 +424,7 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
             }
 
         }
-        std::cout << "\nAfter, unsat == " << unsat;
+        // std::cout << "\nAfter, unsat == " << unsat;
         if(Empty()) 
             return true; // 递归终点
 
@@ -438,11 +438,11 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
 
     Vector<int> v1, v2;         // 新的单子句
     int l = abs(Select());      // 选取分支变元
-    if(l == 0) { 
-        std::cout << "\ncnf.hpp : Cnf::dpll() : Bad l!";
-        exit(-1);
-    }
-    std::cout << "\nselected l == " << l ;
+    // if(l == 0) { 
+    //     std::cout << "\ncnf.hpp : Cnf::dpll() : Bad l!";
+    //     exit(-1);
+    // }
+    // std::cout << "\nselected l == " << l ;
     v1.Add(l);                  // 构造单子句
     Step stp = {2, length, -1};  // 构造栈帧
     toInverse.Push(stp);        // 压栈
