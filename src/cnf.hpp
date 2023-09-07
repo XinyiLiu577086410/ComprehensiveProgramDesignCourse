@@ -40,7 +40,7 @@ public:
     bool Empty (void)const;                        // 判断子句集是否为空集
     bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
     int FindUnitClausePos (void);                 // 从最后一个子句找出一个单子句
-    int Select (void)const;                         // 选择第一个子句的第一个文字
+    int Select (int)const;                         // 选择第一个子句的第一个文字
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
     void Inverse(Step);                             // 按Step的内容进行逆操作
     void EnableClause(int);                         // 将一个子句标记为有效（恢复）
@@ -65,6 +65,7 @@ private:
     unsigned char * LiteralBitmap = nullptr;           // 文字位图
     unsigned char * clauseBitmap = nullptr;             // 子句位图
     int * LiteralsRemainInClauseNo = nullptr;                       // 各子句未满足文字数量
+    bool * assigned = nullptr;
     Vector<Vector<std::pair<int, int>>> whereTheLiteralIs;             // 变元会出现在哪些子句
 };
 
@@ -83,6 +84,7 @@ Cnf::~Cnf() {
     if(LiteralBitmap!=nullptr) delete[] LiteralBitmap;
     if(clauseBitmap!=nullptr) delete[] clauseBitmap;
     if(LiteralsRemainInClauseNo!=nullptr) delete[] LiteralsRemainInClauseNo;
+    if(assigned != nullptr)delete[] assigned; 
 }
 
 
@@ -192,9 +194,9 @@ int Cnf::FindUnitClausePos (void)  {  //unitQueue 唯一的消费者
     std::pair<int, int> pair(-1, 0);
     if(!unitQueue.Empty()) 
         pair = unitQueue.Pop();
-    while (pair.first == -1 && !unitQueue.Empty()) {
-        pair = unitQueue.Pop();
-    }
+    // while (pair.first == -1 && !unitQueue.Empty()) {
+    //     pair = unitQueue.Pop();
+    // }
     // if(pair.first > -1) unitQueue.Delete2(pair.second); // 维护单子句队列，Delete2 会删除所有相同单子句记录//见line227
     return pair.first;
 }
@@ -208,12 +210,39 @@ int Cnf::GetFirstLiteral(int pos) const{
     exit(-1);
 }
 
-int Cnf::Select (void) const {
-    #pragma unroll 8
-    for(int i = 0; i < length; i++)
-        if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] != 0)
-            return GetFirstLiteral(i);
-    return 0;
+int Cnf::Select (int tag) const {
+    switch(tag){
+    case 1:
+        #pragma unroll 8
+        for(int i = 0; i < length; i++)
+            if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] != 0)
+                return abs(GetFirstLiteral(i));
+        return 0;
+        break;
+    case 2:
+        #pragma unroll 8
+        for(int i = variableNum; i >= 1; i--)
+            if(!assigned[i]) return i;
+        return 0;
+        break;
+    case 3:
+        #pragma unroll 8
+        for(int i = 0; i < length; i++)
+            if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] != 0)
+                return GetFirstLiteral(i);
+        return 0;
+        break;
+    case 4:
+        #pragma unroll 8
+        for(int i = 1; i <= variableNum; i++)
+            if(!assigned[i]) return i;
+        return 0;
+        break;
+    // case 2:
+    default:
+        std::cout<<"cnf.hpp : Cnf::select() : Bad tag.";
+        exit(-1);
+    }
 }
 
 inline void Cnf::EnableClause(int clau) {
@@ -226,9 +255,9 @@ inline void Cnf::EnableClause(int clau) {
 
 //不能让FindUnitClausePos为DisableClause代劳，因为ToInverse栈中还有Add的帧需要DisableClauses来处理
 inline void Cnf::DisableClause(int clau) {
-    if(LiteralsRemainInClauseNo[clau] == 1) {
-        unitQueue.Delete1(clau);
-    }
+    // if(LiteralsRemainInClauseNo[clau] == 1) {
+    //     unitQueue.Delete1(clau);
+    // }
 
     clauseBitmap[clau/8] &= ~masks[clau % 8];  
     unsat--;
@@ -243,9 +272,10 @@ inline void Cnf::EnableLiteralInClause(int clau, int lit) {
     std::pair<int,int> pair(clau, GetFirstLiteral(clau)); // 在Enable后调用GetFirstLiteral才能成功
     if(LiteralsRemainInClauseNo[clau] == 1) {   
         unitQueue.Push(pair);  
-    }else if(LiteralsRemainInClauseNo[clau] == 2) {
-        unitQueue.Delete1(pair.first);
     }
+    // else if(LiteralsRemainInClauseNo[clau] == 2) {
+    //     unitQueue.Delete1(pair.first);
+    // } //事实上这段代码频度高而命中少。
 }
 
 
@@ -258,9 +288,9 @@ inline void Cnf::DisableLiteralInClause(int clau, int lit) {
         std::pair<int,int> pair(clau,GetFirstLiteral(clau));
         unitQueue.Push(pair);  
     }
-    if(LiteralsRemainInClauseNo[clau] == 0) {
-        unitQueue.Delete1(clau);
-    }
+    // if(LiteralsRemainInClauseNo[clau] == 0) {
+    //     unitQueue.Delete1(clau);
+    // } //有空子句直接返回了不会进入下一个循环
 }
 
 
@@ -296,6 +326,8 @@ int Cnf::Read (std::string filename) {
     std::string type;
     file >> type >> variableNum >> clausesNum;
     whereTheLiteralIs.Resize(variableNum*2+1);
+    assigned = new (std::nothrow) bool[variableNum+1];
+    assert(assigned != nullptr);
     int buf[clausesNum][100];
     for (int i = 0; i < clausesNum; i++) {
         int j = 0;
@@ -315,14 +347,15 @@ int Cnf::Read (std::string filename) {
         }
         Add(vectorToAppend);
     }
+    
     return SUCCESS;
 }
 
 
 // Dpll() 的辅助变量
-bool error = false, outOfTime = false;
+bool error = false, outOfTime = false;int SelectTag;
 bool Cnf::Dpll (bool solution[], int deepth = 0) {
-    if(outOfTime) exit(-1);
+    if(outOfTime) return -1;
     if(deepth > variableNum) {
         std::cout << "\nCnf.hpp : Cnf::dpll() : (ERROR)现在深度是" << deepth <<" ， 递归深度过深，大于变元数，程序终止！";
         error = true;   // 检查程序出错，如果递归过深（往往由回溯部分的错误引起），打开错误标记
@@ -330,12 +363,15 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
     }
     countDpllCalls++;
     MyStack<Step> toInverse;  //    反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
+    MyStack<int> LocalAssigned;
     // std::cout << "\nBefore Reduce , unitQueue length == " << unitQueue.Length(); 
     /*  单子句规则  */
     int unitPos;
     while((unitPos = FindUnitClausePos()) != ERROR) {
         //  记录赋值
         int unit = GetFirstLiteral(unitPos);
+        if(!GetClauseStatus(unitPos) || LiteralsRemainInClauseNo[unitPos] != 1)
+            continue;
         // if(LiteralsRemainInClauseNo[unitPos] != 1) std::cout<<"\n"<<unit<<" is Not Unit"; //结论：队列里面全是单子句
         // std::cout << "\nBefore unit == "<< unit << ", unitQueue length == " << unitQueue.Length(); 
         // std::cout<<"\nunit == "<<unit<<", unitPos == "<<unitPos<<", deepth == "<<deepth;
@@ -343,7 +379,8 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
             solution[unit] = true;
         else 
             solution[-unit] = false;
-
+        assigned[abs(unit)] = true;
+        LocalAssigned.Push(abs(unit));
         //  化简正文字（literal）
         int len1 = whereTheLiteralIs[unit+variableNum].Length();
         for(int i = 0; i < len1; i++) {
@@ -376,12 +413,15 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
                 // std::cout<<"\n*inverse";
                 Inverse(toInverse.Pop()); 
             }
+            while(!LocalAssigned.Empty()) {
+                assigned[LocalAssigned.Pop()] = false;
+            }
             return false; // 递归终点
         }
     }
     // std::cout << "\nAfter Reduce , unitQueue length == " << unitQueue.Length(); 
     Vector<int> v1, v2;         // 新的单子句
-    int l = abs(Select());      // 选取分支变元
+    int l = Select(SelectTag);      // 选取分支变元
     v1.Add(l);                  // 构造单子句
     Step stp = {2, length, -1};  // 构造栈帧
     toInverse.Push(stp);        // 压栈
@@ -401,6 +441,7 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
         bool sat = Dpll(solution, deepth + 1);                      // 求解S + {-l}
         if(sat == false) {        
             while (!toInverse.Empty()) Inverse(toInverse.Pop());    // 仅当返回false回溯
+            while(!LocalAssigned.Empty()) assigned[LocalAssigned.Pop()] = false;
         }
         return sat;                     // 递归终点
     }

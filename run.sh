@@ -28,11 +28,13 @@ do
     a)
         echo "请输入运行限时(秒数)："
         read timelimit
+        echo "请输入变元策略（1~4）"
+        read tag
         echo "\n求解快照："
         for file in `ls  ./testset` 
             do
             echo "\n\nrun.sh : 正在求解 ${file} : " 
-            ./executable/dpll "./testset/${file}" "./dpllOutput/${file%.*}.res" ${timelimit}
+            ./executable/dpll "./testset/${file}" "./dpllOutput/${file%.*}.res" ${timelimit} ${tag}
             # ./executable/verify "./testset/${file}" "./dpllOutput/${file%.*}.res"
             done
     ;;
@@ -41,8 +43,10 @@ do
         read cnfFile
         echo "请输入运行限时(秒数)："
         read timelimit
+        echo "请输入变元策略（1~4）"
+        read tag
         echo "\n\nrun.sh : 正在求解 ${cnfFile} : " 
-        ./executable/dpll "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res" ${timelimit}
+        ./executable/dpll "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res" ${timelimit} ${tag}
         # ./executable/verify "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res"
     ;;
     c)
@@ -53,7 +57,7 @@ do
         for line in `cat ./hanidoku/${file}`
         do
             ./executable/haniCnfGen ./hanidoku/hanidoku.cnf ${line}
-            ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res  ${timelimit}
+            ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res  ${timelimit} "0"
             ./executable/haniDisplay ./hanidoku/hanidoku.res 
         done
     ;;
@@ -63,7 +67,7 @@ do
         echo "请输入运行限时(秒数)："
         read timelimit
         ./executable/haniCnfGen ./hanidoku/hanidoku.cnf ${grid}
-        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res ${timelimit}
+        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res ${timelimit} "0"
         ./executable/haniDisplay ./hanidoku/hanidoku.res 
     ;;
     e)
@@ -72,7 +76,7 @@ do
         ./executable/haniGame ./hanidoku/grid.txt
         grid=`cat ./hanidoku/grid.txt` 
         ./executable/haniCnfGen ./hanidoku/hanidoku.cnf ${grid}
-        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res "30"
+        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res  "30"  "0"
         echo "\n解如下"
         ./executable/haniDisplay ./hanidoku/hanidoku.res 
     ;;

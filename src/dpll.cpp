@@ -19,7 +19,7 @@
 
 float timeLimit = 10.0;
 int main(int argc, char * argv[]){
-    if(argc != 4) {
+    if(argc != 5) {
         std::cout << "\ndpll : main() : 参数数量错误！\nusage: ./dpll <*.cnf> <*.res> <time limit in integer>";
         exit(-1);
     }
@@ -28,6 +28,7 @@ int main(int argc, char * argv[]){
     inputFileName = argv[1];
     outputFileName = argv[2];
     timeLimit = (float)atoi(argv[3]);
+    SelectTag = atoi(argv[4]);
     /* 输入 */ 
     S.Read(inputFileName);
     int VarNum = S.GetVariableNum();
