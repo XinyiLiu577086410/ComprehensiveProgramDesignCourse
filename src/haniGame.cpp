@@ -31,6 +31,12 @@ void display(int intGrid[]) {
 int main(int argc, char *argv[]){
     std::string charGrid;
     std::ifstream inFile;
+    typedef struct {
+        int a,b,c;
+    } mod; // modify
+    
+    MyStack<mod> op;
+
     if(argc != 2) {
         std::cout << "\nhaniGame : 参数数量错误";
         exit(-1);
@@ -49,15 +55,15 @@ int main(int argc, char *argv[]){
     for(i = 0, j = start; j < charGrid.length(); i++, j++)
         intGrid[i] = charGrid[j] - '0'; 
     if(i != 61) {
-        std::cout << "\n初始格局错误！";
+        std::cout << "\nhaniGame : 初始格局错误！";
         exit(-1);
     }
-    std::cout << "\n游戏开始:";
+    std::cout << "\nhaniGame : 游戏开始:";
     display(intGrid);
     while(1) {
         int in = 0, num = 0, pos = 0;
         char discord;
-        std::cout << "\n输入：1）修改格局 2）验证 其他）查看答案并退出\n";
+        std::cout << "\n输入：1）修改格局 2）验证 3)撤消 4）提示 其他）查看答案并退出\n";
         std::cin >> in;
         switch (in) {
         case 1:{
@@ -77,6 +83,7 @@ int main(int argc, char *argv[]){
                 pos += supRow[row];
             }
             pos += rc.col - 1;
+            op.Push({rc.row, rc.col, intGrid[pos]});
             intGrid[pos] = num;
             display(intGrid);
             break;
@@ -105,6 +112,63 @@ int main(int argc, char *argv[]){
             }
             else {
                 std::cout << "格局中有相冲突的数字，请检查";
+            }
+            display(intGrid);
+            break;
+        }
+        case 3:{
+            if(op.Empty()){
+                std::cout<<"\n没有操作可以撤回！";
+            }
+            else{
+                auto last = op.Pop();
+                int num = last.c;
+                VectorRowColumn rc = {last.a, last.b};
+                pos = 0;
+                for(int row = 1; row < rc.row; row++) {
+                    pos += supRow[row];
+                }
+                pos += rc.col - 1;
+                intGrid[pos] = num;
+                display(intGrid);
+            }
+            break;
+        }
+        case 4:{
+            VectorRowColumn rc;
+            std::cout << "\n输入你想看的格，格式：<行> <列>\n";
+            std::cin >> rc.row >> rc.col;
+            while(!InAreaRowColumn(rc)) {
+                std::cout << "\n行号和列号非法，请再次输入<行> <列>\n";
+                // 清空非法输入
+                std::cin.clear(); 
+                while(std::cin.get()!='\n')
+                    continue;
+                std::cin >> rc.row >> rc.col >> num;
+            }
+            auto xy = RowColumnToXY(rc);
+            int varInf = xy.x*100+xy.y*10+1;
+            int varSup = xy.x*100+xy.y*10+9;
+            Cnf S;
+            S.Read("./hanidoku/standard.cnf");
+            pos = 0;
+            for(int row = 1; row <= 9; row++) {
+                for(int col = infRow[row]; col <= supRow[row]; col++) {
+                    if(intGrid[pos] != 0) {
+                        VectorXY xy = RowColumnToXY({row,col});
+                        int varBool = xy.x * 100 + xy.y * 10 + intGrid[pos];
+                        Vector<int> v;
+                        v.Add(varBool);
+                        S.Add(v);
+                    }
+                    pos++;
+                }
+            }
+            // bool solution[61*9+100]; 
+            bool solution[849];
+            bool sat = S.Dpll(solution, 0);
+            for(int i = varInf; i<=varSup; i++){
+                if(solution[i]) std::cout << "提示：填入" << i % 10;
             }
             display(intGrid);
             break;

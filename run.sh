@@ -6,19 +6,20 @@ if test -e "./executable"
 then
 else
     mkdir executable
+#编译四个独立的功能程序
+    c++ ./src/dpll.cpp  -o ./executable/dpll -std=c++11 -O3 -lpthread 
+    # c++ ./src/verify.cpp -o ./executable/verify -std=c++11 -O3
+    c++ ./src/haniCnfGen.cpp -o ./executable/haniCnfGen -std=c++11 -O3
+    c++ ./src/haniDisplay.cpp -o ./executable/haniDisplay -std=c++11 -O3
+    c++ ./src/haniGame.cpp -o ./executable/haniGame -std=c++11 -O3
+    c++ ./src/gridGen.cpp -o ./executable/gridGen -std=c++11 -O3
 fi
 if test -e "./dpllOutput" 
 then
     rm -rf ./dpllOutput
 fi
 mkdir dpllOutput
-#编译四个独立的功能程序
-c++ ./src/dpll.cpp  -o ./executable/dpll -std=c++11 -O3 -lpthread 
-# c++ ./src/verify.cpp -o ./executable/verify -std=c++11 -O3
-c++ ./src/haniCnfGen.cpp -o ./executable/haniCnfGen -std=c++11 -O3
-c++ ./src/haniDisplay.cpp -o ./executable/haniDisplay -std=c++11 -O3
-c++ ./src/haniGame.cpp -o ./executable/haniGame -std=c++11 -O3
-c++ ./src/gridGen.cpp -o ./executable/gridGen -std=c++11 -O3
+
 #开始
 while 
 do
@@ -28,14 +29,14 @@ do
     a)
         echo "请输入运行限时(秒数)："
         read timelimit
-        echo "请输入变元策略（1~4）"
+        echo "请输入变元策略（1~6）"
         read tag
         echo "\n求解快照："
         for file in `ls  ./testset` 
             do
             echo "\n\nrun.sh : 正在求解 ${file} : " 
             ./executable/dpll "./testset/${file}" "./dpllOutput/${file%.*}.res" ${timelimit} ${tag}
-            # ./executable/verify "./testset/${file}" "./dpllOutput/${file%.*}.res"
+            ./verify "./testset/${file}" "./dpllOutput/${file%.*}.res"
             done
     ;;
     b)
@@ -43,11 +44,11 @@ do
         read cnfFile
         echo "请输入运行限时(秒数)："
         read timelimit
-        echo "请输入变元策略（1~4）"
+        echo "请输入变元策略（1~6）"
         read tag
         echo "\n\nrun.sh : 正在求解 ${cnfFile} : " 
         ./executable/dpll "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res" ${timelimit} ${tag}
-        # ./executable/verify "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res"
+        ./verify "./testset/${cnfFile}" "./dpllOutput/${cnfFile%.*}.res"
     ;;
     c)
         echo "请输入初始格局文件（不含路径，必须在./hanidoku中）"
@@ -57,7 +58,7 @@ do
         for line in `cat ./hanidoku/${file}`
         do
             ./executable/haniCnfGen ./hanidoku/hanidoku.cnf ${line}
-            ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res  ${timelimit} "0"
+            ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res  ${timelimit} "1"
             ./executable/haniDisplay ./hanidoku/hanidoku.res 
         done
     ;;
@@ -67,7 +68,7 @@ do
         echo "请输入运行限时(秒数)："
         read timelimit
         ./executable/haniCnfGen ./hanidoku/hanidoku.cnf ${grid}
-        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res ${timelimit} "0"
+        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res ${timelimit} "1"
         ./executable/haniDisplay ./hanidoku/hanidoku.res 
     ;;
     e)
@@ -76,7 +77,7 @@ do
         ./executable/haniGame ./hanidoku/grid.txt
         grid=`cat ./hanidoku/grid.txt` 
         ./executable/haniCnfGen ./hanidoku/hanidoku.cnf ${grid}
-        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res  "30"  "0"
+        ./executable/dpll ./hanidoku/hanidoku.cnf ./hanidoku/hanidoku.res  "30"  "1"
         echo "\n解如下"
         ./executable/haniDisplay ./hanidoku/hanidoku.res 
     ;;

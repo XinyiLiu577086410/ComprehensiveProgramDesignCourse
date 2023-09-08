@@ -62,11 +62,12 @@ private:
     int size = 0;                                       // 内存大小
     MyQueue unitQueue;
     bool haveEmpty = false;
-    unsigned char * LiteralBitmap = nullptr;           // 文字位图
-    unsigned char * clauseBitmap = nullptr;             // 子句位图
-    int * LiteralsRemainInClauseNo = nullptr;                       // 各子句未满足文字数量
+    unsigned char * LiteralBitmap = nullptr;                // 文字位图
+    unsigned char * clauseBitmap = nullptr;                 // 子句位图
+    int * LiteralsRemainInClauseNo = nullptr;               // 各子句未满足文字数量
     bool * assigned = nullptr;
-    Vector<Vector<std::pair<int, int>>> whereTheLiteralIs;             // 变元会出现在哪些子句
+    int * variableAppearTime = nullptr;
+    Vector<Vector<std::pair<int, int>>> whereTheLiteralIs;  // 变元会出现在哪些子句
 };
 
 
@@ -81,10 +82,11 @@ Cnf::Cnf() {
 
 
 Cnf::~Cnf() {
-    if(LiteralBitmap!=nullptr) delete[] LiteralBitmap;
-    if(clauseBitmap!=nullptr) delete[] clauseBitmap;
-    if(LiteralsRemainInClauseNo!=nullptr) delete[] LiteralsRemainInClauseNo;
-    if(assigned != nullptr)delete[] assigned; 
+    if(LiteralBitmap != nullptr) delete[] LiteralBitmap;
+    if(clauseBitmap != nullptr) delete[] clauseBitmap;
+    if(LiteralsRemainInClauseNo != nullptr) delete[] LiteralsRemainInClauseNo;
+    if(assigned != nullptr) delete[] assigned; 
+    if(variableAppearTime != nullptr) delete[] variableAppearTime;
 }
 
 
@@ -118,6 +120,7 @@ int Cnf::Add (Vector<int> & newClause) {
     for(int i = 0; i < len; i++){
         std::pair<int,int> posV2(length, i);
         whereTheLiteralIs[clauses[length][i]+variableNum].Add(posV2);  
+        variableAppearTime[clauses[length][i]+variableNum]++;
     }
     LiteralsRemainInClauseNo[length] = len;
     std::pair<int,int> pair(length,GetFirstLiteral(length));
@@ -125,8 +128,8 @@ int Cnf::Add (Vector<int> & newClause) {
         unitQueue.Push(pair);
         // std::cout<<"\nAdded unit at length == "<<length;
     }
-    length++; // Cnf长度自增
-    unsat++;  // 不满足的子句数自增
+    length++; // Cnf长度自增喵
+    unsat++;  // 不满足的子句数自增喵
     return SUCCESS;
 }
 
@@ -135,7 +138,7 @@ void Cnf::Resize(int newSize) {
     clauses.Resize(newSize);
     size = newSize;
 
-    // unsigned char * LiteralBitmap
+    // unsigned char * LiteralBitmap meow
     unsigned char * tmp1 = new unsigned char[size*clauseMaxLength/8+100];
     memset(tmp1, 0xff, sizeof(unsigned char)*(size*clauseMaxLength/8+100));
     if(LiteralBitmap != nullptr) {
@@ -155,12 +158,17 @@ void Cnf::Resize(int newSize) {
 
     // int * LiteralsRemainInClauseNo
     int * tmp3 = new int[size+100];
-    memset(tmp3, 0, sizeof(unsigned char)*(size+100));
+    memset(tmp3, 0, sizeof(int)*(size+100));
     if(LiteralsRemainInClauseNo) {    
         memcpy(tmp3, LiteralsRemainInClauseNo, sizeof(int)*(length));
         delete[] LiteralsRemainInClauseNo;
     }
     LiteralsRemainInClauseNo = tmp3;
+
+    if(variableAppearTime == nullptr) {
+        variableAppearTime = new int[2*variableNum+1];
+        memset(variableAppearTime, 0, sizeof(int)*(variableNum*2+1));    
+    }
 }
 
 
@@ -212,35 +220,78 @@ int Cnf::GetFirstLiteral(int pos) const{
 
 int Cnf::Select (int tag) const {
     switch(tag){
-    case 1:
+    case 1:{
         #pragma unroll 8
         for(int i = 0; i < length; i++)
             if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] != 0)
                 return abs(GetFirstLiteral(i));
         return 0;
         break;
-    case 2:
+    }
+    case 2:{
         #pragma unroll 8
         for(int i = variableNum; i >= 1; i--)
             if(!assigned[i]) return i;
         return 0;
         break;
-    case 3:
+    }
+    case 3:{
         #pragma unroll 8
         for(int i = 0; i < length; i++)
             if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] != 0)
                 return GetFirstLiteral(i);
         return 0;
         break;
-    case 4:
+    }
+    case 4:{
         #pragma unroll 8
         for(int i = 1; i <= variableNum; i++)
             if(!assigned[i]) return i;
         return 0;
         break;
-    // case 2:
+    }
+    case 5:{            
+        int shortestPos = 0;
+        #pragma unroll 8
+        for(int i = 1; i < clausesNum; i++) 
+            if(GetClauseStatus(i)) {
+                shortestPos = i;
+                break;
+            }
+        #pragma unroll 8
+        for(int i = 0; i < clausesNum; i++) {
+            if(GetClauseStatus(i) && LiteralsRemainInClauseNo[i] < LiteralsRemainInClauseNo[shortestPos]) 
+                shortestPos = i;
+        }
+        return(GetFirstLiteral(shortestPos));
+        break;
+    }
+    case 6:{
+        int maxapp;
+        #pragma unroll 8
+        for(int l = -variableNum; l <= variableNum; l++) {
+            if(l == 0) continue;
+            if(variableAppearTime[l + variableNum] != 0){
+                maxapp = l;
+                break;
+            }
+        }
+        #pragma unroll 8
+        for(int l = -variableNum; l <= variableNum; l++) {
+            if(l == 0) continue;
+            if(variableAppearTime[l + variableNum] > variableAppearTime[maxapp + variableNum])
+                maxapp = l;
+            // if(variableAppearTime[l + variableNum] < 0){
+            //     // std::cout<<"\nnegative!";
+            //     exit(-1);
+            // }
+        }
+        // std::cout <<"\n"<<maxapp<<" : "<< variableAppearTime[maxapp+variableNum];
+        return maxapp;
+        break;
+    }
     default:
-        std::cout<<"cnf.hpp : Cnf::select() : Bad tag.";
+        std::cout<<"cnf.hpp : Cnf::select() : Bad tag:"<<tag;
         exit(-1);
     }
 }
@@ -248,9 +299,16 @@ int Cnf::Select (int tag) const {
 inline void Cnf::EnableClause(int clau) {
     clauseBitmap[clau/8] |= masks[clau % 8];    // 先Enable才能调用GetFirstLiteral()
     unsat++;
+
     // 维护单子句队列
     std::pair<int,int> pair(clau, GetFirstLiteral(clau));
     if(LiteralsRemainInClauseNo[clau] == 1) unitQueue.Push(pair);  
+    #pragma unroll 8
+    for(int i = 0; i < clauses[clau].Length(); i++) {
+        if(GetLiteralStatus(clau, i))
+            variableAppearTime[clauses[clau][i] + variableNum]++;
+        
+    }
 }
 
 //不能让FindUnitClausePos为DisableClause代劳，因为ToInverse栈中还有Add的帧需要DisableClauses来处理
@@ -258,7 +316,11 @@ inline void Cnf::DisableClause(int clau) {
     // if(LiteralsRemainInClauseNo[clau] == 1) {
     //     unitQueue.Delete1(clau);
     // }
-
+    #pragma unroll 8
+    for(int i = 0; i < clauses[clau].Length(); i++) {
+        if(GetLiteralStatus(clau, i))
+            variableAppearTime[clauses[clau][i] + variableNum]--;
+    }
     clauseBitmap[clau/8] &= ~masks[clau % 8];  
     unsat--;
 }
@@ -268,6 +330,7 @@ inline void Cnf::EnableLiteralInClause(int clau, int lit) {
     int pos = (clau*clauseMaxLength+lit);
     LiteralBitmap[pos/8] |= masks[pos % 8];
     LiteralsRemainInClauseNo[clau]++;
+
     // 事后维护单子句队列
     std::pair<int,int> pair(clau, GetFirstLiteral(clau)); // 在Enable后调用GetFirstLiteral才能成功
     if(LiteralsRemainInClauseNo[clau] == 1) {   
@@ -276,6 +339,8 @@ inline void Cnf::EnableLiteralInClause(int clau, int lit) {
     // else if(LiteralsRemainInClauseNo[clau] == 2) {
     //     unitQueue.Delete1(pair.first);
     // } //事实上这段代码频度高而命中少。
+
+    variableAppearTime[clauses[clau][lit] + variableNum]++;
 }
 
 
@@ -283,6 +348,7 @@ inline void Cnf::DisableLiteralInClause(int clau, int lit) {
     int pos = (clau*clauseMaxLength+lit);
     LiteralBitmap[pos/8] &= ~masks[pos % 8];  
     LiteralsRemainInClauseNo[clau]--;
+
     // 事后维护单子句队列
     if(LiteralsRemainInClauseNo[clau] == 1) {
         std::pair<int,int> pair(clau,GetFirstLiteral(clau));
@@ -291,6 +357,8 @@ inline void Cnf::DisableLiteralInClause(int clau, int lit) {
     // if(LiteralsRemainInClauseNo[clau] == 0) {
     //     unitQueue.Delete1(clau);
     // } //有空子句直接返回了不会进入下一个循环
+
+    variableAppearTime[clauses[clau][lit] + variableNum]--;
 }
 
 
@@ -353,7 +421,7 @@ int Cnf::Read (std::string filename) {
 
 
 // Dpll() 的辅助变量
-bool error = false, outOfTime = false;int SelectTag;
+bool error = false, outOfTime = false;int SelectTag = 1;
 bool Cnf::Dpll (bool solution[], int deepth = 0) {
     if(outOfTime) return -1;
     if(deepth > variableNum) {

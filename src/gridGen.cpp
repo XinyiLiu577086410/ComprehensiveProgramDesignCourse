@@ -31,7 +31,14 @@ int main(void) {
         "6534742756336984755781263424573918636298475438576261425352634",
     };
     int selectSeed = arc4random() % 8;
-    for(int count = 0; count < 10; count++) {
+    int initNum;
+    std::cout << "\ngridGen.cpp : 请输入初始格局提示数数量(5~10)：";
+    std::cin >> initNum;
+    while(initNum>10 || initNum<5) {
+        std::cout << "\n请再次输入合适的提示数数量：";
+            std::cin >> initNum;
+    }
+    for(int count = 0; count < initNum; count++) {
         int pos = arc4random() % 61 + 1;
         while(grid[pos] != 0) pos = arc4random() % 61 + 1;
         // auto xy = posToXy(pos);
