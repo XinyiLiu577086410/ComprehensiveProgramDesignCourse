@@ -282,7 +282,8 @@ class Vector{
         Vector();                    // 默认构造函数
         ~Vector();                   // 析构函数
         typeV & operator[](int x) const;
-        Vector<typeV> & operator=(Vector<typeV> & ); // 这个交换指针域的赋值，右值清空
+        Vector<typeV> & operator=(Vector<typeV> && ); // 这个交换指针域的赋值，右值清空
+        // 定义移动赋值函数后拷贝构造函数会被隐式删除
         // 功能函数
         void Add(typeV&);            // 添加元素，typeV == Vector 时 > operator=() > SwapElem，参数向量会被清空
         void Resize(int);            // 重新分配内存
@@ -315,7 +316,7 @@ template <typename typeV>
 void Vector<typeV>::Add( typeV & v) {
     if(length == size) 
         Resize(size+VCT_MEM_INCR);
-    elem[length++] = v;
+    elem[length++] = std::move(v);
 }     
 
 template <typename typeV>
@@ -341,7 +342,7 @@ typeV * Vector<typeV>::SwapElem() {
 
 
 template <typename typeV>
-Vector<typeV> & Vector<typeV>::operator=(Vector<typeV> & obj) {
+Vector<typeV> & Vector<typeV>::operator=(Vector<typeV> && obj) {
     if(this != &obj) {
         length = obj.Length();
         size = obj.Size();
@@ -368,7 +369,7 @@ void Vector<typeV>::Resize(int newSize) {
         // memcpy(newSpace, elem, size * sizeof(typeV));
         #pragma unroll 3
         for(int i = 0; i < length; i++){
-            newSpace[i] = elem[i];
+            newSpace[i] = std::move(elem[i]);
         }
         delete[] elem;
         elem = nullptr;
