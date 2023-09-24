@@ -35,11 +35,11 @@ public:
     int Add(Vector<int> &);                         // 添加子句
     int Read(std::string);                          // 读取CNF文件
     void Resize(int);                               // 重新分配内存
-    int GetVariableNum(void) const;                 // 返回CNF文件的变元数信息
+    int GetVariableNum(void) const;                // 返回CNF文件的变元数信息
     bool HaveUnitClause(void) const;               // 判断子句集是否含有单子句
-    bool Empty (void)const;                        // 判断子句集是否为空集
-    bool HaveEmpty (void)const;                     // 判断子句集是否含有空子句
-    int FindUnitClausePos (void);                 // 从最后一个子句找出一个单子句
+    bool Empty(void)const;                        // 判断子句集是否为空集
+    bool HaveEmpty (void)const;                    // 判断子句集是否含有空子句
+    int FindUnitClausePos (void);                  // 从最后一个子句找出一个单子句
     int Select (int)const;                         // 选择第一个子句的第一个文字
     bool Dpll(bool [], int);                        // 用DPLL算法求解SAT问题
     void Inverse(Step);                             // 按Step的内容进行逆操作
@@ -52,22 +52,20 @@ public:
     int GetFirstLiteral(int) const;
     friend void threadInterface(Cnf &, bool [], int, bool &, double &);     // 线程入口函数                     
 private:
-    Vector<Vector<int>> clauses;                        // 子句域
-
+    Vector<Vector<int>> clauses;                        // 子句
     int length = 0;                                     // 子句数
     int unsat = 0;                                      // 未满足子句数量
     int clausesNum = 0;                                 // 初始子句数
     int variableNum = 0;                                // 初始变元数
     int clauseMaxLength = 0;                            // 向量最大长度
     int size = 0;                                       // 内存大小
-    MyQueue unitQueue;
-    bool haveEmpty = false;
+    MyQueue unitQueue;                                  // 子句队列
     unsigned char * LiteralBitmap = nullptr;                // 文字位图
     unsigned char * clauseBitmap = nullptr;                 // 子句位图
     int * LiteralsRemainInClauseNo = nullptr;               // 各子句未满足文字数量
-    bool * assigned = nullptr;
-    int * variableAppearTime = nullptr;
-    Vector<Vector<std::pair<int, int>>> whereTheLiteralIs;  // 变元会出现在哪些子句
+    bool * assigned = nullptr;                              // 已赋值文字
+    int * variableAppearTime = nullptr;                     // 文字出现次数表
+    Vector<Vector<std::pair<int, int>>> whereTheLiteralIs;  // 变元出现的子句
 };
 
 
