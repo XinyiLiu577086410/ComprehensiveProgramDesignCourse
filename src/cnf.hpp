@@ -418,31 +418,21 @@ int Cnf::Read (std::string filename) {
 }
 
 
-// Dpll() 的辅助变量
-bool error = false, outOfTime = false;int SelectTag = 1;
+bool outOfTime = false; int SelectTag = 1;// Dpll() 的辅助变量
 bool Cnf::Dpll (bool solution[], int deepth = 0) {
     if(outOfTime) return -1;
-    if(deepth > variableNum) {
-        std::cout << "\nCnf.hpp : Cnf::dpll() : (ERROR)现在深度是" << deepth <<" ， 递归深度过深，大于变元数，程序终止！";
-        error = true;   // 检查程序出错，如果递归过深（往往由回溯部分的错误引起），打开错误标记
-        return false;   
-    }
     countDpllCalls++;
     MyStack<Step> toInverse;  //    反演栈，利用栈的FILO特性实现回溯（即操作反演：逆序进行逆操作）
     MyStack<int> LocalAssigned;
-    // std::cout << "\nBefore Reduce , unitQueue length == " << unitQueue.Length(); 
     /*  单子句规则  */
     int unitPos;
     while((unitPos = FindUnitClausePos()) != ERROR) {
-        //  记录赋值
         int unit = GetFirstLiteral(unitPos);
         if(!GetClauseStatus(unitPos) || LiteralsRemainInClauseNo[unitPos] != 1)
             continue;
-        // if(LiteralsRemainInClauseNo[unitPos] != 1) std::cout<<"\n"<<unit<<" is Not Unit"; //结论：队列里面全是单子句
-        // std::cout << "\nBefore unit == "<< unit << ", unitQueue length == " << unitQueue.Length(); 
-        // std::cout<<"\nunit == "<<unit<<", unitPos == "<<unitPos<<", deepth == "<<deepth;
+        //  记录赋值
         if(unit > 0) 
-            solution[unit] = true;
+            solution[unit] = true;        
         else 
             solution[-unit] = false;
         assigned[abs(unit)] = true;
@@ -458,7 +448,6 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
                 toInverse.Push({0, where.first, -1});
             }
         }
-
         //  化简负文字（-literal）
         int len2 = whereTheLiteralIs[-unit+variableNum].Length();
         for(int i = 0; i < len2; i++) {
@@ -470,10 +459,8 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
                 toInverse.Push({1, where.first, where.second});
             }
         }
-        // std::cout << "\nAfter unit == "<< unit << ", unitQueue length == " << unitQueue.Length(); 
         if(Empty()) 
-            return true; // 递归终点
-
+            return true;  // 递归终点
         if(HaveEmpty()) { 
             while (!toInverse.Empty()) {
                 // std::cout<<"\n*inverse";
@@ -485,26 +472,23 @@ bool Cnf::Dpll (bool solution[], int deepth = 0) {
             return false; // 递归终点
         }
     }
-    // std::cout << "\nAfter Reduce , unitQueue length == " << unitQueue.Length(); 
     Vector<int> v1, v2;         // 新的单子句
-    int l = Select(SelectTag);      // 选取分支变元
+    int l = Select(SelectTag);  // 选取分支变元
     v1.Add(l);                  // 构造单子句
-    Step stp = {2, length, -1};  // 构造栈帧
+    Step stp = {2, length, -1}; // 构造栈帧
     toInverse.Push(stp);        // 压栈
     Add(v1);                    // 添加单子句{l}
-
     /*  分裂规则  */
     if (Dpll(solution, deepth + 1))    // 求解分支 S + {l}
         return true;                   // 递归终点
     else { 
-        if(error) return false;        // 返回false一律检查error（检查是否递归过深）
         Inverse(toInverse.Pop());      // 删除单子句{l}
         l = -l;
         v2.Add(l);                    // 构造单子句{-l}
         Step stp = {2, length, -1};    // 在调用Cnf::Add()之前压栈，才能保存正确的length
         toInverse.Push(stp);
         Add(v2);                       // 添加单子句{-l}
-        bool sat = Dpll(solution, deepth + 1);                      // 求解S + {-l}
+        bool sat = Dpll(solution, deepth + 1);        // 求解S + {-l}
         if(sat == false) {        
             while (!toInverse.Empty()) Inverse(toInverse.Pop());    // 仅当返回false回溯
             while(!LocalAssigned.Empty()) assigned[LocalAssigned.Pop()] = false;
